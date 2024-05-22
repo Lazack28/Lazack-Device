@@ -1,57 +1,157 @@
-# Zokou-2.0
+</p>
+</p>
+<p align="center">
+  <a href="https://chat.whatsapp.com/JIJplkiYyrFE4dyFGade43">
+    <img alt=Support height="250" src="https://telegra.ph/file/1dc10a39146c80069a439.jpg"> 
+    </p>
+<h1 align="center">    𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿
+</h1>
+<p align="center"> 
+    </p>
+
+
+   [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Rockstar-ExtraBold&color=F33A6A&lines=WELCOME+TO+LAZACK+MD+MADE+LAZACK;THANKS+FOR+VISITING+MY+REPO)](https://git.io/typing-svg)
 
 
 
-Zokou is a multi-device bot designed to enhance your WhatsApp conversations with useful and fun features. Whether managing files, interacting with stickers, or facilitating group management, Zokou is here to assist you.
+<p align="left">
+  <a href="" target="_blank">
+    <img alt="Forks" src="https://img.shields.io/github/forks/Lazack28/Lazack-md" />
+  </a>
+  
+  
 
-## Key Features
+</p>
+<p align="center"><img src="https://profile-counter.glitch.me/{Lazack28}/count.svg" alt="Lazack28 :: Visitor's Count" /></p>
+<p align="center">
+ <a href="https://chat.whatsapp.com/BXhYkUaP0RNBf6L6QdyRHo" target="_blank">
+    <img alt="whatsapp Group" src="https://img.shields.io/badge/ LAZACK-BOT Support Group -25D366?style=for-the-badge&logo=whatsapp&logoColor=blue" />
+  </a>
+</p>
 
-- **File Download:** Zokou can download audio and video files from links you send, making it easy to share them with your contacts.
+---
+### ```Scan QR Code```
 
-- **Sticker Export:** You can export stickers from Telegram and use them in your WhatsApp conversations by simply sending them to Zokou.
+1. ***Get [SESSION-ID](session-dnke.onrender.com) by pairing code. `Whatapp>Three dots>Linked Devices****
+--- 
+### ```Fork Repo```
+2. ***Click [FORK](https://github.com/Lazack28/Lazack-md/fork)***
+ 
+---
 
-- **Group Management:** Zokou offers group management features, such as adding or removing members, configuring rules, and other settings.
+### NOW  DEPLOY IT.
+Deployments methods
 
-- **Text to Img:** The best logos have been selected for your convenience.
+ 
+<h4 align="left"> Deploy on Heroku
+</h4>
 
-## Fun Features
+</p>
 
-- **Jokes and Riddles:** Zokou comes with a collection of jokes and riddles to liven up your conversations.
+<p align="left" >
+    <a href="https://heroku.com/deploy?template=https://github.com/Lazack28/Lazack-md">
+    <img src="https://www.herokucdn.com/deploy/button.png" width="95px" alt="Deploy on Heroku" >
+    </a>
 
-- **Inspiring Quotes:** Receive inspiring quotes to motivate you daily.
+</p> 
 
-## Get Zokou
+<br>
+   
+<h4 align="left"> Deploy on Replit
+</h4>
 
-1. Click on **[Fork](https://github.com/Luffy2ndAccount/Zokou-english-v/fork)** to copy the repo to your GitHub account. Make sure to add a star 🌟 to encourage the developers.
+<p align="left" >
+    <a href="https://repl.it/github/Lazack28/Lazack-md">
+    <img src="https://repl.it/badge/github/quiec/whatsasena" width="95px" alt="Deploy on REPLIT" >
+    </a>
+</p>
 
-2. Obtain a bot session: 
 
-   [Session-1](https://zokouscan-vee8.onrender.com) ; <br>
+</p>
 
 
-3. Deploy
-   - **Heroku Deployment:**
-     1. If you don't have a **Heroku** account, click [**here**](https://id.heroku.com/login) to create one.
-     2. Click [**here**](https://dashboard.heroku.com/new?template=https://github.com/Luffy2ndAccount/Zokou-english-v) to deploy the bot on **Heroku**.
 
-## Contributions
+<br>
+ 
+<h4 align="left"> Deploy on CodesSpace
+</h4>
 
-Contributions to Zokou are welcome! If you have ideas for new features, improvements, or bug fixes, feel free to open an issue or submit a pull request. <br>
+</p>
 
-   thinks to these persons ;
+<p align="left" >
+    <a href="https://github.com/codespaces/new">
+    <img src="https://img.shields.io/badge/DEPLOY CODESPACE-h?color=red&style=for-the-badge&logo=visualstudiocode" width="100px" alt="Deploy on CodesSpaces" >
+    </a>
 
-   **Fatao** who added commands (Fancy, gpt, dalle, apk); <br>
+</p>
 
-   **CrazyPrice** who hosted a second website for the session_id;
 
-## License
+</p>
 
-The WhatsApp Bot Zokou is released under the [MIT License](https://opensource.org/licenses/MIT).
 
-Enjoy the diverse features of the WhatsApp Bot Zokou to enhance your conversations and make your WhatsApp experience more interesting!
 
-## Developers:
 
-- [**Djalega++**](https://github.com/djalega8000/Zokou-MD/)
-- [**᚛M๏𝓷keℽ D Lบffy᚜**](https://github.com/Faouz995)
+ 
 
+
+</p>
+
+
+
+<br>
+
+
+<h4 align="left"> Deploy on RailWay
+</h4>
+  
+<p align="left">
+    <a href="https://railway.app/new">
+    <img src="https://railway.app/button.svg" alt="Deploy on Railway" width="100px">
+    </a>
+    
+</p>
+
+
+
+## Thanks To 
+**1:Jarvis-md**
+
+**2:KING OF BOTS GROUP**
+
+       Gmax, Mr Andbad, official chui and Obrey Mremi 
+
+## ⚖️  *LAZACK-BOT - DEVELOPER TEAM* *2024*  ⚖️
+  
+| [Lazack](https://github.com/Lazack28) |
+| Owner, Developer, Maintainer, updates|
+
+---
+<a href="[https://github.com/Lazack28.png]"><img src="https://github.com/Lazack28.png" width="200" height="200" alt="Ash"/></a>
+ </div>
+<br>
+<h4 align="left">
+
+---
+
+  </br> 
+<h4 align="left">
+##𝐒𝐮𝐩𝐩𝐨𝐫𝐭 :
+    
+ ***Tap On Logo To Contat Me***
+ <p align="left">
+  <a href="lazacklazaro1@gmail.com">
+    <img src="https://i.ibb.co/Kx8NXxT/mail-gmail-22737.png" align="centre" width="90" />
+   <a href="https://wa.me/255734980103?text=Hi%20Lazack%20Sir...%20I%20need%20some%20help%20in%20Lazack Bot">
+    <img src="https://i.ibb.co/2MLVZwm/whatsapp-logo-icon-181644.png" align="centre" width="90" />
+
+
+<p align="left">
+  <a aria-label="Join our chats" href="https://whatsapp.com/channel/0029VaFytPbAojYm7RIs6l1x" target="_blank">
+    <img alt="whatsapp" src="https://img.shields.io/badge/Join Our Bot Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+  </a>
+
+
+
+</br>
+
+***LAZACK MD MORE UPDATE COMMING SOON....***
