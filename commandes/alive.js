@@ -71,9 +71,9 @@ else {
 }
 
     } else {
-        if(!superUser) { repondre("there is no alive for this bot") ; return};
+        if(!superUser) { repondre("we are always alive but put youre alive message") ; return};
 
-      await   repondre("You have not yet saved your alive, to do this;  enter after alive your message and your image or video link in this context: .alive message;lien");
+      await   repondre("𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿 am alive but please set you're alive message. bot created by LAZACK");
          repondre("don't do fake thinks :)")
      }
  } else {
