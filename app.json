@@ -2,8 +2,8 @@
   "name":"Lazack",
   "description":"bot whatsapp developed by Lazack",
   "keywords":["bot","node","baileys","whatsapp"],
-  "logo":"https://raw.githubusercontent.com/djalega8000/Zokou-2.0/main/Zokou.jpg",
-  "repository":"https://github.com/Laxack28/LazCk-md",
+  "logo":"https://github.com/Lazack28/Logo",
+  "repository":"https://github.com/Lazack28/Lazack-md",
   "succes_url":"/",
   "stack":"container",
   "env":{
