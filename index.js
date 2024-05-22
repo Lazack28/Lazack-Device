@@ -47,7 +47,7 @@ const  {addGroupToBanList,isGroupBanned,removeGroupFromBanList} = require("./bdd
 const {isGroupOnlyAdmin,addGroupToOnlyAdminList,removeGroupFromOnlyAdminList} = require("./bdd/onlyAdmin");
 //const //{loadCmd}=require("/framework/mesfonctions")
 let { reagir } = require(__dirname + "/framework/app");
-var session = conf.session.replace(/Zokou-MD-WHATSAPP-BOT;;;=>/g,"");
+var session = conf.session.replace(/LAZACK-BOT;;;=>/g,"");
 const prefixe = conf.PREFIXE;
 
 
@@ -165,7 +165,7 @@ setTimeout(() => {
             
             var dev = [dj, dj2,dj3,luffy].map((t) => t.replace(/[^0-9]/g) + "@s.whatsapp.net").includes(auteurMessage);
             function repondre(mes) { zk.sendMessage(origineMessage, { text: mes }, { quoted: ms }); }
-            console.log("\t [][]...{Zokou-Md}...[][]");
+            console.log("\t [][]...{Lazack-md}...[][]");
             console.log("=========== Nouveau message ===========");
             if (verifGroupe) {
                 console.log("message provenant du groupe : " + nomGroupe);
@@ -524,7 +524,7 @@ function mybotpic() {
             };
             var txt = "bot detected, \n";
            // txt += `message supprimé \n @${auteurMessage.split("@")[0]} rétiré du groupe.`;
-            const gifLink = "https://raw.githubusercontent.com/djalega8000/Zokou-MD/main/media/remover.gif";
+            const gifLink = "https://raw.githubusercontent.com/djalega8000/Lazack-md/main/media/remover.gif";
             var sticker = new Sticker(gifLink, {
                 pack: 'Zoou-Md',
                 author: conf.OWNER_NAME,
@@ -854,7 +854,7 @@ ${metadata.desc}`;
                 
                 if((conf.DP).toLowerCase() === 'yes') {     
                 let cmsg = `╔════◇
-║ 『𝐙𝐨𝐤𝐨𝐮-𝐌𝐃』
+║ 『𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿』
 ║    Prefix : [ ${prefixe} ]
 ║    Mode :${md}
 ║    Total Commandes : ${evt.cm.length}︎
@@ -863,8 +863,8 @@ ${metadata.desc}`;
 ╔═════◇
 
 
- if there are somes error you can tell us :) 
- thanks you for choosing zokou MD
+ join Gmax community, Mr Andbad, official chui msela :) 
+ thanks you for choosing Lazack MD
 
 ╚══════════════════╝`;
                 await zk.sendMessage(zk.user.id, { text: cmsg });
