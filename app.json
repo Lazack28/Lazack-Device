@@ -1,9 +1,9 @@
 {
-  "name":"Zokou-2.0",
-  "description":"bot whatsapp développé par djalega++",
+  "name":"Lazack",
+  "description":"bot whatsapp developed by Lazack",
   "keywords":["bot","node","baileys","whatsapp"],
   "logo":"https://raw.githubusercontent.com/djalega8000/Zokou-2.0/main/Zokou.jpg",
-  "repository":"https://github.com/djalega8000/Zokou-2.0",
+  "repository":"https://github.com/Laxack28/LazCk-md",
   "succes_url":"/",
   "stack":"container",
   "env":{
@@ -74,14 +74,14 @@
     
     "desc": "Your Name",
     "required": false,
-    "value": "Djalega++"
+    "value": "lazack"
   },
     "NUMERO_OWNER":
   {
     
     "desc": "Your number , dont put '+' and put you area code(exemple of togo '228')",
     "required":false,
-    "value": "22891733300"
+    "value": "255734980103"
   },
     "WARN_COUNT":
   {
