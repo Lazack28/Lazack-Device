@@ -812,10 +812,10 @@ ${metadata.desc}`;
         zk.ev.on("connection.update", async (con) => {
             const { lastDisconnect, connection } = con;
             if (connection === "connecting") {
-                console.log("ℹ️ Connexion en cours...");
+                console.log("ℹ️ Connecting...");
             }
             else if (connection === 'open') {
-                console.log("✅ connexion reussie! ☺️");
+                console.log("✅ connected established! ☺️");
                 console.log("--");
                 await (0, baileys_1.delay)(200);
                 console.log("------");
@@ -828,7 +828,7 @@ ${metadata.desc}`;
                     if (path.extname(fichier).toLowerCase() == (".js")) {
                         try {
                             require(__dirname + "/commandes/" + fichier);
-                            console.log(fichier + " installé ✔️");
+                            console.log(fichier + " install ✔️");
                         }
                         catch (e) {
                             console.log(`${fichier} n'a pas pu être chargé pour les raisons suivantes : ${e}`);
@@ -854,7 +854,7 @@ ${metadata.desc}`;
                 
                 if((conf.DP).toLowerCase() === 'yes') {     
                 let cmsg = `╔════◇
-║ 『𝐙𝐨𝐤𝐨𝐮-𝐌𝐃』
+║ 『𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿』
 ║    Prefix : [ ${prefixe} ]
 ║    Mode :${md}
 ║    Total Commandes : ${evt.cm.length}︎
@@ -864,7 +864,7 @@ ${metadata.desc}`;
 
 
  if there are somes error you can tell us :) 
- thanks you for choosing zokou MD
+ thanks you for choosing Lazack-md
 
 ╚══════════════════╝`;
                 await zk.sendMessage(zk.user.id, { text: cmsg });
