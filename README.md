@@ -50,75 +50,26 @@ Deployments methods
 
 <p align="left" >
     <a href="https://heroku.com/deploy?template=https://github.com/Lazack28/Lazack-md">
-    <img src="https://www.herokucdn.com/deploy/button.png" width="95px" alt="Deploy on Heroku" >
+    <img src="https://www.herokucdn.com/deploy/button.png" width="250px" alt="Deploy to Heroku" >
     </a>
 
 </p> 
 
 <br>
    
-<h4 align="left"> Deploy on Replit
-</h4>
-
-<p align="left" >
-    <a href="https://repl.it/github/Lazack28/Lazack-md">
-    <img src="https://repl.it/badge/github/quiec/whatsasena" width="95px" alt="Deploy on REPLIT" >
-    </a>
-</p>
-
-
-</p>
-
-
-
-<br>
- 
-<h4 align="left"> Deploy on CodesSpace
-</h4>
-
-</p>
-
-<p align="left" >
-    <a href="https://github.com/codespaces/new">
-    <img src="https://img.shields.io/badge/DEPLOY CODESPACE-h?color=red&style=for-the-badge&logo=visualstudiocode" width="100px" alt="Deploy on CodesSpaces" >
-    </a>
-
-</p>
-
-
-</p>
-
-
-
-
- 
-
-
-</p>
-
-
-
-<br>
-
-
-<h4 align="left"> Deploy on RailWay
-</h4>
-  
-<p align="left">
-    <a href="https://railway.app/new">
-    <img src="https://railway.app/button.svg" alt="Deploy on Railway" width="100px">
-    </a>
-    
-</p>
-
 
 
 ## Thanks To 
 **1:Jarvis-md**
 
-**2:KING OF BOTS GROUP**
+**2:Whizbotmods**
 
-       Gmax, Mr Andbad, official chui and Obrey Mremi 
+**3:leffysir**
+
+**4:KING OF BOTS GROUP**
+    
+     GMAX TECH GROUP
+
 
 ## ⚖️  *LAZACK-BOT - DEVELOPER TEAM* *2024*  ⚖️
   
@@ -155,3 +106,5 @@ Deployments methods
 </br>
 
 ***LAZACK MD MORE UPDATE COMMING SOON....***
+
+***FIXING MORE***
