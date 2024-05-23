@@ -41,9 +41,9 @@ const date = moment().format('DD/MM/YYYY');
 │   *Hour* : ${temps}
 │   *Mémoire* : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
 │   *Plateforme* : ${os.platform()}
-│   *Développer* : Lazack_28
-│ 
-╰─────✧WA-BOT✧─────◆ \n\n`;
+│   *Développer* : 𝐋𝐀𝐙𝐀𝐂𝐊
+│ _Lazack md a simple whatsapp bot give a 🌟_
+╰─────✧LZCK_28✧─────◆ \n\n`;
     
 let menuMsg = `
 👋 Hello ${nomAuteurMessage} 👋
@@ -64,12 +64,12 @@ let menuMsg = `
 
     menuMsg += `
 ◇            ◇
-*»»————— ★ —————««*
+*»»————— 🇹🇿 —————««*
 "To use a command, insert ${prefixe} followed by the command_name."
  
     LAZACK-MD
-                                                
-*»»————— ★ —————««*
+   Believe in you bro you can                                          
+*»»————— 🇹🇿 —————««*
 `;
 
    var lien = mybotpic();
