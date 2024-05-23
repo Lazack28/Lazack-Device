@@ -2,7 +2,7 @@
   "name":"Lazack",
   "description":"bot whatsapp developed by Lazack",
   "keywords":["bot","node","baileys","whatsapp"],
-  "logo":"https://github.com/Lazack28/Logo",
+  "logo":"https://telegra.ph/file/1dc10a39146c80069a439.jpg",
   "repository":"https://github.com/Lazack28/Lazack-md",
   "succes_url":"/",
   "stack":"container",
@@ -10,7 +10,7 @@
     "PREFIX":
     {
       "description":"choose your prefix of bot",
-      "value":"#",
+      "value":",",
       "required":true
     },
     "AUTO_READ_STATUS":
@@ -35,14 +35,14 @@
     "BOT_NAME" : {
        
       "description":"put A name for your bot",
-      "value":"Zokou-MD",
+      "value":"𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿",
       "required":false
 
     } ,
      "BOT_MENU_LINKS" : {
     
       "description":"add one or many link for your bot menu  ; eg : url1,url2,url3.....",
-      "value":"https://i.pinimg.com/736x/0a/70/6f/0a706f90d6a1fb39919aedfbb7fdd8d3.jpg",
+      "value":"https://telegra.ph/file/1dc10a39146c80069a439.jpg",
       "required":false
        
      },
