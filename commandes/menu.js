@@ -50,6 +50,7 @@ let menuMsg = `
 📌 why can't you share this bot to you're friends?
                *List of commands :*
 | the following are all 𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿 commands
+╰━━━━━━━━━━━━━━━
 `;
 
     for (const cat in coms) {
@@ -64,12 +65,12 @@ let menuMsg = `
 
     menuMsg += `
 ◇            ◇
-*»»————— 🇹🇿 —————««*
+*╰━━━━━━━━━━━━━━🇹🇿━━━━━━━━━━━━━━━╯*
 "To use a command, insert ${prefixe} followed by the command_name."
  
     LAZACK-MD
    Believe in you bro you can                                          
-*»»————— 🇹🇿 —————««*
+*╰━━━━━━━━━━━━━━🇹🇿━━━━━━━━━━━━━━━╯*
 `;
 
    var lien = mybotpic();
