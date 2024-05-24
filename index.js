@@ -812,28 +812,28 @@ ${metadata.desc}`;
         zk.ev.on("connection.update", async (con) => {
             const { lastDisconnect, connection } = con;
             if (connection === "connecting") {
-                console.log("ℹ️ Connecting...");
+                console.log("ℹ️ Lazack Connecting...");
             }
             else if (connection === 'open') {
-                console.log("✅ connected established! ☺️");
+                console.log("✅ Lazack Connection Established! ☺️");
                 console.log("--");
                 await (0, baileys_1.delay)(200);
                 console.log("------");
                 await (0, baileys_1.delay)(300);
                 console.log("------------------/-----");
-                console.log("le bot est en ligne 🕸\n\n");
+                console.log("Lazack is Online 🕸\n\n");
                 //chargement des commandes 
                 console.log("chargement des commandes ...\n");
                 fs.readdirSync(__dirname + "/commandes").forEach((fichier) => {
                     if (path.extname(fichier).toLowerCase() == (".js")) {
                         try {
                             require(__dirname + "/commandes/" + fichier);
-                            console.log(fichier + " install ✔️");
+                            console.log(fichier + " installed ✔️");
                         }
                         catch (e) {
                             console.log(`${fichier} n'a pas pu être chargé pour les raisons suivantes : ${e}`);
                         } /* require(__dirname + "/commandes/" + fichier);
-                         console.log(fichier + " installé ✔️")*/
+                         console.log(fichier + " installed ✔️")*/
                         (0, baileys_1.delay)(300);
                     }
                 });
@@ -848,24 +848,22 @@ ${metadata.desc}`;
                 else {
                     md = "undefined";
                 }
-                console.log("chargement des commandes terminé ✅");
+                console.log("All Plugins Installed ✅");
 
                 await activateCrons();
                 
                 if((conf.DP).toLowerCase() === 'yes') {     
-                let cmsg = `╔════◇
+                let cmsg = `
+╔════◇
 ║ 『𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿』
 ║    Prefix : [ ${prefixe} ]
 ║    Mode :${md}
-║    Total Commandes : ${evt.cm.length}︎
+║    Total Commands : ${evt.cm.length}︎
 ╚══════════════════╝
 
 ╔═════◇
-
-
- if there are somes error you can tell us :) 
- thanks you for choosing Lazack-md
-
+║ if there are somes error you can tell us :) 
+║ thanks you for choosing Lazack-md
 ╚══════════════════╝`;
                 await zk.sendMessage(zk.user.id, { text: cmsg });
                 }
