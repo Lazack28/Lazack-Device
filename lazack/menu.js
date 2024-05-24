@@ -47,8 +47,8 @@ const date = moment().format('DD/MM/YYYY');
     
 let menuMsg = `
 ╭━━━━━━━━━━━✧
-| 🤟 Hello ${nomAuteurMessage} 
-| 📌 why can't you share this bot to you're friends?
+|  🤟 Hello ${nomAuteurMessage} 
+|    why can't you share this bot to you're friends?
 |               *List of commands :*
 | the following are all 𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿 commands
 ╰━━━━━━━━━━━━━━━
@@ -65,12 +65,12 @@ let menuMsg = `
     }
 
     menuMsg += `
-◇            ◇
+~~~~~~~~~~~~~~~~~            
 *╰━━━━━━━━━━━━━━🇹🇿━━━━━━━━━━━━━━━╯*
-"visit the repo every two days more commands must be uploaded"
- 
-    *LAZACK-MD*
-   Believe in you bro you can                                          
+|❀˖|  "visit the repo every two days more commands must be uploaded"
+|❀˖| 
+|❀˖|            *LAZACK-MD*
+|❀˖|   Believe in you bro you can                                          
 *╰━━━━━━━━━━━━━━🇹🇿━━━━━━━━━━━━━━━╯*
 `;
 
