@@ -2,10 +2,10 @@
   "name": "lazack",
   "version": "2.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lazack.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "s": "node index.js",
+    "s": "node lazack.js",
     "zokou": "pm2 start index.js --attach --max-memory-restart 490M",
     "c": "tsc"
   },
