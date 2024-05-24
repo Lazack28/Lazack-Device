@@ -33,30 +33,30 @@ const date = moment().format('DD/MM/YYYY');
 
   let infoMsg =  `
 ╭────✧{𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿}✧────◆
-│   *Préfix* : ${s.PREFIXE}
+│   *Prefix* : ${s.PREFIXE}
 │   *Owner* : ${s.OWNER_NAME}
 │   *Mode* : ${mode}
 │   *Commands* : ${cm.length}
 │   *Date* : ${date}
 │   *Hour* : ${temps}
-│   *Mémoire* : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
-│   *Plateforme* : ${os.platform()}
-│   *Développer* : 𝐋𝐀𝐙𝐀𝐂𝐊
+│   *Memories* : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
+│   *Plateform* : ${os.platform()}
+│   *Developer* : 𝐋𝐀𝐙𝐀𝐂𝐊
 │ _Lazack md a simple whatsapp bot give a 🌟_
 ╰─────✧LZCK_28✧─────◆ \n\n`;
     
 let menuMsg = `
-👋 Hello ${nomAuteurMessage} 👋
-
-*List of commands :*
-◇                             ◇
+🤟 Hello ${nomAuteurMessage} 
+📌 why can't you share this bot to you're friends?
+               *List of commands :*
+| the following are all 𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿 commands
 `;
 
     for (const cat in coms) {
-        menuMsg += `╭────❏ ${cat} ❏`;
+        menuMsg += `╭────❏ 💖 ${cat} ❏`;
         for (const cmd of coms[cat]) {
             menuMsg += `
-│ ${cmd}`;
+│ 📡 ${cmd}`;
         }
         menuMsg += `
 ╰═════════════⊷ \n`
