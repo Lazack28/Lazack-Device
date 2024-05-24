@@ -53,7 +53,7 @@ function get_level_exp(xp) {
         { level: 47, xpThreshold: 1185000},
         { level: 48, xpThreshold: 1240000},
         { level: 49, xpThreshold: 1295000},
-        { level: 'Zk-GOD', xpThreshold: 2000000}
+        { level: 'LZ-GOD', xpThreshold: 2000000}
     ];
 
     let level = 0;
@@ -134,18 +134,18 @@ zokou( {
     
     
          let msg = `
-┏━━━┛ ZK-Rang ┗━━━┓
+┏━━━┛ Lazack-Rank ┗━━━┓
          
-    *Name :* @${auteurMsgRepondu.split("@")[0]}
-    
-    *Level :* ${data.level}
-    
-    *EXP :* ${data.exp}/${data.xplimit}
-    
-    *Role :* ${role}
-
-    *Messages :* ${rank.messages}
-    
+|❀˖|  *Name :* @${auteurMsgRepondu.split("@")[0]}
+|❀˖| 
+|❀˖|  *Level :* ${data.level}
+|❀˖|  
+|❀˖|  *EXP :* ${data.exp}/${data.xplimit}
+|❀˖| 
+|❀˖|  *Role :* ${role}
+|❀˖|
+|❀˖|  *Messages :* ${rank.messages}
+|❀˖|  
    ┕━✿━┑  ┍━✿━┙`
     
      zk.sendMessage( 
