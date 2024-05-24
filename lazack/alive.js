@@ -43,7 +43,7 @@ const date = moment().format('DD/MM/YYYY');
  ${message}
  
  
- *Zokou_MD version 2.0*`
+ *Lazack-Md*`
 
  if (lien.match(/\.(mp4|gif)$/i)) {
     try {
