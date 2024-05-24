@@ -9,8 +9,8 @@ RUN apt-get update && \
   npm i pm2 -g && \
   rm -rf /var/lib/apt/lists/*
   
-RUN git clone https://github.com/Lazack28/Lazack-md  /root/Lazack-MD
-WORKDIR /root/Lazack-MD/
+RUN git clone https://github.com/Lazack28/Lazack-md  /root/Lazack
+WORKDIR /root/Lazack/
 
 
 COPY package.json .
