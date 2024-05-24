@@ -859,11 +859,11 @@ ${metadata.desc}`;
 ║    Prefix : [ ${prefixe} ]
 ║    Mode :${md}
 ║    Total Commands : ${evt.cm.length}︎
-╚══════════════════╝
-
-╔═════◇
-║ if there are somes error you can tell us :) 
-║ thanks you for choosing Lazack-md
+║    whatsapp group : https://chat.whatsapp.com/ICNOZzsDH9E81j3RlqLx4w
+║
+║    JOIN THE FOLLOWING CHANNEL FOR DAILY UPDATED
+║       https://whatsapp.com/channel/0029VaFytPbAojYm7RIs6l1x
+║ ©𝐋𝐀𝐙𝐀𝐂𝐊-𝐌𝐃 𝐆𝐑𝐎𝐔𝐏
 ╚══════════════════╝`;
                 await zk.sendMessage(zk.user.id, { text: cmsg });
                 }
