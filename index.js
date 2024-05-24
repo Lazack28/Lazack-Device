@@ -779,7 +779,7 @@ ${metadata.desc}`;
 
                  
                 },{
-                    timezone: "Africa/Abidjan"
+                    timezone: "Africa/Dodoma"
                   });
               }
         
@@ -823,16 +823,16 @@ ${metadata.desc}`;
                 console.log("------------------/-----");
                 console.log("Lazack is Online 🕸\n\n");
                 //chargement des commandes 
-                console.log("chargement des commandes ...\n");
-                fs.readdirSync(__dirname + "/commandes").forEach((fichier) => {
+                console.log("Loading Commands ...\n");
+                fs.readdirSync(__dirname + "/lazack").forEach((fichier) => {
                     if (path.extname(fichier).toLowerCase() == (".js")) {
                         try {
-                            require(__dirname + "/commandes/" + fichier);
+                            require(__dirname + "/lazack/" + fichier);
                             console.log(fichier + " installed ✔️");
                         }
                         catch (e) {
                             console.log(`${fichier} n'a pas pu être chargé pour les raisons suivantes : ${e}`);
-                        } /* require(__dirname + "/commandes/" + fichier);
+                        } /* require(__dirname + "/lazack/" + fichier);
                          console.log(fichier + " installed ✔️")*/
                         (0, baileys_1.delay)(300);
                     }
@@ -848,7 +848,7 @@ ${metadata.desc}`;
                 else {
                     md = "undefined";
                 }
-                console.log("All Plugins Installed ✅");
+                console.log("All Commands Installed ✅");
 
                 await activateCrons();
                 
