@@ -14,79 +14,79 @@ zokou({ nomCom: 'hack',
   },
   async (dest, zk, commandeOptions) => {
     
-citel.reply("```Lazack-md Injecting malware```")
+zok.sendMessage("```Lazack-md Injecting malware```")
 
 await sleep(1000)
 
-citel.reply("```hacking into device \n 0%```")
+zok.sendMessage("```hacking into device \n 0%```")
 
 await sleep(1000)
 
-citel.reply("```transfering photos \n █ 10%```")
+zok.sendMessage("```transfering photos \n █ 10%```")
 
 await sleep(1000)
 
-citel.reply("```transfer successful \n █ █ 20%```")
+zok.sendMessage("```transfer successful \n █ █ 20%```")
 
 await sleep(1000)
 
-citel.reply("```transfering videos \n █ █ █ 30%```")
+zok.sendMessage("```transfering videos \n █ █ █ 30%```")
 
 await sleep(1000)
 
-citel.reply("```transfer successful \n █ █ █ █ 40%```")
+zok.sendMessage("```transfer successful \n █ █ █ █ 40%```")
 
 await sleep(1000)
 
-citel.reply("```transfering audio \n █ █ █ █ █ 50%```")
+zok.sendMessage("```transfering audio \n █ █ █ █ █ 50%```")
 
 await sleep(1000)
 
-citel.reply("```transfer successful \n █ █ █ █ █ █ 60%```")
+zok.sendMessage("```transfer successful \n █ █ █ █ █ █ 60%```")
 
 await sleep(1000)
 
-citel.reply("```transfering hidden files \n █ █ █ █ █ █ █ 70%```")
+zok.sendMessage("```transfering hidden files \n █ █ █ █ █ █ █ 70%```")
 
 await sleep(1000)
 
-citel.reply("```transfer successful \n █ █ █ █ █ █ █ █ 80%```")
+zok.sendMessage("```transfer successful \n █ █ █ █ █ █ █ █ 80%```")
 
 await sleep(1000)
 
-citel.reply("```transfering whatsapp chat \n █ █ █ █ █ █ █ █ █ 90%```")
+zok.sendMessage("```transfering whatsapp chat \n █ █ █ █ █ █ █ █ █ 90%```")
 
 await sleep(1000)
 
-citel.reply("```transfer successful \n █ █ █ █ █ █ █ █ █ █ 100%```")
+zok.sendMessage("```transfer successful \n █ █ █ █ █ █ █ █ █ █ 100%```")
 
 await sleep(1000)
 
-citel.reply("```System hyjacking on process.. \n Conecting to Server ```")
+zok.sendMessage("```System hyjacking on process.. \n Conecting to Server ```")
 
 await sleep(1000)
 
-citel.reply("```Divice successfully connected... \n Riciving data...```")
+zok.sendMessage("```Divice successfully connected... \n Riciving data...```")
 
 await sleep(1000)
 
-citel.reply("```Data hyjacked from divice 100% completed \n killing all evidence killing all malwares...```")
+zok.sendMessage("```Data hyjacked from divice 100% completed \n killing all evidence killing all malwares...```")
 
 await sleep(1000)
 
-citel.reply("``` HACKING COMPLETED ```")
+zok.sendMessage("``` HACKING COMPLETED ```")
 
 await sleep(1000)
 
-citel.reply("``` SENDING PHONE DOCUMENTS...```")
+zok.sendMessage("``` SENDING PHONE DOCUMENTS...```")
 
 await sleep(1000)
 
-citel.reply("``` SUCCESSFULLY SENT DATA AND Connection disconnected```")
+zok.sendMessage("``` SUCCESSFULLY SENT DATA AND Connection disconnected```")
 
 await sleep(1000)
 
-            return citel.reply('*ALL FILES TRANSFERRED*');
+            return zok.sendMessage('*ALL FILES TRANSFERRED*');
 
         }
 )
