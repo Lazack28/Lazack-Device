@@ -1,3 +1,6 @@
+## 𝐋𝐀𝐙𝐀𝐂𝐊-𝐌𝐃 is still under mantainance deploy it and every two days remember to sync the fork for the new experience from Lazack_28.... Deploy on heroku. join support group and get tricks on heroku cards.
+
+
 </p>
 </p>
 <p align="center">
