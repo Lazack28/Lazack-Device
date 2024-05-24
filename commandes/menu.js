@@ -32,43 +32,44 @@ const temps = moment().format('HH:mm:ss');
 const date = moment().format('DD/MM/YYYY');
 
   let infoMsg =  `
-╭────✧{𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿}✧────◆
+╭━━━━━━━━━━━✧{𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿}✧━━━━━◆
 │   *Prefix* : ${s.PREFIXE}
 │   *Owner* : ${s.OWNER_NAME}
 │   *Mode* : ${mode}
 │   *Commands* : ${cm.length}
-│   *Date* : ${date}
-│   *Hour* : ${temps}
+│   *year* : ©2024
+│   *country* : TANZANIA 🇹🇿
 │   *Memories* : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
 │   *Plateform* : ${os.platform()}
 │   *Developer* : 𝐋𝐀𝐙𝐀𝐂𝐊
-│ _Lazack md a simple whatsapp bot give a 🌟_
-╰─────✧LZCK_28✧─────◆ \n\n`;
+│ 💫 _Lazack md a simple whatsapp bot give a 🌟_
+╰━━━━━━━━━━━━━🎶━━━━━━━━━━━━━━◆ \n\n`;
     
 let menuMsg = `
-🤟 Hello ${nomAuteurMessage} 
-📌 why can't you share this bot to you're friends?
-               *List of commands :*
+╭━━━━━━━━━━━✧
+| 🤟 Hello ${nomAuteurMessage} 
+| 📌 why can't you share this bot to you're friends?
+|               *List of commands :*
 | the following are all 𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿 commands
 ╰━━━━━━━━━━━━━━━
 `;
 
     for (const cat in coms) {
-        menuMsg += `╭────❏ 💖 ${cat} ❏`;
+        menuMsg += `╭────• 💖 ${cat} •━━━━━•`;
         for (const cmd of coms[cat]) {
             menuMsg += `
 │ 📡 ${cmd}`;
         }
         menuMsg += `
-╰═════════════⊷ \n`
+╰━━━━━━━━━━━━━━⊷ \n`
     }
 
     menuMsg += `
 ◇            ◇
 *╰━━━━━━━━━━━━━━🇹🇿━━━━━━━━━━━━━━━╯*
-"To use a command, insert ${prefixe} followed by the command_name."
+"visit the repo every two days more commands must be uploaded"
  
-    LAZACK-MD
+    *LAZACK-MD*
    Believe in you bro you can                                          
 *╰━━━━━━━━━━━━━━🇹🇿━━━━━━━━━━━━━━━╯*
 `;
