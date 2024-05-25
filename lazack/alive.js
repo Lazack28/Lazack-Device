@@ -73,8 +73,8 @@ else {
     } else {
         if(!superUser) { repondre("we are always alive but put youre alive message") ; return};
 
-      await   repondre("𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿 am alive but please set you're alive message. bot created by LAZACK");
-         repondre("don't do fake thinks :)")
+      await   repondre("𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿 am alive but please set you're alive message. \n\n Bot created by LAZACK");
+         repondre("━━━━━━━Lazack-md━━━━━━━ \n\n 𝐿𝐴𝑍𝐴𝐶𝐾-𝑀𝐷 𝒊𝒔 𝒂𝒄𝒕𝒊𝒗𝒆 𝒑𝒍𝒆𝒂𝒔𝒆 𝒚𝒐𝒖 𝒎𝒖𝒔𝒕 𝒋𝒐𝒊𝒏 𝒕𝒉𝒊𝒔 𝒄𝒉𝒂𝒏𝒏𝒆𝒍 𝒖𝒑𝒅𝒂𝒕𝒆 𝒇𝒐𝒓 𝒎𝒐𝒓𝒆 𝒂𝒃𝒐𝒖𝒕 𝐿𝒂𝒛𝒂𝒄𝒌-𝒎𝒅 \n\n https://whatsapp.com/channel/0029VaFytPbAojYm7RIs6l1x")
      }
  } else {
 
