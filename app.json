@@ -10,7 +10,7 @@
     "PREFIX":
     {
       "description":"choose your prefix of bot",
-      "value":",",
+      "value":".",
       "required":true
     },
     "AUTO_READ_STATUS":
@@ -21,7 +21,7 @@
     }, "AUTO_DOWNLOAD_STATUS":
     {
       "description":"Your contact status will be download automatically and send to you(type yes to active or no to deactive ; don't write in capital letter)",
-      "value":"yes",
+      "value":"no",
       "required":false
     }
     ,
@@ -64,7 +64,7 @@
 	  ,
     "SESSION_ID":
     {
-      "description":"put your session ID , the code you receive after scanning Qr code",   
+      "description":"put your session ID , the code you receive after scanning Qr code from the original repo. if not please visit github.com/Lazack28/Lazack-md to get the original session id",   
       "value":"",
       "required":true
       
@@ -72,14 +72,14 @@
     "OWNER_NAME":
     {
     
-    "desc": "Your Name",
+    "desc": "just put youre name",
     "required": false,
     "value": "lazack"
   },
     "NUMERO_OWNER":
   {
     
-    "desc": "Your number , dont put '+' and put you area code(exemple of togo '228')",
+    "desc": "Your number , dont put '+' and put you area code(exemple of tanzania '255')",
     "required":false,
     "value": "255734980103"
   },
