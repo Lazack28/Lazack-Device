@@ -45,7 +45,7 @@ zokou({ nomCom: "tagall", categorie: 'Group', reaction: "📣" }, async (dest, z
 
 
   let emoji = ['🦴', '👀', '😮‍💨', '❌', '✔️', '😇', '⚙️', '🔧', '🎊', '😡', '🙏🏿', '⛔️', '$','😟','🥵','🐅']
-  let random = Math.floor(Math.random() * (emoji.length - 1))
+  let random = Math.floor(Math.random() * (emoji.length - 5))
 
 
   for (const membre of membresGroupe) {
@@ -726,7 +726,7 @@ zokou({ nomCom: "apk", reaction: "✨", categorie: "Recherche" }, async (dest, z
 
     const downloadLink = appData.dllink;
     const captionText =
-      "『 *Zokou-Md App* 』\n\n*Name :* " + appData.name +
+      "『 *Lazack-Md App* 』\n\n*Name :* " + appData.name +
       "\n*Id :* " + appData["package"] +
       "\n*Last Update :* " + appData.lastup +
       "\n*Size :* " + appData.size +
@@ -921,7 +921,7 @@ zokou({
 
 
 zokou({
-  nomCom : 'fkick',
+  nomCom : 'kick',
   categorie : 'Group'
 } , async (dest,zk,commandeOptions) => {
 
