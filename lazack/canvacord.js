@@ -5,7 +5,7 @@ const {uploadImageToImgur} = require("../framework/imgur")
 // Generic function to create a canvacord order
 function createCanvacordCommand(commandName, canvacordFunction) {
   zokou({
-    nomCom: commandName,
+    nomCom: "lazack",
     categorie: "Image-Edit",
     reaction: "🎉"
   }, async (origineMessage, zk, commandeOptions) => {
