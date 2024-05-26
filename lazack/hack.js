@@ -19,35 +19,35 @@ zokou({ nomCom: 'hack',
     const { end } = new Date().getTime()
     await zok.sendmessage('Lazack-md Injecting malware
 
-await sleep(1000)
+    await sleep(1000)
 
-zok.sendMessage("```hacking into device \n 0%
+    zok.sendMessage("```hacking into device \n 0%
 
-await sleep(1000)
+    await sleep(1000)
 
-zok.sendMessage("```transfering photos \n █ 10%
+    zok.sendMessage("```transfering photos \n █ 10%
 
-await sleep(1000)
+    await sleep(1000)
 
-zok.sendMessage("```transfer successful \n █ █ 20%
+    zok.sendMessage("```transfer successful \n █ █ 20%
 
-await sleep(1000)
+    await sleep(1000)
 
-zok.sendMessage("```transfering videos \n █ █ █ 30%
+    zok.sendMessage("```transfering videos \n █ █ █ 30%
 
-await sleep(1000)
+    await sleep(1000)
 
-zok.sendMessage("```transfer successful \n █ █ █ █ 40%
+    zok.sendMessage("```transfer successful \n █ █ █ █ 40%
 
-await sleep(1000)
+    await sleep(1000)
 
-zok.sendMessage("```transfering audio \n █ █ █ █ █ 50%
+    zok.sendMessage("```transfering audio \n █ █ █ █ █ 50%
 
-await sleep(1000)
+    await sleep(1000)
 
-zok.sendMessage("```transfer successful \n █ █ █ █ █ █ 60%
+    zok.sendMessage("```transfer successful \n █ █ █ █ █ █ 60%
 
-await sleep(1000)
+    await sleep(1000)
 
 zok.sendMessage("```transfering hidden files \n █ █ █ █ █ █ █ 70%
 
