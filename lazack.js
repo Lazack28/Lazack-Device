@@ -334,7 +334,7 @@ function mybotpic() {
   try {
     await ajouterOuMettreAJourUserData(auteurMessage);
   } catch (e) {
-    console.error(e);
+    console.error(e); 
   }
               }
             
@@ -426,9 +426,9 @@ function mybotpic() {
                                     };
                                     var txt = "lien detected, \n";
                                    // txt += `message supprimé \n @${auteurMessage.split("@")[0]} rétiré du groupe.`;
-                                    const gifLink = "https://raw.githubusercontent.com/djalega8000/Zokou-MD/main/media/remover.gif";
+                                    const gifLink = "https://raw.githubusercontent.com/Lazack28/Lazack-md/main/media/remover.gif";
                                     var sticker = new Sticker(gifLink, {
-                                        pack: 'Zoou-Md',
+                                        pack: 'zoou-Md',
                                         author: conf.OWNER_NAME,
                                         type: StickerTypes.FULL,
                                         categories: ['🤩', '🎉'],
@@ -524,7 +524,7 @@ function mybotpic() {
             };
             var txt = "bot detected, \n";
            // txt += `message supprimé \n @${auteurMessage.split("@")[0]} rétiré du groupe.`;
-            const gifLink = "https://raw.githubusercontent.com/djalega8000/Zokou-MD/main/media/remover.gif";
+            const gifLink = "https://raw.githubusercontent.com/Lazack28/Lazack-md/main/media/remover.gif";
             var sticker = new Sticker(gifLink, {
                 pack: 'Zoou-Md',
                 author: conf.OWNER_NAME,
