@@ -83,7 +83,7 @@ fetch(`http://api.brainshop.ai/get?bid=182197&key=b4K2zlAF0qnHd3Ap&uid=[uid]&msg
   
       // Regrouper les arguments en une seule chaîne séparée par "-"
       const question = arg.join(' ');
-      const response = await axios.get(`https://vihangayt.me/tools/chatgpt4?q=${question}`);
+      const response = await axios.get(`http://api.brainshop.ai/wechat?bid=${question}`);
       
       const data = response.data;
       if (data) {
