@@ -12,9 +12,12 @@ zokou({ nomCom: 'hack',
 
        
   },
+  ,
   async (dest, zk, commandeOptions) => {
-    
-zok.sendMessage("```Lazack-md Injecting malware```")
+    const { ms, arg, repondre } = commandeOptions;
+    const { start} = new Date().getTime()
+    const { end } = new Date().getTime()
+    await zok.sendmessage('Lazack-md Injecting malware```")
 
 await sleep(1000)
 
