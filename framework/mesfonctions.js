@@ -202,9 +202,9 @@ exports.reaction = reaction;
 var fruit = {};
 exports.fruit = fruit;
 async function ajouterCommande() {
-    fs.readdirSync(__dirname + "/../commandes").forEach((fichier) => {
+    fs.readdirSync(__dirname + "/../lazack").forEach((fichier) => {
         if (path.extname(fichier).toLowerCase() == ".js") {
-            require(__dirname + "/../commandes/" + fichier.split(".js")[0]);
+            require(__dirname + "/../lazack/" + fichier.split(".js")[0]);
             console.log('fichier : ' + fichier);
             //console.log("le module    "+__dirname+"/../commandes/"+fichier.split(".js")[0])
         }
@@ -236,7 +236,7 @@ async function xlab() {
     const readDir = util.promisify(fs.readdir);
     const readFile = util.promisify(fs.readFile);
     //console.log("ch " + __dirname + '../')
-    var chemin = './commandes/';
+    var chemin = './lazack/';
     var nomFichier = await readDir(chemin);
     nomFichier.forEach((fichier) => {
         if (fichier.endsWith(".js")) {
