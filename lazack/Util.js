@@ -1,8 +1,8 @@
 const { zokou } = require("../framework/zokou");
 
 zokou({
-    pattern: 'mention ?(.*)',
-    fromMe: true,
+    nomCom: "mention",
+    categorie: "mods",
     desc: 'mention',
     type: 'user'
 }, async (message, match) => {
@@ -29,8 +29,8 @@ zokou({
 });
 
 zokou({
-    pattern: 'autoreaction ?(.*)',
-    fromMe: true,
+    nomCom: 'autoreaction',
+    categorie: "mods",
     desc: 'auto reaction',
     type: 'user'
 }, async (message, match) => {
