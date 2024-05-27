@@ -73,7 +73,7 @@ fetch(`http://api.brainshop.ai/get?bid=182197&key=b4K2zlAF0qnHd3Ap&uid=[uid]&msg
     }
   });
   
-  zokou({ nomCom: "gpt", reaction: "📡", categorie: "IA" }, async (dest, zk, commandeOptions) => {
+  zokou({ nomCom: "gpt", reaction: "🇹🇿", categorie: "IA" }, async (dest, zk, commandeOptions) => {
     const { repondre, arg, ms } = commandeOptions;
   
     try {
@@ -83,7 +83,7 @@ fetch(`http://api.brainshop.ai/get?bid=182197&key=b4K2zlAF0qnHd3Ap&uid=[uid]&msg
   
       // Regrouper les arguments en une seule chaîne séparée par "-"
       const question = arg.join(' ');
-      const response = await axios.get(`http://api.brainshop.ai/wechat?bid=${question}`);
+      const response = await axios.get('http://api.brainshop.ai/wechat?bid=182199&key=MikeeyNEqfr7hpEb}`);
       
       const data = response.data;
       if (data) {
