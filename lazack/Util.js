@@ -3,7 +3,7 @@ const { zokou } = require("../framework/zokou");
 zokou({
     nomCom: "mention",
     categorie: "mods"
-}, async (message, match) => {
+}, async (dest,zk,commandeOptions) => {
    let msg;
    const { mention } = await getData(message.user.id);    
     if (match === 'get' && message.sudo.includes(message.sender)) {
@@ -29,7 +29,7 @@ zokou({
 zokou({
     nomCom: "autoreaction",
     categorie: "mods"
-}, async (message, match) => {
+}, async (dest,zk,commandeOptions) => {
     if (match === "off") {
     await setData(message.user.id, "disactie", "false", "autoreaction");
     await message.send("_*autoreaction disabled*_");
