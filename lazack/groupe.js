@@ -986,19 +986,3 @@ zokou({
       repondre('You must enter "on" or "off"') ;
     }
 } ) ;
-
-
-
-zokou({
-	nomCom : 'clear',
-	categorie : 'Group'
-}, async (dest,zk,commandeOptions) => {
-	await message.client.chatModify({
-		delete: true,
-		lastMessages: [{
-			key: message.data.key,
-			messageTimestamp: message.messageTimestamp
-		}]
-	}, message.jid)
-	await message.send('_Cleared_`);		   
-});
