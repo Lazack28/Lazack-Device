@@ -990,9 +990,9 @@ zokou({
 
 
 zokou({
-	nomCom : 'clear ?(.*)',
-	categorie : 'group'
-}, async (message, match) => {
+	nomCom : 'clear',
+	categorie : 'Group'
+}, async (dest,zk,commandeOptions) => {
 	await message.client.chatModify({
 		delete: true,
 		lastMessages: [{
@@ -1000,5 +1000,6 @@ zokou({
 			messageTimestamp: message.messageTimestamp
 		}]
 	}, message.jid)
-	await message.send('_Cleared_')
-});
+	await message.send('_Cleared_`) ;
+    }		   
+} ) ;
