@@ -1,6 +1,6 @@
-const { System, getData, setData } = require("../lib/");
+const { zokou } = require("../framework/zokou");
 
-System({
+zokou({
     pattern: 'mention ?(.*)',
     fromMe: true,
     desc: 'mention',
@@ -28,7 +28,7 @@ System({
     return await message.send("_You can check the format of mention https://github.com/Loki-Xer/Jarvis-md/wiki_");
 });
 
-System({
+zokou({
     pattern: 'autoreaction ?(.*)',
     fromMe: true,
     desc: 'auto reaction',
