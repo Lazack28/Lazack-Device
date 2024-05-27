@@ -1000,27 +1000,5 @@ zokou({
 			messageTimestamp: message.messageTimestamp
 		}]
 	}, message.jid)
-	await message.send('_Cleared_`) ;
-    }		   
-} ) ;
-
-
-zokou({
-	nomCom : 'chatpin ?(.*)',
-	categorie : 'Group'
-}, async (dest,zk,commandeOptions) => {
-	await message.client.chatModify({
-		pin: true
-	}, message.jid);
-	await message.send('_Pined_')
-});
-
-zokou({
-	nomCom : 'unpin',
-	categorie : 'Group'
-}, async (dest,zk,commandeOptions) => {
-	await zk.messageclient(chatModify({
-		pin: false
-	}, message.jid);
-	await message.send('_Unpined_')
+	await message.send('_Cleared_`);		   
 });
