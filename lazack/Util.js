@@ -2,9 +2,7 @@ const { zokou } = require("../framework/zokou");
 
 zokou({
     nomCom: "mention",
-    categorie: "mods",
-    desc: 'mention',
-    type: 'user'
+    categorie: "mods"
 }, async (message, match) => {
    let msg;
    const { mention } = await getData(message.user.id);    
@@ -25,14 +23,12 @@ zokou({
             return await message.send('_Error in updating_');
         }
     }
-    return await message.send("_You can check the format of mention https://github.com/Loki-Xer/Jarvis-md/wiki_");
+    return await message.send("_You can check the format of mention https://github.com/Lazack28/Lazack-md/wiki_");
 });
 
 zokou({
-    nomCom: 'autoreaction',
-    categorie: "mods",
-    desc: 'auto reaction',
-    type: 'user'
+    nomCom: "autoreaction",
+    categorie: "mods"
 }, async (message, match) => {
     if (match === "off") {
     await setData(message.user.id, "disactie", "false", "autoreaction");
