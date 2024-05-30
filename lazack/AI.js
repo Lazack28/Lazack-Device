@@ -18,7 +18,7 @@ zokou({nomCom:"bot",reaction:"📡",categorie:"IA"},async(dest,zk,commandeOption
     
 const message = await traduire(arg.join(' '),{ to : 'en'});
  console.log(message)
-fetch(`http://api.brainshop.ai/get?bid=177607&key=NwzhALqeO1kubFVD&uid=[uid]&msg=${message}`)
+fetch(`http://api.brainshop.ai/get?bid=182197&key=b4K2zlAF0qnHd3Ap&uid=[uid]&msg=${message}`)
 .then(response => response.json())
 .then(data => {
   const botResponse = data.cnt;
@@ -45,7 +45,7 @@ fetch(`http://api.brainshop.ai/get?bid=177607&key=NwzhALqeO1kubFVD&uid=[uid]&msg
   
 
 
-zokou({ nomCom: "dalle", reaction: "📡", categorie: "IA" }, async (dest, zk, commandeOptions) => {
+zokou({ nomCom: "dalle", reaction: "👩‍🔧", categorie: "IA" }, async (dest, zk, commandeOptions) => {
   const { repondre, arg, ms } = commandeOptions;
 
   try {
