@@ -1,4 +1,4 @@
-## 𝐋𝐀𝐙𝐀𝐂𝐊-𝐌𝐃 is still under mantainance deploy it and every two days remember to sync the fork for the new experience from Lazack_28....
+
 
 
 </p>
@@ -13,7 +13,7 @@
     </p>
 
 
-   [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Rockstar-ExtraBold&color=F33A6A&lines=WELCOME+TO+LAZACK+MD+MADE+BY+LAZACK28;THANKS+FOR+VISITING+MY+REPO)](https://git.io/typing-svg)
+   [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Rockstar-ExtraBold&color=F33A6A&lines=WELCOME+TO+LAZACK+MD+MADE+BY;LAZACK28;THANKS+FOR+VISITING+MY+REPO)](https://git.io/typing-svg)
 
 
 
