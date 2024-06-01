@@ -40,8 +40,8 @@ const date = moment().format('DD/MM/YYYY');
 *Date* : ${date}
 *Hours(GMT)* : ${temps}
 
- ${message}
- 
+ join now and see new
+ https://chat.whatsapp.com/KHHQyCizbp0Db5Ci7giRoa
  
  *Lazack-Md*`
 
