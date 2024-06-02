@@ -32,7 +32,7 @@ const temps = moment().format('HH:mm:ss');
 const date = moment().format('DD/MM/YYYY');
 
   let infoMsg =  `
-╭━━━━━━━━━━━✧{𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿}✧━━━━━◆
+╭❛ ━━━━━━･❪ 𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿❫ ･━━━━━━ ❜
 │   *Prefix* : ${s.PREFIXE}
 │   *Owner* : ${s.OWNER_NAME}
 │   *Mode* : ${mode}
@@ -42,8 +42,8 @@ const date = moment().format('DD/MM/YYYY');
 │   *Memories* : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
 │   *Plateform* : ${os.platform()}
 │   *Developer* : 𝐋𝐀𝐙𝐀𝐂𝐊
-│ 💫 _Lazack md a simple whatsapp bot give a 🌟_
-╰━━━━━━━━━━━━━🎶━━━━━━━━━━━━━━◆ \n\n`;
+│   *GIVE A STAR TO LAZACK-MD*
+╰❢◥ ▬▬▬▬▬▬ ◆ ▬▬▬▬▬▬ ◤❢\n\n`;
     
 let menuMsg = `
 ╭━━━━━━━━━━━✧
