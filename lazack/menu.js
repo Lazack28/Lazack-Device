@@ -32,7 +32,7 @@ const temps = moment().format('HH:mm:ss');
 const date = moment().format('DD/MM/YYYY');
 
   let infoMsg =  `
-╭❛ ━━━━━━･❪ 𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿❫ ･━━━━━━ ❜
+╭❛ ━━━━━━･ 𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿 ･━━━━━━ ❜
 │   *Prefix* : ${s.PREFIXE}
 │   *Owner* : ${s.OWNER_NAME}
 │   *Mode* : ${mode}
@@ -58,7 +58,7 @@ let menuMsg = `
         menuMsg += `╭────• 💖 ${cat} •━━━━━•`;
         for (const cmd of coms[cat]) {
             menuMsg += `
-│ 📡 ${cmd}`;
+│ ༆ ${cmd}`;
         }
         menuMsg += `
 ╰━━━━━━━━━━━━━━⊷ \n`
