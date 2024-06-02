@@ -33,45 +33,44 @@ const date = moment().format('DD/MM/YYYY');
 
   let infoMsg =  `
 ╭❛ ━━━━━━･ 𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿 ･━━━━━━ ❜
-│   *Prefix* : ${s.PREFIXE}
-│   *Owner* : ${s.OWNER_NAME}
-│   *Mode* : ${mode}
-│   *Commands* : ${cm.length}
-│   *year* : ©2024
-│   *country* : TANZANIA 🇹🇿
-│   *Memories* : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
-│   *Plateform* : ${os.platform()}
-│   *Developer* : 𝐋𝐀𝐙𝐀𝐂𝐊
-│   *GIVE A STAR TO LAZACK-MD*
+𖦠   *Prefix* : ${s.PREFIXE}
+𖦠   *Owner* : ${s.OWNER_NAME}
+𖦠   *Mode* : ${mode}
+𖦠   *Commands* : ${cm.length}
+𖦠   *year* : ©2024
+𖦠   *country* : TANZANIA 🇹🇿
+𖦠   *Memories* : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
+𖦠   *Plateform* : ${os.platform()}
+𖦠   *Developer* : 𝐋𝐀𝐙𝐀𝐂𝐊
+𖦠   *GIVE A STAR TO LAZACK-MD*
 ╰❢◥ ▬▬▬▬▬▬ ◆ ▬▬▬▬▬▬ ◤❢\n\n`;
     
 let menuMsg = `
-╭━━━━━━━━━━━✧
-|  🤟 Hello ${nomAuteurMessage} 
-|    why can't you share this bot to you're friends?
+╭➴➵➶➴➵➶➴➵➶➴➵➶➴➵➶ 
+|    🤟 Hello ${nomAuteurMessage} 
+|    ＳＨＡＲＥ ＴＨＩＳ ＢＯＴ ＢＲＯ
 |               *List of commands :*
-| the following are all 𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿 commands
-╰━━━━━━━━━━━━━━━
+|    the following are all 𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿 commands
+╰➴➵➶➴➵➶➴➵➶➴➵➶➴➵➶ 
 `;
 
     for (const cat in coms) {
-        menuMsg += `╭────• 💖 ${cat} •━━━━━•`;
+        menuMsg += `╭┉┉┉┉┉ᖫ 𖥟 ${cmd} ᖭ┉┉┉┉•`;
         for (const cmd of coms[cat]) {
             menuMsg += `
-│ ༆ ${cmd}`;
+╿ ༆ ${cmd}`;
         }
         menuMsg += `
-╰━━━━━━━━━━━━━━⊷ \n`
+﹄╼╾╼╾╼╾╼╾╼╾╼╾╼╾╼╾ \n`
     }
 
     menuMsg += `
-~~~~~~~~~~~~~~~~~            
-*╰━━━━━━━━━━━━━━🇹🇿━━━━━━━━━━━━━━━╯*
-|❀˖|  "visit the repo every two days more commands must be uploaded"
-|❀˖| 
-|❀˖|            *LAZACK-MD*
-|❀˖|   Believe in you bro you can                                          
-*╰━━━━━━━━━━━━━━🇹🇿━━━━━━━━━━━━━━━╯*
+➶➶➶➶➶ 𝒍𝒂𝒛𝒂𝒄𝒌𝟐𝟖 ➷➷➷➷➷           
+*╞═════𖠁𐂃𖠁═════╡*
+𓊈⇶  "❤ ＴＯ ＨＥＬＰ"
+𓊈⇶         *𝕃𝔸ℤ𝔸ℂ𝕂-𝕄𝔻*
+𓊈⇶  Believe in you bro you can                                          
+*╞═════𖠁𐂃𖠁═════╡*
 `;
 
    var lien = mybotpic();
