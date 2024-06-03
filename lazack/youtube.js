@@ -106,7 +106,7 @@ zokou({
         caption: `*Video name :* _${Element.title}_
 *Time :* _${Element.timestamp}_
 *Url :* _${Element.url}_
-_*On downloading...*_\n\n`
+_*Lazack-md downloading...*_\n\n`
       };
 
       zk.sendMessage(origineMessage, InfoMess, { quoted: ms });
@@ -127,7 +127,7 @@ _*On downloading...*_\n\n`
 
       fileStream.on('finish', () => {
         // Envoi du fichier vidéo en utilisant l'URL du fichier local
-        zk.sendMessage(origineMessage, { video: { url :"./video.mp4"} , caption: "*Zokou-Md", gifPlayback: false }, { quoted: ms });
+        zk.sendMessage(origineMessage, { video: { url :"./video.mp4"} , caption: "*here is youre video\n\n credit to LAZACK-Md", gifPlayback: false }, { quoted: ms });
       });
 
       fileStream.on('error', (error) => {
