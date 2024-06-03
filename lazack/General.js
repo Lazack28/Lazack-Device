@@ -55,13 +55,12 @@ zokou({ nomCom: "dev", categorie: "General", reaction: "💞" }, async (dest, zk
     const { ms, mybotpic } = commandeOptions;
 
     const devs = [
-      { nom: "Lazack", numero: "255734980103" } \n\n,
-      { nom: "Lazack_28", numero: "255613868502" }/n/n/n,
-      { desc: "use the first his telegram @MR28BOT"},
+      { nom: "Lazack", numero: "255734980103" },
+      { nom: "Lazack_28", numero: "255613868502" },
       // Ajoute d'autres développeurs ici avec leur nom et numéro
     ];
 
-    let message = "Hello user welcome to Lazack-md ! here is Lazacks contacts :\n\n";
+    let message = "Hello user welcome to Lazack-md ! here is Lazacks contacts:\n\n";
     for (const dev of devs) {
       message += `----------------\n• ${dev.nom} : https://wa.me/${dev.numero}\n`;
     }
