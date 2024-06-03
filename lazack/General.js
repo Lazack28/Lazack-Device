@@ -55,8 +55,9 @@ zokou({ nomCom: "dev", categorie: "General", reaction: "💞" }, async (dest, zk
     const { ms, mybotpic } = commandeOptions;
 
     const devs = [
-      { nom: "Lazack", numero: "255734980103" },
-      { nom: "᚛Lazsck_28᚜", numero: "255734980103" },
+      { nom: "Lazack", numero: "255734980103" } \n\n,
+      { nom: "Lazack_28", numero: "255613868502" }/n/n/n,
+      { desc: "use the first his telegram @MR28BOT"},
       // Ajoute d'autres développeurs ici avec leur nom et numéro
     ];
 
