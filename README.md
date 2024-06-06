@@ -95,7 +95,7 @@ Deployments methods
  ***Tap On Logo To Contat Me***
  <p align="left">
   <a href="lazacklazaro1@gmail.com">
-    <img src="https://i.ibb.co/Kx8NXxT/mail-gmail-22737.png" align="centre" width="90" />
+    <img src="https://telegra.ph/file/84284eaa31d60db5f2d6c.jpg" align="centre" width="90" />
    <a href="https://wa.me/255734980103?text=Hi%20Lazack%20Sir...%20I%20need%20some%20help%20in%20Lazack Bot">
     <img src="https://i.ibb.co/2MLVZwm/whatsapp-logo-icon-181644.png" align="centre" width="90" />
 
