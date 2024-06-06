@@ -54,7 +54,7 @@ Deployments methods
 
 <p align="left" >
     <a href="https://heroku.com/deploy?template=https://github.com/Lazack28/Lazack-md">
-    <img src="https://www.herokucdn.com/deploy/button.png" width="250px" alt="Deploy to Heroku" >
+    <img src="https://telegra.ph/file/873a73bb44e63d9598fa8.png" width="100px" alt="Deploy to Heroku" >
     </a>
 
 </p> 
