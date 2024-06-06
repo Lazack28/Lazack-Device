@@ -1,4 +1,10 @@
+const { zokou } = require('../framework/zokou');
 
+const traduire = require("../framework/antilien") ;
+
+const { default: axios } = require('axios');
+
+//antilink
 const linkRegex = /chat.whatsapp.com\/(?:invite\/)?([0-9A-Za-z]{20,24})/i
 
 export async function before(m, {conn, isAdmin, isBotAdmin }) {
