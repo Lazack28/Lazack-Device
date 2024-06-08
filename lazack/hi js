@@ -1,0 +1,36 @@
+const { zokou } = require("../framework/zokou");
+
+const moment = require("moment-timezone");
+
+const { default: axios } = require('axios');
+
+//const conf = require('../set');
+
+
+
+
+
+zokou({ nomCom: 'lazack',
+
+    desc: 'learn the bot',
+
+    Categorie: 'General',
+
+    reaction: '🇹🇿', 
+
+    fromMe: 'true', 
+
+
+
+       
+
+  },
+
+  async (dest, zk, commandeOptions) => {
+
+    exec = async (M) => {
+        return void (await M.reply(`👋🏻 Hi ${M.sender.username}, I am ${this.client.config.name}!`))
+    }
+  }
+
+)
