@@ -1,0 +1,44 @@
+import { BaseCommand, Command, Message } from '../../Structures';
+import { IArgs } from '../../Types';
+import axios from 'axios';
+
+@Command('marry', {
+    description: 'Marry the one you love 💖💖💖',
+    category: 'fun',
+    usage: 'marry [tag user]',
+    exp: 50,
+    dm: true
+})
+export default class MarryCommand extends BaseCommand {
+    public override execute = async (message: Message, args: IArgs): Promise<void> => {
+        try {
+            const percentage = Math.floor(Math.random() * 100);
+            let sentence;
+            if (percentage < 25) {
+                sentence = `\t\t\t\t\t*LIFECent : ${percentage}%* \n\t\tDON'T WORRY A LOT CAN HAPPEN`;
+            } else if (percentage < 50) {
+                sentence = `\t\t\t\t\t*LIFECent : ${percentage}%* \n\t\t Your wedding day will come and go, but may your love forever grow. Another date will solve the problem! 💖`;
+            } else if (percentage < 75) {
+                sentence = `\t\t\t\t\t*LIFECent : ${percentage}%* \n\t\tMay the love you share today grow stronger as you grow old together 🎉`;
+            } else if (percentage < 90) {
+                sentence = `\t\t\t\t\t*LIFECent : ${percentage}%* \n\tAmazing! Wishing you a lifetime of love and happiness.! 💖 NOW KISS 🥺`;
+            } else {
+                sentence = `\t\t\t\t\t*LIFECent : ${percentage}%* \n\tBest wishes on this wonderful journey, as you build your new lives together. 💖 NOW KISS KISS KISS PLEASE 🥺`;
+            }
+
+            const response = await axios.get('https://api.adviceslip.com/advice');
+            const advice = response.data.slip.advice;
+
+            let caption = `\t💖 *Congratulations on Your Wedding* 💖 \n`;
+            caption += `\t\t---------------------------------\n`;
+            caption += `@${message.sender?.split('@')[0]}  x  @${args.context && args.context.split('@')[0]}\n`; // Fix split error here
+            caption += `\t\t---------------------------------\n`;
+            caption += `${sentence}\n\n`;
+            caption += `🌟 *Random Advice for You:* ${advice}`;
+
+            message.reply(caption);
+        } catch (error) {
+            message.reply('❌ An error occurred.');
+        }
+    };
+}
