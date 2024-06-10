@@ -1,0 +1,44 @@
+import { BaseCommand, Command, Message } from '../../Structures';
+import axios from 'axios';
+
+@Command('Shazam', {
+    description: 'Search for music using Shazam API.',
+    usage: 'searchmusic <song name>',
+    category: 'music',
+    cooldown: 10,
+    exp: 5
+})
+export default class SearchMusicCommand extends BaseCommand {
+    override execute = async (message: Message): Promise<void> => {
+        const searchTerm = message.args.join(' ');
+        
+        if (!searchTerm) {
+            return void message.reply('Please provide a song name to search.');
+        }
+
+        try {
+            const response = await axios.get(`https://shazam.p.rapidapi.com/search?term=${encodeURIComponent(searchTerm)}`, {
+                headers: {
+                    'x-rapidapi-host': 'shazam.p.rapidapi.com',
+                    'x-rapidapi-key': 'YOUR_RAPIDAPI_KEY_HERE' // Replace with your RapidAPI key
+                }
+            });
+
+            const songs = response.data.tracks.hits;
+            if (songs.length === 0) {
+                return void message.reply('No matching songs found.');
+            }
+
+            const firstSong = songs[0].track;
+            const songTitle = firstSong.title;
+            const artistName = firstSong.subtitle;
+            const songPreviewUrl = firstSong.preview.url;
+
+            const replyMessage = `**${songTitle}** by ${artistName}\nPreview: ${songPreviewUrl}`;
+            return void message.reply(replyMessage);
+        } catch (error) {
+            console.error('Error searching for music:', error.response?.data || error.message);
+            return void message.reply('An error occurred while searching for music.');
+        }
+    };
+}
