@@ -1,5 +1,5 @@
 {
-  "name": "Lazack28",
+  "name": "Hitman47",
   "version": "0.1.0",
   "description": "A WhatsApp bot written in TypeScript using Baileys",
   "author": "dk",
@@ -9,7 +9,7 @@
     "whatsapp",
     "anime"
   ],
-  "license": "MIT",
+  "license": "AGPL-3.0",
   "scripts": {
     "format": "prettier --write --config .prettierrc.json \"src/**/*.ts\"",
     "start": "node --max-old-space-size=4096 dist/bot.js",
@@ -17,12 +17,12 @@
     "postinstall": "yarn build"
   },
   "bugs": {
-    "url": "https://github.com/Lazack28/Bot/issues"
+    "url": "https://github.com/Dkhitman3/Bot/issues"
   },
-  "homepage": "https://github.com/Lazack28/Bot",
+  "homepage": "https://github.com/Dkhitman3/Bot",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Lazack28/Bot.git"
+    "url": "https://github.com/Dkhitman3/Bot.git"
   },
   "dependencies": {
     "@adiwajshing/keyed-db": "^0.2.4",
@@ -30,7 +30,7 @@
     "@shineiichijo/marika": "^2.0.6",
     "@shineiichijo/nhentai-ts": "^1.0.0",
     "@typegoose/typegoose": "^10.0.0",
-    "@whiskeysockets/baileys": "^6.6.0",
+    "@whiskeysockets/baileys": "^6.7.2",
     "axios": "^1.4.0",
     "anime-quiz": "^3.0.0",
     "axios-cache-interceptor": "^1.0.1",
