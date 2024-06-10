@@ -1,0 +1,51 @@
+import { BaseCommand, Command, Message } from '../../Structures';
+import { User } from '../../Models'; // Assuming you have a User model
+
+@Command('rob', {
+    description: 'Attempt to rob another user for some coins.',
+    usage: 'rob <@user>',
+    category: 'economy',
+    cooldown: 60,
+    exp: 20
+})
+export default class RobCommand extends BaseCommand {
+    override execute = async (message: Message): Promise<void> => {
+        const mentionedUser = message.mentions[0];
+        
+        if (!mentionedUser) {
+            return void message.reply('You need to mention a user to rob.');
+        }
+
+        if (mentionedUser.jid === message.sender.jid) {
+            return void message.reply('You cannot rob yourself, Baka!');
+        }
+
+        // Get the wallet of the mentioned user
+        const victim = await User.findOne({ where: { jid: mentionedUser.jid } });
+        if (!victim) {
+            return void message.reply('User not found.');
+        }
+
+        const victimWallet = victim.wallet;
+
+        if (victimWallet <= 0) {
+            return void message.reply(`${mentionedUser} doesn't have enough coins to rob.`);
+        }
+
+        const amountToRob = Math.min(Math.floor(Math.random() * victimWallet), 500); // Random amount within the limit and victim's wallet
+
+        // Update the robber's and the victim's coins
+        const robber = await User.findOne({ where: { jid: message.sender.jid } });
+        if (!robber) {
+            return void message.reply('User not found.');
+        }
+
+        robber.wallet += amountToRob;
+        victim.wallet -= amountToRob;
+
+        await robber.save();
+        await victim.save();
+
+        return void message.reply(`You successfully robbed ${amountToRob} coins from ${mentionedUser}.`);
+    };
+}
