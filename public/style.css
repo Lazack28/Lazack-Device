@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+form {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    flex-direction: column;
+}
+form > input {
+    padding: 10px;
+    border: none;
+    margin: 8px 0;
+    width: 100%;
+    border-radius: 3px;
+    background: rgba( 255, 255, 255, 0.45 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4.5px );
+-webkit-backdrop-filter: blur( 4.5px );
+border-radius: 10px;
+border: 1px none rgba( 255, 255, 255, 0.18 );
+}
+
+button {
+    color: aliceblue;
+    padding: 13px;
+    margin-top: 5px;
+    text-transform: uppercase;
+    background:  rgba( 246, 197, 92, 0.45 );;
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 17px );
+-webkit-backdrop-filter: blur( 17px );
+border-radius: 10px;
+border: 1px none rgba( 255, 255, 255, 0.18 );
+}
+.greets {
+    background-color: #f6c55c;
+    height: inherit;
+    width: inherit;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    background: rgba( 246, 197, 92, 0.45 );
+box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.37);
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.outer-form {
+    height: 480px;
+    width: 550px;
+    display: flex;
+    flex-direction: row;
+    background: rgba( 255, 255, 255, 0.2 );
+box-shadow: 0 0 32px 0 rgba(2, 2, 2, 0.37);
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.form {
+    display: flex;   
+    align-items: center;
+    justify-content: center;
+    width: inherit;
+}
+section {
+    height: 100vh;
+    width: auto;
+    display: flex;
+    background-image: url('bgimg.jpg');
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+}
+p {
+    font-family: 'Ubuntu','Courier New', Courier, monospace;
+    font-weight: 400;
+}
+h1 {
+    font-family: 'Ubuntu','Courier New', Courier, monospace;
+    font-weight: 700;
+    text-align: center;
+}
+@media screen and (max-width:524px) {
+       h1 {
+           font-size: x-large;
+       }
+       .outer-form {
+        height: 300px;
+        width: 450px;
+       }
+    }
