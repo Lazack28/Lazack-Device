@@ -13,7 +13,7 @@
   "scripts": {
     "format": "prettier --write --config .prettierrc.json \"src/**/*.ts\"",
     "start": "node --max-old-space-size=4096 dist/bot.js",
-    "build": "yarn rimraf dist/ && yarn tsc -p .",
+    "build": "yarn rimraf dist/ && yarn tsc -p.",
     "postinstall": "yarn build"
   },
   "bugs": {
@@ -22,7 +22,7 @@
   "homepage": "https://github.com/Dkhitman3/Bot",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Dkhitman3/Bot.git"
+    "url": "https://github.com/https://github.com/Lazack28/Lazack-md.git"
   },
   "dependencies": {
     "@adiwajshing/keyed-db": "^0.2.4",
