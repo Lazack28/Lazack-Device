@@ -35,7 +35,7 @@
 ---
 ##
 ### ```Fork Repo```
-2. ***Click [FORK](https://github.com/Lazack28/Lazack-md/fork)***
+2. ***Click [FORK](https://github.com/Lazack28/Lazack-MD/fork)***
  
 ---
 
@@ -49,14 +49,14 @@ Deployments methods
 </p>
 
 <p align="left" >
-    <a href="https://heroku.com/deploy?template=https://github.com/Lazack28/Lazack-md">
+    <a href="https://heroku.com/deploy?template=https://github.com/Lazack28/Lazack-MD">
     <img src="https://telegra.ph/file/873a73bb44e63d9598fa8.png" width="100px" alt="Deploy to Heroku" >
     </a>
 
 </p> 
 
 
-[![Deploy with Heroku](https://www.herokucdn.com/deploy/button.svg "Deploy with Heroku")](https://heroku.com/deploy?template=https://github.com/Lazack28/Lazack-md/ "Deploy with Heroku")
+[![Deploy with Heroku](https://www.herokucdn.com/deploy/button.svg "Deploy with Heroku")](https://heroku.com/deploy?template=https://github.com/Lazack28/Lazack-MD/")
 
 <br>
    
