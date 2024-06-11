@@ -1,5 +1,5 @@
 {
-  "name": "Hitman47",
+  "name": "Lazack28",
   "version": "0.1.0",
   "description": "A WhatsApp bot written in TypeScript using Baileys",
   "author": "dk",
@@ -22,7 +22,7 @@
   "homepage": "https://github.com/Lazack28/Bot",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Lazack28/Bot.git"
+    "url": "git push https://github.com/Lazack28/Lazack-md.git"
   },
   "dependencies": {
     "@adiwajshing/keyed-db": "^0.2.4",
