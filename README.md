@@ -1,113 +1,84 @@
-#### DONT DEPLOY IT... AM UPDATING IT NOW 
-
-
-</p>
-</p>
 <p align="center">
-  <a href="https://chat.whatsapp.com/ICNOZzsDH9E81j3RlqLx4w">
-    <img alt=Support height="250" src="https://telegra.ph/file/1dc10a39146c80069a439.jpg"> 
-    </p>
-<h1 align="center">    𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿
-</h1>
-<p align="center"> 
-    </p>
-
-
-   [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Rockstar-ExtraBold&color=F33A6A&lines=WELCOME+TO+LAZACK+MD+MADE+BY;LAZACK28;THANKS+FOR+VISITING+MY+REPO)](https://git.io/typing-svg)
-
-
-
-<p align="left">
-  <a href="" target="_blank">
-    <img alt="Forks" src="https://img.shields.io/github/forks/Lazack28/Lazack-MD" />
-  </a>
-  
-  
-
-</p>
-<p align="center"><img src="https://profile-counter.glitch.me/{Lazack28}/count.svg" alt="Lazack28 :: Visitor's Count" /></p>
-<p align="center">
- <a href="https://chat.whatsapp.com/BXhYkUaP0RNBf6L6QdyRHo" target="_blank">
-    <img alt="whatsapp Group" src="https://img.shields.io/badge/ LAZACK-BOT Support Group -25D366?style=for-the-badge&logo=whatsapp&logoColor=blue" />
-  </a>
+<img src="https://telegra.ph/file/20c8b2be57cca5ab47230.jpg" alt="nz" width="350"/>
 </p>
 
----
-##
-### ```Fork Repo```
-2. ***Click [FORK](https://github.com/Lazack28/Lazack-MD/fork)***
- 
----
+## ***♥️Hitman47♥️***
+> This Script WhatsApp Bot Using Library Baileys & Script is free for everyone, not for Sale!
+> ***Note: it's a modified version)***
+</br>
 
-### NOW  DEPLOY IT.
-Deployments methods
+<a 
+href="https://github.com/DkHitman/"><img title="Author" src="https://img.shields.io/badge/Author-Hitman47-blue.svg?color=54aeff&style=for-the-badge&logo=github" /></a>  
+<a href="https://github.com/Dkhitman3/Hitman47"><img title="Stars" src="https://img.shields.io/github/stars/Dkhitman3/Hitman47?color=54aeff&style=flat-square" /></a>
+<a href="https://github.com/Dkhitman3/Hitman47/network/members"><img title="Forks" src="https://img.shields.io/github/forks/Dkhitman3/Hitman47?color=54aeff&style=flat-square" /></a>
+<a href="https://github.com/Dkhitman3/Bot/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/Dkhitman3/Bot?label=watchers&color=54aeff&style=flat-square" /></a> <br>
 
- 
-<h4 align="left"> Deploy on Heroku
-</h4>
-
-</p>
-
-<p align="left" >
-    <a href="https://heroku.com/deploy?template=https://github.com/Lazack28/Lazack-md">
-    <img src="https://telegra.ph/file/873a73bb44e63d9598fa8.png" width="100px" alt="Deploy to Heroku" >
-    </a>
-
-</p> 
-
-
-[![Deploy with Heroku](https://www.herokucdn.com/deploy/button.svg "Deploy with Heroku")](https://heroku.com/deploy?template=https://github.com/Lazack28/Lazack-md")
-
-<br>
-   
-
-
-## Thanks To 
-**1:Jarvis-md**
-
-**2:Whizbotmods**
-
-**3:leffysir**
-
-**4:KING OF BOTS GROUP**
-    
-     GMAX TECH GROUP
-
-
-## ⚖️  *LAZACK-BOT - DEVELOPER TEAM* *2024*  ⚖️
-  
-| [Lazack](https://github.com/Lazack28) |
-| Owner, Developer, Maintainer, updates|
-
----
-<a href="[https://github.com/Lazack28.png]"><img src="https://github.com/Lazack28.png" width="200" height="200" alt="Ash"/></a>
- </div>
-<br>
-<h4 align="left">
+1. **Fork the repo**
+    <br>
+<a href='https://github.com/Dkhitman3/Hitman47/fork' target="_blank"><img alt='Fork repo' src='https://img.shields.io/badge/Fork Repo-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
 
 ---
 
-  </br> 
-<h4 align="left">
-##𝐒𝐮𝐩𝐩𝐨𝐫𝐭 :
-    
- ***Tap On Logo To Contat Me***
- <p align="left">
-  <a href="lazacklazaro1@gmail.com">
-    <img src="https://telegra.ph/file/84284eaa31d60db5f2d6c.jpg" align="centre" width="90" />
-   <a href="https://wa.me/255734980103?text=Hi%20Lazack%20Sir...%20I%20need%20some%20help%20in%20Lazack Bot">
-    <img src="https://telegra.ph/file/aa1fd064edcf7c32cf42d.png" align="centre" width="90" />
+### Deployment Methods ♥️
+[![Deploy with Heroku](https://www.herokucdn.com/deploy/button.svg "Deploy with Heroku")](https://heroku.com/deploy?template=https://github.com/Dkhitman3/Hitman47/blob/master/ "Deploy with Heroku")
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/apps/deploy?type=docker&image=quay.io/toshi-san001/koyeb-auto-install:main&env%5BPORT%5D=8000&env%5BPREFIX%5D&&env%5BMONGODB%5D&&env%MODS%5D&name=Hitman47)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/3j9GNw?referralCode=TE7efK)
 
+**here is the video how to deploy**
 
-<p align="left">
-  <a aria-label="Join our chats" href="https://whatsapp.com/channel/0029VaFytPbAojYm7RIs6l1x" target="_blank">
-    <img alt="whatsapp" src="https://img.shields.io/badge/Join Our Bot Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
-  </a>
+[Youtube 🎥](https://youtu.be/K7KycxbCTOs?feature=shared)
 
+### Deployment Guide🏮
+- [Self Hosting Guide](https://github.com/Dkhitman3/Hitman47/tree/master?tab=readme-ov-file/blob/master/Self-Hosting-Guide.md)
+- [Heroku Hosting Guide](https://github.com/Dkhitman3/Hitman47/tree/master?tab=readme-ov-file/blob/master/Heroku-Hosting-Guide.md)
 
+### Preview Info🧧
+- Fully Modular Design </br>
+- Written in [TypeScript](https://www.typescriptlang.org/)
+- Built with [Baileys](https://github.com/adiwajshing/baileys) (A Lightweight full-featured WhatsApp Library)
+- Powered by [ExpressJs](https://expressjs.com/) </br>
+- Database handled via [MongoDB](https://www.mongodb.com/) </br>
+- Self Auth restoration </br>
+
+### Contribution♥️
+- Feel free to open issues regarding any problems or if you have any feature requests 
+- Make sure to follow the ESLint Rules while editing the code and run `yarn format` before opening Pull request 
+
+--- 
+
+## License✡️
+
+> Hitman47 is free and open-source software licensed under the [GNU Affero General Public License v3.0](https://github.com/Dkhitman3/Hitman47/tree/master?tab=readme-ov-file/blob/master/LICENSE)
+
+## Support 🧧
+
+<a href="https://chat.whatsapp.com/CrgPUQwW2LaGxzTC9ZjMbp">
+  <img src="https://img.shields.io/badge/Support_Group-0a0a0a?style=for-the-badge&logo=whatsapp&logoColor=white">
+</a>
 
 </br>
 
-***LAZACK MD MORE UPDATE COMMING SOON....***
+## 🎗Help
+Please give this repo a ⭐ if it helped you.
 
-***FIXING MORE***
+## ✍︎ Hitman47 ♥️
+
+*This is a lovely project by Hitman47 🌹. if you have a problem with this project go fuck yourself. After forking don't do any change. If you wanna do any changes click the following Whatsapp icons and join our groups and contact an Owner*
+ 
+HOW TO REACH THE OWNER? 👇👇👇
+   <a href="https://wa.me/+27844132352?text=Hi%20I%20Am%20From%20GitHub%20☺️">
+    <img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+  </a>&nbsp;&nbsp;
+   <a
+
+## Thanks To♥️
+* [`Shinei | Whatshell`](https://github.com/LuckyYam/)
+
+- 🌱 I’m currently learning **TS Language,B##**
+
+   🧧**I'm mot a developer**🧧
+
+**- 📫 easy to deploy this bot just tag deploy to Heroku that's all** 
+
+- ⚡ Fun fact **I Think I'm Funny.**
+- 
