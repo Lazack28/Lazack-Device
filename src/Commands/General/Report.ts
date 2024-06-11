@@ -23,7 +23,7 @@ interface CustomMessageContent {
     aliases: ['bug'],
     description: 'Send message to mods, report an issue, or give advice',
     usage: '#report <your_message>',
-    category: 'core',
+    category: 'general',
     cooldown: 200
 })
 export default class ReportCommand extends BaseCommand {
