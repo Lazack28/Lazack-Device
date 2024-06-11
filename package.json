@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "A WhatsApp bot written in TypeScript using Baileys",
   "author": "dk",
-  "main": "dist/bot.js",
+  "main": "dist/bot.ts",
   "keywords": [
     "bot",
     "whatsapp",
