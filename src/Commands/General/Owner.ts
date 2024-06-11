@@ -1,33 +1,28 @@
-import { BaseCommand, Command, Message } from '../../Structures';
+import { Message, Command, BaseCommand } from '../../Structures';
 
-interface CustomMessageContent {
-    text: string;
-    footer: string;
-    headerType?: number; 
-}
-
-@Command('owner', {
-    description: 'owner of 𝐉 - 𝐁𝐎𝐓🤭',
-    usage: 'owner',
+@Command('mods', {
+    description: "Displays the bot's moderators",
+    exp: 20,
+    cooldown: 5,
+    dm: true,
     category: 'general',
-    exp: 10,
-    cooldown: 10
+    usage: 'mods',
+    aliases: ['mod', 'owner', 'moderators']
 })
-export default class command extends BaseCommand {
-    override execute = async ({ from, sender, message }: Message): Promise<void> => {
-        const faqText = `*🌹OWNER OF Mircus-md*\n\n🧙‍♂️ Contact: 𝐉𝐅𝐋𝐄𝐗 𝐎𝐆❤‍🔥\n\n🔗 *https://wa.me/255786535571*\n\n🧙‍♂️ Contact: LAZACK❤‍🔥\n\n🔗 *https://wa.me/255734980103*`;
- `;
-Mircus-md*\n\n
-        const footerText = '© Hitman47 Inc 2024';
+export default class ModsCommand extends BaseCommand {
+    public override execute = async ({ reply }: Message): Promise<void> => {
+        if (!this.client.config.mods.length) {
+            return void reply('No moderators found.');
+        }
 
-        const messageContent: CustomMessageContent = {
-            text: faqText,
-            footer: footerText,
-            headerType: 1
-        };
+        let text = `🛡️ *${this.client.config.name} Moderators* \n\n`;
+        this.client.config.mods.forEach((moderator, index) => {
+            const username = this.client.contact.getContact(moderator).username;
+            const contactLink = `https://wa.me/+${moderator.split('@')[0]}`;
+            
+            text += `*#${index + 1}*\n👤 *Username:* ${username}\n📞 *Contact:* [Contact Moderator](${contactLink})\n\n`;
+        });
 
-        return void (await this.client.sendMessage(from, messageContent, {
-            quoted: message
-        }));
+        return void (await reply(text));
     }
 }
