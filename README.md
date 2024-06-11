@@ -33,11 +33,7 @@
 </p>
 
 ---
-### ```Scan QR Code```
-
-1. ***Get [SESSION-ID](https://session-dnke.onrender.com) by pairing code. `Whatapp>Three dots>Linked Devices****
-2. . ***GET [PAIR CODE](https://session-dnke.onrender.com/pair)***
---- 
+##
 ### ```Fork Repo```
 2. ***Click [FORK](https://github.com/Lazack28/Lazack-md/fork)***
  
@@ -60,7 +56,7 @@ Deployments methods
 </p> 
 
 
-[![Deploy with Heroku](https://www.herokucdn.com/deploy/button.svg "Deploy with Heroku")](https://heroku.com/deploy?template=https://github.com/Lazack28/Lazack-md/blob/master/ "Deploy with Heroku")
+[![Deploy with Heroku](https://www.herokucdn.com/deploy/button.svg "Deploy with Heroku")](https://heroku.com/deploy?template=https://github.com/Lazack28/Lazack-md/ "Deploy with Heroku")
 
 <br>
    
