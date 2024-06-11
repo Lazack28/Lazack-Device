@@ -8,6 +8,9 @@ export class GroupSchema {
     @prop({ type: Boolean, required: true, default: false })
     public events!: boolean
 
+    @prop({ type: Boolean, required: true, default: false })
+    public wild!: boolean
+
     @prop({ type: String, required: true, default: 'all' })
     public bot!: string
 
