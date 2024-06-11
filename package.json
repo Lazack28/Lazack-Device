@@ -12,7 +12,7 @@
   "license": "AGPL-3.0",
   "scripts": {
     "format": "prettier --write --config .prettierrc.json \"src/**/*.ts\"",
-    "start": "node --max-old-space-size=4096 dist/bot.js",
+    "start": "node --max-old-space-size=4096 dist/bot.ts",
     "build": "yarn rimraf dist/ && yarn tsc -p.",
     "postinstall": "yarn build"
   },
