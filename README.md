@@ -19,7 +19,7 @@
 
 <p align="left">
   <a href="" target="_blank">
-    <img alt="Forks" src="https://img.shields.io/github/forks/Lazack28/Lazack-md" />
+    <img alt="Forks" src="https://img.shields.io/github/forks/Lazack28/Lazack-MD" />
   </a>
   
   
@@ -56,7 +56,7 @@ Deployments methods
 </p> 
 
 
-[![Deploy with Heroku](https://www.herokucdn.com/deploy/button.svg "Deploy with Heroku")](https://heroku.com/deploy?template=https://github.com/Lazack28/Lazack-MD/")
+[![Deploy with Heroku](https://www.herokucdn.com/deploy/button.svg "Deploy with Heroku")](https://heroku.com/deploy?template=https://github.com/Lazack28/Lazack-MD")
 
 <br>
    
