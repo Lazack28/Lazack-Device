@@ -280,7 +280,7 @@ export class MessageHandler {
         }
         return this.client.log(
             `Successfully loaded ${chalk.cyanBright(this.commands.size)} ${
-                this.commands.size > 1 ? 'commands' : 'command'
+                this.commands.size > 1 ? 'Commands' : 'command'
             } with ${chalk.yellowBright(this.aliases.size)} ${this.aliases.size > 1 ? 'aliases' : 'alias'}`
         )
     }
