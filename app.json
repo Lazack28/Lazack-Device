@@ -7,9 +7,9 @@
     "whatsapp-bot",
     "whatsapp-anime-bot"
   ],
-  "logo": "https://raw.githubusercontent.com/Lazack28/Lazack-md/master/assets/images/hitman.png",
-  "website": "https://github.com/Lazack28/Bot#readme",
-  "repository": "https://github.com/Lazack28/Lazack-md.git",
+  "logo": "https://raw.githubusercontent.com/Lazack28/Lazack-MD/master/assets/images/hitman.png",
+  "website": "https://github.com/Lazack28/Lazack-MD#readme",
+  "repository": "https://github.com/Lazack28/Lazack-MD.git",
   "success_url": "/",
   "env": {
     "BOT_NAME": {
