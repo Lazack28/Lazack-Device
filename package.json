@@ -1,5 +1,5 @@
 {
-  "name": "Lazack28",
+  "name": "Hitman47",
   "version": "0.1.0",
   "description": "A WhatsApp bot written in TypeScript using Baileys",
   "author": "dk",
@@ -17,12 +17,12 @@
     "postinstall": "yarn build"
   },
   "bugs": {
-    "url": "https://github.com/Lazack28/Lazack-MD/issues"
+    "url": "https://github.com/Dkhitman3/Bot/issues"
   },
-  "homepage": "https://github.com/Lazack28/Lazack-MD",
+  "homepage": "https://github.com/Dkhitman3/Bot",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Lazack28/Lazack-MD.git"
+    "url": "https://github.com/Dkhitman3/Bot.git"
   },
   "dependencies": {
     "@adiwajshing/keyed-db": "^0.2.4",

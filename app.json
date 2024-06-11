@@ -1,5 +1,5 @@
 {
-  "name": "Maria",
+  "name": "Hitman47",
   "description": "A WhatsApp Bot written in TypeScript using Baileys.",
   "keywords": [
     "bot",
@@ -7,9 +7,9 @@
     "whatsapp-bot",
     "whatsapp-anime-bot"
   ],
-  "logo": "https://telegra.ph/file/258325575735ab73216bf.jpg",
-  "website": "https://github.com/Lazack28/Mircus-md#readme",
-  "repository": "https://github.com/Lazack28/Mircus-md.git",
+  "logo": "https://raw.githubusercontent.com/Dkhitman3/Hitman47/master/assets/images/hitman.png",
+  "website": "https://github.com/Dkhitman3/Bot#readme",
+  "repository": "https://github.com/Dkhitman3/Hitman47.git",
   "success_url": "/",
   "env": {
     "BOT_NAME": {
