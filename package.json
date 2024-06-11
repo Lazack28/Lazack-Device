@@ -17,12 +17,12 @@
     "postinstall": "yarn build"
   },
   "bugs": {
-    "url": "https://github.com/Lazack28/Lazack-md/issues"
+    "url": "https://github.com/Lazack28/Lazack-MD/issues"
   },
-  "homepage": "https://github.com/Lazack28/Lazack-md",
+  "homepage": "https://github.com/Lazack28/Lazack-MD",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Lazack28/Lazack-md.git"
+    "url": "https://github.com/Lazack28/Lazack-MD.git"
   },
   "dependencies": {
     "@adiwajshing/keyed-db": "^0.2.4",
