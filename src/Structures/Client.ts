@@ -20,10 +20,10 @@ export class Client extends (EventEmitter as new () => TypedEventEmitter<Events>
         this.config = {
             name: process.env.BOT_NAME || 'bot',
             session: process.env.SESSION || 'SESSION',
-            prefix: process.env.PREFIX || '!',
+            prefix: process.env.PREFIX || '#',
             gkey: 'AIzaSyDMbI3nvmQUrfjoCJYLS69Lej1hSXQjnWIEcx',
-            mods: (process.env.MODS || '255786535571').split(', ').map((user) => `${user}@s.whatsapp.net`),
-            chatBotUrl: 'http://api.brainshop.ai/get?bid=182197&key=b4K2zlAF0qnHd3Ap&uid=[uid]&msg=[msg]',
+            mods: (process.env.MODS || '27844132352').split(', ').map((user) => `${user}@s.whatsapp.net`),
+            chatBotUrl: 'http://api.brainshop.ai/get?bid=170305&key=8OpWeiccHtCb1dFj&uid=[uid]&msg=[msg',
             PORT: Number(process.env.PORT || 3000)
         }
         new Server(this)
@@ -31,7 +31,7 @@ export class Client extends (EventEmitter as new () => TypedEventEmitter<Events>
 
     public start = async (): Promise<client> => {
         await connect(
-            'mongodb+srv://test:123johniphone@cluster0.us8smrp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+            'mongodb+srv://herrison:wells@cluster0.tqhtuou.mongodb.net/?retryWrites=true&w=majority'
         )
         this.log('Connected to the Database')
         const { useDatabaseAuth } = new AuthenticationFromDatabase(this.config.session)
@@ -41,7 +41,7 @@ export class Client extends (EventEmitter as new () => TypedEventEmitter<Events>
             printQRInTerminal: true,
             auth: state,
             logger: P({ level: 'fatal' }),
-            browser: ['Maria🤭❤️', 'fatal', '4.0.0'],
+            browser: ['Hitman47😈', 'fatal', '4.0.0'],
             getMessage: async (key) => {
                 return {
                     conversation: ''
@@ -137,7 +137,7 @@ export class Client extends (EventEmitter as new () => TypedEventEmitter<Events>
     public assets = new Map<string, Buffer>()
 
     public log = (text: string, error: boolean = false): void =>
-        console.log(chalk[error ? 'red' : 'blue']('[JFLEX]'), chalk[error ? 'redBright' : 'greenBright'](text))
+        console.log(chalk[error ? 'red' : 'blue']('[Dkhitman3]'), chalk[error ? 'redBright' : 'greenBright'](text))
 
     public QR!: Buffer
 
