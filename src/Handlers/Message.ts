@@ -3,11 +3,11 @@ import { readdirSync } from 'fs-extra'
 import chalk from 'chalk'
 import { schedule } from 'node-cron'
 import { IQuiz } from 'anime-quiz'
-//import { ICharacter as WaifuResponse, Character } from '@shineiichijo/marika'
+import { ICharacter as WaifuResponse, Character } from '@shineiichijo/marika'
 import { Message, Client, BaseCommand } from '../Structures'
-import { ICommand, IArgs} from '../Types'
+import { ICommand, IArgs, IPokemonAPIResponse } from '../Types'
 import axios from 'axios'
-//import { Pokemon } from '../Database'
+import { Pokemon } from '../Database'
 import Game from 'chess-node'
 
 export class MessageHandler {
@@ -15,7 +15,7 @@ export class MessageHandler {
 
     public groups!: string[]
 
-    //public wild: string[] = []
+    public wild: string[] = []
 
     public chara: string[] = []
 
@@ -25,8 +25,8 @@ export class MessageHandler {
         ongoing: new Set<string>()
     }
 
-    /* private spawnPokemon = async (): Promise<void> => {
-        schedule('/7 * * * *', async () => {
+    private spawnPokemon = async (): Promise<void> => {
+        schedule('*/7 * * * *', async () => {
             if (this.wild.length < 1) return void null
             for (let i = 0; i < this.wild.length; i++) {
                 setTimeout(async () => {
@@ -54,7 +54,7 @@ export class MessageHandler {
             }
         })
     }
-*/
+
     public handleMessage = async (M: Message): Promise<void> => {
         const { prefix } = this.client.config
         const args = M.content.split(' ')
@@ -98,12 +98,12 @@ export class MessageHandler {
         const { bot } = await this.client.DB.getGroup(M.from)
         const commands = ['switch', 'hello', 'hi']
         const { banned, tag } = await this.client.DB.getUser(M.sender.jid)
-        if (banned) return void M.reply('*You are banned from using commands*')
+        if (banned) return void M.reply('You are banned from using commands')
         if (!tag)
             await this.client.DB.updateUser(M.sender.jid, 'tag', 'set', this.client.utils.generateRandomUniqueTag())
         const cmd = args[0].toLowerCase().slice(prefix.length)
         const command = this.commands.get(cmd) || this.aliases.get(cmd)
-        if (!command) return void M.reply('*No such command, Bitch!😂🤭*')
+        if (!command) return void M.reply('No such command, Bitch!')
         const disabledCommands = await this.client.DB.getDisabledCommands()
         const index = disabledCommands.findIndex((CMD) => CMD.command === command.name)
         if (index >= 0)
@@ -112,11 +112,8 @@ export class MessageHandler {
                     disabledCommands[index].disabledBy
                 }* in *${disabledCommands[index].time} (GMT)*. ❓ *Reason:* ${disabledCommands[index].reason}`
             )
-        if (command.config.category === 'dev' && !this.client.config.mods.includes(M.sender.jid))
-            return void M.reply('*This command can only be used by the MODS*')
-        if (command.config.category === 'moderation' && !this.client.config.mods.includes(M.sender.jid))
-            return void M.reply('*I need to be an admin to use this command*')
-        if (M.chat === 'dm' && !command.config.dm) return void M.reply('*This command can only be used in groups*')
+        if (command.config.category === 'boss' && !this.client.config.mods.includes(M.sender.jid))
+            return void M.reply('This command can only be used by the MODS')
         const isAdmin = M.groupMetadata?.admins?.includes(this.client.correctJid(this.client.user?.id || ''))
         if (command.config.adminRequired && !isAdmin) return void M.reply('I need to be an admin to use this command')
         const cooldownAmount = (command.config.cooldown ?? 3) * 1000
@@ -125,7 +122,7 @@ export class MessageHandler {
             const cd = this.cooldowns.get(`${M.sender.jid}${command.name}`)
             const remainingTime = this.client.utils.convertMs((cd as number) - Date.now())
             return void M.reply(
-                `*Woahh!⏳ Slow down. You can use this command again in ${remainingTime}* ${
+                `Woahh!⏳ Slow down. You can use this command again in *${remainingTime}* ${
                   remainingTime > 1 ? 'seconds' : 'second'
                 }` 
             )
@@ -138,7 +135,7 @@ export class MessageHandler {
         }
     }
 
-  /*  public summonPokemon = async (
+    public summonPokemon = async (
         jid: string,
         options: { pokemon: string | number; level?: number }
     ): Promise<void> => {
@@ -161,10 +158,10 @@ export class MessageHandler {
             image: buffer,
             caption: `A wild Pokemon appeared!`
         }))
-    }*/
+    }
 
-    /* private spawnChara = async (): Promise<void> => {
-        schedule('/5 * * * *', async () => {
+    private spawnChara = async (): Promise<void> => {
+        schedule('*/5 * * * *', async () => {
             if (this.chara.length < 1) return void null
             for (let i = 0; i < this.chara.length; i++) {
                 setTimeout(async () => {
@@ -197,7 +194,7 @@ export class MessageHandler {
                 }, (i + 1) * 20 * 1000)
             }
         })
-    }*/
+    }
 
     private moderate = async (M: Message): Promise<void> => {
     if (M.chat !== 'group') return void null;
@@ -222,7 +219,7 @@ export class MessageHandler {
       }
     };
 
-    /* public loadCharaEnabledGroups = async (): Promise<void> => {
+    public loadCharaEnabledGroups = async (): Promise<void> => {
         const groups = !this.groups ? await this.client.getAllGroups() : this.groups
         for (const group of groups) {
             const data = await this.client.DB.getGroup(group)
@@ -251,7 +248,7 @@ export class MessageHandler {
         )
         await this.spawnPokemon()
     }            
-*/
+
     private formatArgs = (args: string[]): IArgs => {
         args.splice(0, 1)
         return {
@@ -292,11 +289,11 @@ export class MessageHandler {
 
     public aliases = new Map<string, ICommand>()
 
-    //public pokemonResponse = new Map<string, Pokemon>()
+    public pokemonResponse = new Map<string, Pokemon>()
 
-    //public charaResponse = new Map<string, { price: number; data: WaifuResponse }>()
+    public charaResponse = new Map<string, { price: number; data: WaifuResponse }>()
 
-   // public pokemonTradeResponse = new Map<string, { offer: Pokemon; creator: string; with: string }>()
+    public pokemonTradeResponse = new Map<string, { offer: Pokemon; creator: string; with: string }>()
 
     private cooldowns = new Map<string, number>()
 
@@ -307,4 +304,4 @@ export class MessageHandler {
         failed: new Map<string, string[]>(),
         creator: new Map<string, string>()
     }
-            }
+}
