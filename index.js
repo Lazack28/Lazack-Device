@@ -1,48 +1,75 @@
-const fs = require("fs").promises;
-const path = require("path");
-const config = require("./config");
-const connect = require("./lib/connection");
-const { getandRequirePlugins } = require("./assets/database/plugins");
+const { command, commands } = require("./plugins");
+let config = require("../config");
+const axios = require("axios");
+const cheerio = require("cheerio");
+const OpenAI = require("openai");
+const openai_api = "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";
+const openai = new OpenAI({ apiKey: openai_api });
 
-// eslint-disable-next-line no-undef
-global.__basedir = __dirname;
+const pm2 = require("pm2");
 
-const readAndRequireFiles = async (directory) => {
-  try {
-    const files = await fs.readdir(directory);
-    return Promise.all(
-      files
-        .filter((file) => path.extname(file).toLowerCase() === ".js")
-        .map((file) => require(path.join(directory, file)))
-    );
-  } catch (error) {
-    console.error("Error reading and requiring files:", error);
-    throw error;
-  }
+const {
+  getBuffer,
+  decodeJid,
+  parseJid,
+  parsedJid,
+  getJson,
+  isIgUrl,
+  isUrl,
+  getUrl,
+  qrcode,
+  secondsToDHMS,
+  igdl,
+  formatBytes,
+  sleep,
+  clockString,
+  validateQuality,
+  runtime,
+  AddMp3Meta,
+  Bitly,
+  isNumber,
+  getRandom,
+  findMusic,
+  WriteSession,
+  toAudio,
+  readQr,
+  getLyrics,
+  isAdmin,
+} = require("./functions");
+const { serialize, downloadMedia } = require("./serialize");
+const Greetings = require("./Greetings");;
+module.exports = {
+  toAudio,
+  isPrivate: config.WORK_TYPE.toLowerCase() === "private",
+  Greetings,
+  isAdmin,
+  serialize,
+  getLyrics,
+  readQr,
+  downloadMedia,
+  Function: command,
+  command,
+  commands,
+  getBuffer,
+  WriteSession,
+  decodeJid,
+  parseJid,
+  parsedJid,
+  getJson,
+  isIgUrl,
+  isUrl,
+  getUrl,
+  validateQuality,
+  qrcode,
+  secondsToDHMS,
+  formatBytes,
+  igdl, 
+  sleep,
+  clockString,
+  runtime,
+  AddMp3Meta,
+  Bitly,
+  isNumber,
+  getRandom,
+  findMusic,
 };
-
-async function initialize() {
- 
-  console.log("X-Asena");
-  try {
-    // eslint-disable-next-line no-undef
-    await readAndRequireFiles(path.join(__dirname, "/assets/database/"));
-    console.log("Syncing Database");
-
-    await config.DATABASE.sync();
-
-    console.log("⬇  Installing Plugins...");
-    // eslint-disable-next-line no-undef
-    await readAndRequireFiles(path.join(__dirname, "/assets/plugins/"));
-    await getandRequirePlugins();
-    console.log("✅ Plugins Installed!");
-
-    return  await connect();
-  } catch (error) {
-    console.error("Initialization error:", error);
-    // eslint-disable-next-line no-undef
-    return process.exit(1); // Exit with error status
-  }
-}
-
-initialize();
