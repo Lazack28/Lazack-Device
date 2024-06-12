@@ -2,7 +2,6 @@
 
 1. **Fork the repo**
     <br>
-<a href='https://github.com/Dkhitman3/Hitman47/fork' target="_blank"><img alt='Fork repo' src='https://img.shields.io/badge/Fork Repo-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=black&color=black'/></a>
 
 ---
 
