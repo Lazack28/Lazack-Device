@@ -1,0 +1,7 @@
+build:
+  docker:
+      worker: /aju/Dockerfile
+run:
+   worker: npm start
+   
+
