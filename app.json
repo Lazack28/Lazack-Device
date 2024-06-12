@@ -1,0 +1,28 @@
+{
+  "name": "Lazack-MD",
+  "logo": "https://i.imgur.com/D4CwwgN.jpeg",
+  "description": "WhatsApp Bot",
+  "repository": "https://github.com/Lazack28/Lazack-md",
+  "keywords": ["bot","whatsapp","whatsapp-bot"],
+  "env": {
+ "SESSION_ID": {
+    "description": "The session ID you Recieved",
+    "required": true
+    }
+},
+"buildpacks": [
+
+  {
+
+      "url": "heroku/nodejs"
+
+  },
+
+  {
+
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+
+  }
+
+]
+}
