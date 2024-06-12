@@ -1,14 +1,14 @@
 {
-  "name": "Ajuser",
+  "name": "Lazack",
   "version": "7.3.6",
-  "description": "Ajuser is the Modified Version of WhatsAsena, Made By @aju with Baileys.",
+  "description": "Lazack is the Modified Version of WhatsAsena, Made By lazack28 with Baileys.",
   "main": "./Ajuser/bot.js",
   "scripts": {
     "start": "supervisor -s bot.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aju001/Ajuser"
+    "url": "git+https://github.com/Lazack28/Lazack-md"
   },
   "keywords": [
     "whatsapp",
@@ -21,9 +21,9 @@
   "developer": "@aju001 / @aju001",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/aju001/Ajuser/issues"
+    "url": "https://github.com/Lazack28/Lazack-md/issues"
   },
-  "homepage": "https://github.com/aju001/Ajuser#readme",
+  "homepage": "https://github.com/Lasack28/Lazack-md#readme",
   "dependencies": {
     "@lh2020/speedtest-net": "^2.1.1",
     "textmaker-thiccy": "1.2.1",
