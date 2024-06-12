@@ -1,11 +1,11 @@
 {
-    "name": "Ajuser",
-    "description": "Ajuser is the Modified Version of WhatsAsena, Made By @aju with Baileys.",
-    "logo": "https://i.ibb.co/Y2mXdR5/ajuser.jpg",
+    "name": "lazack",
+    "description": "lazack is the Modified Version of WhatsAsena, Made By @lazackwith Baileys.",
+    "logo": "https://telegra.ph/file/2cbb7abbf988bf9e7a088.jpg",
     "keywords": ["whatsapp", "userbot", "julie", "WhatsAsena", "mwol", "bot", "ai"],
-    "repository": "https://github.com/aju001/Ajuser",
-    "website":   "https://github.com/aju001/Ajuser",
-    "success_url": "https://github.com/aju001/Ajuser",
+    "repository": "https://github.com/Lazack28/Lazack-md",
+    "website":   "https://github.com/Lazack28/Lazack-mf",
+    "success_url": "https://github.com/Lazack28/Lazack-md",
     "stack": "container",
     "env": {
         "AJU_SESSION": {
