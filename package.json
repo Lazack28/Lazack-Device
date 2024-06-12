@@ -50,12 +50,12 @@
     "ytsr": "^3.8.4"
   },
   "scripts": {
-    "start": "pm2 start index.js --name x-asena && pm2 logs x-asena",
+    "start": "pm2 start index.js --name lazack && pm2 logs lazack",
     "code": "node lib/pcode.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/X-Electra/X-Asena.git"
+    "url": "git+https://github.com/Lazack28/Lazack-md.git"
   },
   "keywords": [
     "bot",
@@ -64,9 +64,9 @@
   "author": "Neeraj-x0",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/X-Electra/X-Asena/issues"
+    "url": "https://github.com/Lazack28/Lazack-md/issues"
   },
-  "homepage": "https://github.com/X-Electra/X-Asena#readme",
+  "homepage": "https://github.com/Lazack28/Lazack-md#readme",
   "devDependencies": {
     "@eslint/js": "^9.4.0",
     "eslint": "^9.4.0",
