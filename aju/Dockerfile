@@ -1,24 +1,8 @@
-FROM node:lts-buster
+FROM quay.io/lyfe00011/test:beta
 
-RUN apt-get update && \
-  apt-get install -y \
-  ffmpeg \
-  imagemagick \
-  webp && \
-  apt-get upgrade -y && \
-  npm i pm2 -g && \
-  rm -rf /var/lib/apt/lists/*
-  
-RUN git clone https://github.com/Lazack28/Lazack-md  /root/Lazack
-WORKDIR /root/Lazack/
-
-
-COPY package.json .
-RUN npm install pm2 -g
-RUN npm install --legacy-peer-deps
-
-COPY . .
-
-EXPOSE 5000
-
+RUN git clone https://github.com/aju001/Ajuser /root/WhatsAsenaDuplicated
+WORKDIR /root/WhatsAsenaDuplicated/
+RUN yarn install --no-audit
+RUN git clone https://github.com/aju001/uploads
+RUN cp -R /root/Utils/* /root/WhatsAsenaDuplicated 
 CMD ["node", "bot.js"]
