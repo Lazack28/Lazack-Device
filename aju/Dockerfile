@@ -1,4 +1,4 @@
-FROM quay.io/lyfe00011/test:beta
+FROM node:lts-buster
 
 RUN git clone https://github.com/aju001/Ajuser /root/WhatsAsenaDuplicated
 WORKDIR /root/WhatsAsenaDuplicated/
