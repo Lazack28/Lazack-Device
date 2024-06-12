@@ -2,7 +2,7 @@
   "name": "Lazack",
   "version": "7.3.6",
   "description": "Lazack is the Modified Version of WhatsAsena, Made By lazack28 with Baileys.",
-  "main": "./Ajuser/bot.js",
+  "main": "./Lazack/bot.js",
   "scripts": {
     "start": "supervisor -s bot.js"
   },
@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/Lazack28/Lazack-md/issues"
   },
-  "homepage": "https://github.com/Lasack28/Lazack-md#readme",
+  "homepage": "https://github.com/Lazack28/Lazack-md#readme",
   "dependencies": {
     "@lh2020/speedtest-net": "^2.1.1",
     "textmaker-thiccy": "1.2.1",
