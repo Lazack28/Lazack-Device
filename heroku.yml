@@ -1,3 +1,6 @@
-build:
-    docker:
-        web: Dockerfile
+run:
+   worker: npm start
+
+ build:
+  docker:
+      worker: /Dockerfile
