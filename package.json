@@ -1,75 +1,83 @@
 {
-  "name": "x-asena",
-  "version": "2.0.0",
-  "description": "Whatsapp Bot",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
+  "name": "BLADE-MD",
+  "version": "0.0.7",
+  "description": "Multi device whatsapp bot by Blade.",
+  "main": "lib/client.js",
+  "type": "commonjs",
+  "license": "GPL-3.0",
+  "scripts": {
+    "start": "pm2 start lib/client.js --deep-monitoring --attach --name BLADE",
+    "stop": "pm2 stop blade"
   },
+  "author": "Alextv",
   "dependencies": {
     "@adiwajshing/keyed-db": "^0.2.4",
-    "@google/generative-ai": "^0.5.0",
-    "@hapi/boom": "^10.0.1",
-    "@neeraj-x0/nodetoolkit": "^1.0.3",
-    "acrcloud": "^1.4.0",
-    "axios": "^1.4.0",
-    "baileys": "github:X-Electra/baileys",
-    "bitly": "^7.1.2",
-    "browser-id3-writer": "^4.4.0",
-    "dotenv": "^16.4.5",
+    "@hapi/boom": "^9.1.4",
+    "@sampandey001/baileys": "latest",
+    "aptoide-scraper":"^1.0.1",
+    "@shineiichijo/marika": "^2.0.3",
+    "anime-character-random": "latest",
+    "async-g-i-s": "^1.4.0",
+    "awesome-phonenumber": "^3.3.0",
+    "axios": "^0.24.0",
+    "cache-manager": "^5.3.0",
+    "chalk": "^4.1.2",
+    "cheerio": "^1.0.0-rc.10",
+    "child_process": "^1.0.2",
+    "crypto-js": "latest",
+    "discord-mongoose-economy": "^1.2.0",
+    "discord-xp": "^1.1.16",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "fb-info-video": "^1.0.2",
+    "ffmpeg": "^0.0.4",
     "file-type": "^16.5.3",
     "fluent-ffmpeg": "^2.1.2",
     "form-data": "^4.0.0",
-    "got": "^11.8.2",
-    "heroku-client": "^3.1.0",
-    "jimp": "^0.16.13",
-    "jsdom": "^22.1.0",
-    "jsqr": "^1.4.0",
-    "jszip": "^3.10.1",
-    "libphonenumber-js": "^1.11.2",
-    "node-cron": "^3.0.3",
-    "node-webpmux": "^3.1.7",
-    "open-sans-fontface": "^1.4.0",
-    "openai": "^4.17.4",
-    "pg": "^8.11.5",
-    "pino": "^8.14.1",
-    "pm2": "^5.3.0",
-    "python-shell": "^5.0.0",
-    "qrcode": "^1.5.3",
-    "qrcode-reader": "^1.0.4",
-    "qrcode-terminal": "^0.12.0",
-    "rimraf": "^5.0.5",
-    "say": "^0.16.0",
-    "sequelize": "^6.23.0",
-    "simple-git": "^3.24.0",
-    "socket.io-client": "^4.7.5",
-    "spotifydl-core": "^0.2.0",
-    "sqlite3": "^5.1.7",
-    "stream-buffers": "^3.0.2",
-    "x-asena": "^1.0.1",
-    "ytsr": "^3.8.4"
+    "fs-extra": "^10.1.0",
+    "google-it": "^1.6.2",
+    "google-tts-api": "^2.0.2",
+    "heroku-client": "3.1.0",
+    "human-readable": "^0.2.1",
+    "jimp": "^0.16.1",
+    "jsdom": "^16.4.0",
+    "koyeb-api-client": "latest",
+    "mailist": "^1.0.3",
+    "moment-timezone": "^0.5.34",
+    "mongoose": "^6.2.1",
+    "mumaker": "^2.0.0",
+    "node-cron": "^3.0.0",
+    "node-fetch": "^2.6.1",
+    "node-schedule": "^2.1.1",
+    "node-webpmux": "^3.1.0",
+    "openai": "4.25.0",
+    "pastebin-js": "latest",
+    "path": "^0.12.7",
+    "pm2": "^5.3.1",
+    "request": "^2.88.2",
+    "secktor-pack": "latest",
+    "simple-git": "^3.16.1",
+    "soundcloud-downloader": "^1.0.0",
+    "tiktok-scraper": "^1.4.36",
+    "translatte": "^3.0.1",
+    "util": "^0.12.4",
+    "vz-tiktok-downloader": "^2.2.5",
+    "wa-sticker-formatter": "^4.3.2",
+    "ytdl-secktor": "latest"
   },
-  "scripts": {
-    "start": "pm2 start index.js --name lazack && pm2 logs lazack",
-    "code": "node lib/pcode.js"
+  "directories": {
+    "lib": "lib",
+    "assets": "lib/assets"
+  },
+  "devDependencies": {
+    "pino": "^7.0.5"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Lazack28/Lazack-md.git"
+    "url": "git+https://github.com/Bladeh4x/BLADE-MD.git"
   },
-  "keywords": [
-    "bot",
-    "whatsapp"
-  ],
-  "author": "Neeraj-x0",
-  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Lazack28/Lazack-md/issues"
+    "url": "https://github.com/Bladeh4x/BLADE-MD/issues"
   },
-  "homepage": "https://github.com/Lazack28/Lazack-md#readme",
-  "devDependencies": {
-    "@eslint/js": "^9.4.0",
-    "eslint": "^9.4.0",
-    "globals": "^15.4.0"
-  }
+  "homepage": "https://github.com/Bladeh4x/BLADE-MD#readme"
 }
