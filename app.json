@@ -87,12 +87,17 @@
     "description": "Put packname;authorname.",
      "value": "lazack",
      "required": false 
+  },
+  "heroku": {
+    "description": "Weather it is on heroku or not", 
+     "value": "true",
+     "required": false 
   }
 },
-  "formation": {
-      "worker": {
-          "quantity": 1,
-          "size": "free"
-      }
-  }
-    }
+"formation": {
+		"worker": {
+			"quantity": 1,
+			"size": "basic"
+ 		}
+	}
+}
