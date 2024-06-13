@@ -35,12 +35,12 @@
 </p>
 
 ---
-### ```Scan QR Code```
+***Scan QR Code***
 
 1. ***Get [SESSION-ID](https://session-dnke.onrender.com) by pairing code. `Whatapp>Three dots>Linked Devices****
 2. . ***GET [PAIR CODE](https://session-dnke.onrender.com/pair) currently not working please use session id cause it works best***
 --- 
-### ```Fork Repo```
+ ***Fork Repo***
 2. ***Click [FORK](https://github.com/Lazack28/Lazack-md/fork)***
  
 ---
@@ -50,7 +50,7 @@ JOIN THE GROUP TO GET MONGODB URI WHICH WILL HELP YOU TO RUN THE BOT
 
 ---
 
-### NOW  DEPLOY IT.
+ ***NOW  DEPLOY IT.***
 Deployments methods
 
  
@@ -71,7 +71,8 @@ Deployments methods
 
 
 ----
-##  💻 ***LAZACK-BOT - DEVELOPER TEAM* *2024***
+
+💻 ***LAZACK-MD DEVELOPER TEAM* *2024***
   
 | [Lazack](https://github.com/Lazack28) |
 | Owner, Developer, Maintainer, updates|
