@@ -55,7 +55,7 @@
        "value": "255734980103"
   },
    "SESSION_ID": {
-    "description": "Please put your SESSION_ID here,if you don't have visit https://secktorbot.herokuapp.com/session "
+    "description": "Please put your SESSION_ID here,if you don't have visit Lazack md "
   },
     "OPENAI_API_KEY": {
     "description": "Please put your OPENAI api key here.Get it from beta.openai.com ",
@@ -71,7 +71,7 @@
     "description": "A secret String for Mongodb Connection.(Required)"
   },
     "THEME": {
-    "description": "Put the theme name you want to use. Avilable themes are SECKTOR,ZEROTWO,NEZUKO,LUFFY,GOKU and many more..",
+    "description": "Put the theme name you want to use. Avilable themes are LAZACK and many more..",
      "value": "LAZACK"
   },
     "WORKTYPE": {
