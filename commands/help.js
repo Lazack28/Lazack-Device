@@ -42,28 +42,28 @@ Secktor.cmd({
                     .locale('id')
                 const date = moment.tz('asia/Islamabad').format('DD/MM/YYYY')
                 let total = await sck1.countDocuments()
-                let str = `╭––〘 ` + fancytext(Config.ownername.split(' ')[0], 38) + `〙–––►\n`
+                let str = `╭––〘  LAZACK MD  〙–––►\n`
                 str +=
                     '```' + `
 ┆►┆➪ 𝐔𝐬𝐞𝐫: ${citel.pushName} 
 ┆►┆➪ 𝐓𝐡𝐞𝐦𝐞𝐬: ${tlang().title}
 ┆►┆➪ 𝐏𝐫𝐞𝐟𝐢𝐱𝐞: 〘 ${prefix} 〙
-┆►┆➪ 𝐎𝐰𝐧𝐞𝐫: ${Config.ownername} 
+┆►┆➪ 𝐎𝐰𝐧𝐞𝐫: LAZACK28 
 ┆►┆➪ 𝐏𝐥𝐮𝐠𝐢𝐧𝐬: ${commands.length} 
 ┆►┆➪ 𝐔𝐬𝐞𝐫: ${total} 
 ┆►┆➪ 𝐔𝐩𝐭𝐢𝐦𝐞: ${runtime(process.uptime())} 
 ┆►┆➪ 𝐌𝐞𝐦: ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())} 
 ┆►┆➪ 𝐓𝐢𝐦𝐞: ${time} 
 ┆►┆➪ 𝐃𝐚𝐭𝐞: ${date} 
-┆►┆➪ *_DEVELLOPER: LAZACK28_*
-┆►┆➪ *_NUMBER:+255734980103_*
-┆►┆➪ *_I'AM LAZACK MD 🙃_*
-┆►┆➪ *remember to join all lazack md groups*
+┆►┆➪ *DEVELLOPER*: *LAZACK28*
+┆►┆➪ *NUMBER:+255734980103*
+┆►┆➪ *I'AM LAZACK MD 🙃*
+┆►┆➪ *remember to star*
 ┆►╰––––––––––––►
 ╰––––––––––––––––►\n
 ` + '```'
                 for (const category in cmds) 
-                {
+                    {
                    str += `╭––〘 *${tiny(category)}* 〙–––►\n` ;
                    if(text.toLowerCase() == category.toLowerCase()){ str = ` *${tiny(category)}* ✤––––––––––––\n` ;      
                         for (const plugins of cmds[category]) { str += `┆►${fancytext(plugins,1)}\n` ; }
