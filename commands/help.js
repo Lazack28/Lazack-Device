@@ -1,14 +1,3 @@
-/**
- Copyright (C) 2022.
- Licensed under the  GPL-3.0 License;
- You may not use this file except in compliance with the License.
- It is supplied in the hope that it may be useful.
- * @project_name : Secktor-Md
- * @author : SamPandey001 <https://github.com/SamPandey001>
- * @description : Secktor,A Multi-functional whatsapp bot.
- * @version 0.0.6
- **/
-
 const os = require('os')
 const moment = require("moment-timezone")
 const fs = require("fs")
@@ -17,13 +6,14 @@ let { fancytext, tlang, tiny, runtime, formatp, botpic, prefix, sck1 } = require
 const long = String.fromCharCode(8206)
 const readmore = long.repeat(4001)
 const Secktor = require('../lib/commands')
+
     //---------------------------------------------------------------------------
 Secktor.cmd({
             pattern: "help",
             alias: ["menu"],
             desc: "Help list",
             category: "general",
-            react: "✨",
+            react: "📃",
             filename: __filename
         },
         async(Void, citel, text) => {
@@ -31,12 +21,12 @@ Secktor.cmd({
             if (text.split(" ")[0]) {
                 let arr = [];
                 const cmd = commands.find((cmd) => cmd.pattern === (text.split(" ")[0].toLowerCase()))
-                if (!cmd) return await citel.reply("*❌No Such commands.*");
-                else arr.push(`*💻Command:* ${cmd.pattern}`);
-                if (cmd.category) arr.push(`*🌸Category:* ${cmd.category}`);
-                if (cmd.alias) arr.push(`*🌸Alias:* ${cmd.alias}`);
-                if (cmd.desc) arr.push(`*🌸Description:* ${cmd.desc}`);
-                if (cmd.use) arr.push(`*😂Usage:*\n \`\`\`${prefix}${cmd.pattern} ${cmd.use}\`\`\``);
+                if (!cmd) return await citel.reply("*😔No Such commands.*");
+                else arr.push(`*🍁Command:* ${cmd.pattern}`);
+                if (cmd.category) arr.push(`*✨Category:* ${cmd.category}`);
+                if (cmd.alias) arr.push(`*⚡️Alias:* ${cmd.alias}`);
+                if (cmd.desc) arr.push(`*🗂Description:* ${cmd.desc}`);
+                if (cmd.use) arr.push(`*📡Usage:*\n \`\`\`${prefix}${cmd.pattern} ${cmd.use}\`\`\``);
                 return await citel.reply(arr.join('\n'));
             } else {
                 const cmds = {}
@@ -48,110 +38,90 @@ Secktor.cmd({
                 })
                 const time = moment(moment())
                     .format('HH:mm:ss')
-                moment.tz.setDefault('Nairobi/Kenya')
+                moment.tz.setDefault('Africa/LAGOS')
                     .locale('id')
-                const date = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
+                const date = moment.tz('asia/Islamabad').format('DD/MM/YYYY')
                 let total = await sck1.countDocuments()
-                let str = `╭────《 𝐋𝐀𝐙𝐀𝐂𝐊-𝐌𝐃 》─────⊷\n`
+                let str = `╭––〘 ` + fancytext(Config.ownername.split(' ')[0], 38) + `〙–––►\n`
                 str +=
-                    '```' + `│ ╭───────✧✧───────«
-│ │ User:- ${citel.pushName}
-│ │ Theme:- ${tlang().title}
-│ │ Prefix:- [ ${prefix} ]
-│ │ Owner:- 𝙇𝘼𝙕𝘼𝘾𝙆
-│ │ Plugins:- ${commands.length}
-│ │ users:- ${total}
-│ │ Uptime:- ${runtime(process.uptime())}
-│ │ Mem:- ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
-│ │ Time:- ${time}
-│ │ Developers:- 𝐋𝐀𝐙𝐀𝐂𝐊-𝐌𝐃 𝐆𝐑𝐎𝐔𝐏
-│ ╰───────✧❁✧───────»
-╰───────────────⊷\n
+                    '```' + `
+┆►┆➪ 𝐔𝐬𝐞𝐫: ${citel.pushName} 
+┆►┆➪ 𝐓𝐡𝐞𝐦𝐞𝐬: ${tlang().title}
+┆►┆➪ 𝐏𝐫𝐞𝐟𝐢𝐱𝐞: 〘 ${prefix} 〙
+┆►┆➪ 𝐎𝐰𝐧𝐞𝐫: ${Config.ownername} 
+┆►┆➪ 𝐏𝐥𝐮𝐠𝐢𝐧𝐬: ${commands.length} 
+┆►┆➪ 𝐔𝐬𝐞𝐫: ${total} 
+┆►┆➪ 𝐔𝐩𝐭𝐢𝐦𝐞: ${runtime(process.uptime())} 
+┆►┆➪ 𝐌𝐞𝐦: ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())} 
+┆►┆➪ 𝐓𝐢𝐦𝐞: ${time} 
+┆►┆➪ 𝐃𝐚𝐭𝐞: ${date} 
+┆►┆➪ *_DEVELLOPER: LAZACK28_*
+┆►┆➪ *_NUMBER:+255734980103_*
+┆►┆➪ *_I'AM LAZACK MD 🙃_*
+┆►┆➪ *remember to join all lazack md groups*
+┆►╰––––––––––––►
+╰––––––––––––––––►\n
 ` + '```'
-                str += `╭───『 ` + fancytext('Commands', 57) + `』──◆`
-                for (const category in cmds) {
-                    str += `
-┃  ╭───────✧❁✧───────«
-┃  │ ✯---- ${tiny(category)} ----⦿
-┃  ╰┬──────✧❁✧───────»
-┃  ┌┤\n`
-                    for (const plugins of cmds[category]) {
-                        str += `┃  │ ✭ ${plugins}\n`
-                    }
-                    str += `┃  ╰─────────────◆`
+                for (const category in cmds) 
+                {
+                   str += `╭––〘 *${tiny(category)}* 〙–––►\n` ;
+                   if(text.toLowerCase() == category.toLowerCase()){ str = ` *${tiny(category)}* ✤––––––––––––\n` ;      
+                        for (const plugins of cmds[category]) { str += `┆►${fancytext(plugins,1)}\n` ; }
+                        str += `╰–––––––––►\n`  ;
+                        break ;
+                   }
+                   else { for (const plugins of cmds[category]) { str += `┆➪${fancytext(plugins,1)}\n` ; }
+                         str += `╰–––––––––►\n`  ; 
+                   }
+ 
                 }
-
-                str += `\n╰━━━━━━━━━━━──⊷\n`
-                let generatebutton = [{
-                    buttonId: `${prefix}owner`,
-                    buttonText: {
-                        displayText: 'Owner'
-                    },
-                    type: 1
-                },{
-                    buttonId: `${prefix}ping`,
-                    buttonText: {
-                        displayText: 'SPEED'
-                    },
-                    type: 1
-                }, {
-                    buttonId: `${prefix}list`,
-                    buttonText: {
-                        displayText: 'List Menu'
-                    },
-                    type: 1
-                }]
+                str+= `*Type:* _${prefix}help cmd_ name to know more about specific command.\n*Eg:* _${prefix}help attp_\n*LAZACK-MD* `
                 let buttonMessaged = {
                     image: { url: await botpic() },
-                    caption: str,
-                    footer: tlang().title,
-                    headerType: 4,
-                    buttons: generatebutton
+                    caption: str
                 };
                 return await Void.sendMessage(citel.chat, buttonMessaged);
             }
         }
     )
     //---------------------------------------------------------------------------
-/*Secktor.cmd({
+Secktor.cmd({
             pattern: "list",
             desc: "list menu",
-            category: "general",
-            react: "✅"
+            category: "general"
         },
         async(Void, citel) => {
             const { commands } = require('../lib');
             let str = `
-╭━━〘 ` + fancytext(Config.ownername.split(' ')[0], 58) + ` 〙━━──⊷`
-            str += '```' + `
-┃ ╭──────────────      
-┃ │ User: ${citel.pushName}
-┃ │ Theme: ${tlang().title}
-┃ │ Prefix: ${prefix}
-┃ │ Owner: ${Config.ownername}
-┃ │ Commands: ${commands.length}
-┃ │ Uptime: ${runtime(process.uptime())}
-┃ │ Mem: ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
-┃ │  
-┃ ╰───────────
-╰━━━━━━━━━━━──⊷\n` + '```'
-            str += `╭━━━━━━━━━━━────⊷\n`
-            str += `┃ ⛥ ╭─────────────\n`
-            for (let i = 0; i < commands.length; i++) {
-             if(commands[i].pattern==undefined) continue
-                str += `┃ ⛥ │ ➛ ${i+1}. ` + commands[i].pattern + '\n'
-            }
-            str += `┃ ⛥ ╰─────────────\n`
-            str += `╰━━━━━━━━━━━───⊷\n`
-            return Void.sendMessage(citel.chat, { image: { url: THUMB_IMAGE }, caption: str })
+┏━━━━━•❃〘 ` + fancytext(Config.ownername.split(' ')[0], 58) + ` 〙❃•━━━━━┓`
+            str += `
+┃ ⛥┏━━━━━•❃°•°•━━━━━•❃°•°•      
+•͙͙✧⃝•͙ User: ${citel.pushName}
+•͙͙✧⃝•͙ Theme: ${tlang().title}
+•͙͙✧⃝•͙│ Prefix: ${prefix}
+•͙͙✧⃝•͙ Owner: ${Config.ownername}
+•͙͙✧⃝•͙ Commands: ${commands.length}
+•͙͙✧⃝•͙ Uptime: ${runtime(process.uptime())}
+•͙͙✧⃝•͙ Mem: ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
+•͙͙✧⃝•͙  
+•͙͙✧⃝┗━━━━━•❃°•°•━━━━━•❃°•°•
+┗━━━━━•❃°•°•━━━━━•❃°•°•\n`
+for (let i = 0; i < commands.length; i++) 
+{
+     if(commands[i].pattern==undefined) continue
+     str +=       `✰ ${i+1} *${fancytext(commands[i].pattern,1)}*\n` 
+      if (commands[i].desc === undefined) commands[i].desc = "";
+      str += `✰ ${fancytext(commands[i].desc, 1)}\n`
+}
+            return await Void.sendMessage(citel.chat, { image: { url: THUMB_IMAGE }, caption: str })
         }
     )
     //---------------------------------------------------------------------------
 Secktor.cmd({
         pattern: "owner",
-        desc: "contact the owner",
+        desc: "To find owner number",
         category: "general",
-        react: "💜",
+        react: "👾",
         filename: __filename
     },
     async(Void, citel) => {
@@ -173,7 +143,7 @@ Secktor.cmd({
                     thumbnail: log0,
                     mediaType: 2,
                     mediaUrl: '',
-                    sourceUrl: `https://wa.me/+255734980103 + '?text=Hii bro,I am ' + citel.pushName,
+                    sourceUrl: `https://wa.me/+` + owner[0] + '?text=Hii bro,I am ' + citel.pushName,
                 },
             },
         };
@@ -188,18 +158,18 @@ Secktor.cmd({
     pattern: "file",
     desc: "to get extact name where that command is in repo.\nSo user can edit that.",
     category: "general",
-    react: "✨",
+    react: "🥷",
     filename: __filename
 },
 async(Void, citel, text) => {
  const { commands } = require('../lib');
  let arr = [];
         const cmd = commands.find((cmd) => cmd.pattern === (text.split(" ")[0].toLowerCase()))
-        if (!cmd) return await citel.reply("*❌No Such commands.*");
-        else arr.push(`*💓Command:* ${cmd.pattern}`);
-        if (cmd.category) arr.push(`*💓Type:* ${cmd.category}`);
-        if(cmd.filename) arr.push(`💓FileName: ${cmd.filename}`)
-        return await citel.reply(arr.join('\n'));
+        if (!cmd) return await citel.reply("*😔No Such commands.*");
+        else arr.push(`*📡Command:* ${cmd.pattern}`);
+        if (cmd.category) arr.push(`*🧩Type:* ${cmd.category}`);
+        if(cmd.filename) arr.push(`✨FileName: ${cmd.filename}`)
+        return citel.reply(arr.join('\n'));
 
 
 })
