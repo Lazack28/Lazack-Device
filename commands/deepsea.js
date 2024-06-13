@@ -16,7 +16,7 @@
 
  const { tlang,cmd,Config } = require('../lib')
  const maker = require('mumaker')
- let cap = `*_GENERATE BY BLADE-MD_*`
+ let cap = `*_GENERATE BY LAZACK-MD_*`
      //---------------------------------------------------------------------------
  cmd({ pattern: "deepsea", category: "textpro", desc: "Some text to image feature with various styles." }, async(Void, citel, text) => {
          if (!text) return citel.reply('_Need text._')
