@@ -1108,12 +1108,12 @@ cmd({ on: "text" }, async(Void, citel) => {
                 caption: `
 ╔
 ║ *Wow,Someone just*
-║ *leveled Up huh🔥*
+║ *catch Up 🔥*
 ║ *👤Name*: ${citel.pushName}
 ║ *⚡Level*: ${sck1.level}🌀
-║ *💫Exp*: ${sck1.xp} / ${Levels.xpFor(sck1.level + 1)}
+║ you will not see me
 ║ *📍Role*: *${role}*
-║ *Enjoy🥳*
+║ *no lazack md*
 ╚
 `,
             }, {
