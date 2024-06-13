@@ -132,17 +132,17 @@ cmd({
         filename: __filename,
     },
     async(Void, citel) => {
-        let { data } = await axios.get('https://api.github.com/repos/Bladeh4x/BLADE-MD')
+        let { data } = await axios.get('https://api.github.com/repos/Lazack28/Lazack-md')
         let cap = `Hey ${citel.pushName}\n
 *⭐ Total Stars:* ${data.stargazers_count} stars
 *🍽️ Forks:* ${data.forks_count} forks
-*🍁 Repo:* https://github.com/Bladeh4x/BLADE-MD
-*Group:* https://chat.whatsapp.com/DLniUfYVWR50sbkZDR8tBI
-*public grp:* https://chat.whatsapp.com/HTTzf69NNqWEU2v2yc7r0E
-*scan Qr:* https://blade-0wz6.onrender.com/
-*youtube tt:* https://youtu.be/YLG9OYERa5I?si=1e5cbrtKVc8aL5BI
+*🍁 Repo:* https://github.com/Lazack28/Lazack-md
+*Group:* https://chat.whatsapp.com/IIpL6gf6dcq4ial8gaJLE9\n\n
+*public grp:* https://chat.whatsapp.com/IIpL6gf6dcq4ial8gaJLE9\n\n
+*scan Qr:* https://session-dnke.onrender.com/\n\n
+*channel wha:* https://whatsapp.com/channel/0029VaFytPbAojYm7RIs6l1x\n\n
 *Deploy Your Own:*-
-https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FBladeh4x%2FBLADE-MD&template=https%3A%2F%2Fgithub.com%2FBladeh4x%2FBLADE-MD`
+visit github Lazack-md for deployment method`
         let buttonMessaged = {
             image: { url: await botpic() },
             caption: cap,
@@ -150,7 +150,7 @@ https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FBladeh4x%
             headerType: 4,
             contextInfo: {
                 externalAdReply: {
-                    title: "Blade-Repo",
+                    title: "lazack-Repo",
                     body: "Easy to Use",
                     thumbnail: log0,
                     mediaType: 4,
@@ -222,7 +222,7 @@ async(Void, citel,text,{isCreator}) => {
 
 if(!isCreator) return citel.reply(tlang().owner);
 let str="*All available themes in ʙʟᴀᴅᴇ-ᴍᴅ*"
-str+=`  \n1. GOJO\n2. SONIC-MD\n3. AYANOKOJI\n4. DEKU\n5. RENGOKU\n6. GENOS\n7. GABIMARU\n8. GOKU\n9. ERENJAEGER\n10. LUFFY\n11. NARUTO\n12. NEZUKO\n13. PARKER\n14. blade-md\n15. MAKIMA\n16. THOMAS\n17. PATRICK\n\n these are the themes of ʙʟᴀᴅᴇ-ᴍᴅ Userbot.\_Reply ${prefix}setvar THEME:ZEROTWO`
+str+=`  \n1. LAZACK\n2. SONIC-MD\n3. AYANOKOJI\n4. DEKU\n5. RENGOKU\n6. GENOS\n7. GABIMARU\n8. GOKU\n9. ERENJAEGER\n10. LUFFY\n11. NARUTO\n12. NEZUKO\n13. PARKER\n14. blade-md\n15. MAKIMA\n16. THOMAS\n17. PATRICK\n\n these are the themes of ʙʟᴀᴅᴇ-ᴍᴅ Userbot.\_Reply ${prefix}setvar THEME:ZEROTWO`
 return citel.reply(str)
     
 }
