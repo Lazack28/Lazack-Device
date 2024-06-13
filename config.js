@@ -7,9 +7,9 @@ global.owner = process.env.OWNER_NUMBER || '255734980103'  // Make SURE its Not 
 global.mongodb = process.env.MONGODB_URI || "mongodb+srv://ahil1:787191784abhi@ahil1.kzr1tt3.mongodb.net/?retrywrites=true&w=majority"
 global.port= process.env.PORT || 5000
 global.email = 'lazaromtaju@gmail.com'
-global.github = 'https://github.com/Bladeh4x/BLADE-MD'
-global.location = 'Lahore pakistan'
-global.gurl = 'https://instagram.com/alex_david/' // add your username
+global.github = 'https://github.com/Lazack28/Lazack-md'
+global.location = 'Dodoma Tanzania'
+global.gurl = 'https://instagram.com/Lazack_28/' // add your username
 global.sudo = process.env.SUDO || "255734980103"
 global.devs = '255734980103'
 global.website = 'https://github.com/Lazack28/Lazack-md' //wa.me/+255734980103
