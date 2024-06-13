@@ -1,4 +1,4 @@
-### MAINTAINANCE IN PROGRESS 
+### *STILL MAINTAINING IT JUST DEPLOY IT*
 
 
 
@@ -38,11 +38,16 @@
 ### ```Scan QR Code```
 
 1. ***Get [SESSION-ID](https://session-dnke.onrender.com) by pairing code. `Whatapp>Three dots>Linked Devices****
-2. . ***GET [PAIR CODE](https://session-dnke.onrender.com/pair)***
+2. . ***GET [PAIR CODE](https://session-dnke.onrender.com/pair) currently not working please use session id cause it works best***
 --- 
 ### ```Fork Repo```
 2. ***Click [FORK](https://github.com/Lazack28/Lazack-md/fork)***
  
+---
+
+JOIN THE GROUP TO GET MONGODB URI WHICH WILL HELP YOU TO RUN THE BOT
+[GROUP](https://chat.whatsapp.com/IIpL6gf6dcq4ial8gaJLE9)
+
 ---
 
 ### NOW  DEPLOY IT.
@@ -65,22 +70,15 @@ Deployments methods
    
 
 
-## Thanks To 
-**1:Jarvis-md**
-
-**2:Whizbotmods**
-
-**3:leffysir**
-
-**4:KING OF BOTS GROUP**
-    
-     GMAX TECH GROUP
-
-
-## ⚖️  *LAZACK-BOT - DEVELOPER TEAM* *2024*  ⚖️
+----
+##  💻 ***LAZACK-BOT - DEVELOPER TEAM* *2024***
   
 | [Lazack](https://github.com/Lazack28) |
 | Owner, Developer, Maintainer, updates|
+
+| [TEAM LAZACK28](https://chat.whatsapp.com/IIpL6gf6dcq4ial8gaJLE9) |
+| maintainer and helpers|
+
 
 ---
 <a href="[https://github.com/Lazack28.png]"><img src="https://github.com/Lazack28.png" width="200" height="200" alt="Ash"/></a>
@@ -115,5 +113,4 @@ Deployments methods
 
 ***FIXING MORE***
 
-
-#### CURRENTLY WORKING ON NEW UPDATE DONT DEPLOY OR USE IT
+©Team lazack
