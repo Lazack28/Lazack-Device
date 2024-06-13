@@ -1,14 +1,14 @@
 {
-  "name": "LAZACK MD",
+  "name": "BLADE-MD",
   "description": "A Whatsapp md bot built in NodeJs to make experience better",
-  "logo": "https://telegra.ph/file/92af6e92dd2b886e8ca1b.jpg",
+  "logo": "https://telegra.ph/file/5b8747782b8fb7312bd9d.jpg",
   "keywords": ["nodejs", "bot", "whatsapp bot", "Zero-Two", "blade Bot", "blade","BLADE-MD","theme bot","multi device","baileys","Alex tv"],
   "success_url": "/",
   "stack": "container",
 "env": {
   "OWNER_NAME": {
   "description": "BOT OWNER NAME", 
-      "value": "lazack"
+      "value": "Alexdavid"
   },
   "ALIVE_MESSAGE": {
     "description": " SET YOUR ALIVE MESSAGE FOR THE BOT",
@@ -21,7 +21,7 @@
   "AUTO_READ_STATUS": {
     "description": "Fill the value true if you want bot view your Statuses.",
     "required" :false,
-    "value": "true"
+    "value": "false"
       },
     "HEROKU_API_KEY": {
     "description": "Put HEROKU API KEY",
@@ -33,7 +33,7 @@
     },
    "THUMB_IMAGE": {
     "description": "THUMBNAIL for bot.",
-     "value": "https://telegra.ph/file/92af6e92dd2b886e8ca1b.jpg"
+     "value": "https://telegra.ph/file/5b8747782b8fb7312bd9d.jpg"
     },
     "ANTI_BAD_WORD": {
     "description": "Put words here. If you want it enabled in your bot otherwise leave it blank",
@@ -66,16 +66,16 @@
     },
       "PREFIX": {
   "description": "Enter your desired prefix for bot.",
-      "value": "!"
+      "value": "."
   },
   "OWNER_NUMBER": {
     "description": "The phone numbers of the users who you want to be admin for the bot (should be in international format without + and multiple numbers must be separated by a comma \",\")",
-       "value": "255734980103"
+       "value": "put owner number"
  },	  
    "SESSION_ID": {
-    "description": "YOURE SESSION ID HERE.",
+    "description": "DONT CUT BLADE-MD;;; WORD PUT YOURE SESSION ID HERE.",
     "required" :true,
-    "value": "",
+    "value": "BLADE-MD;;;"
   },
     "OPENAI_API_KEY": {
     "description": "Please put your OPENAI api key here.Get it from beta.openai.com(optional if u don't wan't then don't put it ",
@@ -88,11 +88,11 @@
   },
     "THEME": {
     "description": "Put the theme name you want to use. Avilable themes are GOJO,blade-md,NEZUKO,LUFFY,GOKU and many more..",
-     "value": "LAZACK"
+     "value": "blade-md"
   },
     "WORKTYPE": {
   "description": "Worktype of your bot. Use public or private, if it is private then only bot number can use it. If public then everyone can use it.",
-         "value": "private"
+         "value": "public"
   },
       "AUTO_REACTION": {
     "description": "Reacts emoji to all commands.",
@@ -101,11 +101,11 @@
   },
   "PACK_AUTHOR": {
     "description": "PUT STICKER AUTHER NAME",
-    "value": "lazack:"
+    "value": "ALEXTV:"
   },
   "PACK_NAME": {
     "description": "PUT STICKER PACK NAME",
-    "value": "lazack"
+    "value": "BLADE-MD"
   },
   "heroku": {
     "description": "Weather it is on heroku or not", 
@@ -120,4 +120,3 @@
  		}
 	}
 }
-
