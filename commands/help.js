@@ -93,13 +93,13 @@ Secktor.cmd({
         async(Void, citel) => {
             const { commands } = require('../lib');
             let str = `
-┏━━━━━•❃〘 ` + fancytext(Config.ownername.split(' ')[0], 58) + ` 〙❃•━━━━━┓`
+┏━━━━━•❃〘LAZACK-MD〙❃•━━━━━┓`
             str += `
 ┃ ⛥┏━━━━━•❃°•°•━━━━━•❃°•°•      
 •͙͙✧⃝•͙ User: ${citel.pushName}
 •͙͙✧⃝•͙ Theme: ${tlang().title}
 •͙͙✧⃝•͙│ Prefix: ${prefix}
-•͙͙✧⃝•͙ Owner: ${Config.ownername}
+•͙͙✧⃝•͙ Owner: lazack
 •͙͙✧⃝•͙ Commands: ${commands.length}
 •͙͙✧⃝•͙ Uptime: ${runtime(process.uptime())}
 •͙͙✧⃝•͙ Mem: ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())}
