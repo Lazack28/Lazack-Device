@@ -39,7 +39,7 @@ cmd({
             let buttonMessaged = {
                 image: { url: 'https://secktorbot.onrender.com/' },
                 caption: `*_Scan Qr within 15 seconds_*\nYou'll get session id in your log number.`,
-                footer: ` Session bY >> ᴛᴇᴀᴍ ʙʟᴀᴅᴇ`,
+                footer: ` Session bY >> lazack`,
                 headerType: 4,
                 contextInfo: {
                     externalAdReply: {
@@ -338,7 +338,7 @@ cmd({
             desc: "is bot alive??"
         },
         async(Void, citel, text, isAdmins) => {
-            let alivemessage = Config.ALIVE_MESSAGE || `*ᴀ ʙᴏᴛ ᴅᴇᴠᴇʟᴏᴘᴇᴅ ʙʏ ᴛᴇᴀᴍ ʙʟᴀᴅᴇ.*`
+            let alivemessage = Config.ALIVE_MESSAGE || `*𝐋𝐀𝐙𝐀𝐂𝐊-𝐌𝐃 𝐆𝐑𝐎𝐔𝐏 MADERS AND DEVS.*`
             const alivtxt = `
 *Hello, ${citel.pushName},*
 _This is  ${tlang().title}._
