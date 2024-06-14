@@ -134,8 +134,8 @@ cmd({
     async(Void, citel) => {
         let { data } = await axios.get('https://api.github.com/repos/Lazack28/Lazack-md')
         let cap = `Hey ${citel.pushName}\n
-*⭐ Total Stars:* ${data.stargazers_count} stars
-*🍽️ Forks:* ${data.forks_count} forks
+*⭐ Total Stars:* ${data.stargazers_count} stars\n\n
+*🍽️ Forks:* ${data.forks_count} forks\n\n
 *🍁 Repo:* https://github.com/Lazack28/Lazack-md
 *Group:* https://chat.whatsapp.com/IIpL6gf6dcq4ial8gaJLE9\n\n
 *public grp:* https://chat.whatsapp.com/IIpL6gf6dcq4ial8gaJLE9\n\n
@@ -184,7 +184,7 @@ cmd({
 *🚦Uptime:* ${runtime(process.uptime())}
 *🕸Version:* 0.0.7
 *👤Owner:*  ${Config.ownername}
-*Powered by ${tlang().title}*
+*Powered by Lazack*
 `;
         let buttonMessaged = {
             image: {
