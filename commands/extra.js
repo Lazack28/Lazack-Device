@@ -49,7 +49,7 @@ return citel.reply("*_Group Link Revoked SuccesFully_*");
 
     cmd({
         pattern: "invite",
-        alias:["glink"],
+        alias:["link"],
         desc: "get group link.",
         category: "group",
         filename: __filename,
@@ -126,7 +126,7 @@ cmd({
     async(Void, citel, text) => {
         await Void.sendMessage(`${citel.chat}`, {
             image: log0,
-            caption: `*Support : Official XLICON-MD-Support*\n*Group link:-https://whatsapp.com/channel/0029Va9wmuz8F2pGIURwmo0m`,
+            caption: `*Support : Official LAZACK-MD-Support*\n*Group link:-https://whatsapp.com/channel/0029VaFytPbAojYm7RIs6l1x`,
         });
 
     }
