@@ -38,7 +38,7 @@ Secktor.cmd({
                 })
                 const time = moment(moment())
                     .format('HH:mm:ss')
-                moment.tz.setDefault('Africa/DODOMA')
+                moment.tz.setDefault('Africa/NAIROBI')
                     .locale('id')
                 const date = moment.tz('asia/Islamabad').format('DD/MM/YYYY')
                 let total = await sck1.countDocuments()
@@ -51,7 +51,6 @@ Secktor.cmd({
 ┆➪ 𝐎𝐰𝐧𝐞𝐫: LAZACK28 
 ┆➪ 𝐏𝐥𝐮𝐠𝐢𝐧𝐬: ${commands.length} 
 ┆➪ 𝐔𝐩𝐭𝐢𝐦𝐞: ${runtime(process.uptime())} 
-┆➪ 𝐌𝐞𝐦: ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())} 
 ┆➪ 𝐓𝐢𝐦𝐞: ${time} 
 ┆➪ 𝐃𝐚𝐭𝐞: ${date} 
 ┆➪ DEVELLOPER: LAZACK28
