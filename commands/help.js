@@ -38,29 +38,29 @@ Secktor.cmd({
                 })
                 const time = moment(moment())
                     .format('HH:mm:ss')
-                moment.tz.setDefault('Africa/LAGOS')
+                moment.tz.setDefault('Africa/DODOMA')
                     .locale('id')
                 const date = moment.tz('asia/Islamabad').format('DD/MM/YYYY')
                 let total = await sck1.countDocuments()
                 let str = `╭––〘  LAZACK MD  〙–––►\n`
                 str +=
                     '```' + `
-┆►┆➪ 𝐔𝐬𝐞𝐫: ${citel.pushName} 
-┆►┆➪ 𝐓𝐡𝐞𝐦𝐞𝐬: ${tlang().title}
-┆►┆➪ 𝐏𝐫𝐞𝐟𝐢𝐱𝐞: 〘 ${prefix} 〙
-┆►┆➪ 𝐎𝐰𝐧𝐞𝐫: LAZACK28 
-┆►┆➪ 𝐏𝐥𝐮𝐠𝐢𝐧𝐬: ${commands.length} 
-┆►┆➪ 𝐔𝐬𝐞𝐫: ${total} 
-┆►┆➪ 𝐔𝐩𝐭𝐢𝐦𝐞: ${runtime(process.uptime())} 
-┆►┆➪ 𝐌𝐞𝐦: ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())} 
-┆►┆➪ 𝐓𝐢𝐦𝐞: ${time} 
-┆►┆➪ 𝐃𝐚𝐭𝐞: ${date} 
-┆►┆➪ *DEVELLOPER*: *LAZACK28*
-┆►┆➪ *NUMBER:+255734980103*
-┆►┆➪ *I'AM LAZACK MD 🙃*
-┆►┆➪ *remember to star*
-┆►╰––––––––––––►
-╰––––––––––––––––►\n
+┆➪ 𝐔𝐬𝐞𝐫: ${citel.pushName} 
+┆➪ 𝐓𝐡𝐞𝐦𝐞𝐬: ${tlang().title}
+┆➪ 𝐏𝐫𝐞𝐟𝐢𝐱𝐞: 〘 ${prefix} 〙
+┆➪ 𝐎𝐰𝐧𝐞𝐫: LAZACK28 
+┆➪ 𝐏𝐥𝐮𝐠𝐢𝐧𝐬: ${commands.length} 
+┆➪ 𝐔𝐩𝐭𝐢𝐦𝐞: ${runtime(process.uptime())} 
+┆➪ 𝐌𝐞𝐦: ${formatp(os.totalmem() - os.freemem())}/${formatp(os.totalmem())} 
+┆➪ 𝐓𝐢𝐦𝐞: ${time} 
+┆➪ 𝐃𝐚𝐭𝐞: ${date} 
+┆➪ DEVELLOPER: LAZACK28
+┆➪ NUMBER:+255734980103
+┆➪ I'AM LAZACK MD 🙃
+┆➪ © 2024
+╰––––––––––––►
+|   ™Lazack28
+––––––––––––––––►\n
 ` + '```'
                 for (const category in cmds) 
                     {
