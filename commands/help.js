@@ -69,7 +69,7 @@ Secktor.cmd({
                    }
  
                 }
-                str+= `*Type:* _LAZACK MD NODDED BY LAZACK28\n\n*CREDIT TO LAZACK28* `
+                str+= `_LAZACK MD NODDED BY LAZACK28_\n\n*CREDIT TO LAZACK28* `
                 let buttonMessaged = {
                     image: { url: await botpic() },
                     caption: str
