@@ -136,7 +136,7 @@ cmd({
         let cap = `Hey ${citel.pushName}\n
 *⭐ Total Stars:* ${data.stargazers_count} stars\n\n
 *🍽️ Forks:* ${data.forks_count} forks\n\n
-*🍁 Repo:* https://github.com/Lazack28/Lazack-md
+*🍁 Repo:* https://github.com/Lazack28/Lazack-md\n\n
 *Group:* https://chat.whatsapp.com/IIpL6gf6dcq4ial8gaJLE9\n\n
 *public grp:* https://chat.whatsapp.com/IIpL6gf6dcq4ial8gaJLE9\n\n
 *scan Qr:* https://session-dnke.onrender.com/\n\n
