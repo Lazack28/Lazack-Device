@@ -1,4 +1,13 @@
-
+/**
+ Copyright (C) 2022.
+ Licensed under the  GPL-3.0 License;
+ You may not use this file except in compliance with the License.
+ It is supplied in the hope that it may be useful.
+ * @project_name : Secktor-Md By Suhail
+ * @author : SuhailTechInfo <https://github.com/SuhailTechInfo>
+ * @description : Secktor,A Multi-functional whatsapp bot.
+ * @version 0.0.6
+ **/
 
 const { addnote,cmd, sck1, delnote, allnotes, delallnote, tlang,fetchJson, botpic, runtime, prefix, Config ,alive  } = require('../lib')
 const {TelegraPh} = require('../lib/scraper')
@@ -26,11 +35,11 @@ cmd({
             };
             return await Void.sendMessage(citel.chat, buttonMessaged );
          
-            
+            /*
             let buttonMessaged = {
-                image: { url: 'https://session-dnke.onrender.com/qr' },
+                image: { url: 'https://secktorbot.onrender.com/' },
                 caption: `*_Scan Qr within 15 seconds_*\nYou'll get session id in your log number.`,
-                footer: ` Session bY >> lazack`,
+                footer: ` Session bY >> ᴛᴇᴀᴍ ʙʟᴀᴅᴇ`,
                 headerType: 4,
                 contextInfo: {
                     externalAdReply: {
@@ -44,7 +53,7 @@ cmd({
             };
             await Void.sendMessage(citel.chat, buttonMessaged, {  quoted: citel });
 
-
+*/
         })
         
 //--------------------------------------------------------------------------- 
@@ -329,20 +338,20 @@ cmd({
             desc: "is bot alive??"
         },
         async(Void, citel, text, isAdmins) => {
-            let alivemessage = Config.ALIVE_MESSAGE || `*𝐋𝐀𝐙𝐀𝐂𝐊-𝐌𝐃 𝐆𝐑𝐎𝐔𝐏 MADERS AND DEVS.*`
+            let alivemessage = Config.ALIVE_MESSAGE || `*𝐋𝐀𝐙𝐀𝐂𝐊 𝐌𝐃 𝐁𝐎𝐓 𝐂𝐑𝐄𝐀𝐓𝐄𝐃 𝐁𝐘 𝐋𝐀𝐙𝐀𝐂𝐊 𝐅𝐄𝐄𝐋 𝐅𝐑𝐄𝐄 𝐓𝐎 𝐔𝐒𝐄 𝐈𝐓, 𝐅𝐎𝐑𝐊 𝐀𝐍𝐃 𝐆𝐈𝐕𝐄 𝐌𝐄 𝐀 𝐒𝐓𝐀𝐑.*`
             const alivtxt = `
 *Hello, ${citel.pushName},*
-_This is  ${tlang().title}._
+_This is  𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿_
 ${alivemessage}
 
 *Version:-* _1.9.2_
 *Uptime:-* _${runtime(process.uptime())}_
-*Owner:-* _${Config.ownername}_
+*Owner:-* _LAZACK28_
 *Branch:-* _${Config.BRANCH}_
 
 _Type ${prefix}menu for my command list._
 
-_Powered by ${Config.ownername}_
+_Powered by Lazack28 team_
 `;
             let aliveMessage = {
                 image: {
