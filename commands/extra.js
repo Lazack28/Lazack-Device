@@ -204,6 +204,8 @@ cmd({
 
         let textt = `
 ══✪〘   *Tag All*   〙✪══
+        
+	 𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿
 
 ➲ *Message :* ${text ? text : "blank"}\n\n
 ➲ *Author:* ${Config.ownername} 🔖
@@ -221,7 +223,7 @@ cmd({
 )
 
 //---------------------------------------------------------------------------
-/*
+
 cmd({
             pattern: "request",
             desc: "Sends requst to main Bot developer.",
@@ -252,12 +254,12 @@ cmd({
             });
 
         }
-    )*/
+    )
     //---------------------------------------------------------------------------
-    /*
+    
 cmd({
             pattern: "retrive",
-	    alias: ["vv"],
+	    alias: ["vv2"],
             desc: "Copies and Forwords viewonce message.",
             category: "group",
             filename: __filename,
@@ -278,7 +280,7 @@ cmd({
                 await citel.reply("please, reply to viewOnceMessage");
             }
         }
-    )*/
+    )
 //---------------------------------------------------------------------------
 cmd({
         pattern: "kik",
@@ -1040,7 +1042,7 @@ cmd({
     //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
-if(Config.WORKTYPE!=='private'){
+/*if(Config.WORKTYPE!=='private'){
 cmd({ on: "text" }, async(Void, citel) => {
     const randomXp = 8;
     let usrname = citel.pushName
