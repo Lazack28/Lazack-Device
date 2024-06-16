@@ -46,17 +46,12 @@ Secktor.cmd({
                 str +=
                     '```' + `
 ┆➪ 𝐔𝐬𝐞𝐫: ${citel.pushName} 
-┆➪ 𝐓𝐡𝐞𝐦𝐞𝐬: ${tlang().title}
 ┆➪ 𝐏𝐫𝐞𝐟𝐢𝐱𝐞: 〘 ${prefix} 〙
 ┆➪ 𝐎𝐰𝐧𝐞𝐫: LAZACK28 
 ┆➪ 𝐏𝐥𝐮𝐠𝐢𝐧𝐬: ${commands.length} 
 ┆➪ 𝐔𝐩𝐭𝐢𝐦𝐞: ${runtime(process.uptime())} 
-┆➪ 𝐓𝐢𝐦𝐞: ${time} 
-┆➪ 𝐃𝐚𝐭𝐞: ${date} 
-┆➪ DEVELLOPER: LAZACK28
-┆➪ NUMBER:+255734980103
-┆➪ I'AM LAZACK MD 🙃
-┆➪ © 2024
+┆        Moded by Lazack28
+┆© 2024
 ╰––––––––––––►
 |   ™Lazack28
 ––––––––––––––––►\n
@@ -74,7 +69,7 @@ Secktor.cmd({
                    }
  
                 }
-                str+= `*Type:* _${prefix}help cmd_ name to know more about specific command.\n*Eg:* _${prefix}help attp_\n*LAZACK-MD* `
+                str+= `*Type:* _LAZACK MD NODDED BY LAZACK28\n\n*CREDIT TO LAZACK28* `
                 let buttonMessaged = {
                     image: { url: await botpic() },
                     caption: str
