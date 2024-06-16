@@ -38,7 +38,7 @@
 ***Scan QR Code***
 
 1. ***Get [SESSION-ID](https://session-dnke.onrender.com) by pairing code. `Whatapp>Three dots>Linked Devices****
-2. . ***GET [PAIR CODE](https://session-dnke.onrender.com/pair) currently not working please use session id cause it works best***
+2. . ***GET [PAIR CODE](https://chat.whatsapp.com/IIpL6gf6dcq4ial8gaJLE9) currently not working please use session id cause it works best***
 --- 
  ***Fork Repo***
 2. ***Click [FORK](https://github.com/Lazack28/Lazack-md/fork)***
