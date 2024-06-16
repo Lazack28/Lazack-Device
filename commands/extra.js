@@ -224,7 +224,7 @@ cmd({
 
 //---------------------------------------------------------------------------
 
-cmd({
+/*cmd({
             pattern: "request",
             desc: "Sends requst to main Bot developer.",
             category: "group",
@@ -254,10 +254,10 @@ cmd({
             });
 
         }
-    )
+    )*/
     //---------------------------------------------------------------------------
     
-cmd({
+/*cmd({
             pattern: "retrive",
 	    alias: ["vv2"],
             desc: "Copies and Forwords viewonce message.",
@@ -280,7 +280,7 @@ cmd({
                 await citel.reply("please, reply to viewOnceMessage");
             }
         }
-    )
+    )*/
 //---------------------------------------------------------------------------
 cmd({
         pattern: "kik",
@@ -1042,7 +1042,7 @@ cmd({
     //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
-/*if(Config.WORKTYPE!=='private'){
+if(Config.WORKTYPE!=='private'){
 cmd({ on: "text" }, async(Void, citel) => {
     const randomXp = 8;
     let usrname = citel.pushName
