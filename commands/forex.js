@@ -1,4 +1,4 @@
-const { fetchJson,cmd, tlang  } = require("../lib");
+/*const { fetchJson,cmd, tlang  } = require("../lib");
 
 const fetch = require("node-fetch");
 
