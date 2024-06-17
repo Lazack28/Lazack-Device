@@ -7,7 +7,7 @@ module.exports = {
    async exec(citel, Void,args) {
      let head = 'Lazack28'
      let body = 'Lazack-Md'
-     let url = `https://wa.me/+`255734980103'?text=Hii bro,I am '+citel.pushName,
+     let url = `https://wa.me/+`255734980103'+?text=Hii bro,I am '+citel.pushName,
      let imgbuff = await getBuffer('https://avatars.githubusercontent.com/u/104565822?v=4')
      
      
