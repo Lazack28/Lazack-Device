@@ -3,14 +3,14 @@ if (fs.existsSync('config.env')) require('dotenv').config({ path: __dirname+'/co
 
 
 //═══════[Required Variables]════════\\
-global.owner = process.env.OWNER_NUMBER || '+255734980103'  // Make SURE its Not Be Empty, Else Bot Stoped And Errors,
+global.owner = process.env.OWNER_NUMBER || '255734980103'  // Make SURE its Not Be Empty, Else Bot Stoped And Errors,
 global.mongodb = process.env.MONGODB_URI || "mongodb+srv://ahil1:787191784abhi@ahil1.kzr1tt3.mongodb.net/?retrywrites=true&w=majority"
 global.port= process.env.PORT || 5000
 global.email = 'lazaromtaju@gmail.com'
 global.github = 'https://github.com/Lazack28/Lazack-md'
 global.location = 'Dodoma Tanzania'
 global.gurl = 'https://instagram.com/Lazack_28/' // add your username
-global.sudo = process.env.SUDO || "255734980103"
+global.sudo = process.env.SUDO || "+255734980103"
 global.devs = '+255734980103'
 global.website = 'https://github.com/Lazack28/Lazack-md' //wa.me/+255734980103
 global.THUMB_IMAGE = process.env.THUMB_IMAGE || 'https://telegra.ph/file/2cbb7abbf988bf9e7a088.jpg'
