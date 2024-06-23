@@ -7,7 +7,7 @@ Secktor.cmd({
     filename: __filename,
   },
   const startTime = new Date();
-    const { key } = await void.sendMessage(m.from, { text: '*_Pinging..._*' }, { quoted: m });
+    const { key } = await Void.sendMessage(m.from, { text: '*_Pinging..._*' }, { quoted: m });
     await m.React('🚀');
 
     const text = `*_🔥⃝вσт ѕρєє∂: ${new Date() - startTime} ms_*`;
@@ -17,7 +17,7 @@ Secktor.cmd({
   }
 }
 
-const typeWriterEffect = async (m, sock, key, message) => {
+const typeWriterEffect = async (m, Void, key, message) => {
   const typingSpeed = 300;
   const words = message.split(' ');
   let i = 0;
@@ -25,7 +25,7 @@ const typeWriterEffect = async (m, sock, key, message) => {
   const typewriterInterval = setInterval(() => {
     if (i < words.length) {
       const typedText = words.slice(0, i + 1).join(' ');
-      void.relayMessage(m.from, {
+      Void.relayMessage(m.from, {
         protocolMessage: {
           key: key,
           type: 14,
