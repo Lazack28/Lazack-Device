@@ -1,42 +1,15 @@
-const Secktor = require('../lib');
-
+const Secktor = require('../lib')
 Secktor.cmd({
-    pattern: "ping",
-    desc: "To check ping",
-    category: "general",
-    filename: __filename,
-  },
-  const startTime = new Date();
-    const { key } = await Void.sendMessage(m.from, { text: '*_Pinging..._*' }, { quoted: m });
-    await m.React('🚀');
-
-    const text = `*_🔥⃝вσт ѕρєє∂: ${new Date() - startTime} ms_*`;
-    await typeWriterEffect(m, sock, key, text);
-
-    await m.React('⚡');
-  }
-}
-
-const typeWriterEffect = async (m, Void, key, message) => {
-  const typingSpeed = 300;
-  const words = message.split(' ');
-  let i = 0;
-
-  const typewriterInterval = setInterval(() => {
-    if (i < words.length) {
-      const typedText = words.slice(0, i + 1).join(' ');
-      Void.relayMessage(m.from, {
-        protocolMessage: {
-          key: key,
-          type: 14,
-          editedMessage: {
-            conversation: typedText,
-          },
-        },
-      }, {});
-      i++;
-    } else {
-      clearInterval(typewriterInterval); 
+        pattern: "ping",
+        desc: "To check ping",
+        category: "general",
+        filename: __filename,
+    },
+    async(Void, citel) => {
+        var inital = new Date().getTime();
+        const { key } = await Void.sendMessage(citel.chat, {text: '```𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿 Ping!!!```'});
+        var final = new Date().getTime();
+        await Secktor.sleep(1000)
+       return await Void.sendMessage(citel.chat, {text: '*Pong*\n *' + (final - inital) + ' ms* ', edit: key});
     }
-  }, typingSpeed);
-}
+);
