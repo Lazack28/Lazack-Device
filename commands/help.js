@@ -44,32 +44,33 @@ Secktor.cmd({
                 let total = await sck1.countDocuments()
                 let str = `╭––〘  LAZACK MD  〙–––►\n`
                 str +=
-                    '```' + `
-┆➪ 𝐔𝐬𝐞𝐫: ${citel.pushName} 
-┆➪ 𝐏𝐫𝐞𝐟𝐢𝐱𝐞: 〘 ${prefix} 〙
-┆➪ 𝐎𝐰𝐧𝐞𝐫: LAZACK28 
-┆➪ 𝐏𝐥𝐮𝐠𝐢𝐧𝐬: ${commands.length} 
-┆➪ 𝐔𝐩𝐭𝐢𝐦𝐞: ${runtime(process.uptime())} 
-┆        Moded by Lazack28
-┆© 2024
-╰––––––––––––►
-|   ™Lazack28
+                   '```' + `
+––––––––––––►
+➪ 𝐔𝐬𝐞𝐫: ${citel.pushName} 
+➪ 𝐏𝐫𝐞𝐟𝐢𝐱𝐞: 〘 ${prefix} 〙
+➪ 𝐎𝐰𝐧𝐞𝐫: LAZACK28 
+➪ 𝐏𝐥𝐮𝐠𝐢𝐧𝐬: ${commands.length} 
+➪ 𝐔𝐩𝐭𝐢𝐦𝐞: ${runtime(process.uptime())} 
+        Moded by Lazack28
+© 2024
+––––––––––––►
+™Lazack28
 ––––––––––––––––►\n
 ` + '```'
                 for (const category in cmds) 
                     {
-                   str += `╭––〘 *${tiny(category)}* 〙–––►\n` ;
-                   if(text.toLowerCase() == category.toLowerCase()){ str = ` *${tiny(category)}* ✤––––––––––––\n` ;      
+                   str += `––〘 *${tiny(category)}* 〙–––►\n` ;
+                   if(text.toLowerCase() == category.toLowerCase()){ str = ` *${tiny(category)}* ✤\n` ;      
                         for (const plugins of cmds[category]) { str += `┆►${fancytext(plugins,1)}\n` ; }
-                        str += `╰–––––––––►\n`  ;
+                        str += `–––––––––►\n`  ;
                         break ;
                    }
                    else { for (const plugins of cmds[category]) { str += `┆➪${fancytext(plugins,1)}\n` ; }
-                         str += `╰–––––––––►\n`  ; 
+                         str += `–––––––––►\n`  ; 
                    }
  
                 }
-                str+= `_LAZACK MD NODDED BY LAZACK28_\n\n*CREDIT TO LAZACK28* `
+                str+= `_LAZACK MD MODDED BY LAZACK28_\n\n*CREDIT TO LAZACK28* `
                 let buttonMessaged = {
                     image: { url: await botpic() },
                     caption: str
