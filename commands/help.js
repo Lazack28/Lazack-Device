@@ -53,7 +53,7 @@ Secktor.cmd({
 ▋ ➪ 𝐔𝐩𝐭𝐢𝐦𝐞: ${runtime(process.uptime())} 
 ─────᭓᭓᭓᭓᭓──── 
 |❀˖|
-|❀˖|      Moded by Lazack28
+|❀˖|       Moded by Lazack28 🇹🇿
 |❀˖| © 2024
 |❀˖|
 |❀˖| currently working on Lazack md v2
@@ -74,7 +74,7 @@ Secktor.cmd({
                    }
  
                 }
-                str+= `▋𝐋𝐀𝐙𝐀𝐂𝐊-𝐌𝐃 𝐆𝐑𝐎𝐔𝐏\n\n𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿 `
+                str+= `_LAZACK MD MODDED BY LAZACK28_\n\n*CREDIT TO LAZACK28* `
                 let buttonMessaged = {
                     image: { url: await botpic() },
                     caption: str
@@ -142,7 +142,7 @@ Secktor.cmd({
                     thumbnail: log0,
                     mediaType: 2,
                     mediaUrl: '',
-                    sourceUrl: `https://wa.me/+255734980103,
+                    sourceUrl: `https://wa.me/+` + owner[0] + '?text=Hii bro,I am ' + citel.pushName,
                 },
             },
         };
