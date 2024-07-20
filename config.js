@@ -10,9 +10,9 @@ global.email = 'lazaromtaju@gmail.com'
 global.github = 'https://github.com/Lazack28/Lazack-md'
 global.location = 'Dodoma Tanzania'
 global.gurl = 'https://instagram.com/Lazack_28/' // add your username
-global.sudo = process.env.SUDO || "+255734980103"
-global.devs = '+255734980103'
-global.website = 'https://github.com/Lazack28/Lazack-md' //wa.me/+255734980103
+global.sudo = process.env.SUDO || "255734980103"
+global.devs = '255734980103'
+global.website = 'https://github.com/Lazack28/Lazack-md' //wa.me/255734980103
 global.THUMB_IMAGE = process.env.THUMB_IMAGE || 'https://telegra.ph/file/2cbb7abbf988bf9e7a088.jpg'
 module.exports = {
   sessionName: process.env.SESSION_ID || "",      //Put Your Session Id Here
@@ -37,7 +37,7 @@ module.exports = {
   BRANCH: 'main', 
   ALIVE_MESSAGE:  process.env.ALIVE_MESSAGE === undefined ? '' : process.env.ALIVE_MESSAGE,
   autobio:  process.env.AUTO_BIO === undefined ? false : process.env.AUTO_BIO,
-  caption :process.env.CAPTION || "\t*•credit to Lazack28•* ",   //*『sᴜʙsᴄʀɪʙᴇ • ʙʟᴀᴅᴇ ᴛᴇᴄʜ』*\n youtube.com/@blade444"),	
+  caption :process.env.CAPTION || "\t*•𝐋𝐀𝐙𝐀𝐂𝐊-𝐌𝐃•* ",   //*『sᴜʙsᴄʀɪʙᴇ • ʙʟᴀᴅᴇ ᴛᴇᴄʜ』*\n youtube.com/@blade444"),	
   OPENAI_API_KEY:  process.env.OPENAI_API_KEY === undefined ? false : process.env.OPENAI_API_KEY,
   heroku:  process.env.heroku === undefined ? false : process.env.heroku,
   HEROKU: {
