@@ -1042,7 +1042,7 @@ cmd({
     //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
-if(Config.WORKTYPE!=='private'){
+/*if(Config.WORKTYPE!=='private'){
 cmd({ on: "text" }, async(Void, citel) => {
     const randomXp = 8;
     let usrname = citel.pushName
@@ -1107,7 +1107,7 @@ cmd({ on: "text" }, async(Void, citel) => {
                 image: {
                     url: await botpic(),
                 },
-                caption: /*`	
+                caption: `	
 ╔
 ║ *Wow,Someone just*
 ║ *catch Up 🔥*
@@ -1117,7 +1117,7 @@ cmd({ on: "text" }, async(Void, citel) => {
 ║ *📍Role*: *${role}*
 ║ *no lazack md*
 ╚
-`,*/
+`,
             }, {
                 quoted: citel,
             });
