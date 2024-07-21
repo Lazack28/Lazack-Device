@@ -10,6 +10,6 @@ Secktor.cmd({
         const { key } = await Void.sendMessage(citel.chat, {text: '```𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿 Ping!!!```'});
         var final = new Date().getTime();
         await Secktor.sleep(1000)
-       return await Void.sendMessage(citel.chat, {text: '*Pong*\n *' + (final - inital) + ' ms* ', edit: key});
+       return await Void.sendMessage(citel.chat, {text: '*LAZACK-MD Pong*\n *' + (final - inital) + ' ms* ', edit: key});
     }
 );
