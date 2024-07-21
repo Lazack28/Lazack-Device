@@ -351,6 +351,8 @@ ${alivemessage}
 
 _Type ${prefix}menu for my command list._
 
+https://whatsapp.com/channel/0029VaFytPbAojYm7RIs6l1x
+
 _Powered by Lazack28 team_
 `;
             let aliveMessage = {
