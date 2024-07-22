@@ -1,4 +1,4 @@
-### *STILL MAINTAINING IT JUST DEPLOY IT*
+### *UPLOADING VERSION TWO*
 
 
 
@@ -38,7 +38,7 @@
 ***Scan QR Code***
 
 1. ***Get [SESSION-ID](https://session-dnke.onrender.com/qr) by pairing code. `Whatapp>Three dots>Linked Devices****
-2. . ***GET [PAIR CODE](https://chat.whatsapp.com/IIpL6gf6dcq4ial8gaJLE9) currently not working please use session id cause it works best***
+
 --- 
  ***Fork Repo***
 2. ***Click [FORK](https://github.com/Lazack28/Lazack-md/fork)***
@@ -110,10 +110,10 @@ Deployments methods
 
 </br>
 
-***LAZACK MD MORE UPDATE COMMING SOON....***
+***LAZACK MD VERSION TWO***
 
-***FIXING MORE***
+***STILL UPLOADING MORE***
 
-credit to sampandey... the bot father of Lazack md
+SHIZO TECH 
 
 ©Team lazack
