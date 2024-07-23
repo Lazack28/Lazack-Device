@@ -1,6 +1,6 @@
 //Shizo_modules importing system 
-import GIFBufferToVideoBuffer from './modules/giftobuffer.js'
-import displayLoadingScreen from './modules/loading.js'
+import GIFBufferToVideoBuffer from './Lazack/giftobuffer.js'
+import displayLoadingScreen from './Lazack/loading.js'
 
 
 //Shizo_modules quick access system
