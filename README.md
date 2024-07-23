@@ -1,4 +1,4 @@
-## UPLOADING VERSION TWO, some files not uploaded 
+
 
 
 
@@ -41,7 +41,7 @@
 
     UPLOAD THE CREEDS.JS FILE YOU GET TO THE AUTHENTICATORS FILE ON THE REPO... THEN DEPLOY WITHOUT FILLING SESSION ID IN APP.JSON
 
-   thanks to shizo the techie for the pairing code code help
+   
 --- 
  ***Fork Repo***
 2. ***Click [FORK](https://github.com/Lazack28/Lazack-md/fork)***
