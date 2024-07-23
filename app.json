@@ -14,11 +14,6 @@
       "description": "your mongodb database url",
       "required": false,
       "value": ""
-      },
-    "SESSION_ID": {
-      "description": "your session id",
-      "required": false,
-      "value": ""
     },
     "PRIVATE": {
       "description": "Set it true if you want to make the bot private, leave Blank for public",
