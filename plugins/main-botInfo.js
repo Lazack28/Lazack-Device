@@ -1,4 +1,3 @@
-
 import { cpus as _cpus, totalmem, freemem } from 'os'
 import util from 'util'
 import { performance } from 'perf_hooks'
@@ -73,7 +72,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 ▢ YouTube : 
   • https://youtube.com/@Lazack28
 ▢ credit: 
-  • MR LAZACK 28
+  • mr oreo
 
  *≡ S E R V E R*
 *🛑 RAM:* ${format(totalmem() - freemem())} / ${format(totalmem())}
