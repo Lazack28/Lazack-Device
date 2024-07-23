@@ -9,7 +9,7 @@
   <a href="https://chat.whatsapp.com/ICNOZzsDH9E81j3RlqLx4w">
     <img alt=Support height="250" src="https://telegra.ph/file/1dc10a39146c80069a439.jpg"> 
     </p>
-<h1 align="center">    𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿
+<h1 align="center">    𝙇𝘼𝙕𝘼𝘾𝙆-𝙈𝘿 V2
 </h1>
 <p align="center"> 
     </p>
@@ -37,15 +37,18 @@
 ---
 ***Scan QR Code***
 
-1. ***Get [SESSION-ID](https://session-dnke.onrender.com/qr) by pairing code. `Whatapp>Three dots>Linked Devices****
-2. . ***GET [PAIR CODE](https://chat.whatsapp.com/IIpL6gf6dcq4ial8gaJLE9) currently not working please use session id cause it works best***
+1. ***Get [SESSION-ID](https://shizo-wapair-connect.onrender.com/pair) by pairing code. `Whatapp>Three dots>Linked Devices****
+
+    UPLOAD THE CREEDS.JS FILE YOU GET TO THE AUTHENTICATORS FILE ON THE REPO... THEN DEPLOY WITHOUT FILLING SESSION ID IN APP.JSON
+
+   thanks to shizo the techie for the pairing code code help
 --- 
  ***Fork Repo***
 2. ***Click [FORK](https://github.com/Lazack28/Lazack-md/fork)***
  
 ---
 
-JOIN THE GROUP TO GET MONGODB URI WHICH WILL HELP YOU TO RUN THE BOT
+JOIN THE GROUP FOR SUPPORT 
 [GROUP](https://chat.whatsapp.com/IIpL6gf6dcq4ial8gaJLE9)
 
 ---
@@ -110,8 +113,8 @@ Deployments methods
 
 </br>
 
-***LAZACK MD MORE UPDATE COMMING SOON....***
 
-***FIXING MORE***
+
+       SHIZO THE TECHIE THE BOT FATHER OF LAZACK MD V2
 
 ©Team lazack
