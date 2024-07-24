@@ -10,23 +10,8 @@
     "WaBot-Base"
   ],
 "env": {
-    "DATABASE_URL": {
-      "description": "your mongodb database url",
-      "required": false,
-      "value": ""
-    },
-    "PRIVATE": {
-      "description": "Set it true if you want to make the bot private, leave Blank for public",
-      "required": false,
-      "value": ""
-    },
-    "PREFIX": {
+      "PREFIX": {
       "description": "put any one symbol here except @ and + , leave it Blank if you want to use multiple prefix",
-      "required": false,
-      "value": ""
-    },
-     "BOT_NAME": {
-      "description": "Name of Your Bot",
       "required": false,
       "value": ""
     },
@@ -34,27 +19,7 @@
       "description": "owner name of the bot or Your Name",
       "required": false,
       "value": ""
-    },
-"OWNER_NUMBER": {
-      "description": "Your number or bot owner number",
-      "required": false,
-      "value": ""
-    },
-"MAKER": {
-      "description": "Maker Text that replace MADE WITH ❤️ BY OREO-BOT",
-      "required": false,
-      "value": ""
-    },
-"SOCIAL_MEDIA_LINK": {
-    "description": "Any one Link of Your Social Media",
-    "required": false,
-    "value": ""
-},
-  "GROUP_LINK": {
-    "description": "Your WhatsApp Group Link",
-    "required": false,
-    "value": ""
-  }
+}
     },
  "buildpacks": [
     {
