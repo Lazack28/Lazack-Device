@@ -37,7 +37,7 @@
 ---
 ***Scan QR Code***
 
-1. ***Get [SESSION-ID](https://gpt-qr-code.onrender.com) by pairing code. `Whatapp>Three dots>Linked Devices****
+1. ***Get [SESSION-ID](https://gpt-qr-code.onrender.com/elisa) by pairing code. `Whatapp>Three dots>Linked Devices****
 
     UPLOAD THE CREEDS.JS FILE YOU GET TO THE AUTHENTICATORS FILE ON THE REPO... THEN DEPLOY WITHOUT FILLING SESSION ID IN APP.JSON
 
