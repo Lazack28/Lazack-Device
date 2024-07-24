@@ -29,12 +29,13 @@
     <img alt="whatsapp Group" src="https://img.shields.io/badge/ LAZACK-BOT Support Group -25D366?style=for-the-badge&logo=whatsapp&logoColor=blue" />
   </a>
 </p>
+
 ---
 
  ***Fork Repo***
  ***[FORK](https://github.com/Lazack28/Lazack-md/fork)***
 
-    `FORK FIRST THE REPO`
+    FORK FIRST THE REPO
 ---
 
 ***GET YOURE SESSION ID BY***
