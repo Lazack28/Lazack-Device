@@ -10,16 +10,16 @@ let totalf = Object.values(global.plugins).filter(v => v.help && v.tags).length
 let tags = { 'main': 'Main' }
 const defaultMenu = {
   before: `┏━━━ ❮❮ 𝙼𝙴𝙽𝚄 ❯❯
-┃✦ *𝙽𝚊𝚖𝚎:* ${global.author}
-┃✦ *𝚃𝚘𝚝𝚊𝚕:* ${totalf} 
-┃✦ *𝚅𝚎𝚛𝚜𝚒𝚘𝚗:* V-02
-┃✦ *𝙿𝚛𝚎𝚏𝚒𝚡:* Any Prefix
-┃✦ *𝙾𝚠𝚗𝚎𝚛:* Lazack28 
-┃✦ *𝙿𝚕𝚊𝚝𝚏𝚘𝚛𝚖:* Heroku
+┃🇹🇿 *𝙽𝚊𝚖𝚎:* ${global.author}
+┃🇹🇿 *𝚃𝚘𝚝𝚊𝚕:* ${totalf} + Features
+┃🇹🇿 *𝚅𝚎𝚛𝚜𝚒𝚘𝚗:* V-02
+┃🇹🇿 *𝙿𝚛𝚎𝚏𝚒𝚡:* Any Prefix
+┃🇹🇿 *𝙾𝚠𝚗𝚎𝚛:* Lazack28 
+┃🇹🇿 *𝙿𝚕𝚊𝚝𝚏𝚘𝚛𝚖:* Heroku
 ┖─────────┈┈┈〠⸙࿉༐
     %readmore`.trimStart(),
   header: '┏━━━━ ❨ *%category* ❩ ━━┄┈ •⟅ ',
-  body: ' ┃⫹⫺ %cmd',
+  body: ' ┃🕸️ %cmd',
   footer: '┗━═┅┅┅┅═━–––––––๑\n',
   after: `*Made by ♡ ${global.oname}*`,
 }
@@ -117,7 +117,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     const pp = await conn.profilePictureUrl(conn.user.jid).catch(_ => './media/contact.png')
 
     // Sending the menu
-    conn.sendButton(m.chat, text.replace(), author, pp, [['DEVELOPER 😎', '!owner'], ['SPEED 🛫', '!ping'], ['GROUP 🇹🇿', '!grp']], null, [['INSTAGRAM', smlink]], m)
+    conn.sendButton(m.chat, text.replace(), author, pp, [['BOT MENU 🤖', '.botmenu'], ['OWNER MENU 🦉', '.ownermenu'], ['FUN MENU 😂', '.funmenu'], ['LAZACK SPEED 🛫', '.ping']], null, [['SOCIAL 📶', smlink]], m)
     
   } catch (e) {
     conn.reply(m.chat, 'ERROR IN MENU', m)
@@ -141,4 +141,4 @@ function clockString(ms) {
 
 function pickRandom(list) {
   return list[Math.floor(list.length * Math.random())]
-}
+      }
