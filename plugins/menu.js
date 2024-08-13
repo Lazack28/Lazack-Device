@@ -21,7 +21,7 @@ const defaultMenu = {
   header: '╭───✦ *%category* ✦───╮',
 body: ' │ 🌟 %cmd',
 footer: '╰───────╯\n',
-after: *Crafted with love by ${global.oname}*`,
+after: '*Crafted with love by ${global.oname}*`,
 }
 
 let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
