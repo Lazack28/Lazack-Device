@@ -18,10 +18,10 @@ const defaultMenu = {
 ┃🇹🇿 *𝙿𝚕𝚊𝚝𝚏𝚘𝚛𝚖:* Heroku
 ┖─────────┈┈┈〠⸙࿉༐
     %readmore`.trimStart(),
-  header: '┏━━━━ ❨ *%category* ❩ ━━┄┈ •⟅ ',
-  body: ' ┃🕸️ %cmd',
-  footer: '┗━═┅┅┅┅═━–––––––๑\n',
-  after: `*Made by ♡ ${global.oname}*`,
+  header: '╭───✦ *%category* ✦───╮',
+body: ' │ 🌟 %cmd',
+footer: '╰───────╯\n',
+after: *Crafted with love by ${global.oname}*`,
 }
 
 let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
