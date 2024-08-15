@@ -46,7 +46,7 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, 'media')));
 
 app.get('/', (req, res) => {
-  res.redirect('/lazack.html');
+  res.redirect('./lazack.html');
 });
 
 app.listen(port, () => {
