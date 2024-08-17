@@ -10,27 +10,26 @@ const response = await axios.get(`https://api.github.com/repos/${username}/${rep
 if (response.status === 200) {
 const repoData = response.data;
 const formattedInfo = `
-🍪 𝐋𝐀𝐙𝐀𝐂𝐊-𝐌𝐃 🍪
-*A Fully Featured WhatsApp Bot Loaded with Features 🎊*
+⚽ 𝐋𝐀𝐙𝐀𝐂𝐊-𝐌𝐃 ⚽
+*ENJOYABLE FEATURES WHATSAPP BOTS BY LAZACK28*\n
 𝖲𝖳𝖠𝖱✨ :: ${repoData.stargazers_count}
 𝖥𝖮𝖱𝖪 🍽️ :: ${repoData.forks_count}
-𝖴𝖱𝖫 👻 :: ${repoData.html_url}
+𝖴𝖱𝖫 👻 :: ${repoData.html_url}\n\n
 \`🚀 Key Features\`
-*Automated Messaging:* 𝙲𝚞𝚜𝚝𝚘𝚖 𝚛𝚎𝚜𝚙𝚘𝚗𝚜𝚎𝚜 𝚏𝚘𝚛 𝚟𝚊𝚛𝚒𝚘𝚞𝚜 𝚝𝚛𝚒𝚐𝚐𝚎𝚛𝚜.
-*Media Sharing ::* 𝙴𝚊𝚜𝚒𝚕𝚢 𝚜𝚑𝚊𝚛𝚎 𝚒𝚖𝚊𝚐𝚎𝚜, 𝚟𝚒𝚍𝚎𝚘𝚜, 𝚊𝚗𝚍 𝚏𝚒𝚕𝚎𝚜.
-*Chat Management ::* 𝚃𝚘𝚘𝚕𝚜 𝚝𝚘 𝚖𝚊𝚗𝚊𝚐𝚎 𝚌𝚑𝚊𝚝𝚜
-effectively.
-*Interactive Features::* 𝙶𝚊𝚖𝚎𝚜, 𝚝𝚛𝚒𝚟𝚒𝚊, 𝚊𝚗𝚍 𝚖𝚘𝚛𝚎 𝚏𝚞𝚗. 
-*Custom Commands::* 𝙲𝚛𝚎𝚊𝚝𝚎 𝚊𝚗𝚍 𝚍𝚎𝚙𝚕𝚘𝚢 𝚢𝚘𝚞𝚛 𝚘𝚠𝚗 𝚌𝚘𝚖𝚖𝚊𝚗𝚍𝚜.
+1. *Automated Messaging*\n
+2. *Media Sharing*\n
+3. *Chat Management*\n
+4. *Interactive Features*\n
+5. *Custom Commands*
 
 *_DEPLOY NOW_*
 
-\`\`\`Enhance your WhatsApp experience with 𝐋𝐀𝐙𝐀𝐂𝐊-𝐌𝐃 ! 🍪\`\`\`
+\`\`\`Enhance your WhatsApp experience with 𝐋𝐀𝐙𝐀𝐂𝐊-𝐌𝐃 ! ⚽\`\`\`
         `.trim();
         
       await conn.relayMessage(m.chat,  {
         requestPaymentMessage: {
-          currencyCodeIso4217: 'INR',
+          currencyCodeIso4217: 'TSH',
           amount1000: 69000,
           requestFrom: m.sender,
           noteMessage: {
