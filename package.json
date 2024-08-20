@@ -21,16 +21,16 @@
     "Termux-WaBot",
     "WaBot-Base"
   ],
-    "homepage": "https://github.com/Lazack28/Lazack-md",
+    "homepage": "https://github.com/Lazack28/Lazack-Device",
     "author": {
         "name": "shizo"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Lazack28/Lazack-md.git"
+        "url": "git+https://github.com/Lazack28/Lazack-Device.git"
     },
     "bugs": {
-        "url": "https://github.com/Lazack28/Lazack-md/issues"
+        "url": "https://github.com/Lazack28/Lazack-Device/issues"
     },
     "license": "GPL-3.0-or-later",
     "dependencies": {
