@@ -40,7 +40,7 @@
 
 ***GET YOURE SESSION ID BY***
 
-1. ***[QR CODE](https://gpt-qr-code.onrender.com/elisa)***
+1. ***[QR CODE](https://gpt-qr-code.onrender.com)***
 
 2. ***[PARING CODE](https://creds-1.onrender.com/pair)***
 
