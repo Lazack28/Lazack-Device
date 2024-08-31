@@ -40,9 +40,14 @@
 
 ***GET YOURE SESSION ID BY***
 
-1. ***[QR CODE](https://gpt-qr-code.onrender)***
+1. ***[PAIR CODE 001](https://replit.com/@mouriceonyango0/Giftedv5-PairCode)***
 
-2. ***[PARING CODE](https://creds-1.onrender.com/pair)***
+
+    `USE THIS PAIRING CODE FOR GIFTED MD AND UPLOAD THE CREDS.JSON ON AUTHENTICATORS AND THEN DEPLOY`
+
+3. ***[PARING CODE](https://creds-1.onrender.com/pair)***
+
+   this pairing code 2 currently not working use the first pairing.
 
 
      `UPLOAD THE CREEDS.JS FILE YOU GET TO THE AUTHENTICATORS FILE ON THE REPO... THEN DEPLOY WITHOUT FILLING SESSION ID IN APP.JSON`
