@@ -40,7 +40,7 @@
 
 ***GET YOURE SESSION ID BY***
 
-1.<a href='https://replit.com/@lazck22/LAZACK-ADVANCE-AND-DEVICEe' target="_blank"><img alt='Fork repo' src='https://img.shields.io/badge/PAIRING CODE-01-magenta?style=for-the-badge&logo=opencv&logoColor=white'/></a>
+1.<a href='https://replit.com/@lazck22/LAZACK-ADVANCE-AND-DEVICE' target="_blank"><img alt='Fork repo' src='https://img.shields.io/badge/PAIRING CODE-01-magenta?style=for-the-badge&logo=opencv&logoColor=white'/></a>
 
 
 
