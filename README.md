@@ -40,12 +40,13 @@
 
 ***GET YOURE SESSION ID BY***
 
-1. ***[PAIR CODE 001](https://replit.com/@mouriceonyango0/Giftedv5-PairCode)***
+1.<a href='https://replit.com/@lazck22/LAZACK-ADVANCE-AND-DEVICEe' target="_blank"><img alt='Fork repo' src='https://img.shields.io/badge/PAIRING CODE-01-magenta?style=for-the-badge&logo=opencv&logoColor=white'/></a>
 
 
-    `USE THIS PAIRING CODE FOR GIFTED MD AND UPLOAD THE CREDS.JSON ON AUTHENTICATORS AND THEN DEPLOY`
 
-3. ***[PARING CODE](https://creds-1.onrender.com/pair)***
+    `USE THIS PAIRING CODE AND UPLOAD THE CREDS.JSON ON AUTHENTICATORS AND THEN DEPLOY... USE VPN FOR TANZANIANS`
+
+3. ***[PARING CODE 02](https://creds-1.onrender.com/pair)***
 
    this pairing code 2 currently not working use the first pairing.
 
