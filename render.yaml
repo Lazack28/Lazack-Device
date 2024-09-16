@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: RED-FOX-MD
+    env: node
+    branch: main
+    repo: https://github.com/mrhansamala/RED-FOX-MD.git
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    autoDeploy: false
+    envVars:
+      - key: SESSION_ID
+        sync: false
+      - key: STATUS_VIEW_SEEN
+        value: true
+      - key: MODE
+        value: public
+      - key: AUTO_REACT
+        value: false
