@@ -1,10 +1,10 @@
 {
-  "name": "whatsapp-bot (RED-FOX-MD)",
+  "name": "whatsapp-bot (LAZACK-DEVICE)",
   "description": " Whatsapp bot.",
   "keywords": [
     "whatsapp bot"
   ],
-  "repository": "https://github.com/mrhansamala/RED-FOX-MD",
+  "repository": "https://github.com/Lazack28/Lazack-Device",
   "stack": "container",
   "env": { 
       "SESSION_ID": {
