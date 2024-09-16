@@ -1,14 +1,14 @@
 {
-  "name": "red-fox-md",
+  "name": "Lazack-Device",
   "version": "1.0.0",
   "description": "latest multi device whatsapp bot",
   "main": "main.js",
   "type": "module",
   "scripts": {
-    "start": "pm2 start main.js --deep-monitoring --attach --name Red-Fox-MD"
+    "start": "pm2 start main.js --deep-monitoring --attach --name Lazack-Device"
   },
-  "keywords": ["mrhansamala", "whatsapp-bot", "whatsapp md bot"],
-  "author": "Mr-Hansamala",
+  "keywords": ["lazack", "whatsapp-bot", "whatsapp md bot"],
+  "author": "Lazack28",
   "license": "ISC",
    "dependencies": {
     "@distube/ytdl-core": "^4.13.7",
