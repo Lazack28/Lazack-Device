@@ -3,7 +3,7 @@ const { generateWAMessageFromContent, proto } = pkg;
 import axios from 'axios'; // Import axios for HTTP requests
 
 const handleRepoCommand = async (m, Fox) => {
-  const repoUrl = 'https://api.github.com/repos/mrhansamala/RED-FOX-MD';
+  const repoUrl = 'https://api.github.com/repos/Lazack28/Lazack-Device';
   try {
     const response = await axios.get(repoUrl);
     const repoData = response.data;
@@ -59,7 +59,7 @@ const handleRepoCommand = async (m, Fox) => {
                   name: "cta_url",
                   buttonParamsJson: JSON.stringify({
                     display_text: "ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ꜰᴏʀᴋ",
-                    url: `https://github.com/mrhansamala/RED-FOX-MD/fork`
+                    url: `https://github.com/Lazack28/Lazack-Device/fork`
                   })
                 },
                 {
