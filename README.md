@@ -17,4 +17,8 @@
 
 
 
-***[UNDER MAINTAINANCE CLICK TO DEPLOY VERSION3](https://github.com/Lazack28/Lazack-advanced/fork)***
+***[NO MAINTAINANCE CLICK TO DEPLOY VERSION3](https://github.com/Lazack28/Lazack-advanced/fork)***
+
+
+
+***NEW LAZACK DEVICE COMING SOON***
