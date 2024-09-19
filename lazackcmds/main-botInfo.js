@@ -51,7 +51,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
         ? conn.user.jid
         : m.sender
   if (!(who in global.db.data.users)) throw `✳️ The user is not found in my database`
-  let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './Guru.jpg')
+  let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './jusorts/lazack.jpg')
   let user = global.db.data.users[who]
 
   let infobt = `
@@ -65,15 +65,15 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 ▢ *${chats.length}* Total Chats
 
 *≡ OWNER*
-  *GURU*
+  𝐋𝐀𝐙𝐀𝐂𝐊
 ▢ Instagram :
-  • https://instagram.com/asli_guru69
+  • https://instagram.com/Lazack_28
 ▢ GitHub :
-  • https://github.com/Guru322
+  • https://github.com/Lazack28
 ▢ Telegram : 
-  • t.me/i_want_to_be_isekaied (GURU) 
+  • t.me/MR28BOTS
 ▢ YouTube : 
-  • https://youtube.com/@Asliguru
+  • https://youtube.com/@lazaromtaju
 
  *≡ S E R V E R*
 *🛑 RAM:* ${format(totalmem() - freemem())} / ${format(totalmem())}
