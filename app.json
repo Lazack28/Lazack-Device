@@ -1,21 +1,21 @@
 {
-  "name": "whatsapp-Automation",
-  "description": " Whatsapp Ai.",
+  "name": "Lazack Device",
+  "description": " Whatsapp botz made by team lazack.",
   "keywords": [
-    "whatsapp Ai"
+    "whatsapp bot"
   ],
-  "repository": "https://github.com/Guru322/GURU-BOT",
+  "repository": "https://github.com/Lazack28/Lazack-Device",
   "stack": "container",
   "env": {
     "OWNERS": {
       "description": "owner numbers",
       "required": true,
-      "value": "917605902011;GURU;6281255369012;Ash"
+      "value": "255734980103"
     },
     "BOTNAME": {
       "description": "Give your BOT a name",
       "required": true,
-      "value": "ᴛʜᴇ ɢᴜʀᴜ-ʙᴏᴛ"
+      "value": "𝐋𝐀𝐙𝐀𝐂𝐊-𝐃𝐄𝐕𝐈𝐂𝐄"
     },
     "DATABASE_URL": {
       "description": "your mongodb database url",
