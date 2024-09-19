@@ -103,7 +103,7 @@ async function gandu() {
       process.exit(1)
     } else {
       console.log(`${endi}`)
-      console.log(chalk.bgBlack(chalk.redBright('initializing Guru Bot')))
+      console.log(chalk.bgBlack(chalk.redBright('Starting Lazack Device')))
     }
   } catch (error) {
     console.error('Error:', error)
@@ -372,7 +372,7 @@ async function connectionUpdate(update) {
   }
 
   if (code && (code === DisconnectReason.restartRequired || code === 428)) {
-    conn.logger.info(chalk.yellow('\n🚩 Restart Required... Restarting'))
+    conn.logger.info(chalk.yellow('\n Restart Required... Restarting'))
     process.send('reset')
   }
 
@@ -384,11 +384,11 @@ async function connectionUpdate(update) {
 
   if (connection === 'open') {
     const { jid, name } = conn.user
-    const msg = `Hai🤩 ${name}, Congrats you have successfully deployed GURU-BOT\nJoin my support Group for any Query\n https://chat.whatsapp.com/F3sB3pR3tClBvVmlIkqDJp`
+    const msg = `𝐋𝐚𝐳𝐚𝐜𝐤 𝐃𝐞𝐯𝐢𝐜𝐞 𝐬𝐮𝐜𝐜𝐞𝐟𝐮𝐥𝐥𝐲 𝐜𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝 𝐭𝐨 𝐲𝐨𝐮𝐫𝐞 𝐰𝐡𝐚𝐭𝐬𝐚𝐩𝐩. 𝐞𝐧𝐣𝐨𝐲 𝐮𝐬𝐢𝐧𝐠 𝐢𝐭`
 
     await conn.sendMessage(jid, { text: msg, mentions: [jid] }, { quoted: null })
 
-    conn.logger.info(chalk.yellow('\n🚩 R E A D Y'))
+    conn.logger.info(chalk.yellow('\n 𝖶𝖮𝖱𝖪'))
   }
 
   if (connection === 'close') {
@@ -475,7 +475,7 @@ global.reloadHandler = async function (restatConn) {
   return true
 }
 
-const pluginFolder = global.__dirname(join(__dirname, './plugins/index'))
+const pluginFolder = global.__dirname(join(__dirname, './lazackcmds/index'))
 const pluginFilter = filename => /\.js$/.test(filename)
 global.plugins = {}
 async function filesInit() {
