@@ -7,7 +7,7 @@ import path from 'path'
 import { fileURLToPath } from 'url';
 
 figlet(
-  'GURU BOT',
+  'LAZACK MD',
   {
     font: 'Ghost',
     horizontalLayout: 'default',
@@ -43,10 +43,10 @@ const port = process.env.PORT || 5000
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.use(express.static(path.join(__dirname, 'Assets')));
+app.use(express.static(path.join(__dirname, 'jusorts')));
 
 app.get('/', (req, res) => {
-  res.redirect('/guru.html');
+  res.redirect('/lazack.html');
 });
 
 app.listen(port, () => {
@@ -87,7 +87,7 @@ async function start(file) {
 
     fs.watchFile(args[0], () => {
       fs.unwatchFile(args[0])
-      start('Guru.js')
+      start('lazack.js')
     })
   })
 
@@ -95,14 +95,14 @@ async function start(file) {
     console.error(chalk.red(`Error: ${err}`))
     p.kill()
     isRunning = false
-    start('Guru.js')
+    start('lazack.js')
   })
 
-  const pluginsFolder = path.join(path.dirname(currentFilePath), 'plugins')
+  const pluginsFolder = path.join(path.dirname(currentFilePath), 'lazackcmds')
 
   fs.readdir(pluginsFolder, async (err, files) => {
     if (err) {
-      console.error(chalk.red(`Error reading plugins folder: ${err}`))
+      console.error(chalk.red(`Error reading lazackcmds folder: ${err}`))
       return
     }
     console.log(chalk.yellow(`Installed ${files.length} plugins`))
@@ -117,15 +117,15 @@ async function start(file) {
   })
 }
 
-start('Guru.js')
+start('lazack.js')
 
 process.on('unhandledRejection', () => {
   console.error(chalk.red(`Unhandled promise rejection. Bot will restart...`))
-  start('Guru.js')
+  start('lazack.js')
 })
 
 process.on('exit', code => {
   console.error(chalk.red(`Exited with code: ${code}`))
   console.error(chalk.red(`Bot will restart...`))
-  start('Guru.js')
+  start('lazack.js')
 })
