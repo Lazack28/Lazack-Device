@@ -1,8 +1,8 @@
 {
-    "name": "guruai",
+    "name": "Lazack",
     "version": "2.1.0",
-    "description": "Advanced WhatsApp Ai",
-    "main": "index.js",
+    "description": "Advanced WhatsApp",
+    "main": "mtaju.js",
     "type": "module",
     "directories": {
         "lib": "lib",
@@ -13,8 +13,8 @@
         "node": ">=20.0.0"
     },
     "scripts": {
-        "start": "node index.js",
-        "test": "node test.js"
+        "start": "node mtaju.js",
+        "test": "node mtajubots.js"
     },
     "keywords": [
         "termux-whatsapp-bot",
@@ -28,16 +28,16 @@
         "MD",
         "baileys-md"
     ],
-    "homepage": "https://github.com/Guru322/GURU-BOT",
+    "homepage": "https://github.com/Lazack28/Lazack-Device",
     "author": {
-        "name": "GURU"
+        "name": "Mtaju"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Guru322/GURU-BOT.git"
+        "url": "git+https://github.com/Lazack28/Lazack-Device.git"
     },
     "bugs": {
-        "url": "https://github.com/Guru322/GURU-BOT/issues"
+        "url": "https://github.com/Lazack28/Lazack-Device/issues"
     },
     "license": "Apache License 2.0",
     "dependencies": {
