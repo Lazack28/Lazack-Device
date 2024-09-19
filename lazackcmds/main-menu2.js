@@ -26,7 +26,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
         ? conn.user.jid
         : m.sender
   if (!(who in global.db.data.users)) throw `✳️ The user is not found in my database`
-  let pp = './Assets/Gurulogo.jpg'
+  let pp = './jusorts/lazack.jpg'
   let user = global.db.data.users[who]
   let { name, exp, diamond, lastclaim, registered, regTime, age, level, role, warn } =
     global.db.data.users[who]
