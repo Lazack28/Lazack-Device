@@ -77,18 +77,18 @@ let handler = async (m, { conn, usedPrefix, command }) => {
           𝙊𝙒𝙉𝙀𝙍 𝙈𝙀𝙉𝙐  
      ╰───•••──┄ °❀     
     ┏━♼ ⊖⊖⊖⊖⊖⊖ ♽━┓
-  > 🗡️⃝🎋 _${usedPrefix}banchat_
-  > 🗡️⃝🎋 _${usedPrefix}unbanchat_
-  > 🗡️⃝🎋 _${usedPrefix}banuser_
-  > 🗡️⃝🎋 _${usedPrefix}unbanuser_
-  > 🗡️⃝🎋 _${usedPrefix}Broadcast_
-  > 🗡️⃝🎋 _${usedPrefix}Broadcastgc_
-  > 🗡️⃝🎋 _${usedPrefix}join_
-  > 🗡️⃝🎋 _${usedPrefix}setppbot_
-  > 🗡️⃝🎋 _${usedPrefix}setprefix_
-  > 🗡️⃝🎋 _${usedPrefix}resetprefix_
-  > 🗡️⃝🎋 _${usedPrefix}getfile_
-  > 🗡️⃝🎋 _${usedPrefix}getplugin_
+> 🗡️⃝🎋 _${usedPrefix}banchat_
+> 🗡️⃝🎋 _${usedPrefix}unbanchat_
+> 🗡️⃝🎋 _${usedPrefix}banuser_
+> 🗡️⃝🎋 _${usedPrefix}unbanuser_
+> 🗡️⃝🎋 _${usedPrefix}Broadcast_
+> 🗡️⃝🎋 _${usedPrefix}Broadcastgc_
+> 🗡️⃝🎋 _${usedPrefix}join_
+> 🗡️⃝🎋 _${usedPrefix}setppbot_
+> 🗡️⃝🎋 _${usedPrefix}setprefix_
+> 🗡️⃝🎋 _${usedPrefix}resetprefix_
+> 🗡️⃝🎋 _${usedPrefix}getfile_
+> 🗡️⃝🎋 _${usedPrefix}getplugin_
      ┗━━━━━━━━━━━━━━━⪼` //
       break
     case 'groupmenu':
@@ -96,22 +96,22 @@ let handler = async (m, { conn, usedPrefix, command }) => {
           𝙂𝙍𝙊𝙐𝙋 𝙈𝙀𝙉𝙐 
     ╰───•••──┄ °❀     
    ┏━♼ ⊖⊖⊖⊖⊖⊖ ♽━┓
- > 🗡️⃝🎋_${usedPrefix}kick *<@tag>*_
- > 🗡️⃝🎋_${usedPrefix}promote *<@tag>*_
- > 🗡️⃝🎋_${usedPrefix}demote *<@tag>*_
- > 🗡️⃝🎋_${usedPrefix}infogroup_
- > 🗡️⃝🎋_${usedPrefix}resetlink_
- > 🗡️⃝🎋_${usedPrefix}link_
- > 🗡️⃝🎋_${usedPrefix}setpp *<image>*_
- > 🗡️⃝🎋_${usedPrefix}setname *<text>*_
- > 🗡️⃝🎋_${usedPrefix}setdesc *<text>*_
- > 🗡️⃝🎋_${usedPrefix}setwelcome *<text>*_
- > 🗡️⃝🎋_${usedPrefix}setbye *<text>*_
- > 🗡️⃝🎋_${usedPrefix}hidetag *<text/image/audio/vid>*_
- > 🗡️⃝🎋_${usedPrefix}warn *<@tag>*_
- > 🗡️⃝🎋_${usedPrefix}unwarn *<@tag>*_
- > 🗡️⃝🎋_${usedPrefix}group *<open/close>*_
- > 🗡️⃝🎋_${usedPrefix}enable
+> 🗡️⃝🎋_${usedPrefix}kick *<@tag>*_
+> 🗡️⃝🎋_${usedPrefix}promote *<@tag>*_
+> 🗡️⃝🎋_${usedPrefix}demote *<@tag>*_
+> 🗡️⃝🎋_${usedPrefix}infogroup_
+> 🗡️⃝🎋_${usedPrefix}resetlink_
+> 🗡️⃝🎋_${usedPrefix}link_
+> 🗡️⃝🎋_${usedPrefix}setpp *<image>*_
+> 🗡️⃝🎋_${usedPrefix}setname *<text>*_
+> 🗡️⃝🎋_${usedPrefix}setdesc *<text>*_
+> 🗡️⃝🎋_${usedPrefix}setwelcome *<text>*_
+> 🗡️⃝🎋_${usedPrefix}setbye *<text>*_
+> 🗡️⃝🎋_${usedPrefix}hidetag *<text/image/audio/vid>*_
+> 🗡️⃝🎋_${usedPrefix}warn *<@tag>*_
+> 🗡️⃝🎋_${usedPrefix}unwarn *<@tag>*_
+> 🗡️⃝🎋_${usedPrefix}group *<open/close>*_
+> 🗡️⃝🎋_${usedPrefix}enable
     ┗━━━━━━━━━━━━━━━⪼` //
       break
     case 'downloadermenu':
@@ -120,23 +120,23 @@ let handler = async (m, { conn, usedPrefix, command }) => {
           𝘿𝙇 𝙈𝙀𝙉𝙐 
    ╰───•••──┄ °❀     
   ┏━♼ ⊖⊖⊖⊖⊖⊖ ♽━┓
-   > 🗡️⃝🎋_${usedPrefix}play_
-   > 🗡️⃝🎋_${usedPrefix}song_
-   > 🗡️⃝🎋_${usedPrefix}yta <link>_
-   > 🗡️⃝🎋_${usedPrefix}ytv <link>_
-   > 🗡️⃝🎋_${usedPrefix}ytmp3 <link>_
-   > 🗡️⃝🎋_${usedPrefix}ytmp4 <link>_
-   > 🗡️⃝🎋_${usedPrefix}gimage_
-   > 🗡️⃝🎋_${usedPrefix}pinterest_
-   > 🗡️⃝🎋_${usedPrefix}mediafire <link>_
-   > 🗡️⃝🎋_${usedPrefix}gdrive <link>_
-   > 🗡️⃝🎋_${usedPrefix}gitclone <link>_
-   > 🗡️⃝🎋_${usedPrefix}twitter <link>_
-   > 🗡️⃝🎋_${usedPrefix}tiktok <link>_
-   > 🗡️⃝🎋_${usedPrefix}tiktokstalk_
-   > 🗡️⃝🎋_${usedPrefix}instagram <link>_
-   > 🗡️⃝🎋_${usedPrefix}spotify_
-   > 🗡️⃝🎋_${usedPrefix}facebook <link>_
+> 🗡️⃝🎋_${usedPrefix}play_
+> 🗡️⃝🎋_${usedPrefix}song_
+> 🗡️⃝🎋_${usedPrefix}yta <link>_
+> 🗡️⃝🎋_${usedPrefix}ytv <link>_
+> 🗡️⃝🎋_${usedPrefix}ytmp3 <link>_
+> 🗡️⃝🎋_${usedPrefix}ytmp4 <link>_
+> 🗡️⃝🎋_${usedPrefix}gimage_
+> 🗡️⃝🎋_${usedPrefix}pinterest_
+> 🗡️⃝🎋_${usedPrefix}mediafire <link>_
+> 🗡️⃝🎋_${usedPrefix}gdrive <link>_
+> 🗡️⃝🎋_${usedPrefix}gitclone <link>_
+> 🗡️⃝🎋_${usedPrefix}twitter <link>_
+> 🗡️⃝🎋_${usedPrefix}tiktok <link>_
+> 🗡️⃝🎋_${usedPrefix}tiktokstalk_
+> 🗡️⃝🎋_${usedPrefix}instagram <link>_
+> 🗡️⃝🎋_${usedPrefix}spotify_
+> 🗡️⃝🎋_${usedPrefix}facebook <link>_
    ┗━━━━━━━━━━━━━━━⪼` //
       break
     case 'economymenu':
@@ -144,23 +144,23 @@ let handler = async (m, { conn, usedPrefix, command }) => {
           𝙀𝘾𝙊𝙉𝙊𝙈𝙔 
    ╰───•••──┄ °❀     
   ┏━♼ ⊖⊖⊖⊖⊖⊖ ♽━┓
- > 🗡️⃝🎋 _${usedPrefix}claim/daily_
- > 🗡️⃝🎋 _${usedPrefix}weekly_
- > 🗡️⃝🎋 _${usedPrefix}monthly_
- > 🗡️⃝🎋 _${usedPrefix}leaderboard_
- > 🗡️⃝🎋 _${usedPrefix}bet_
- > 🗡️⃝🎋 _${usedPrefix}heal_
- > 🗡️⃝🎋 _${usedPrefix}craft_
- > 🗡️⃝🎋 _${usedPrefix}balance_
- > 🗡️⃝🎋 _${usedPrefix}shop_
- > 🗡️⃝🎋 _${usedPrefix}sell_
- > 🗡️⃝🎋 _${usedPrefix}adventure_
- > 🗡️⃝🎋 _${usedPrefix}opencrate_
- > 🗡️⃝🎋 _${usedPrefix}mine_
- > 🗡️⃝🎋 _${usedPrefix}work_
- > 🗡️⃝🎋 _${usedPrefix}transfer_
- > 🗡️⃝🎋 _${usedPrefix}todiamond_
- > 🗡️⃝🎋 _${usedPrefix}tomoney_
+> 🗡️⃝🎋 _${usedPrefix}claim/daily_
+> 🗡️⃝🎋 _${usedPrefix}weekly_
+> 🗡️⃝🎋 _${usedPrefix}monthly_
+> 🗡️⃝🎋 _${usedPrefix}leaderboard_
+> 🗡️⃝🎋 _${usedPrefix}bet_
+> 🗡️⃝🎋 _${usedPrefix}heal_
+> 🗡️⃝🎋 _${usedPrefix}craft_
+> 🗡️⃝🎋 _${usedPrefix}balance_
+> 🗡️⃝🎋 _${usedPrefix}shop_
+> 🗡️⃝🎋 _${usedPrefix}sell_
+> 🗡️⃝🎋 _${usedPrefix}adventure_
+> 🗡️⃝🎋 _${usedPrefix}opencrate_
+> 🗡️⃝🎋 _${usedPrefix}mine_
+> 🗡️⃝🎋 _${usedPrefix}work_
+> 🗡️⃝🎋 _${usedPrefix}transfer_
+> 🗡️⃝🎋 _${usedPrefix}todiamond_
+> 🗡️⃝🎋 _${usedPrefix}tomoney_
    ┗━━━━━━━━━━━━━━━⪼` //
       break
     case 'funmenu':
@@ -168,19 +168,19 @@ let handler = async (m, { conn, usedPrefix, command }) => {
           𝙁𝙐𝙉 𝙈𝙀𝙉𝙐
     ╰───•••──┄ °❀     
    ┏━♼ ⊖⊖⊖⊖⊖⊖ ♽━┓
-  > 🗡️⃝🎋 _${usedPrefix}character_
-  > 🗡️⃝🎋 _${usedPrefix}truth_
-  > 🗡️⃝🎋 _${usedPrefix}dare_
-  > 🗡️⃝🎋 _${usedPrefix}flirt_
-  > 🗡️⃝🎋 _${usedPrefix}gay_
-  > 🗡️⃝🎋 _${usedPrefix}shayeri_
-  > 🗡️⃝🎋 _${usedPrefix}ship_
-  > 🗡️⃝🎋 _${usedPrefix}waste_
-  > 🗡️⃝🎋 _${usedPrefix}simpcard_
-  > 🗡️⃝🎋 _${usedPrefix}hornycard_
-  > 🗡️⃝🎋 _${usedPrefix}ytcomment_
-  > 🗡️⃝🎋 _${usedPrefix}stupid_
-  > 🗡️⃝🎋 _${usedPrefix}lolicon_
+> 🗡️⃝🎋 _${usedPrefix}character_
+> 🗡️⃝🎋 _${usedPrefix}truth_
+> 🗡️⃝🎋 _${usedPrefix}dare_
+> 🗡️⃝🎋 _${usedPrefix}flirt_
+> 🗡️⃝🎋 _${usedPrefix}gay_
+> 🗡️⃝🎋 _${usedPrefix}shayeri_
+> 🗡️⃝🎋 _${usedPrefix}ship_
+> 🗡️⃝🎋 _${usedPrefix}waste_
+> 🗡️⃝🎋 _${usedPrefix}simpcard_
+> 🗡️⃝🎋 _${usedPrefix}hornycard_
+> 🗡️⃝🎋 _${usedPrefix}ytcomment_
+> 🗡️⃝🎋 _${usedPrefix}stupid_
+> 🗡️⃝🎋 _${usedPrefix}lolicon_
     ┗━━━━━━━━━━━━━━━⪼` //
       break
     case 'animemenu':
@@ -188,43 +188,43 @@ let handler = async (m, { conn, usedPrefix, command }) => {
           𝐴𝑁𝐼𝑀𝐸 𝑀𝐸𝑁𝑈
     ╰───•••──┄ °❀     
    ┏━♼ ⊖⊖⊖⊖⊖⊖ ♽━┓
-  > 🗡️⃝🎋 _${usedPrefix}waifu_
-  > 🗡️⃝🎋 _${usedPrefix}neko_
-  > 🗡️⃝🎋 _${usedPrefix}loli_
-  > 🗡️⃝🎋 _${usedPrefix}couplepp_
-  > 🗡️⃝🎋 _${usedPrefix}toanime_
-  > 🗡️⃝🎋 _${usedPrefix}naruto_
-  > 🗡️⃝🎋 _${usedPrefix}itachi_
-  > 🗡️⃝🎋 _${usedPrefix}akira_
-  > 🗡️⃝🎋 _${usedPrefix}asuna_
-  > 🗡️⃝🎋 _${usedPrefix}akiyama_
-  > 🗡️⃝🎋 _${usedPrefix}boruto_
-  > 🗡️⃝🎋 _${usedPrefix}hornycard_
-  > 🗡️⃝🎋 _${usedPrefix}ayuzawa_
-  > 🗡️⃝🎋 _${usedPrefix}anna_
-  > 🗡️⃝🎋 _${usedPrefix}chiho_
-  > 🗡️⃝🎋 _${usedPrefix}chitoge_
-  > 🗡️⃝🎋 _${usedPrefix}deidara_
-  > 🗡️⃝🎋 _${usedPrefix}erza_
-  > 🗡️⃝🎋 _${usedPrefix}elaina_
-  > 🗡️⃝🎋 _${usedPrefix}emilia_
-  > 🗡️⃝🎋 _${usedPrefix}hestia_
-  > 🗡️⃝🎋 _${usedPrefix}hinata_
-  > 🗡️⃝🎋 _${usedPrefix}inori_
-  > 🗡️⃝🎋 _${usedPrefix}isuzu_
-  > 🗡️⃝🎋 _${usedPrefix}kagura_
-  > 🗡️⃝🎋 _${usedPrefix}kaori_
-  > 🗡️⃝🎋 _${usedPrefix}keneki_
-  > 🗡️⃝🎋 _${usedPrefix}kurumi_
-  > 🗡️⃝🎋 _${usedPrefix}madara_
-  > 🗡️⃝🎋 _${usedPrefix}mikasa_
-  > 🗡️⃝🎋 _${usedPrefix}miku_
-  > 🗡️⃝🎋 _${usedPrefix}minato_
-  > 🗡️⃝🎋 _${usedPrefix}nezuko_
-  > 🗡️⃝🎋 _${usedPrefix}sagiri_
-  > 🗡️⃝🎋 _${usedPrefix}sasuke_
-  > 🗡️⃝🎋 _${usedPrefix}sakura_
-  > 🗡️⃝🎋 _${usedPrefix}kotori_
+> 🗡️⃝🎋 _${usedPrefix}waifu_
+> 🗡️⃝🎋 _${usedPrefix}neko_
+> 🗡️⃝🎋 _${usedPrefix}loli_
+> 🗡️⃝🎋 _${usedPrefix}couplepp_
+> 🗡️⃝🎋 _${usedPrefix}toanime_
+> 🗡️⃝🎋 _${usedPrefix}naruto_
+> 🗡️⃝🎋 _${usedPrefix}itachi_
+> 🗡️⃝🎋 _${usedPrefix}akira_
+> 🗡️⃝🎋 _${usedPrefix}asuna_
+> 🗡️⃝🎋 _${usedPrefix}akiyama_
+> 🗡️⃝🎋 _${usedPrefix}boruto_
+> 🗡️⃝🎋 _${usedPrefix}hornycard_
+> 🗡️⃝🎋 _${usedPrefix}ayuzawa_
+> 🗡️⃝🎋 _${usedPrefix}anna_
+> 🗡️⃝🎋 _${usedPrefix}chiho_
+> 🗡️⃝🎋 _${usedPrefix}chitoge_
+> 🗡️⃝🎋 _${usedPrefix}deidara_
+> 🗡️⃝🎋 _${usedPrefix}erza_
+> 🗡️⃝🎋 _${usedPrefix}elaina_
+> 🗡️⃝🎋 _${usedPrefix}emilia_
+> 🗡️⃝🎋 _${usedPrefix}hestia_
+> 🗡️⃝🎋 _${usedPrefix}hinata_
+> 🗡️⃝🎋 _${usedPrefix}inori_
+> 🗡️⃝🎋 _${usedPrefix}isuzu_
+> 🗡️⃝🎋 _${usedPrefix}kagura_
+> 🗡️⃝🎋 _${usedPrefix}kaori_
+> 🗡️⃝🎋 _${usedPrefix}keneki_
+> 🗡️⃝🎋 _${usedPrefix}kurumi_
+> 🗡️⃝🎋 _${usedPrefix}madara_
+> 🗡️⃝🎋 _${usedPrefix}mikasa_
+> 🗡️⃝🎋 _${usedPrefix}miku_
+> 🗡️⃝🎋 _${usedPrefix}minato_
+> 🗡️⃝🎋 _${usedPrefix}nezuko_
+> 🗡️⃝🎋 _${usedPrefix}sagiri_
+> 🗡️⃝🎋 _${usedPrefix}sasuke_
+> 🗡️⃝🎋 _${usedPrefix}sakura_
+> 🗡️⃝🎋 _${usedPrefix}kotori_
     ┗━━━━━━━━━━━━━━━⪼
     `
       break
@@ -233,15 +233,15 @@ let handler = async (m, { conn, usedPrefix, command }) => {
           𝙂𝘼𝙈𝙀 𝙈𝙀𝙉𝙐 
     ╰───•••──┄ °❀     
    ┏━♼ ⊖⊖⊖⊖⊖⊖ ♽━┓
-  > 🗡️⃝🎋 _${usedPrefix}tictactoe_
-  > 🗡️⃝🎋 _${usedPrefix}delttt_
-  > 🗡️⃝🎋 _${usedPrefix}math_
-  > 🗡️⃝🎋 _${usedPrefix}math answer_
-  > 🗡️⃝🎋 _${usedPrefix}ppt_
-  > 🗡️⃝🎋 _${usedPrefix}slot_
-  > 🗡️⃝🎋 _${usedPrefix}casino_
-  > 🗡️⃝🎋 _${usedPrefix}yourmom_
-  > 🗡️⃝🎋 _${usedPrefix}teri mummy_
+> 🗡️⃝🎋 _${usedPrefix}tictactoe_
+> 🗡️⃝🎋 _${usedPrefix}delttt_
+> 🗡️⃝🎋 _${usedPrefix}math_
+> 🗡️⃝🎋 _${usedPrefix}math answer_
+> 🗡️⃝🎋 _${usedPrefix}ppt_
+> 🗡️⃝🎋 _${usedPrefix}slot_
+> 🗡️⃝🎋 _${usedPrefix}casino_
+> 🗡️⃝🎋 _${usedPrefix}yourmom_
+> 🗡️⃝🎋 _${usedPrefix}teri mummy_
     ┗━━━━━━━━━━━━━━━⪼` //
       break
     case 'stickermenu':
@@ -249,20 +249,20 @@ let handler = async (m, { conn, usedPrefix, command }) => {
           𝙎𝙏𝙄𝘾𝙆𝙀𝙍 𝙈𝙀𝙉𝙐
      ╰───•••──┄ °❀     
     ┏━♼ ⊖⊖⊖⊖⊖⊖ ♽━┓
-   > 🗡️⃝🎋 _${usedPrefix}sticker_
-   > 🗡️⃝🎋 _${usedPrefix}take_
-   > 🗡️⃝🎋 _${usedPrefix}scircle_
-   > 🗡️⃝🎋 _${usedPrefix}smaker_
-   > 🗡️⃝🎋 _${usedPrefix}sremovebg_
-   > 🗡️⃝🎋 _${usedPrefix}getsticker_
-   > 🗡️⃝🎋 _${usedPrefix}emojimix_
-   > 🗡️⃝🎋 _${usedPrefix}toimg_
-   > 🗡️⃝🎋 _${usedPrefix}tovid_
-   > 🗡️⃝🎋 _${usedPrefix}ttp_
-   > 🗡️⃝🎋 _${usedPrefix}telesticker_
-   > 🗡️⃝🎋 _${usedPrefix}attp_
-   > 🗡️⃝🎋 _${usedPrefix}attp2_
-   > 🗡️⃝🎋 _${usedPrefix}attp3_
+> 🗡️⃝🎋 _${usedPrefix}sticker_
+> 🗡️⃝🎋 _${usedPrefix}take_
+> 🗡️⃝🎋 _${usedPrefix}scircle_
+> 🗡️⃝🎋 _${usedPrefix}smaker_
+> 🗡️⃝🎋 _${usedPrefix}sremovebg_
+> 🗡️⃝🎋 _${usedPrefix}getsticker_
+> 🗡️⃝🎋 _${usedPrefix}emojimix_
+> 🗡️⃝🎋 _${usedPrefix}toimg_
+> 🗡️⃝🎋 _${usedPrefix}tovid_
+> 🗡️⃝🎋 _${usedPrefix}ttp_
+> 🗡️⃝🎋 _${usedPrefix}telesticker_
+> 🗡️⃝🎋 _${usedPrefix}attp_
+> 🗡️⃝🎋 _${usedPrefix}attp2_
+> 🗡️⃝🎋 _${usedPrefix}attp3_
      ┗━━━━━━━━━━━━━━━⪼`
       break
     case 'toolmenu':
@@ -270,36 +270,36 @@ let handler = async (m, { conn, usedPrefix, command }) => {
           𝙏𝙊𝙊𝙇𝙎 𝙈𝙀𝙉𝙐
      ╰───•••──┄ °❀     
     ┏━♼ ⊖⊖⊖⊖⊖⊖ ♽━┓
-   > 🗡️⃝🎋 _${usedPrefix}autosticker_
-   > 🗡️⃝🎋 _${usedPrefix}pdf_
-   > 🗡️⃝🎋 _${usedPrefix}whatmusic_
-   > 🗡️⃝🎋 _${usedPrefix}calc_
-   > 🗡️⃝🎋 _${usedPrefix}google_
-   > 🗡️⃝🎋 _${usedPrefix}lyrics_
-   > 🗡️⃝🎋 _${usedPrefix}readmore_
-   > 🗡️⃝🎋 _${usedPrefix}ssweb_
-   > 🗡️⃝🎋 _${usedPrefix}tts_
-   > 🗡️⃝🎋 _${usedPrefix}translate_
-   > 🗡️⃝🎋 _${usedPrefix}tourl_
-   > 🗡️⃝🎋 _${usedPrefix}wikipedia_
-   > 🗡️⃝🎋 _${usedPrefix}nowa_
-   > 🗡️⃝🎋 _${usedPrefix}qrmaker_
-   > 🗡️⃝🎋 _${usedPrefix}readqr_
-   > 🗡️⃝🎋 _${usedPrefix}fancy_
-   > 🗡️⃝🎋 _${usedPrefix}weather_
-   > 🗡️⃝🎋 _${usedPrefix}siri_
-   > 🗡️⃝🎋 _${usedPrefix}alexa_
-   > 🗡️⃝🎋 _${usedPrefix}dalle_
-   > 🗡️⃝🎋 _${usedPrefix}tocartoon_
-   > 🗡️⃝🎋 _${usedPrefix}quote_
-   > 🗡️⃝🎋 _${usedPrefix}technews_
-   > 🗡️⃝🎋 _${usedPrefix}define_
-   > 🗡️⃝🎋 _${usedPrefix}pokedex_
-   > 🗡️⃝🎋 _${usedPrefix}removebg_
-   > 🗡️⃝🎋 _${usedPrefix}apk_
-   > 🗡️⃝🎋 _${usedPrefix}tinyurl/shorturl_
-   > 🗡️⃝🎋 _${usedPrefix}readvo_
-   > 🗡️⃝🎋 _${usedPrefix}true_
+> 🗡️⃝🎋 _${usedPrefix}autosticker_
+> 🗡️⃝🎋 _${usedPrefix}pdf_
+> 🗡️⃝🎋 _${usedPrefix}whatmusic_
+> 🗡️⃝🎋 _${usedPrefix}calc_
+> 🗡️⃝🎋 _${usedPrefix}google_
+> 🗡️⃝🎋 _${usedPrefix}lyrics_
+> 🗡️⃝🎋 _${usedPrefix}readmore_
+> 🗡️⃝🎋 _${usedPrefix}ssweb_
+> 🗡️⃝🎋 _${usedPrefix}tts_
+> 🗡️⃝🎋 _${usedPrefix}translate_
+> 🗡️⃝🎋 _${usedPrefix}tourl_
+> 🗡️⃝🎋 _${usedPrefix}wikipedia_
+> 🗡️⃝🎋 _${usedPrefix}nowa_
+> 🗡️⃝🎋 _${usedPrefix}qrmaker_
+> 🗡️⃝🎋 _${usedPrefix}readqr_
+> 🗡️⃝🎋 _${usedPrefix}fancy_
+> 🗡️⃝🎋 _${usedPrefix}weather_
+> 🗡️⃝🎋 _${usedPrefix}siri_
+> 🗡️⃝🎋 _${usedPrefix}alexa_
+> 🗡️⃝🎋 _${usedPrefix}dalle_
+> 🗡️⃝🎋 _${usedPrefix}tocartoon_
+> 🗡️⃝🎋 _${usedPrefix}quote_
+> 🗡️⃝🎋 _${usedPrefix}technews_
+> 🗡️⃝🎋 _${usedPrefix}define_
+> 🗡️⃝🎋 _${usedPrefix}pokedex_
+> 🗡️⃝🎋 _${usedPrefix}removebg_
+> 🗡️⃝🎋 _${usedPrefix}apk_
+> 🗡️⃝🎋 _${usedPrefix}tinyurl/shorturl_
+> 🗡️⃝🎋 _${usedPrefix}readvo_
+> 🗡️⃝🎋 _${usedPrefix}true_
      ┗━━━━━━━━━━━━━━━⪼` //
       break
     case 'nsfwmenu':
