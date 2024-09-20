@@ -8,7 +8,7 @@ import fetch from 'node-fetch'
 import Pino from 'pino'
 
 /**
- * @type {import("@shizodevs/shizoweb")}
+ * @type {import("@whiskeysockets/baileys")}
  */
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms =>
@@ -22,10 +22,10 @@ const delay = ms =>
 
 /** 
  * Handle messages upsert
- * @param {import("@shizodevs/shizoweb").BaileysEventMap<unknown>["messages.upsert"]} groupsUpdate
+ * @param {import("@whiskeysockets/baileys").BaileysEventMap<unknown>["messages.upsert"]} groupsUpdate
  */
 const { getAggregateVotesInPollMessage, makeInMemoryStore } = await (
-  await import('@shizodevs/shizoweb')
+  await import('@whiskeysockets/baileys')
 ).default
 const store = makeInMemoryStore({
   logger: Pino().child({
@@ -517,7 +517,7 @@ export async function handler(chatUpdate) {
 
 /**
  * Handle groups participants update
- * @param {import("@shizodevs/shizoweb").BaileysEventMap<unknown>["group-participants.update"]} groupsUpdate
+ * @param {import("@whiskeysockets/baileys").BaileysEventMap<unknown>["group-participants.update"]} groupsUpdate
  */
 export async function participantsUpdate({ id, participants, action }) {
   if (opts['self'] || this.isInit) return
@@ -682,7 +682,7 @@ export async function participantsUpdate({ id, participants, action }) {
 
 /**
  * Handle groups update
- * @param {import("@shizodevs/shizoweb").BaileysEventMap<unknown>["groups.update"]} groupsUpdate
+ * @param {import("@whiskeysockets/baileys").BaileysEventMap<unknown>["groups.update"]} groupsUpdate
  */
 export async function groupsUpdate(groupsUpdate) {
   if (opts['self']) return
