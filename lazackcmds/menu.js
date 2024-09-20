@@ -20,9 +20,9 @@ const defaultMenu = {
 ┗━━━━━━━━━━━━━┈⊷
     %readmore`.trimStart(),
   header: '┏━━━━ ❨ *%category* ❩ ━━┄┈ •⟅ ',
-  body: ' ┃🕸️ %cmd',
+  body: ' > 🗡️⃝🎋 %cmd',
   footer: '┗━═┅┅┅┅═━–––––––๑\n',
-  after: `*Made by ♡ ${global.oname}*`,
+  after: `> 𝐫𝐞𝐜𝐨𝐝𝐞𝐝 𝐛𝐲 𝐋𝐚𝐳𝐚𝐜𝐤_28`,
 }
 
 let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
