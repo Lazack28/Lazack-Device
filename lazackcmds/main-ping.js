@@ -7,8 +7,8 @@ let handler = async (m, { conn }) => {
     key: { fromMe: false, participant: `0@s.whatsapp.net`, remoteJid: 'status@broadcast' },
     message: {
       contactMessage: {
-        displayName: `𝐋𝐀𝐙𝐀𝐂𝐊 𝐀𝐃𝐕𝐀𝐍𝐂𝐄`,
-        vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:'𝐥𝐚𝐳𝐚𝐜𝐤 𝐚𝐝𝐯𝐚𝐧𝐜𝐞'\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`,
+        displayName: `Lazack md`,
+        vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:'LAZACK MD'\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`,
       },
     },
   }
@@ -26,7 +26,7 @@ let handler = async (m, { conn }) => {
           key: pingMsg.key,
           type: 14,
           editedMessage: {
-            conversation: `Pong! Latency: ${latency} ms`,
+            conversation: `*Lazack 28  💘 running ping:* *${latency} ms*`,
           },
         },
       },
