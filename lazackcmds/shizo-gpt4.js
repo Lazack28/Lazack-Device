@@ -1,5 +1,5 @@
 import fetch from 'node-fetch'
-import { delay } from '@shizodevs/shizoweb'
+import { delay } from '@whiskeysockets/baileys'
 
 let handler = async (m, { conn, text, args, usedPrefix, command }) => {
   try {
