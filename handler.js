@@ -8,7 +8,7 @@ import fetch from 'node-fetch'
 import Pino from 'pino'
 
 /**
- * @type {import("@whiskeysockets/baileys")}
+ * @type {import("@shizodevs/shizoweb")}
  */
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms =>
@@ -20,12 +20,12 @@ const delay = ms =>
     }, ms)
   )
 
-/**
+/** 
  * Handle messages upsert
- * @param {import("@whiskeysockets/baileys").BaileysEventMap<unknown>["messages.upsert"]} groupsUpdate
+ * @param {import("@shizodevs/shizoweb").BaileysEventMap<unknown>["messages.upsert"]} groupsUpdate
  */
 const { getAggregateVotesInPollMessage, makeInMemoryStore } = await (
-  await import('@whiskeysockets/baileys')
+  await import('@shizodevs/shizoweb')
 ).default
 const store = makeInMemoryStore({
   logger: Pino().child({
@@ -72,8 +72,26 @@ export async function handler(chatUpdate) {
         if (!isNumber(user.level)) user.level = 0
         if (!('role' in user)) user.role = 'Tadpole'
         if (!('autolevelup' in user)) user.autolevelup = false
+           /*
+   Do Not Modify this Section ❌  👇👇
+   Else Relationship Features Will Not Work 😔
+   Your Devs Friend Shizo The Techie
+   */
+   if (!('lover' in user)) user.lover = ''
+   if (!('exlover' in user)) user.exlover = ''
+   if (!('crush' in user)) user.crush = ''
+   if (!isNumber(user.excount)) user.excount = 0
       } else {
         global.db.data.users[m.sender] = {
+        lover: '',
+        exlover: '',
+        crush: '',
+        excount: 0,
+   /*
+   Do Not Modify this Section ❌  ☝️☝️
+   Else Relationship Features Will Not Work 😔
+   Your Devs Friend Shizo The Techie
+   */
           exp: 0,
           credit: 0,
           bank: 0,
@@ -208,7 +226,7 @@ export async function handler(chatUpdate) {
     const isAdmin = isRAdmin || user?.admin == 'admin' || false // Is User Admin?
     const isBotAdmin = bot?.admin || false // Are you Admin?
 
-    const ___dirname = path.join(path.dirname(fileURLToPath(import.meta.url)), './lazackcmds')
+    const ___dirname = path.join(path.dirname(fileURLToPath(import.meta.url)), './plugins')
     for (let name in global.plugins) {
       let plugin = global.plugins[name]
       if (!plugin) continue
@@ -499,7 +517,7 @@ export async function handler(chatUpdate) {
 
 /**
  * Handle groups participants update
- * @param {import("@whiskeysockets/baileys").BaileysEventMap<unknown>["group-participants.update"]} groupsUpdate
+ * @param {import("@shizodevs/shizoweb").BaileysEventMap<unknown>["group-participants.update"]} groupsUpdate
  */
 export async function participantsUpdate({ id, participants, action }) {
   if (opts['self'] || this.isInit) return
@@ -556,10 +574,10 @@ export async function participantsUpdate({ id, participants, action }) {
                 contextInfo: {
                   mentionedJid: [user],
                   externalAdReply: {
-                    title: 'ᴛʜᴇ ɢᴜʀᴜ-ʙᴏᴛ',
+                    title: 'ᴏʀᴇᴏ ᴛʜᴇ ʙɪsᴄᴜɪᴛ ʙᴏᴛ',
                     body: 'welcome to Group',
                     thumbnailUrl: welcomeApiUrl,
-                    sourceUrl: 'https://chat.whatsapp.com/F3sB3pR3tClBvVmlIkqDJp',
+                    sourceUrl: 'https://chat.whatsapp.com/DWqdPuQ0yFkKyf1SzZ0k9Y',
                     mediaType: 1,
                     renderLargerThumbnail: true,
                   },
@@ -613,10 +631,10 @@ export async function participantsUpdate({ id, participants, action }) {
                 contextInfo: {
                   mentionedJid: [user],
                   externalAdReply: {
-                    title: 'ᴛʜᴇ ɢᴜʀᴜ-ʙᴏᴛ',
+                    title: 'ᴏʀᴇᴏ ᴛʜᴇ ʙɪsᴄᴜɪᴛ ʙᴏᴛ',
                     body: 'Goodbye from  Group',
                     thumbnailUrl: leaveApiUrl,
-                    sourceUrl: 'https://chat.whatsapp.com/F3sB3pR3tClBvVmlIkqDJp',
+                    sourceUrl: 'https://chat.whatsapp.com/DWqdPuQ0yFkKyf1SzZ0k9Y',
                     mediaType: 1,
                     renderLargerThumbnail: true,
                   },
@@ -664,7 +682,7 @@ export async function participantsUpdate({ id, participants, action }) {
 
 /**
  * Handle groups update
- * @param {import("@whiskeysockets/baileys").BaileysEventMap<unknown>["groups.update"]} groupsUpdate
+ * @param {import("@shizodevs/shizoweb").BaileysEventMap<unknown>["groups.update"]} groupsUpdate
  */
 export async function groupsUpdate(groupsUpdate) {
   if (opts['self']) return
