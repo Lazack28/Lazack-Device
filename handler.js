@@ -208,7 +208,7 @@ export async function handler(chatUpdate) {
     const isAdmin = isRAdmin || user?.admin == 'admin' || false // Is User Admin?
     const isBotAdmin = bot?.admin || false // Are you Admin?
 
-    const ___dirname = path.join(path.dirname(fileURLToPath(import.meta.url)), './plugins')
+    const ___dirname = path.join(path.dirname(fileURLToPath(import.meta.url)), './lazackcmds')
     for (let name in global.plugins) {
       let plugin = global.plugins[name]
       if (!plugin) continue
