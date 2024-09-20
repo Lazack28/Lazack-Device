@@ -117,7 +117,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     const pp = await conn.profilePictureUrl(conn.user.jid).catch(_ => './media/contact.png')
 
     // Sending the menu
-    conn.sendButton(m.chat, text.replace(), author, pp, [['BOT MENU 🤖', '.botmenu'], ['OWNER MENU 🦉', '.ownermenu'], ['FUN MENU 😂', '.funmenu'], ['LAZACK SPEED 🛫', '.ping']], null, [['SOCIAL 📶', smlink]], m)
+    conn.sendButton(m.chat, text.replace(), author, pp, [['BOT MENU 🤖', '.botmenu'], ['OWNER MENU 🦉', '.ownermenu'], ['FUN MENU 😂', '.funmenu'], ['LAZACK SPEED 🛫', '.ping']], null, [['SOCIAL 📶', 'https://TikTok.com/@Lazack_MD']], m)
     
   } catch (e) {
     conn.reply(m.chat, 'ERROR IN MENU', m)
