@@ -3,8 +3,8 @@ export async function all(m) {
   if (
     (m.mtype === 'hellomessage' ||
       m.text.startsWith('Hello') ||
-      m.text.startsWith('hi')) ||
-      m.text.startsWith('mambo') &&
+      m.text.startsWith('hi') ||
+      m.text.startsWith('mambo')) &&
     !m.isBaileys &&
     !m.isGroup
  /* ) {
