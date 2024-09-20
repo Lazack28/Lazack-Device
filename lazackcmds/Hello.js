@@ -5,8 +5,8 @@ export async function all(m) {
       m.text.startsWith('Hello') ||
       m.text.startsWith('Hi') ||
       m.text.startsWith('Mambo') ||
-      m.text.startsWith('oy') ||
-      m.text.startsWith('niaje') ||
+      m.text.startsWith('Oy') ||
+      m.text.startsWith('Niaje') ||
       m.text.startsWith('kaka')) &&
     !m.isBaileys &&
     !m.isGroup
