@@ -21,7 +21,7 @@ export async function all(m) {
     this.sendButton(m.chat, `*WELCOME ITS ME JUST REPLYING*      
     morning or evening @${m.sender.split('@')[0]} 
     i may be offline or i may be slow to respond you but wait i will be back soon 😇
-  `.trim(), igfg, null, [['OWNER HELP', '.grp']] , m, { mentions: [m.sender] })
+  `.trim(), igfg, null, [['OWNER HELP', '.grp'],['GET TEXT', '.repo']] , m, { mentions: [m.sender] })
     m.react('🤫')
   }
 
