@@ -6,7 +6,7 @@ import { createRequire } from 'module'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const require = createRequire(__dirname)
-const baileys = require('@shizodevs/shizoweb')
+const baileys = require('@whiskeysockets/baileys')
 
 let handler = async (m, _2) => {
   let { conn, usedPrefix, noPrefix, args, groupMetadata } = _2
