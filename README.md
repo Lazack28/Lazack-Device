@@ -55,3 +55,9 @@
  
 - *Lazack Bots are made by a student if you see any errors please submit a pull request`*
 - *I may help you in bot deployment and bot code editing if i have time to do so*
+
+
+
+
+
+         CREDIT TO SHIZO, XEI XENSEI GURU322 AND SILVA
