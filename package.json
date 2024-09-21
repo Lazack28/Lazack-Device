@@ -66,6 +66,7 @@
         "figlet": "^1.7.0",
         "file-type": "^18.0.0",
         "fluent-ffmpeg": "^2.1.2",
+        "ffmpeg": "^0.0.4",
         "formdata-node": "^5.0.0",
         "g-i-s": "^2.1.6",
         "google-it": "^1.6.4",
