@@ -1,15 +1,15 @@
 import { download } from 'aptoide-scraper'
 
-let handler = async (m, { oreo, usedPrefix: prefix, command, text }) => {
+let handler = async (m, { conn, usedPrefix: prefix, command, text }) => {
   try {
-    if (command === 'modapk') {
+    if (command === 'apk') {
       if (!text) throw `*[❗] Please provide the APK Name you want to download.*`
 
-      await oreo.reply(m.chat, global.wait, m)
+      await conn.reply(m.chat, global.wait, m)
       let data = await download(text)
 
       if (data.size.replace(' MB', '') > 200) {
-        return await oreo.sendMessage(
+        return await conn.sendMessage(
           m.chat,
           { text: '*[⛔] The file is too large.*' },
           { quoted: m }
@@ -17,14 +17,14 @@ let handler = async (m, { oreo, usedPrefix: prefix, command, text }) => {
       }
 
       if (data.size.includes('GB')) {
-        return await oreo.sendMessage(
+        return await conn.sendMessage(
           m.chat,
           { text: '*[⛔] The file is too large.*' },
           { quoted: m }
         )
       }
 
-      await oreo.sendMessage(
+      await conn.sendMessage(
         m.chat,
         {
           document: { url: data.dllink },
@@ -42,5 +42,5 @@ let handler = async (m, { oreo, usedPrefix: prefix, command, text }) => {
 
 handler.help = ['modapk']
 handler.tags = ['downloader']
-handler.command = /^modapk$/i
+handler.command = /^apk$/i
 export default handler
