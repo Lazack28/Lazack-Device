@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 let handler = async (m, { conn }) => {
 
 let msg = `Ganpati Bappa Morya !! 🙇`
-let endpoint = `https://shizoapi.onrender.com/api/devotional/ganpati?apikey=${shizokeys}`
+let endpoint = `https://shizoapi.onrender.com/api/devotional/ganpati?apikey=shizo`
 const response = await fetch(endpoint);
 if (response.ok) {
       const imageBuffer = await response.buffer();
