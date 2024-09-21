@@ -74,7 +74,12 @@ let str = `
 `
 
 
-    conn.sendFile(m.chat, pp, 'perfil.jpg', str, m, null, rpyt)
+
+   conn.sendButton(m.chat, m2, mssg.ig, pp, [
+      ['⏍ Info', `.menu`],
+      ['⌬ Grupos', `.grp`]
+    ],m, rpyt) 
+   conn.sendFile(m.chat, pp, 'perfil.jpg', str, m, null, rpyt)
     m.react(done)
 
 }
