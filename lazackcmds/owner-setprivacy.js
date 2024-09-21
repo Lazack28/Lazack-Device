@@ -1,4 +1,4 @@
-import pkg from '@shizodevs/shizoweb'
+import pkg from '@whiskeysockets/baileys'
 const { WA_DEFAULT_EPHEMERAL } = pkg
 const handler = async (m, { conn, args, usedPrefix }) => {
   const validValues = {
