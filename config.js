@@ -42,6 +42,9 @@ global.keysneoxrrr = ['5VC9rvNx', 'cfALv5']
 global.keysneoxr = keysneoxrrr[Math.floor(keysneoxrrr.length * Math.random())]
 global.lolkeysapi = ['GataDios']
 
+global.fgcanal = 'https://whatsapp.com/channel/0029VaFytPbAojYm7RIs6l1x'
+
+
 global.APIs = {
   // API Prefix
   // name: 'https://website'
