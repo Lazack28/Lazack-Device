@@ -19,7 +19,7 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
 await conn.sendButton2(m.chat, play [
     ['🎶 MP3', `${usedPrefix}fgmp3 ${url}`],
     ['🎥 MP4', `${usedPrefix}fgmp4 ${url}`]
-  ], null, [['CHANNEL', `${fgcanal}`]], m)
+  ], null, [['CHANNEL', `.grp`]], m)
 }
 handler.help = ['play']
 handler.tags = ['dl']
