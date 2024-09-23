@@ -7,7 +7,7 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
 	let vid = res.videos[0]
 	if (!vid) throw `✳️ Vídeo/Audio no encontrado`
 	let { title, description, videoId, timestamp, views, ago, url } = vid
-	const url = 'https://www.youtube.com/watch?v=' + videoId
+	//const url = 'https://www.youtube.com/watch?v=' + videoId
 	m.react('🎧') 
   let play = `
 	≡ *DEVICE MUSIC*
@@ -18,8 +18,8 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
 ▢ 👀 *views:* ${vid.views.toLocaleString()}
 └──────────────`
  await conn.sendButton(m.chat, play, [
-    ['🎶 MP3', `${usedPrefix}fgmp3 ${url}`],
-    ['🎥 MP4', `${usedPrefix}fgmp4 ${url}`]
+    ['🎶 MP3', `${usedPrefix}ytmp3 ${url}`],
+    ['🎥 MP4', `${usedPrefix}ytmp4 ${url}`]
   ], null, [['Canal', `${fgcanal}`]], m)
 }
 handler.help = ['play']
