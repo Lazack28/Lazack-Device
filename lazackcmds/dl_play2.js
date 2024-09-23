@@ -1,4 +1,3 @@
-
 import yts from 'yt-search'
 let handler = async (m, { conn, command, text, usedPrefix }) => {
 	
@@ -17,8 +16,10 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
 ▢ ⌚ *duration:* ${vid.timestamp}
 ▢ 👀 *views:* ${vid.views.toLocaleString()}
 └──────────────`
- conn.sendFile(m.chat, vid.thumbnail, 'play', play, m, null, canal)
-  
+ await conn.sendButton(m.chat, play, [
+    ['🎶 MP3', `${usedPrefix}ytmp3 ${url}`],
+    ['🎥 MP4', `${usedPrefix}ytmp4 ${url}`]
+  ], null, [['support', `.grp`]], m)
 }
 handler.help = ['play']
 handler.tags = ['dl']
