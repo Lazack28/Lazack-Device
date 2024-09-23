@@ -16,7 +16,11 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
 ▢ ⌚ *duration:* ${vid.timestamp}
 ▢ 👀 *views:* ${vid.views.toLocaleString()}
 └──────────────`
- await conn.sendButton2(m.chat, play, [['🎶 MP3', '.fgmp3 ${url}'],['🎥 MP4', '.ytmp4 ${url}']], null, [['support', `.grp`]], m)
+
+	await conn.sendButton2(m.chat, play, mssg.ig, thumbnail, [
+    ['🎶 MP3', `${usedPrefix}fgmp3 ${url}`],
+    ['🎥 MP4', `${usedPrefix}fgmp4 ${url}`]
+  ], null, [['CHANNEL', `${fgcanal}`]], m)
 }
 handler.help = ['play']
 handler.tags = ['dl']
