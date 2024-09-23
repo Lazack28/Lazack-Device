@@ -1,35 +1,79 @@
-import {youtubedl, youtubedlv2} from '@bochilteam/scraper-sosmed';
+import fs from 'fs';
+import path from 'path';
+import ytdl from 'youtubedl-core';
+import { Client } from 'undici';
+import { fileURLToPath } from 'url';
 import fetch from 'node-fetch';
-const handler = async (m, {conn, args}) => {
-  if (!args[0]) throw '*🚩Need a Youtube Link...*';
-  await m.reply(wait);
-    m.react(rwait);
-  try {
-    const qu = args[1] || '720';
-    const q = qu + 'p';
-    const v = args[0];
-    const yt = await youtubedl(v).catch(async (_) => await youtubedlv2(v));
-    const dl_url = await yt.video[q].download();
-    const ttl = await yt.title;
-    const size = await yt.video[q].fileSizeH;
-    const cap = `*◉╭━⊱⌈𝙔𝙊𝙐𝙏𝙐𝘽𝙀_𝘿𝙇⌋⊱━╮◉*\n🎉${mssg.title}: ${ttl}\n🌐${mssg.size}: ${size}`.trim();
-    await await conn.sendMessage(m.chat, {document: {url: dl_url}, caption: cap, mimetype: 'video/mp4', fileName: ttl + `.mp4`}, {quoted: m});
-  } catch {
-    m.react(done)
-    try {
-      const lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytvideo2?apikey=${lolkeysapi}&url=${args[0]}`);
-      const lolh = await lolhuman.json();
-      const n = lolh.result.title || 'error';
-      const n2 = lolh.result.link;
-      const n3 = lolh.result.size;
-      const cap2 = `*◉╭━⊱⌈𝙔𝙊𝙐𝙏𝙐𝘽𝙀_𝘿𝙇⌋⊱━╮◉*\n🎉${mssg.title}: ${n}\n🌐${mssg.size}: ${n3}`.trim();
-      await conn.sendMessage(m.chat, {document: {url: n2}, caption: cap2, mimetype: 'video/mp4', fileName: n + `.mp4`}, {quoted: m});
-    } catch {
-      m.react(done)
-      await conn.reply(m.chat, '*Error couldnt download the video*', m);
-    }
-  }
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) => {
+  let chat = global.db.data.chats[m.chat];
+  if (!args || !args[0]) throw `✳️ Example:\n${usedPrefix + command} https://youtu.be/YzkTFFwxtXI`;
+  if (!args[0].match(/youtu/gi)) throw `❎ Verify that the YouTube link`;
+  await m.react('⏳')
+
+  const videoDetails = await ytddl(args[0]);
+  if (!videoDetails) throw `❎ Error downloading video`;
+
+  const { url, title, author, description } = videoDetails;
+
+  const response = await fetch(url);
+  const data = await response.buffer();
+
+  const caption = `✼ ••๑⋯❀ Y O U T U B E ❀⋯⋅๑•• ✼
+	  
+❏ Title: ${title || 'Unknown'}
+❒ Author: ${author || 'Unknown'}
+❒ Description: ${description || 'No description available'}
+❒ Link: ${args[0]}
+⊱─━⊱༻●༺⊰━─⊰`;
+
+  conn.sendFile(m.chat, data, `${title || 'video'}.mp4`, caption, m, false, { asDocument: chat.useDocument });
+  await m.react('✅')
 };
-handler.command = /^ytmp4doc|ytvdoc|ytdl$/i;
+
+
+handler.help = ['ytmp4 <yt-link>'];
 handler.tags = ['downloader'];
+handler.command = ['ytmp4', 'video', 'ytv'];
+handler.diamond = false;
+
 export default handler;
+
+async function getCookies() {
+  const cookiesPath = path.resolve(__dirname, '../Assets/cookies.json');
+  if (!fs.existsSync(cookiesPath)) {
+    throw new Error('Cookies file not found');
+  }
+  return JSON.parse(fs.readFileSync(cookiesPath, 'utf-8'));
+}
+
+async function createClient() {
+  const cookies = await getCookies();
+  return new Client("https://www.youtube.com", {
+    headers: {
+      "Cookie": cookies.map(cookie => `${cookie.name}=${cookie.value}`).join('; ')
+    }
+  });
+}
+
+async function ytddl(url) {
+  try {
+    const client = await createClient();
+    const yt = await ytdl.getInfo(url, { requestOptions: { client: client } });
+    const link = ytdl.chooseFormat(yt.formats, { quality: 'highest', filter: 'audioandvideo' });
+
+    return {
+      url: link.url,
+      title: yt.videoDetails.title,
+      author: yt.videoDetails.author.name,
+      description: yt.videoDetails.description,
+    };
+  } catch (error) {
+    console.error("An error occurred:", error);
+    return null;  // Ensure a null is returned on error
+  }
+}
+
