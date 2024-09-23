@@ -16,9 +16,9 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
 ▢ ⌚ *duration:* ${vid.timestamp}
 ▢ 👀 *views:* ${vid.views.toLocaleString()}
 └─────────────`
-await conn.sendButton2(m.chat, play [
-    ['🎶 MP3', `${usedPrefix}fgmp3 ${url}`],
-    ['🎥 MP4', `${usedPrefix}fgmp4 ${url}`]
+await conn.sendButton(m.chat, play [
+    ['🎶 MP3', `.fgmp3 ${url}`],
+    ['🎥 MP4', `.fgmp4 ${url}`]
   ], null, [['CHANNEL', `.grp`]], m)
 }
 handler.help = ['play']
