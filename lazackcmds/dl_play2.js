@@ -17,10 +17,8 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
 ▢ ⌚ *duration:* ${vid.timestamp}
 ▢ 👀 *views:* ${vid.views.toLocaleString()}
 └──────────────`
- await conn.sendButton(m.chat, play, [
-    ['🎶 MP3', `${usedPrefix}ytmp3 ${url}`],
-    ['🎥 MP4', `${usedPrefix}ytmp4 ${url}`]
-  ], null, [['Canal', `${fgcanal}`]], m)
+ conn.sendFile(m.chat, vid.thumbnail, 'play', play, m, null, rcanal)
+  
 }
 handler.help = ['play']
 handler.tags = ['dl']
