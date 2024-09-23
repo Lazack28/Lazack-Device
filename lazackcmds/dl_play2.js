@@ -2,7 +2,7 @@
 import yts from 'yt-search'
 let handler = async (m, { conn, command, text, usedPrefix }) => {
 	
-  if (!text) throw `✳️ ${mssg.example} *${usedPrefix + command}* Lil Peep hate my life`
+  if (!text) throw `✳️*${usedPrefix + command}* Lil Peep hate my life`
 	let res = await yts(text)
 	let vid = res.videos[0]
 	if (!vid) throw `✳️ Vídeo/Audio no encontrado`
@@ -12,12 +12,12 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
   let play = `
 	≡ *DEVICE MUSIC*
 ┌──────────────
-▢ 📌 *${mssg.title}:* ${vid.title}
-▢ 📆 *${mssg.aploud}:* ${vid.ago}
-▢ ⌚ *${mssg.duration}:* ${vid.timestamp}
-▢ 👀 *${mssg.views}:* ${vid.views.toLocaleString()}
+▢ 📌 *title:* ${vid.title}
+▢ 📆 *aploud:* ${vid.ago}
+▢ ⌚ *duration:* ${vid.timestamp}
+▢ 👀 *views:* ${vid.views.toLocaleString()}
 └──────────────`
- await conn.sendButton2(m.chat, play, mssg.ig, thumbnail, [
+ await conn.sendButton2(m.chat, play, thumbnail, [
     ['🎶 MP3', `${usedPrefix}fgmp3 ${url}`],
     ['🎥 MP4', `${usedPrefix}fgmp4 ${url}`]
   ], null, [['Canal', `${fgcanal}`]], m)
