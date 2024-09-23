@@ -1,4 +1,4 @@
-/* 
+ 
 import yts from 'yt-search'
 import ytdl from 'ytdl-core'
 import fs from 'fs'
@@ -10,7 +10,7 @@ import fetch from 'node-fetch'
 let limit = 320
 let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
   
-    if (!text) throw `✳️ ${mssg.example} *${usedPrefix + command}* Lil Peep hate my life`
+    if (!text) throw `✳️ *${usedPrefix + command}* Lil Peep hate my life`
   let chat = global.db.data.chats[m.chat]
   let res = await yts(text)
   //let vid = res.all.find(video => video.seconds < 3600)
@@ -22,14 +22,14 @@ let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, comman
   let play = `
 	≡ *DEVICE MUSIC*
 ┌──────────────
-▢ 📌 *${mssg.title}:* ${vid.title}
-▢ 📆 *${mssg.aploud}:* ${vid.ago}
-▢ ⌚ *${mssg.duration}:* ${vid.timestamp}
-▢ 👀 *${mssg.views}:* ${vid.views.toLocaleString()}
+▢ 📌 *title:* ${vid.title}
+▢ 📆 *aploud:* ${vid.ago}
+▢ ⌚ *duration:* ${vid.timestamp}
+▢ 👀 *views:* ${vid.views.toLocaleString()}
 └──────────────
 
 _Enviando..._` 
-conn.sendFile(m.chat, vid.thumbnail, 'play', play, m, null, rcanal)
+conn.sendFile(m.chat, vid.thumbnail, 'play', play, m)
   
   let q = isVideo ? '360p' : '128kbps' 
 try {
@@ -41,7 +41,7 @@ try {
   let { title, dl_url, quality, size, sizeB } = yt
   let isLimit = limit * 1024 < sizeB 
 
-     await conn.loadingMsg(m.chat, '📥 Descargando', ` ${isLimit ? `≡  *LAZACK YTDL*\n\n▢ *⚖️${mssg.size}*: ${size}\n▢ *🎞️${mssg.quality}*: ${quality}\n\n▢ _${mssg.limitdl}_ *+${limit} MB*` : '✅ Descarga Completada' }`, ["▬▭▭▭▭▭", "▬▬▭▭▭▭", "▬▬▬▭▭▭", "▬▬▬▬▭▭", "▬▬▬▬▬▭", "▬▬▬▬▬▬"], m)
+     await conn.loadingMsg(m.chat, '📥 Descargando', ` ${isLimit ? `≡  *FG YTDL*\n\n▢ *⚖️size: ${size}\n▢ *🎞️quality*: ${quality}\n\n▢ _limitdl_ *+${limit} MB*` : '✅ Descarga Completada' }`, ["▬▭▭▭▭▭", "▬▬▭▭▭▭", "▬▬▬▭▭▭", "▬▬▬▬▭▭", "▬▬▬▬▬▭", "▬▬▬▬▬▬"], m)
      
 	  if(!isLimit) conn.sendFile(m.chat, dl_url, title + '.mp' + (3 + /vid$/.test(command)), `
  ≡  *FG YTDL*
@@ -58,18 +58,18 @@ try {
   let { title, dl_url, quality, size, sizeB} = yt
   let isLimit = limit * 1024 < sizeB 
 
-     await conn.loadingMsg(m.chat, '📥 Descargando', ` ${isLimit ? `≡  *LAZACK YTDL*\n\n▢ *⚖️${mssg.size}*: ${size}\n▢ *🎞️${mssg.quality}*: ${quality}\n\n▢ _${mssg.limitdl}_ *+${limit} MB*` : '✅ Descarga Completada' }`, ["▬▭▭▭▭▭", "▬▬▭▭▭▭", "▬▬▬▭▭▭", "▬▬▬▬▭▭", "▬▬▬▬▬▭", "▬▬▬▬▬▬"], m)
+     await conn.loadingMsg(m.chat, '📥 Descargando', ` ${isLimit ? `≡  *FG YTDL*\n\n▢ *⚖️size*: ${size}\n▢ *🎞️quality*: ${quality}\n\n▢ _$limitdl_ *+${limit} MB*` : '✅ Descarga Completada' }`, ["▬▭▭▭▭▭", "▬▬▭▭▭▭", "▬▬▬▭▭▭", "▬▬▬▬▭▭", "▬▬▬▬▬▭", "▬▬▬▬▬▬"], m)
 	  if(!isLimit) conn.sendFile(m.chat, dl_url, title + '.mp' + (3 + /2$/.test(command)), `
  ≡  *FG YTDL 2*
   
-*📌${mssg.title}* : ${title}
-*🎞️${mssg.quality}* : ${quality}
-*⚖️${mssg.size}* : ${size}
+*📌title} : ${title}
+*🎞️quality* : ${quality}
+*⚖️size* : ${size}
 `.trim(), m, false, { mimetype: isVideo ? '' : 'audio/mpeg', asDocument: chat.useDocument })
 		m.react(done) 
 		
 		 } catch (error) {
-        m.reply(`❎ ${mssg.error}`)
+        m.reply(`❎ error`)
     }
 }
 
@@ -107,3 +107,4 @@ async function ytmp3(url) {
         dl_url: audioFilePath
     };
 }
+
