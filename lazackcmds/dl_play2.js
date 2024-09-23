@@ -17,7 +17,7 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
 ▢ ⌚ *duration:* ${vid.timestamp}
 ▢ 👀 *views:* ${vid.views.toLocaleString()}
 └──────────────`
- conn.sendFile(m.chat, vid.thumbnail, 'play', play, m, null, rcanal)
+ conn.sendFile(m.chat, vid.thumbnail, 'play', play, m, null, canal)
   
 }
 handler.help = ['play']
