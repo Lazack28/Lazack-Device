@@ -104,7 +104,7 @@ let str = `
       ['⏍ Info', `.menu`],
       ['⌬ Grupos', `.grp`]
     ],m, rpyt) */
-   conn.sendFile(m.chat, pp, 'perfil.jpg', str, m, null, canal)
+   conn.sendButton(m.chat, pp, 'perfil.jpg', str, m, null, canal)
     m.react(done)
 
 }
