@@ -1,29 +1,23 @@
-import yts from 'yt-search'
-let handler = async (m, { conn, command, text, usedPrefix }) => {
-	
-  if (!text) throw `✳️ *${usedPrefix + command}* Lil Peep hate my life`
-	let res = await yts(text)
-	let vid = res.videos[0]
-	if (!vid) throw `✳️ Vídeo/Audio no encontrado`
-	let { title, description, videoId, timestamp, views, ago, url } = vid
-	//const url = 'https://www.youtube.com/watch?v=' + videoId
-	m.react('🎧') 
-  let play = `
-	≡ *DEVICE MUSIC*
-┌──────────────
-▢ 📌 *title:* ${vid.title}
-▢ 📆 *aploud:* ${vid.ago}
-▢ ⌚ *duration:* ${vid.timestamp}
-▢ 👀 *views:* ${vid.views.toLocaleString()}
-└─────────────`
-await conn.sendButton(m.chat, play[
-    ['🎶 MP3', `.fgmp3 ${url}`],
-    ['🎥 MP4', `.fgmp4 ${url}`]
-  ], null, [['CHANNEL', `.grp`]], m)
-}
-handler.help = ['play']
-handler.tags = ['dl']
-handler.command = ['play', 'playvid']
-handler.disabled = false
+import Scraper from "@SumiFX/Scraper"
 
+let handler = async (m, { conn, text, usedPrefix, command }) => {
+if (!text) return m.reply('🍭 Ingresa el nombre de algún Track de Spotify.\n\n`Ejemplo:`\n' + `> *${usedPrefix + command}* Gemini Aaliyah - If Only`)
+
+let user = global.db.data.users[m.sender]
+try {
+let { title, artist, album, published, thumbnail, dl_url } = await Scraper.spotify(text)
+let txt = `╭─⬣「 *Spotify Download* 」⬣\n`
+    txt += `│  ≡◦ *🍭 Nombre ∙* ${title}\n`
+    txt += `│  ≡◦ *🪴 Artista ∙* ${artist}\n`
+    txt += `│  ≡◦ *📚 Album ∙* ${album}\n`
+    txt += `│  ≡◦ *📅 Publicado ∙* ${published}\n`
+    txt += `╰─⬣`
+await conn.sendFile(m.chat, thumbnail, 'thumbnail.jpg', txt, m)
+await conn.sendFile(m.chat, dl_url, title + '.mp3', `*🍭 Titulo ∙* ${title}\n*🪴 Artista ∙* ${artist}`, m, false, { mimetype: 'audio/mpeg', asDocument: user.useDocument })
+} catch {
+}}
+handler.help = ['spotify <búsqueda>']
+handler.tags = ['downloader']
+handler.command = ['play3']
+handler.register = true 
 export default handler
