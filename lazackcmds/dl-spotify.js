@@ -9,10 +9,10 @@ let handler = async (m, { conn, text }) => {
   //await displayLoadingScreen(conn, m.chat)
   let pp = 'https://wallpapercave.com/wp/wp7932387.jpg'
   const query = encodeURIComponent(text)
-  let res = `https://api.guruapi.tech/spotifysearch?query=${query}`
+  let res = `https://api.junn4.my.id/search/spotify?query=${text}`
   let spurl = await fetch(res)
   spurl = await spurl.json()
-  let dlres = await fetch(`https://api.guruapi.tech/spotifydl?url=${spurl.data[0].url}`)
+  let dlres = await fetch(`https://api.junn4.my.id/search/spotify?query=${text}`)
   dlres = await dlres.json()
   let sturl  = dlres.data.url
 
