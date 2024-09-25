@@ -71,7 +71,7 @@ let str = `
 ╚═══════════════════════╝
 
 乂───『 *INFO*』───乂 
-│*Simple menu*
+│ *Simple menu*
 │ *_TRY NOT TO LAUGH_*
 ╰───────⳹
 ╭───────⳹
@@ -95,7 +95,7 @@ let str = `
 │ *18.* Plugin Menu
 ╰───────⳹
 
-💡 *_Remember, when in doubt, use ${usedPrefix}list or ${usedPrefix}help2. It's like my magic spell book!_* 💡
+> 💡 *_Remember, when in doubt, use ${usedPrefix}list or ${usedPrefix}help2. It's like my magic spell book!_* 💡
 `
 
     
