@@ -302,7 +302,8 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 > 🗡️⃝🎋 _${usedPrefix}true_
      ┗━━━━━━━━━━━━━━━⪼` //
       break
-    case 'nsfwmenu': `
+    case 'nsfwmenu': 
+      lkr = `
   ✦ ───『 *nsfw* 』─── ⚝
   ◈ .genshin
   ◈ .swimsuit
