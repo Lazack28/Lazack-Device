@@ -12,7 +12,7 @@ let handler = async (m, { conn, text }) => {
   let res = `https://api.junn4.my.id/search/spotify?query=${text}`
   let spurl = await fetch(res)
   spurl = await spurl.json()
-  let dlres = await fetch(`https://api.junn4.my.id/search/spotify?query=${text}`)
+  let dlres = await fetch(`https://api.junn4.my.id/download/spotify?url=${api.data[0].url}`)
   dlres = await dlres.json()
   let sturl  = dlres.data.url
 
