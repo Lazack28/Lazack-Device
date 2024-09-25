@@ -104,7 +104,7 @@ let str = `
     
 
 
-   conn.sendMessage(m.chat, pp, 'perfil.jpg', str, m, null, canal)
+   conn.sendFile(m.chat, pp, 'perfil.jpg', str, m, null, canal)
     m.react(done)
 
 }
