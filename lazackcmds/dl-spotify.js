@@ -5,7 +5,7 @@ let handler = async (m, { conn, text }) => {
     throw `*Please enter a song name*`
   }
   m.react('🎶')
-  await displayLoadingScreen(conn, m.chat)
+ // await displayLoadingScreen(conn, m.chat)
   let pp = 'https://wallpapercave.com/wp/wp7932387.jpg'
   const query = encodeURIComponent(text)
   let res = `https://guruapi.tech/api/spotifydl?url=${query}`
