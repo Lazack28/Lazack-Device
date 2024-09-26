@@ -90,7 +90,8 @@ let msg = generateWAMessageFromContent(m.chat, {
                 },
                  {
                 "name": "single_select",
-                "buttonParamsJson": "{\"tittle\":\"TAP TO OWNER\",\"selections\":[{\"tittle\":\"OWNER CHATING\",\"highlight_label\":\"LAZACK\",\"rows\":[{\"header\":\"\",\"title\":\"CONTACT OWNER\",\"description\":\"The bot creator public number\",\"id\":\".owner\"}]}]}"
+                "buttonParamsJson": 
+                                "{\"tittle\":\"TAP TO OWNER\",\"selections\":[{\"tittle\":\"OWNER CHATING\",\"highlight_label\":\"LAZACK\",\"rows\":[{\"header\":\"\",\"title\":\"CONTACT OWNER\",\"description\":\"The bot creator public number\",\"id\":\".owner\"}]}]}"
                  },
                   {
                   "name": "quick_reply",
