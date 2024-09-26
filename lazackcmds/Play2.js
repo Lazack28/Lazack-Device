@@ -11,7 +11,7 @@ let handler = async (m, { conn, text }) => {
   const query = encodeURIComponent(text)
   let res = `https://apisku-furina.vercel.app/api/downloader/play?q=${query}&apikey=indradev`
   // let spotify = await (await fetch(res)).buffer()
- /* let doc = {
+  let doc = {
     audio: {
       url: res,
     },
@@ -30,10 +30,10 @@ let handler = async (m, { conn, text }) => {
         mediaType: 1,
         renderLargerThumbnail: false,
       },
-    },*/
+    },
   }
 
-  await conn.sendMessage(m.chat, { quoted: m })
+  await conn.sendMessage(m.chat, doc, { quoted: m })
 }
 handler.help = ['spotify']
 handler.tags = ['downloader']
