@@ -388,7 +388,32 @@ let handler = async (m, { conn, usedPrefix, command }) => {
   ╰──────────⳹` //
       break
     case 'logomenu':
-      lkr = `use ${usedPrefix}logo to see all options \ngfx cmd upto 12` //
+      lkr = `
+  ✦ ───『 *maker* 』─── ⚝
+  ◈ .blur
+  ◈ .difuminar2
+  ◈ .hornycard
+  ◈ .hornylicense
+  ◈ .gfx1
+  ◈ .gfx2
+  ◈ .gfx3
+  ◈ .gfx4
+  ◈ .gfx5
+  ◈ .gfx6
+  ◈ .gfx7
+  ◈ .gfx8
+  ◈ .gfx9
+  ◈ .gfx10
+  ◈ .gfx11
+  ◈ .gfx12
+  ◈ .simpcard
+  ◈ .itssostupid
+  ◈ .iss
+  ◈ .stupid
+  ◈ .tweet <comment>
+  ◈ .lolicon
+  ◈ .ytcomment <comment>
+  ╰──────────` //
       break
     default:
       lkr = `Invalid command. Type ${usedPrefix}list to see available options.`
