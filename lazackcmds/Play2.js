@@ -58,7 +58,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
 handler.help = ["play"];
 handler.tags = ["music"];
-handler.command = /^play$/i;
+handler.command = /^play4$/i;
 
 module.exports = handler;
 
