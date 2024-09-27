@@ -14,7 +14,7 @@ await m.react('🕓')
        txt += `	✩   *Canal* : ${res[0].author.name || 'Desconocido'}\n`
        txt += `	✩   *Url* : ${'https://youtu.be/' + res[0].videoId}\n\n`
        txt += `> *-*MSELA-CHUI-V3🐯 To download reply to this message with *Video* or *Audio*.`
-await star.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, canal)
+await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, canal)
 await m.react('✅')
 } catch {
 await m.react('✖️')
