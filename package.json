@@ -45,6 +45,7 @@
         "@bochilteam/scraper": "*",
         "@google/generative-ai": "0.1.3",
         "@shineiichijo/marika": "^2.0.6",
+        "@StarlightsTeam/Scraper": "github:StarlightsTeam/StarlightsTeam-Scraper",
         "@vitalets/google-translate-api": "^9.2.0",
         "@whiskeysockets/baileys": "^6.6.0",
         "@SumiFX/Scraper": "github:SumiFX/SumiFX-Scraper",
