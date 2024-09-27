@@ -1,155 +1,113 @@
 import fetch from 'node-fetch'
-import ytdl from 'youtubedl-core'
-import yts from 'youtube-yts'
-import fs from 'fs'
-import { pipeline } from 'stream'
-import { promisify } from 'util'
-import os from 'os'
+import yts from 'yt-search'
 
-const streamPipeline = promisify(pipeline)
-
-const handler = async (m, { conn, command, text, args, usedPrefix }) => {
-  if (!text) throw `give a text to search Example: *${usedPrefix + command}* sefali odia song`
-  conn.GURUPLAY = conn.GURUPLAY ? conn.GURUPLAY : {}
-  await conn.reply(m.chat, wait, m)
-  const result = await searchAndDownloadMusic(text)
-  const infoText = `✦ ──『 *LAZACK DOWNLOADS* 』── ⚝ \n\n [ ⭐ Reply the number of the desired search result to get the Audio]. \n\n`
-
-  const orderedLinks = result.allLinks.map((link, index) => {
-    const sectionNumber = index + 1
-    const { title, url } = link
-    return `*${sectionNumber}.* ${title}`
-  })
-
-  const orderedLinksText = orderedLinks.join('\n\n')
-  const fullText = `${infoText}\n\n${orderedLinksText}`
-  const { key } = await conn.reply(m.chat, fullText, m)
-  conn.GURUPLAY[m.sender] = {
-    result,
-    key,
-    timeout: setTimeout(() => {
-      conn.sendMessage(m.chat, {
-        delete: key,
-      })
-      delete conn.GURUPLAY[m.sender]
-    }, 150 * 1000),
-  }
-}
-
-handler.before = async (m, { conn }) => {
-  conn.GURUPLAY = conn.GURUPLAY ? conn.GURUPLAY : {}
-  if (m.isBaileys || !(m.sender in conn.GURUPLAY)) return
-  const { result, key, timeout } = conn.GURUPLAY[m.sender]
-
-  if (!m.quoted || m.quoted.id !== key.id || !m.text) return
-  const choice = m.text.trim()
-  const inputNumber = Number(choice)
-  if (inputNumber >= 1 && inputNumber <= result.allLinks.length) {
-    const selectedUrl = result.allLinks[inputNumber - 1].url
-    console.log('selectedUrl', selectedUrl)
-    let title = generateRandomName()
-    const audioStream = ytdl(selectedUrl, {
-      filter: 'audioonly',
-      quality: 'highestaudio',
-    })
-
-    const tmpDir = os.tmpdir()
-
-    const writableStream = fs.createWriteStream(`${tmpDir}/${title}.mp3`)
-
-    await streamPipeline(audioStream, writableStream)
-
-    const doc = {
-      audio: {
-        url: `${tmpDir}/${title}.mp3`,
-      },
-      mimetype: 'audio/mpeg',
-      ptt: false,
-      waveform: [100, 0, 0, 0, 0, 0, 100],
-      fileName: `${title}`,
-    }
-
-    await conn.sendMessage(m.chat, doc, { quoted: m })
-  } else {
-    m.reply(
-      'Invalid sequence number. Please select the appropriate number from the list above.\nBetween 1 to ' +
-        result.allLinks.length
-    )
-  }
-}
-
-handler.help = ['play']
+let handler = async (m, { conn: star, command, args, text, usedPrefix }) => {
+  if (!text) return star.reply(m.chat, '🐯 Enter the title of a YouTube video or song.\n\n`Example:`\n' + `> *${usedPrefix + command}* Gemini Aaliyah - If Only`, m, rcanal)
+await m.react('🕓')
+    try {
+    let res = await search(args.join(" "))
+    let img = await (await fetch(`${res[0].image}`)).buffer()
+    let txt = '`乂  Y O U T U B E  -  P L A Y`\n\n'
+       txt += `	✩   *Title* : ${res[0].title}\n`
+       txt += `	✩   *Duration* : ${secondString(res[0].duration.seconds)}\n`
+       txt += `	✩   *Published* : ${eYear(res[0].ago)}\n`
+       txt += `	✩   *Canal* : ${res[0].author.name || 'Desconocido'}\n`
+       txt += `	✩   *Url* : ${'https://youtu.be/' + res[0].videoId}\n\n`
+       txt += `> *-*MSELA-CHUI-V3🐯 To download reply to this message with *Video* or *Audio*.`
+await star.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, rcanal)
+await m.react('✅')
+} catch {
+await m.react('✖️')
+}}
+handler.help = ['play *<search>*']
 handler.tags = ['downloader']
-handler.command = /^(play)$/i
-handler.limit = true
+handler.command = ['play']
+//handler.register = true 
 export default handler
 
-function formatBytes(bytes, decimals = 2) {
-  if (bytes === 0) return '0 B'
-  const k = 1024
-  const dm = decimals < 0 ? 0 : decimals
-  const sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-  const i = Math.floor(Math.log(bytes) / Math.log(k))
-  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i]
+async function search(query, options = {}) {
+  let search = await yts.search({ query, hl: "es", gl: "ES", ...options })
+  return search.videos
 }
 
-async function searchAndDownloadMusic(query) {
-  try {
-    const { videos } = await yts(query)
-    if (!videos.length) return 'Sorry, no video results were found for this search.'
+function MilesNumber(number) {
+  let exp = /(\d)(?=(\d{3})+(?!\d))/g
+  let rep = "$1."
+  let arr = number.toString().split(".")
+  arr[0] = arr[0].replace(exp, rep)
+  return arr[1] ? arr.join(".") : arr[0]
+}
 
-    const allLinks = videos.map(video => ({
-      title: video.title,
-      url: video.url,
-    }))
+function secondString(seconds) {
+  seconds = Number(seconds);
+  const d = Math.floor(seconds / (3600 * 24));
+  const h = Math.floor((seconds % (3600 * 24)) / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = Math.floor(seconds % 60);
+  const dDisplay = d > 0 ? d + (d == 1 ? ' Día, ' : ' Días, ') : '';
+  const hDisplay = h > 0 ? h + (h == 1 ? ' Hora, ' : ' Horas, ') : '';
+  const mDisplay = m > 0 ? m + (m == 1 ? ' Minuto, ' : ' Minutos, ') : '';
+  const sDisplay = s > 0 ? s + (s == 1 ? ' Segundo' : ' Segundos') : '';
+  return dDisplay + hDisplay + mDisplay + sDisplay;
+}
 
-    const jsonData = {
-      title: videos[0].title,
-      description: videos[0].description,
-      duration: videos[0].duration,
-      author: videos[0].author.name,
-      allLinks: allLinks,
-      videoUrl: videos[0].url,
-      thumbnail: videos[0].thumbnail,
+function sNum(num) {
+    return new Intl.NumberFormat('en-GB', { notation: "compact", compactDisplay: "short" }).format(num)
+}
+
+function eYear(txt) {
+    if (!txt) {
+        return '×'
     }
-
-    return jsonData
-  } catch (error) {
-    return 'Error: ' + error.message
-  }
-}
-
-async function fetchVideoBuffer() {
-  try {
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-      },
-    })
-    return await response.buffer()
-  } catch (error) {
-    return null
-  }
-}
-
-function generateRandomName() {
-  const adjectives = [
-    'happy',
-    'sad',
-    'funny',
-    'brave',
-    'clever',
-    'kind',
-    'silly',
-    'wise',
-    'gentle',
-    'bold',
-  ]
-  const nouns = ['cat', 'dog', 'bird', 'tree', 'river', 'mountain', 'sun', 'moon', 'star', 'cloud']
-
-  const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)]
-  const randomNoun = nouns[Math.floor(Math.random() * nouns.length)]
-
-  return randomAdjective + '-' + randomNoun
+    if (txt.includes('month ago')) {
+        var T = txt.replace("month ago", "").trim()
+        var L = 'does '  + T + ' month'
+        return L
+    }
+    if (txt.includes('months ago')) {
+        var T = txt.replace("months ago", "").trim()
+        var L = 'does ' + T + ' months'
+        return L
+    }
+    if (txt.includes('year ago')) {
+        var T = txt.replace("year ago", "").trim()
+        var L = 'does ' + T + ' year'
+        return L
+    }
+    if (txt.includes('years ago')) {
+        var T = txt.replace("years ago", "").trim()
+        var L = 'does ' + T + ' years'
+        return L
+    }
+    if (txt.includes('hour ago')) {
+        var T = txt.replace("hour ago", "").trim()
+        var L = 'does ' + T + ' hour'
+        return L
+    }
+    if (txt.includes('hours ago')) {
+        var T = txt.replace("hours ago", "").trim()
+        var L = 'does ' + T + ' hours'
+        return L
+    }
+    if (txt.includes('minute ago')) {
+        var T = txt.replace("minute ago", "").trim()
+        var L = 'does ' + T + ' minute'
+        return L
+    }
+    if (txt.includes('minutes ago')) {
+        var T = txt.replace("minutes ago", "").trim()
+        var L = 'does ' + T + ' minutes'
+        return L
+    }
+    if (txt.includes('day ago')) {
+        var T = txt.replace("day ago", "").trim()
+        var L = 'does ' + T + ' day'
+        return L
+    }
+    if (txt.includes('days ago')) {
+        var T = txt.replace("days ago", "").trim()
+        var L = 'does ' + T + ' day'
+        return L
+    }
+    return txt
 }
