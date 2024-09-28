@@ -1,4 +1,4 @@
-import ytdl from 'yts-search';
+import ytdl from 'youtubedl-core';
 import axios from 'axios';
 import fs from 'fs';
 import { pipeline } from 'stream';
