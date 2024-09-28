@@ -112,7 +112,7 @@
         "ytdl-core": "github:HanSamu-27/ytdl-core#main",
         "yargs": "^17.6.0",
         "youtube-yts": "^2.0.0",
-        "youtubedl-core": "npm:@distube/ytdl-core"
+        "youtubedl-core": "^4.11.7"
     },
     "overrides": {
         "cache-manager": "5.2.2"
