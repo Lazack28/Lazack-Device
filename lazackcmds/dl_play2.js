@@ -1,4 +1,4 @@
-import ytdl from 'ytdl-core';
+import ytdl from 'yt-search';
 import yts from 'youtube-yts';
 import fs from 'fs';
 import { pipeline } from 'stream';
