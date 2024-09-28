@@ -10,7 +10,7 @@ let handler = async (m, { conn, text }) => {
   await displayLoadingScreen(conn, m.chat)
   let pp = 'https://wallpapercave.com/wp/wp7932387.jpg'
   const query = encodeURIComponent(text)
-  let res = `https://apisku-furina.vercel.app/api/downloader/play?q=${query}&apikey=indradev`
+  let res = `https://apisku-furina.vercel.app/api/download/spotify?url=${query}&apikey=indradev`
   // let spotify = await (await fetch(res)).buffer()
   let doc = {
     audio: {
