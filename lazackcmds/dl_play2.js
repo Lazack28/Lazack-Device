@@ -1,4 +1,4 @@
-import ytdl from 'ytdl-core';
+import ytdl from 'yts-search';
 import axios from 'axios';
 import fs from 'fs';
 import { pipeline } from 'stream';
