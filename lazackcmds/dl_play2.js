@@ -1,4 +1,4 @@
-import ytdl from 'yt-search';
+import ytdl from 'ytdl-core';
 import yts from 'yt-search';
 import fs from 'fs';
 import { pipeline } from 'stream';
