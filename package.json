@@ -42,9 +42,8 @@
     "license": "Apache License 2.0",
     "dependencies": {
         "@adiwajshing/keyed-db": "^0.2.4",
-        "@bochilteam/scraper": "*",
+        "@bochilteam/scraper": "^4.2.4",
         "@google/generative-ai": "0.1.3",
-        "@SumiFX/Scraper": "github:SumiFX/SumiFX-Scraper",
         "@shineiichijo/marika": "^2.0.6",
         "@StarlightsTeam/Scraper": "github:StarlightsTeam/StarlightsTeam-Scraper",
         "@vitalets/google-translate-api": "^9.2.0",
