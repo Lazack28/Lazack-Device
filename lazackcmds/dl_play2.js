@@ -1,30 +1,104 @@
-import Starlights from '@StarlightsTeam/Scraper'
-import fetch from 'node-fetch' 
-let limit = 300
+import ytdl from 'youtubedl-core';
+import yts from 'youtube-yts';
+import fs from 'fs';
+import { pipeline } from 'stream';
+import { promisify } from 'util';
+import os from 'os';
+import axios from 'axios';
 
-let handler = async (m, { conn: star, args, text, isPrems, isOwner, usedPrefix, command }) => {
-if (!args[0].match(/youtu/gi)) return star.reply(m.chat, '🐯 Enter the YouTube video link along with the command.\n\n`Example:`\n' + `> *${usedPrefix + command}* https://youtu.be/QSvaCSt8ixs`, m, canal)
-await m.react('🕓')
-try {
-let { title, size, quality, thumbnail, dl_url } = await Starlights.ytmp4(args[0])
+const streamPipeline = promisify(pipeline);
 
-let img = await (await fetch(`${thumbnail}`)).buffer()
-if (size.split('MB')[0] >= limit) return star.reply(m.chat, `The file weighs more than ${limit} MB, Download was cancelled.`, m, canal).then(_ => m.react('✖️'))
-	let txt = '`乂  Y O U T U B E  -  M P 4 D O C`\n\n'
-       txt += `	✩   *title* : ${title}\n`
-       txt += `	✩   *Quality* : ${quality}\n`
-       txt += `	✩   *Size* : ${size}\n\n`
-       txt += `> *- Lazack device↻ Audio is being sent, please wait a moment, I'm slow. . .*`
-await star.sendFile(m.chat, img, 'thumbnail.jpg', txt, m, null, canal)
-await star.sendMessage(m.chat, { document: { url: dl_url }, caption: '', mimetype: 'video/mp4', fileName: `${title}` + `.mp4`}, {quoted: m })
-await m.react('✅')
-} catch {
-await m.react('✖️')
-}}
-handler.help = ['ytmp4doc *<link yt>*']
-handler.tags = ['downloader']
-handler.command = ['ytmp4doc', 'ytvdoc', 'ytdoc']
-//handler.limit = 1
-handler.register = true 
+let handler = async (m, { conn, command, text, usedPrefix }) => {
+  if (!text) throw `Use example ${usedPrefix}${command} naruto blue bird`;
+  await m.react(rwait);
 
-export default handler
+  try {
+    // Encode the query for the API request
+    const query = encodeURIComponent(text);
+
+    // Make a GET request to the API
+    const response = await axios.get(` https://apisku-furina.vercel.app/api/downloader/play?q=${query}&apikey=indradev`);
+    const result = response.data.results[0]; // Get the first result
+
+    if (!result) throw 'Video Not Found, Try Another Title';
+
+    // Extract video information from the API response
+    const { title, thumbnail, duration, views, uploaded, url } = result;
+
+    // Create a message caption with video information
+    const captvid = `✼ ••๑⋯ ❀ Y O U T U B E ❀ ⋯⋅๑•• ✼
+  ❏ Title: ${title}
+  ❐ Duration: ${duration}
+  ❑ Views: ${views}
+  ❒ Upload: ${uploaded}
+  ❒ Link: ${url}
+
+> I CAN'T DOWNLOAD FOR YOU NOW WE ARE FIXING THE PROBLEM.
+> ©Lazack_28
+⊱─━━━━⊱༻●༺⊰━━━━─⊰`;
+
+    // Send the video information along with the thumbnail to the Discord channel
+    conn.sendMessage(m.chat, { image: { url: thumbnail }, caption: captvid, footer: author }, { quoted: m });
+
+    // Download and send the audio of the video
+    const audioStream = ytdl(url, {
+      filter: 'audioonly',
+      quality: 'highestaudio',
+    });
+
+    // Get the path to the system's temporary directory
+    const tmpDir = os.tmpdir();
+
+    // Create a writable stream in the temporary directory
+    const writableStream = fs.createWriteStream(`${tmpDir}/${title}.mp3`);
+
+    // Start the download
+    await streamPipeline(audioStream, writableStream);
+
+    // Prepare the message document with audio file and metadata
+    const doc = {
+      audio: {
+        url: `${tmpDir}/${title}.mp3`
+      },
+      mimetype: 'audio/mpeg',
+      ptt: false,
+      waveform: [100, 0, 0, 0, 0, 0, 100],
+      fileName: `${title}`,
+      contextInfo: {
+        externalAdReply: {
+          showAdAttribution: true,
+          mediaType: 2,
+          mediaUrl: url,
+          title: title,
+          body: 'HERE IS YOUR SONG',
+          sourceUrl: url,
+          thumbnail: await (await conn.getFile(thumbnail)).data
+        }
+      }
+    };
+
+    // Send the audio message to the Discord channel
+    await conn.sendMessage(m.chat, doc, { quoted: m });
+
+    // Delete the downloaded audio file
+    fs.unlink(`${tmpDir}/${title}.mp3`, (err) => {
+      if (err) {
+        console.error(`Failed to delete audio file: ${err}`);
+      } else {
+        console.log(`Deleted audio file: ${tmpDir}/${title}.mp3`);
+      }
+    });
+  } catch (error) {
+    console.error(error);
+    throw 'An error occurred while searching for YouTube videos.';
+  }
+};
+
+handler.help = ['play'].map((v) => v + ' <query>');
+handler.tags = ['downloader'];
+handler.command = /^play$/i;
+
+handler.exp = 0;
+
+export default handler;
+      
