@@ -1,246 +1,79 @@
-import fg from 'api-dylux'
-import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
-import yts from 'yt-search'
-import fetch from 'node-fetch' 
+import fg from 'api-dylux';
+import yts from 'yt-search';
+import fetch from 'node-fetch';
+import axios from 'axios';
+
+
+const imgUrl = 'https://telegra.ph/file/a83d8f5535e6b744986b4.png';
 
 let handler = async (m, { conn, args, usedPrefix, text, command }) => {
-let lister = ["mp3", "yta", "audio", "ytv", "video", "vídeo", "mp4", "mp3doc", "ytadoc", "audiodoc", "mp4doc", "ytvdoc", "videodoc", "vídeodoc"]
-
-let [feature, inputs, inputs_, inputs__, inputs___] = text.split(" ")
-if (!lister.includes(feature)) return conn.reply(m.chat, `🐯 Ingresa el formato en que deseas descargar más el titulo de un video o musica de YouTube.\n\nEjemplo : ${usedPrefix + command} *mp3* SUICIDAL-IDOL - ecstacy\n\nFormatos disponibles :\n${usedPrefix + command} *mp3*\n${usedPrefix + command} *mp3doc*\n${usedPrefix + command} *mp4*\n${usedPrefix + command} *mp4doc*`, m, rcanal)
-if (lister.includes(feature)) {
-if (feature == "mp3" || feature == "yta" || feature == "audio") {
-if (!inputs) return conn.reply(m.chat, '🐯 Ingresa el título de un video o canción de YouTube.\n\n`Ejemplo:`\n' + `> *${usedPrefix + command}* Gemini Aaliyah - If Only`, m, rcanal)
-await m.react('🕓')
-let res = await yts(text)
-let vid = res.videos[0]
-let q = '128kbps'
-let txt = '`乂  Y O U T U B E  -  P L A Y`\n\n'
-	txt += `	✩   *Title* : ${vid.title}\n`
-	txt += `	✩   *Duration* : ${vid.timestamp}\n`
-	txt += `	✩   *Visits* : ${toNum(vid.views)} ( *${formatNumber(vid.views)}* )\n`
-	txt += `	✩   *Author* : ${vid.author.name}\n`
-	txt += `	✩   *Published* : ${eYear(vid.ago)}\n`
-	txt += `	✩   *Url* : ${'https://youtu.be/' + vid.videoId}\n\n`
-	txt += `> *- MSELA-CHUI-V3🐯↻ Audio is being sent, please wait a moment, I'm slow. . .*`
-await conn.sendFile(m.chat, vid.thumbnail, 'thumbnail.jpg', txt, m, null, rcanal)
-try {
-let yt = await fg.yta(vid.url, q)
-let { title, dl_url, size } = yt
-let limit = 100
-       
-if (size.split('MB')[0] >= limit) return star.reply(m.chat, `El archivo pesa mas de ${limit} MB, se canceló la Descarga.`, m, rcanal).then(_ => m.react('✖️'))
-
-await conn.sendMessage(m.chat, { audio: { url: dl_url }, fileName: title + '.mp3', mimetype: 'audio/mp4' }, { quoted: m })
-await m.react('✅')
-} catch {
-try {
-let yt = await fg.ytmp3(vid.url, q)
-let { title, dl_url, size } = yt
-let limit = 100
-       
-if (size.split('MB')[0] >= limit) return star.reply(m.chat, `El archivo pesa mas de ${limit} MB, se canceló la Descarga.`, m, rcanal).then(_ => m.react('✖️'))
-       
-await conn.sendMessage(m.chat, { audio: { url: dl_url }, fileName: title + '.mp3', mimetype: 'audio/mp4' }, { quoted: m })
-await m.react('✅')
-} catch {
-await m.react('✖️')
-}}}
+    let lister = ["mp3", "yta", "audio", "ytv", "video", "vídeo", "mp4", "mp3doc", "ytadoc", "audiodoc", "mp4doc", "ytvdoc", "videodoc", "vídeodoc"];
+    
+    let [format, ...keywords] = text.split(" ");
+    let searchQuery = keywords.join(" ");
+    
+    if (!lister.includes(format)) {
+        return conn.reply(m.chat, `*💙 𝙸𝚗𝚐𝚛𝚎𝚜𝚊 𝚎𝚕 𝚏𝚘𝚛𝚖𝚊𝚝𝚘 𝚎𝚗 𝚚𝚞𝚎 𝚍𝚎𝚜𝚎𝚊𝚜 𝚍𝚎𝚜𝚌𝚊𝚛𝚐𝚊𝚛 𝚖á𝚜 𝚎𝚕 𝚝í𝚝𝚞𝚕𝚘 𝚍𝚎 𝚞𝚗 𝚟𝚒𝚍𝚎𝚘 𝚘 𝚖ú𝚜𝚒𝚌𝚊 𝚍𝚎 𝚈𝚘𝚞𝚃𝚞𝚋𝚎.*\n\n𝙴𝚓𝚎𝚖𝚙𝚕𝚘: ${usedPrefix + command} *mp3* Connor RK800 - I Am Machine\n\n𝙵𝚘𝚛𝚖𝚊𝚝𝚘𝚜 𝚍𝚒𝚜𝚙𝚘𝚗𝚒𝚋𝚕𝚎𝚜:\n${lister.map(f => `${usedPrefix + command} *${f}*`).join('\n')}`, m);
+    }
+    
+    if (!searchQuery) {
+        return conn.reply(m.chat, `*💙 𝙸𝚗𝚐𝚛𝚎𝚜𝚊 𝚎𝚕 𝚝í𝚝𝚞𝚕𝚘 𝚍𝚎 𝚞𝚗 𝚟𝚒𝚍𝚎𝚘 𝚘 𝚖ú𝚜𝚒𝚌𝚊 𝚍𝚎 𝚈𝚘𝚞𝚃𝚞𝚋𝚎.*`, m);
+    }
+    
+    try {
+        await m.react('🕓');
         
-if (feature == "mp4" || feature == "ytv" || feature == "video" || feature == "video") {
-if (!inputs) return conn.reply(m.chat, '🐯 Ingresa el título de un video o canción de YouTube.\n\n`Ejemplo:`\n' + `> *${usedPrefix + command}* Gemini Aaliyah - If Only`, m, rcanal)
-await m.react('🕓')
-let res = await yts(text)
-let vid = res.videos[0]
-let q = '480p'
-let txt = '`乂  Y O U T U B E  -  P L A Y`\n\n'
-	txt += `	✩   *Title* : ${vid.title}\n`
-	txt += `	✩   *Duration* : ${vid.timestamp}\n`
-	txt += `	✩   *Visits* : ${toNum(vid.views)} ( *${formatNumber(vid.views)}* )\n`
-	txt += `	✩   *Author* : ${vid.author.name}\n`
-	txt += `	✩   *Published* : ${eYear(vid.ago)}\n`
-	txt += `	✩   *Url* : ${'https://youtu.be/' + vid.videoId}\n\n`
-	txt += `> *- MSELA-CHUI-V3🐯↻ Audio is being sent, please wait a moment, I'm slow. . .*`
-await conn.sendFile(m.chat, vid.thumbnail, 'thumbnail.jpg', txt, m, null, rcanal)
-try {
-let yt = await fg.ytv(vid.url, q)
-let { title, dl_url, size } = yt
-let limit = 100
-       
-if (size.split('MB')[0] >= limit) return star.reply(m.chat, `El archivo pesa mas de ${limit} MB, se canceló la Descarga.`, m, rcanal).then(_ => m.react('✖️'))
-       
-await conn.sendFile(m.chat, dl_url, 'yt.jpg', `${vid.title}\n⇆ㅤㅤ◁ㅤㅤ❚❚ㅤㅤ▷ㅤㅤ↻\n00:15 ━━━━●────── ${vid.timestamp}`, m)
-await m.react('✅')
-} catch {
-try {
-let yt = await fg.ytmp4(vid.url, q)
-let { title, dl_url, size } = yt
-let limit = 100
-       
-if (size.split('MB')[0] >= limit) return star.reply(m.chat, `El archivo pesa mas de ${limit} MB, se canceló la Descarga.`, m, rcanal).then(_ => m.react('✖️'))
-       
-await conn.sendFile(m.chat, dl_url, 'yt.jpg', `${vid.title}\n⇆ㅤㅤ◁ㅤㅤ❚❚ㅤㅤ▷ㅤㅤ↻\n00:15 ━━━━●────── ${vid.timestamp}`, m)
-await m.react('✅')
-} catch {
-await m.react('✖️')
-}}}
     
-if (feature == "mp3doc" || feature == "ytadoc" || feature == "audiodoc") {
-if (!inputs) return conn.reply(m.chat, '🐯 Ingresa el título de un video o canción de YouTube.\n\n`Ejemplo:`\n' + `> *${usedPrefix + command}* Gemini Aaliyah - If Only`, m, rcanal)
-await m.react('🕓')
-let res = await yts(text)
-let vid = res.videos[0]
-let q = '128kbps'
-let txt = '`乂  Y O U T U B E  -  P L A Y`\n\n'
-	txt += `	✩   *Title* : ${vid.title}\n`
-	txt += `	✩   *Duration* : ${vid.timestamp}\n`
-	txt += `	✩   *Visits* : ${toNum(vid.views)} ( *${formatNumber(vid.views)}* )\n`
-	txt += `	✩   *Author* : ${vid.author.name}\n`
-	txt += `	✩   *Published* : ${eYear(vid.ago)}\n`
-	txt += `	✩   *Url* : ${'https://youtu.be/' + vid.videoId}\n\n`
-	txt += `> *- MSELA-CHUI-V3🐯↻ Audio is being sent, please wait a moment, I'm slow. . .*`
-await conn.sendFile(m.chat, vid.thumbnail, 'thumbnail.jpg', txt, m, null, rcanal)
-try {
-let yt = await fg.yta(vid.url, q)
-let { title, dl_url, size } = yt
-let limit = 100
-       
-if (size.split('MB')[0] >= limit) return star.reply(m.chat, `El archivo pesa mas de ${limit} MB, se canceló la Descarga.`, m, rcanal).then(_ => m.react('✖️'))
-       
-await conn.sendMessage(m.chat, { document: { url: dl_url }, caption: '', mimetype: 'audio/mpeg', fileName: `${vid.title}.mp3`}, { quoted: m })
-await m.react('✅')
-} catch {
-try {
-let yt = await fg.ytmp3(vid.url, q)
-let { title, dl_url, size } = yt
-let limit = 100
-       
-if (size.split('MB')[0] >= limit) return star.reply(m.chat, `El archivo pesa mas de ${limit} MB, se canceló la Descarga.`, m, rcanal).then(_ => m.react('✖️'))
-       
-await conn.sendMessage(m.chat, { document: { url: dl_url }, caption: '', mimetype: 'audio/mpeg', fileName: `${vid.title}.mp3`}, { quoted: m })
-} catch {
-await m.react('✖️')
-    }}}
-    
-if (feature == "mp4doc" || feature == "ytvdoc" || feature == "videodoc" || feature == "videodoc") {
-if (!inputs) return conn.reply(m.chat, '🐯 Ingresa el título de un video o canción de YouTube.\n\n`Ejemplo:`\n' + `> *${usedPrefix + command}* Gemini Aaliyah - If Only`, m, rcanal)
-await m.react('🕓')
-let res = await yts(text)
-let vid = res.videos[0]
-let q = '480p'
-let txt = '`乂  Y O U T U B E  -  P L A Y`\n\n'
-	txt += `	✩   *Title* : ${vid.title}\n`
-	txt += `	✩   *Duration* : ${vid.timestamp}\n`
-	txt += `	✩   *Visits* : ${toNum(vid.views)} ( *${formatNumber(vid.views)}* )\n`
-	txt += `	✩   *Author* : ${vid.author.name}\n`
-	txt += `	✩   *Published* : ${eYear(vid.ago)}\n`
-	txt += `	✩   *Url* : ${'https://youtu.be/' + vid.videoId}\n\n`
-	txt += `> *- MSELA-CHUI-V3🐯↻ Audio is being sent, please wait a moment, I'm slow. . .*`
-await conn.sendFile(m.chat, vid.thumbnail, 'thumbnail.jpg', txt, m, null, rcanal)
-try {
-let yt = await fg.ytv(vid.url, q)
-let { title, dl_url, size } = yt
-let limit = 300
-       
-if (size.split('MB')[0] >= limit) return star.reply(m.chat, `El archivo pesa mas de ${limit} MB, se canceló la Descarga.`, m, rcanal).then(_ => m.react('✖️'))
-       
-await conn.sendMessage(m.chat, { document: { url: dl_url }, caption: '', mimetype: 'video/mp4', fileName: `${vid.title}` + `.mp4`}, {quoted: m })
-await m.react('✅')
-} catch {
-try {
-let yt = await fg.ytmp4(vid.url, q)
-let { title, dl_url, size } = yt
-let limit = 300
-       
-if (size.split('MB')[0] >= limit) return star.reply(m.chat, `El archivo pesa mas de ${limit} MB, se canceló la Descarga.`, m, rcanal).then(_ => m.react('✖️'))
-       
-await conn.sendMessage(m.chat, { document: { url: dl_url }, caption: '', mimetype: 'video/mp4', fileName: `${vid.title}` + `.mp4`}, {quoted: m })
-await m.react('✅')
-} catch {
-await m.react('✖️')
-}}}}}
-handler.help = ['play2'].map(v => v + " *<formato> <búsqueda>*")
-handler.tags = ['downloader']
-handler.command = ['ytplay', 'play2']
-//handler.register = true 
-//handler.limit = 1
-export default handler
+        const responseImg = await axios.get(imgUrl, { responseType: 'arraybuffer' });
 
-function sNum(num) {
-    return new Intl.NumberFormat('en-GB', { notation: "compact", compactDisplay: "short" }).format(num)
-}
+        let res = await yts(searchQuery);
+        let vid = res.videos[0];
+        let q = '128kbps';
+        
+        let txt = `❏ 𝚃𝙸𝚃𝚄𝙻𝙾: ${vid.title}\n`;
+        txt += `❏ 𝙳𝚄𝚁𝙰𝙲𝙸𝙾𝙽: ${vid.timestamp}\n`;
+        txt += `❏ 𝚅𝙸𝚂𝙸𝚃𝙰𝚂: ${vid.views}\n`;
+        txt += `❏ 𝙰𝚄𝚃𝙾𝚁: ${vid.author.name}\n`;
+        txt += `❏ 𝙿𝚞𝚋𝚕𝚒𝚌𝚊𝚍𝚘: ${vid.ago}\n`;
+        txt += `❏ 𝚄𝚁𝙻: https://youtu.be/${vid.videoId}\n\n`;
+        txt += `❄𝚁𝚎𝚌𝚞𝚎𝚛𝚍𝚊 @${m.sender.split('@')[0]}, 𝙲𝚞𝚛𝚒 𝚎𝚜 𝚖𝚒 𝚘𝚠𝚗𝚎𝚛 𝚜𝚒 𝚟𝚊𝚜 𝚊 𝚌𝚊𝚛𝚐𝚊𝚛 𝚕𝚘𝚜 𝚙𝚕𝚞𝚐𝚒𝚗𝚜 𝚍𝚊 𝚌𝚛𝚎𝚍𝚒𝚝𝚘𝚜❄`;
 
-function eYear(txt) {
-    if (!txt) {
-        return '×'
-    }
-    if (txt.includes('month ago')) {
-        var T = txt.replace("month ago", "").trim()
-        var L = 'hace '  + T + ' mes'
-        return L
-    }
-    if (txt.includes('months ago')) {
-        var T = txt.replace("months ago", "").trim()
-        var L = 'hace ' + T + ' meses'
-        return L
-    }
-    if (txt.includes('year ago')) {
-        var T = txt.replace("year ago", "").trim()
-        var L = 'hace ' + T + ' año'
-        return L
-    }
-    if (txt.includes('years ago')) {
-        var T = txt.replace("years ago", "").trim()
-        var L = 'hace ' + T + ' años'
-        return L
-    }
-    if (txt.includes('hour ago')) {
-        var T = txt.replace("hour ago", "").trim()
-        var L = 'hace ' + T + ' hora'
-        return L
-    }
-    if (txt.includes('hours ago')) {
-        var T = txt.replace("hours ago", "").trim()
-        var L = 'hace ' + T + ' horas'
-        return L
-    }
-    if (txt.includes('minute ago')) {
-        var T = txt.replace("minute ago", "").trim()
-        var L = 'hace ' + T + ' minuto'
-        return L
-    }
-    if (txt.includes('minutes ago')) {
-        var T = txt.replace("minutes ago", "").trim()
-        var L = 'hace ' + T + ' minutos'
-        return L
-    }
-    if (txt.includes('day ago')) {
-        var T = txt.replace("day ago", "").trim()
-        var L = 'hace ' + T + ' dia'
-        return L
-    }
-    if (txt.includes('days ago')) {
-        var T = txt.replace("days ago", "").trim()
-        var L = 'hace ' + T + ' dias'
-        return L
-    }
-    return txt
-}
+        
+        await conn.sendFile(m.chat, responseImg.data, "thumbnail.jpg", txt, m, null, rcanal);
 
-function formatNumber(number) {
-  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-function toNum(number) {
-    if (number >= 1000 && number < 1000000) {
-        return (number / 1000).toFixed(1) + 'k'
-    } else if (number >= 1000000) {
-        return (number / 1000000).toFixed(1) + 'M'
-    } else if (number <= -1000 && number > -1000000) {
-        return (number / 1000).toFixed(1) + 'k'
-    } else if (number <= -1000000) {
-        return (number / 1000000).toFixed(1) + 'M'
-    } else {
-        return number.toString()
+        if (format == "mp3" || format == "yta" || format == "audio" || format == "mp3doc" || format == "ytadoc" || format == "audiodoc") {
+            let yt = await fg.yta(vid.url, q);
+            let { title, dl_url, size } = yt;
+            let limit = 100;
+            
+            if (parseFloat(size.split('MB')[0]) >= limit) {
+                return conn.reply(m.chat, `𝙴𝚕 𝚊𝚛𝚌𝚑𝚒𝚟𝚘 𝚙𝚎𝚜𝚊 𝚖á𝚜 𝚍𝚎 ${limit} 𝙼𝙱, 𝚜𝚎 𝚌𝚊𝚗𝚌𝚎𝚕ó 𝚕𝚊 𝙳𝚎𝚜𝚌𝚊𝚛𝚐𝚊.`, m);
+            }
+            
+            await conn.sendFile(m.chat, dl_url, 'yt.mp3', `${vid.title}.mp3`, m);
+            await m.react('✅');
+        } else if (format == "mp4" || format == "ytv" || format == "video" || format == "mp4doc" || format == "ytvdoc" || format == "videodoc" || format == "videodoc") {
+            let q = '720p';
+            let yt = await fg.ytv(vid.url, q);
+            let { title, dl_url, size } = yt;
+            let limit = 500;
+            
+            if (parseFloat(size.split('MB')[0]) >= limit) {
+                return conn.reply(m.chat, `𝙴𝚕 𝚊𝚛𝚌𝚑𝚒𝚟𝚘 𝚙𝚎𝚜𝚊 𝚖á𝚜 𝚍𝚎 ${limit} 𝙼𝙱, 𝚜𝚎 𝚌𝚊𝚗𝚌𝚎𝚕ó 𝚕𝚊 𝙳𝚎𝚜𝚌𝚊𝚛𝚐𝚊.`, m);
+            }
+            
+            await conn.sendFile(m.chat, dl_url, 'yt.mp4', `${vid.title}.mp4`, m);
+            await m.react('✅');
+        }
+    } catch (error) {
+        await conn.reply(m.chat, `ɴᴏ ᴇꜱᴛᴀ ɪɴꜱᴛᴀʟᴀᴅᴏ ꜰꜰᴍᴘɢ ᴠᴜᴇʟᴠᴀ ᴀʟ ʀᴇᴘᴏꜱɪᴛᴏʀɪᴏ ᴘᴀʀᴀ ᴄʜᴇᴄᴀʀ ᴄᴏᴍᴏ ɪɴꜱᴛᴀʟᴀʀʟᴏ`, m);
+        console.error(error);
     }
-}
+};
+
+handler.help = ["play3"].map(v => v + " <formato> <búsqueda>");
+handler.tags = ["downloader"];
+handler.command = ['play3'];
+handler.register = true;
+
+export default handler;
