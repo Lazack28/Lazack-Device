@@ -1,77 +1,68 @@
+import axios from "axios";
+import fs from "fs";
+import { pipeline } from "stream";
+import { promisify } from "util";
+import os from "os";
 
-import ytdl from 'ytdl-core'
-import fs from 'fs'
-import { pipeline } from 'stream'
-import { promisify } from 'util'
-import os from 'os'
-import fg from 'api-dylux'
-import fetch from 'node-fetch'
-let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
-  if (!args || !args[0]) throw `✳️ example :\n${usedPrefix + command} https://youtu.be/YzkTFFwxtXI`
-  if (!args[0].match(/youtu/gi)) throw `❎ noLink('YouTube')`
-   m.react(rwait)
- let chat = global.db.data.chats[m.chat]
- let q = '128kbps'
- 
- try {
- 
-		//let res = await fetch(global.API('fgmods', '/api/downloader/yta', { url: args[0], quality: q}, 'apikey'))
-		//let yt = await res.json()
-		const yt = await fg.yta(args[0]) 
-		let { title, dl_url, quality, size, sizeB } = yt
-		
-		conn.sendFile(m.chat, dl_url, title + '.mp3', `
- ≡  *FG YTDL*
-  
-▢ *📌${mssg.title}* : ${title}
-▢ *⚖️${mssg.size}* : ${size}
-`.trim(), m, false, { mimetype: 'audio/mpeg', asDocument: chat.useDocument })
-		m.react(done)
- 	} catch {
+let streamPipeline = promisify(pipeline);
+
+let handler = async (m, { conn, command, text, usedPrefix }) => {
+  if (!text) return conn.reply(m.chat, `*_々 inter a youtube link bro*\n\n*example:*\n${usedPrefix + command} https://youtu.be/w_ufjahQlyw?si=jMBHaX8SgkNdcG2v`, m);
+
   try {
-  	
-	const { title, dl_url } = await ytmp3(args[0]);
-  
-		conn.sendFile(m.chat, dl_url, title + '.mp3', `
- ≡  *FG YTDL 2*
-  
-▢ *📌title* : ${title}
-`.trim(), m, false, { mimetype: 'audio/mpeg', asDocument: chat.useDocument })
-		m.react(done)
-        } catch {
-			await m.reply(`❎ error`)
-} 
-}
-
-}
-handler.help = ['ytmp3 <url>']
-handler.tags = ['dl']
-handler.command = ['ytmp3', 'fgmp3'] 
-handler.diamond = false
-
-export default handler
-
-const streamPipeline = promisify(pipeline);
-
-async function ytmp3(url) {
-    const videoInfo = await ytdl.getInfo(url);
-    const { videoDetails } = videoInfo;
-    const { title, thumbnails, lengthSeconds, viewCount, uploadDate } = videoDetails;
-    const thumbnail = thumbnails[0].url;
+    let videoUrl = text; 
+    let apiUrl = `https://rembotapi.vercel.app/api/yt?url=${encodeURIComponent(videoUrl)}`;
     
-    const audioStream = ytdl(url, { filter: 'audioonly', quality: 'highestaudio' });
-    const tmpDir = os.tmpdir();
-    const audioFilePath = `${tmpDir}/${title}.mp3`;
+    let response = await axios.get(apiUrl);
+    let data = response.data;
 
-    await streamPipeline(audioStream, fs.createWriteStream(audioFilePath));
+    if (!data.status) throw new Error("Error to obtain youre audio);
 
-    return {
-        title,
-        views: viewCount,
-        publish: uploadDate,
-        duration: lengthSeconds,
-        quality: '128kbps',
-        thumb: thumbnail,
-        dl_url: audioFilePath
+    let { title, thumbnail, audioUrl } = data.data;
+    await m.react("⏱");
+
+    let tmpDir = os.tmpdir();
+    let fileName = `${title}.mp3`;
+    let filePath = `${tmpDir}/${fileName}`;
+
+    let audioResponse = await axios({
+      url: audioUrl,
+      method: 'GET',
+      responseType: 'stream'
+    });
+
+    let writableStream = fs.createWriteStream(filePath);
+    await streamPipeline(audioResponse.data, writableStream);
+
+    let doc = {
+      audio: {
+        url: filePath,
+      },
+      mimetype: "audio/mp4",
+      fileName: `${title}`,
+      contextInfo: {
+        externalAdReply: {
+          showAdAttribution: true,
+          mediaType: 2,
+          mediaUrl: videoUrl,
+          title: title,
+          sourceUrl: videoUrl,
+          thumbnail: await (await conn.getFile(thumbnail)).data,
+        },
+      },
     };
-}
+
+    await conn.sendMessage(m.chat, doc, { quoted: m });
+    await m.react("✅");
+  } catch (error) {
+    console.error(error);
+    await conn.reply(m.chat, `${global.error}`, m).then(_ => m.react('❌'));
+  }
+};
+
+handler.help = ["ytmp3"].map((v) => v + " <url>");
+handler.tags = ["dl"];
+handler.command = /^(yta|ytmp3)$/i;
+handler.register = true
+
+export default handler;
