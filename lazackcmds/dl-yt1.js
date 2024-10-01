@@ -1,4 +1,4 @@
-import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
+import { youtubedl, youtubedlv2 } from '@youtubedl-core'
 
 let handler = async (m, { conn, text, args, isPrems, isOwner, usedPrefix, command }) => {
   if (!args || !args[0]) throw `✳️ Example :\n${usedPrefix + command} https://youtu.be/YzkTFFwxtXI`
