@@ -1,6 +1,6 @@
 let handler = async m =>
   m.reply(
-    `> HOLA 😲 YOU NEED TO BUY SOME OF THE MENTIONED ABOVE
+    `𝙷𝙾𝙻𝙰 𝚈𝙾𝚄 𝙽𝙴𝙴𝙳 𝙷𝙴𝙻𝙿 𝙾𝙽 𝚂𝙾𝙼𝙴 𝙾𝙵 𝚃𝙷𝙴 𝙰𝙱𝙾𝚅𝙴 𝚃𝙷𝙴𝙽 𝙵𝙾𝙻𝙻𝙾𝚆 𝚃𝙷𝙸𝚂 𝙸𝙽𝚂𝚃𝚁𝙰𝙲𝚃𝙸𝙾𝙽𝚂
 
     _______________________
     𝑓𝑜𝑙𝑙𝑜𝑤 𝑡ℎ𝑖𝑠 𝑠𝑡𝑒𝑝𝑠 𝑡𝑜 𝑐𝑜𝑛𝑡𝑎𝑐𝑡 𝑢𝑠 
