@@ -20,7 +20,7 @@ export async function all(m) {
     ) {
     this.sendButton(m.chat, `*WELCOME ITS ME JUST REPLYING*      
     morning or evening @${m.sender.split('@')[0]} 
-    i may be offline or i may be slow to respond you but wait i will be back soon 😇
+    i may be offline or i may be slow to respond you but wait i will be back soon 😇\n\n *What we offer*\n\n1. Heroku credit cards\n2. Bot deployment works 24/7\n3. Social media followers\n\n\n> click the buttons to see me
   `.trim(), igfg, null, [['OWNER HELP', '.grp'],['GET TEXT', '.repo']] , m, { mentions: [m.sender] })
     m.react('🤫')
   }
