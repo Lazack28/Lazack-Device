@@ -1,4 +1,4 @@
-import Starlights from '@whiskeysockets/baileys'
+import Starlights from '@bochilteam/scraper'
 let limit = 200
 
 let handler = async (m, { conn, text, isPrems, isOwner, usedPrefix, command }) => {
