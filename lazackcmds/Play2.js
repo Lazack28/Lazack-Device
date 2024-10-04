@@ -14,7 +14,7 @@ await m.react('🕓')
        txt += `	✩   *Canal* : ${res[0].author.name || 'Desconocido'}\n`
        txt += `	✩   *Url* : ${'https://youtu.be/' + res[0].videoId}\n\n`
        txt += `> *-*To download reply to this message with *Video* or *Audio*.`
-await conn.sendButton(m.chat, img, 'thumbnail.jpg', txt, null, [['Video','Video'],['AUDIO','Audio'], m)
+await conn.sendFile(m.chat, img, 'thumbnail.jpg', txt, m)
 await m.react('✅')
 } catch {
 await m.react('✖️')
