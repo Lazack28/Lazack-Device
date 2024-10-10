@@ -574,10 +574,10 @@ export async function participantsUpdate({ id, participants, action }) {
                 contextInfo: {
                   mentionedJid: [user],
                   externalAdReply: {
-                    title: 'ᴏʀᴇᴏ ᴛʜᴇ ʙɪsᴄᴜɪᴛ ʙᴏᴛ',
+                    title: '𝙻𝙰𝚉𝙰𝙲𝙺 𝙳𝙴𝚅𝙸𝙲𝙴',
                     body: 'welcome to Group',
                     thumbnailUrl: welcomeApiUrl,
-                    sourceUrl: 'https://chat.whatsapp.com/DWqdPuQ0yFkKyf1SzZ0k9Y',
+                    sourceUrl: 'https://whatsapp.com/channel/0029VaFytPbAojYm7RIs6l1x',
                     mediaType: 1,
                     renderLargerThumbnail: true,
                   },
@@ -631,10 +631,10 @@ export async function participantsUpdate({ id, participants, action }) {
                 contextInfo: {
                   mentionedJid: [user],
                   externalAdReply: {
-                    title: 'ᴏʀᴇᴏ ᴛʜᴇ ʙɪsᴄᴜɪᴛ ʙᴏᴛ',
-                    body: 'Goodbye from  Group',
+                    title: '𝙻𝙰𝚉𝙰𝙲𝙺 𝙳𝙴𝚅𝙸𝙲𝙴',
+                    body: 'Goodbye from  Group... we really dont wanted you here, fack you boy',
                     thumbnailUrl: leaveApiUrl,
-                    sourceUrl: 'https://chat.whatsapp.com/DWqdPuQ0yFkKyf1SzZ0k9Y',
+                    sourceUrl: 'https://whatsapp.com/channel/0029VaFytPbAojYm7RIs6l1x',
                     mediaType: 1,
                     renderLargerThumbnail: true,
                   },
