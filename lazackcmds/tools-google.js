@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+/*import fetch from 'node-fetch'
 import googleIt from 'google-it'
 
 const handler = async (m, { conn, command, text, args, usedPrefix }) => {
