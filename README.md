@@ -12,14 +12,7 @@
 ------------------------------------------
 
 **Generate Pair Code For Session**
-
-<a href='https://replit.com/@lazck22/LAZACK-ADVANCE-AND-DEVICE' target="_blank"><img alt='Fork repo' src='https://img.shields.io/badge/PAIRING CODE-001-magenta?style=for-the-badge&logo=opencv&logoColor=white'/></a>
-
-
-     `upload youre given creds.json by editing it on the creds.json file in the session folder, some of the country use vpn to get youre file recomended vpn is Stark vpn`
-
-         use this pairing 02 
-<a href=https://web-three-nu-67.vercel.app/'' target="_blank"><img alt='Fork repo' src='https://img.shields.io/badge/PAIRING CODE-002-magenta?style=for-the-badge&logo=opencv&logoColor=white'/></a>
+<a href=https://web-three-nu-67.vercel.app/'' target="_blank"><img alt='Fork repo' src='https://img.shields.io/badge/PAIRING CODE-magenta?style=for-the-badge&logo=opencv&logoColor=white'/></a>
 
 -------------------------
 
