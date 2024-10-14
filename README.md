@@ -12,7 +12,8 @@
 ------------------------------------------
 
 **Generate Pair Code For Session**
-<a href=https://web-three-nu-67.vercel.app/'' target="_blank"><img alt='Fork repo' src='https://img.shields.io/badge/PAIRING CODE-magenta?style=for-the-badge&logo=opencv&logoColor=white'/></a>
+
+<a href="https://web-three-nu-67.vercel.app/ target="_blank"><img alt='Fork repo' src='https://img.shields.io/badge/PAIRING CODE-magenta?style=for-the-badge&logo=opencv&logoColor=white'/></a>
 
 -------------------------
 
