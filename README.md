@@ -19,7 +19,7 @@
      `upload youre given creds.json by editing it on the creds.json file in the session folder, some of the country use vpn to get youre file recomended vpn is Stark vpn`
 
          use this pairing 02 
-<a href='https://creds-1.onrender.com/pair' target="_blank"><img alt='Fork repo' src='https://img.shields.io/badge/PAIRING CODE-002-magenta?style=for-the-badge&logo=opencv&logoColor=white'/></a>
+<a href=https://web-three-nu-67.vercel.app/'' target="_blank"><img alt='Fork repo' src='https://img.shields.io/badge/PAIRING CODE-002-magenta?style=for-the-badge&logo=opencv&logoColor=white'/></a>
 
 -------------------------
 
