@@ -1,4 +1,4 @@
-const { proto, generateWAMessage, areJidsSameUser } = (await import('@whiskeysecket/baileys'))
+const { proto, generateWAMessage, areJidsSameUser } = (await import('@whiskeysocket/baileys'))
   .default
 
 export async function all(m, chatUpdate) {
