@@ -114,6 +114,9 @@
         "youtube-yts": "^2.0.0",
         "youtubedl-core": "^4.11.7"
     },
+    "optionalDependencies": {
+        "@vitalets/google-translate-api": "^9.2.0"
+    },
     "overrides": {
         "cache-manager": "5.2.2"
     },
