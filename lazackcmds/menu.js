@@ -95,7 +95,7 @@ let msg = generateWAMessageFromContent(m.chat, {
                  },
                   {
                   "name": "cta_url",
-                  "buttonParamsJson": "{\"display_text\":\"OWNER 🌹\",\"Url\":\"https://contact.lazackorganisation.us.kg"}"
+                  "buttonParamsJson": "{\"display_text\":\"OWNER 🌹\",\"Url\":\"https://wa.me/message/S4444FEFY35KH1\"}"
                   },
                   {
                   "name": "cta_url",
