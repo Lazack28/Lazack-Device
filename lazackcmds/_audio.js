@@ -30,9 +30,9 @@ await m.react('✅')
 } catch {
 await m.react('✖️')
 }}}
-handler.help = ['Audio']
+handler.help = ['Video']
 handler.tags = ['downloader']
-handler.customPrefix = /^(Audio|audio)/
+handler.customPrefix = /^(audio|Audio)/
 handler.command = new RegExp
 //handler.limit = 1
 
