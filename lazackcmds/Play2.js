@@ -40,7 +40,7 @@ const handleAudio = async (_0x3c9543, _0x31c5c0, _0x12fe24) => {
   try {
     _0x3c9543.react("⏳");
     console.log("Fetching audio from URL: " + _0x12fe24);
-    const _0xfa2979 = "https://api.yanzbotz.live/api/downloader/ytmp3?url=" + _0x12fe24 + "&apiKey=" + "PrincelovesYanz";
+    const _0xfa2979 = "https://widipe.com/download/ytdl?url=" + _0x12fe24;
     console.log("Requesting: " + _0xfa2979);
     const _0x5f6e86 = await _0x54a563.get(_0xfa2979);
     console.log("API Response:", _0x5f6e86.data);
