@@ -11,7 +11,7 @@ const handler = async (_0x138596, {
     _0x162ab5[0] = _0x138596.quoted.text;
   }
   if (!_0x162ab5[0] && !_0x138596.quoted) {
-    throw mssg.example + " *" + _0x3b4ade + _0x20c5c5 + "* You must provide a valid URL.";
+    throw example + " *" + _0x3b4ade + _0x20c5c5 + "* You must provide a valid URL.";
   }
   try {
     _0x138596.react("⏳");
