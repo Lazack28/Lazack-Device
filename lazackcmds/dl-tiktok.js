@@ -75,7 +75,7 @@ let handler = async (_0x21d369, {
       });
     }
   } catch (_0x4e3bf5) {
-    _0x21d369.reply('' + mssg.error);
+    _0x21d369.reply('' + error);
   }
   _0x21d369.react("✅");
 };
