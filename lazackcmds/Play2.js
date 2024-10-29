@@ -41,7 +41,7 @@ const handleAudio = async (message, conn, audioUrl) => {
   try {
     message.react("⏳");
     console.log("Fetching audio from URL: " + audioUrl);
-    const downloadUrl = "https://widipe.com/download/ytdl?url=" + audioUrl;
+    const downloadUrl = "https://widipe.com/download/ytdl?url=${audioUrl}";
     console.log("Requesting: " + downloadUrl);
     
     const response = await axios.get(downloadUrl);
