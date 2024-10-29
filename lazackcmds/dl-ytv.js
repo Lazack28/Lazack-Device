@@ -43,7 +43,7 @@ handler.diamond = false;
 export default handler;
 
 async function getCookies() {
-  const cookiesPath = path.resolve(__dirname, '../Assets/cookies.json');
+  const cookiesPath = path.resolve(__dirname, '../jusorts/cookies.json');
   if (!fs.existsSync(cookiesPath)) {
     throw new Error('Cookies file not found');
   }
