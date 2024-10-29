@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+import axios from 'axios'
 
 let handler = async (m, { conn }) => {
 
