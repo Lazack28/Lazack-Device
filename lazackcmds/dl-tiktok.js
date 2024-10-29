@@ -23,17 +23,17 @@ let handler = async (_0x21d369, {
     let _0x463b35 = await TikTok(_0x23ff37);
     let _0x5143fd = _0x463b35.type;
     let _0x2c113b = "╭━━⊱𝗧𝗜𝗞𝗧𝗢𝗞 𝗗𝗟 \n";
-    _0x2c113b += "🎗️ *" + mssg.type + ":* " + _0x5143fd + "\n";
-    _0x2c113b += "🎗️ *" + mssg.name + ":* " + _0x463b35.name + "\n";
-    _0x2c113b += "🎗️ *" + mssg.username + ":* " + _0x463b35.username + "\n";
-    _0x2c113b += "🎗️ *" + mssg.views + ":* " + _0x463b35.views + "\n";
-    _0x2c113b += "🎗️ *" + mssg.likes + ":* " + _0x463b35.likes + "\n";
-    _0x2c113b += "🎗️ *" + mssg.comments + ":* " + _0x463b35.comments + "\n";
-    _0x2c113b += "🎗️ *" + mssg.favorite + ":* " + _0x463b35.favorite + "\n";
-    _0x2c113b += "🎗️ *" + mssg.shares + ":* " + _0x463b35.shares + "\n";
-    _0x2c113b += "🎗️ *" + mssg.desc + ":* " + _0x463b35.description + "\n╰━━━━━━━━━━━━━━━━━";
+    _0x2c113b += "🎗️ *" + type + ":* " + _0x5143fd + "\n";
+    _0x2c113b += "🎗️ *" + name + ":* " + _0x463b35.name + "\n";
+    _0x2c113b += "🎗️ *" + username + ":* " + _0x463b35.username + "\n";
+    _0x2c113b += "🎗️ *" + views + ":* " + _0x463b35.views + "\n";
+    _0x2c113b += "🎗️ *" + likes + ":* " + _0x463b35.likes + "\n";
+    _0x2c113b += "🎗️ *" + comments + ":* " + _0x463b35.comments + "\n";
+    _0x2c113b += "🎗️ *" + favorite + ":* " + _0x463b35.favorite + "\n";
+    _0x2c113b += "🎗️ *" + shares + ":* " + _0x463b35.shares + "\n";
+    _0x2c113b += "🎗️ *" + desc + ":* " + _0x463b35.description + "\n╰━━━━━━━━━━━━━━━━━";
     _0x4506e4.sendMessage(_0x21d369.chat, {
-      "text": "📥 *" + mssg.media + ":* " + _0x5143fd
+      "text": "📥 *" + media + ":* " + _0x5143fd
     }, {
       "quoted": _0x21d369
     });
