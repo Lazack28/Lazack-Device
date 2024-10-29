@@ -62,5 +62,5 @@ let handler = async (_0x2b04cc, {
 };
 handler.help = ["tooltts"];
 handler.tags = ["tools"];
-handler.command = ["tts", "tt"];
+handler.command = ["speak", "tt"];
 export default handler;
