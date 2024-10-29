@@ -6,7 +6,7 @@ let handler = async (_0x5cc456, {
   usedPrefix: _0x359e44
 }) => {
   if (!_0x30a24a) {
-    throw "✳️*" + (_0x359e44 + _0x1ce9ee) + "* 𝙰𝚢𝚊𝚊 𝚑𝚊𝚒 𝚋𝚞𝚕𝚊𝚠𝚊 𝙽𝚊𝚊𝚝...";
+    throw "✳️ *" + (_0x359e44 + _0x1ce9ee) + "* 𝙰𝚢𝚊𝚊 𝚑𝚊𝚒 𝚋𝚞𝚕𝚊𝚠𝚊 𝙽𝚊𝚊𝚝...";
   }
   let _0x4f49ee = await _0xa5c984(_0x30a24a);
   let _0x2efa54 = _0x4f49ee.videos[0];
