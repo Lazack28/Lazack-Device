@@ -108,7 +108,6 @@
         "xfarr-api": "^1.0.3",
         "api-dylux": "^1.8.3",
         "yt-search": "^2.10.4",
-        "ytdl-core": "github:HanSamu-27/ytdl-core#main",
         "yargs": "^17.6.0",
         "youtube-yts": "^2.0.0",
         "youtubedl-core": "^4.11.7"
