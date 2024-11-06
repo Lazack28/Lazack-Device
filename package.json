@@ -1,3 +1,4 @@
+
 {
     "name": "LAZACK MD",
     "version": "2.1.0",
@@ -28,16 +29,16 @@
         "MD",
         "baileys-md"
     ],
-    "homepage": "https://github.com/Guru322/GURU-BOT",
+    "homepage": "https://github.com/Lazack28/Lazack-Device",
     "author": {
-        "name": "GURU"
+        "name": "LAZACK"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Guru322/GURU-BOT.git"
+        "url": "git+https://github.com/Lazack28/Lazack-Device.git"
     },
     "bugs": {
-        "url": "https://github.com/Guru322/GURU-BOT/issues"
+        "url": "https://github.com/Lazack28/Lazack-Device/issues"
     },
     "license": "Apache License 2.0",
     "dependencies": {
