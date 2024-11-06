@@ -77,6 +77,40 @@ main()
 
 await delay(1000 * 10)
 
+async function gandu() {
+  try {
+    const packageJson = readFileSync('package.json', 'utf8')
+    const packageData = JSON.parse(packageJson)
+    const gnome = packageData.author && packageData.author.name
+
+    if (!gnome) {
+      console.log('LOl')
+      process.exit(1)
+    }
+
+    const lund = Buffer.from('Z3VydQ==', 'base64').toString()
+    const lawde = Buffer.from(
+      `Q2hlYXAgQ29weSBPZiBHdXJ1IEJvdCBGb3VuZCAsIFBsZWFzZSBVc2UgdGhlIE9yaWdpbmFsIEd1cnUgQm90IEZyb20gaHR0cHM6Ly9naXRodWIuY29tL0d1cnUzMjIvR1VSVS1CT1QK`,
+      'base64'
+    ).toString()
+    const endi = Buffer.from(
+      `U2VjdXJpdHkgY2hlY2sgcGFzc2VkLCBUaGFua3MgRm9yIHVzaW5nIEd1cnUgTXVsdGlEZXZpY2U=`,
+      'base64'
+    ).toString()
+
+ if (gnome && gnome.trim().toLowerCase() !== lund.toLowerCase()) {
+      console.log(lawde)
+      process.exit(1)
+    } else {
+      console.log(`${endi}`)
+      console.log(chalk.bgBlack(chalk.redBright('Starting Lazack Device')))
+    }
+  } catch (error) {
+    console.error('Error:', error)
+  }
+}
+
+gandu()
 
 
 const pairingCode = !!global.pairingNumber || process.argv.includes('--pairing-code')
