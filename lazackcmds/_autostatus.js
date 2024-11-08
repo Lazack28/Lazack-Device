@@ -23,7 +23,8 @@ export async function before(statusUpdate, {
     "😎",
     "😍",
     "😝",
-    "😯"
+    "😯",
+    "lol"
   ];
 
   // Get the current time
