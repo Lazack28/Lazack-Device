@@ -16,7 +16,7 @@ export async function before(statusUpdate, {
   const motivationalQuotes = [
     "❤",
     "💞",
-    "💗💖",
+    "💗",
     "😜",
     "🤪",
     "🤎",
