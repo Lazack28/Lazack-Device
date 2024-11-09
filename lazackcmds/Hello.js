@@ -37,7 +37,7 @@ export async function all(m) {
     I may be offline or I may be slow to respond, but wait I will be back soon 😇\n\n\n *what we offer*\n\n1. Heroku credit cards\n2. Bot deployment works 24/7\n3. social media followers\n4. Web coding and bug fixing\n\n\n\n> use the buttons bellow to see me`.trim(),
       igfg,
       null,
-      [['OWNER HELP', '.mrcs'], ['the script', '.repo']],
+      [['OWNER HELP', '.mrcs'], ['SCRIPT', '.repo']],
       m,
       { mentions: [m.sender] }
     );
