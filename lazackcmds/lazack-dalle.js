@@ -14,7 +14,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (response.ok) {
       const imageBuffer = await response.buffer()
       let imgurl = await uploadImage(imageBuffer)
-      await conn.sendMessage(m.chat,'Here is your Result', author, imgurl, m)
+      await conn.sendMessage(m.chat, { text: 'Here is your Result:\n' + imgurl }, { quoted: m })
     } else {
       throw '*Image generation failed*'
     }
@@ -27,6 +27,3 @@ handler.help = ['dalle']
 handler.tags = ['AI']
 handler.command = ['dalle', 'gen', 'imagine', 'openai2']
 export default handler
-
-
-
