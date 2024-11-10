@@ -37,436 +37,432 @@ let quote = quotes[Math.floor(Math.random() * quotes.length)];
 
 let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
 let str = `
-  ✦ ───『 *group* 』─── 
-  ◈ .getbio <@tag/reply>  Ⓛ
-  ◈ .animequote
-  ◈ .Setdesc <text>
-  ◈ .setname <text>
-  ◈ .add
-  ◈ .delete
-  ◈ .delwarn @user
-  ◈ .demote (@tag)
-  ◈ .infogp
-  ◈ .hidetag
-  ◈ .invite <917xxx>
-  ◈ .kick @user
-  ◈ .link
-  ◈ .poll question|option|option
-  ◈ .profile
-  ◈ .promote
-  ◈ .resetlink
-  ◈ .setbye <text>
-  ◈ .group *open/close*
-  ◈ .setwelcome <text>
-  ◈ .simulate <event> @user
-  ◈ .staff
-  ◈ .tagall
-  ◈ .totag
-  ◈ .warn @user
-  ◈ .warns
-  ◈ .main
+  ━━━━『 *group*━━━━ 
+   > .getbio <@tag/reply>  Ⓛ
+   > .animequote
+   > .Setdesc <text>
+   > .setname <text>
+   > .add
+   > .delete
+   > .delwarn @user
+   > .demote (@tag)
+   > .infogp
+   > .hidetag
+   > .invite <917xxx>
+   > .kick @user
+   > .link
+   > .poll question|option|option
+   > .profile
+   > .promote
+   > .resetlink
+   > .setbye <text>
+   > .group *open/close*
+   > .setwelcome <text>
+   > .simulate <event> @user
+   > .staff
+   > .tagall
+   > .totag
+   > .warn @user
+   > .warns
+   > .main
 
-   ───『 *owner* 』─── ⚝
-  ◈ .addprem <@tag>
-  ◈ .addowner @user
-  ◈ .allow <@tag>
-  ◈ .HEROKU
-  ◈ .ban @user
-  ◈ .banchat
-  ◈ .tx
-  ◈ .broadcastgroup <text>
-  ◈ .bcgc <text>
-  ◈ .cleartmp
-  ◈ .delexpired
-  ◈ .delprem @user
-  ◈ .removeowner @user
-  ◈ .setppbotfull
-  ◈ .getplugin <name file>
-  ◈ .getfile <name file>
-  ◈ .join <chat.whatsapp.com> <dias>
-  ◈ .reset <54xxx>
-  ◈ .resetprefix
-  ◈ .restart
-  ◈ ..setprefix
-  ◈ ..setprefix [symbol]
-  ◈ .unban @user
-  ◈ .unbanchat
-  ◈ .update
-  ◈ .config
-  ◈ .listban
-  ◈ .deleteplugin <name>
+━━━━『 *owner*━━━━ 
+ > .addprem <@tag>
+ > .addowner @user
+ > .allow <@tag>
+ > .HEROKU
+ > .ban @user
+ > .banchat
+ > .tx
+ > .broadcastgroup <text>
+ > .bcgc <text>
+ > .cleartmp
+ > .delexpired
+ > .delprem @user
+ > .removeowner @user
+ > .setppbotfull
+ > .getplugin <name file>
+ > .getfile <name file>
+ > .join <chat.whatsapp.com> <dias>
+ > .reset <54xxx>
+ > .resetprefix
+ > .restart
+ > ..setprefix
+ > ..setprefix [symbol]
+ > .unban @user
+ > .unbanchat
+ > .update
+ > .config
+ > .listban
+ > .deleteplugin <name>
+━━━━『 *fun*━━━━ 
+ > .afk <reason>
+ > .tomp3
+ > .toav
+ > .bot
+ > .character @tag
+ > .dare
+ > .flirt
+ > .gay @user
+ > .pickupline
+ > .question
+ > .shayari
+ > .ship
+ > .yomamajoke
+ > .truth
+ > .waste @user
+ > .image
+ > .meme
+ > .quote
 
-  ───『 *fun* 』─── ⚝
-  ◈ .afk <reason>
-  ◈ .tomp3
-  ◈ .toav
-  ◈ .bot
-  ◈ .character @tag
-  ◈ .dare
-  ◈ .flirt
-  ◈ .gay @user
-  ◈ .pickupline
-  ◈ .question
-  ◈ .shayari
-  ◈ .ship
-  ◈ .yomamajoke
-  ◈ .truth
-  ◈ .waste @user
-  ◈ .image
-  ◈ .meme
-  ◈ .quote
+━━━━『 *reaction*━━━━ 
+ > .bully @tag
+ > .cuddle @tag
+ > .cry @tag
+ > .hug @tag
+ > .awoo @tag
+ > .kiss @tag
+ > .lick @tag
+ > .pat @tag
+ > .smug @tag
+ > .bonk @tag
+ > .yeet @tag
+ > .blush @tag
+ > .smile @tag
+ > .wave @tag
+ > .highfive @tag
+ > .handhold @tag
+ > .nom @tag
+ > .bite @tag
+ > .glomp @tag
+ > .slap @tag
+ > .kill @tag
+ > .happy @tag
+ > .wink @tag
+ > .poke @tag
+ > .dance @tag
+ > .cringe @tag
 
-   ───『 *reaction* 』─── ⚝
-  ◈ .bully @tag
-  ◈ .cuddle @tag
-  ◈ .cry @tag
-  ◈ .hug @tag
-  ◈ .awoo @tag
-  ◈ .kiss @tag
-  ◈ .lick @tag
-  ◈ .pat @tag
-  ◈ .smug @tag
-  ◈ .bonk @tag
-  ◈ .yeet @tag
-  ◈ .blush @tag
-  ◈ .smile @tag
-  ◈ .wave @tag
-  ◈ .highfive @tag
-  ◈ .handhold @tag
-  ◈ .nom @tag
-  ◈ .bite @tag
-  ◈ .glomp @tag
-  ◈ .slap @tag
-  ◈ .kill @tag
-  ◈ .happy @tag
-  ◈ .wink @tag
-  ◈ .poke @tag
-  ◈ .dance @tag
-  ◈ .cringe @tag
+━━━━『 *downloader*━━━━ 
+ > .facebook <url>
+ > .gdrive 🅟
+ > .gitclone <url>
+ > .igstalk
+ > .instagram
+ > .mediafire <url>
+ > .mega
+ > .modapk
+ > .play <query>
+ > .play2 <text>
+ > .playvid <text>
+ > .spotify
+ > .tiktok <url>
+ > .tiktokstalk
+ > .twitter <url>
+ > .ytmp3 <url>
+ > .ytsearch
+ > .ytmp4 <yt-link>
+ > .wallpaper <query>
 
-   ───『 *downloader* 』─── ⚝
-  ◈ .facebook <url>
-  ◈ .gdrive 🅟
-  ◈ .gitclone <url>
-  ◈ .igstalk
-  ◈ .instagram
-  ◈ .mediafire <url>
-  ◈ .mega
-  ◈ .modapk
-  ◈ .play <query>
-  ◈ .play2 <text>
-  ◈ .playvid <text>
-  ◈ .spotify
-  ◈ .tiktok <url>
-  ◈ .tiktokstalk
-  ◈ .twitter <url>
-  ◈ .ytmp3 <url>
-  ◈ .ytsearch
-  ◈ .ytmp4 <yt-link>
-  ◈ .wallpaper <query>
+━━━━『 *game*━━━━ 
+ > .slot <amount>
+ > .chess [from to]
+ > .chess delete
+ > .chess join
+ > .chess start
+ > .delttt
+ > .guessflag
+ > .Maths <modes>
+ > .ppt <rock/paper/scissors>
+ > .tictactoe <tag number>
+━━━━『 *maker*━━━━ 
+ > .blur
+ > .difuminar2
+ > .hornycard
+ > .hornylicense
+ > .gfx1
+ > .gfx2
+ > .gfx3
+ > .gfx4
+ > .gfx5
+ > .gfx6
+ > .gfx7
+ > .gfx8
+ > .gfx9
+ > .gfx10
+ > .gfx11
+ > .gfx12
+ > .simpcard
+ > .itssostupid
+ > .iss
+ > .stupid
+ > .tweet <comment>
+ > .lolicon
+ > .ytcomment <comment>
 
-   ───『 *game* 』─── ⚝
-  ◈ .slot <amount>
-  ◈ .chess [from to]
-  ◈ .chess delete
-  ◈ .chess join
-  ◈ .chess start
-  ◈ .delttt
-  ◈ .guessflag
-  ◈ .Maths <modes>
-  ◈ .ppt <rock/paper/scissors>
-  ◈ .tictactoe <tag number>
+━━━━『 *sticker*━━━━ 
+ > .emojimix <emoji+emoji>
+ > .getsticker
+ > .smaker
+ > .stickerwithmeme (caption|reply media)
+ > .swmeme <url>
+ > .swm(caption|reply media)
+ > .sfull
+ > .toimg <sticker>
+ > .tovid
+ > .trigger <@user>
+ > .ttp
+ > .ttp2
+ > .ttp3
+ > .ttp4
+ > .ttp5
+ > .attp
+ > .attp2
+ > .attp3
+ > .take <name>|<author>
 
-  ───『 *maker* 』─── ⚝
-  ◈ .blur
-  ◈ .difuminar2
-  ◈ .hornycard
-  ◈ .hornylicense
-  ◈ .gfx1
-  ◈ .gfx2
-  ◈ .gfx3
-  ◈ .gfx4
-  ◈ .gfx5
-  ◈ .gfx6
-  ◈ .gfx7
-  ◈ .gfx8
-  ◈ .gfx9
-  ◈ .gfx10
-  ◈ .gfx11
-  ◈ .gfx12
-  ◈ .simpcard
-  ◈ .itssostupid
-  ◈ .iss
-  ◈ .stupid
-  ◈ .tweet <comment>
-  ◈ .lolicon
-  ◈ .ytcomment <comment>
+━━━━『 *audio*━━━━ 
+ > .bass [vn]
+ > .blown [vn]
+ > .deep [vn]
+ > .earrape [vn]
+ > .fast [vn]
+ > .fat [vn]
+ > .nightcore [vn]
+ > .reverse [vn]
+ > .robot [vn]
+ > .slow [vn]
+ > .smooth [vn]
+ > .tupai [vn]
+━━━━『 *news*━━━━ 
+ > .news
+ > .technews
+ > .ndtv
 
-   ───『 *sticker* 』─── ⚝
-  ◈ .emojimix <emoji+emoji>
-  ◈ .getsticker
-  ◈ .smaker
-  ◈ .stickerwithmeme (caption|reply media)
-  ◈ .swmeme <url>
-  ◈ .swm(caption|reply media)
-  ◈ .sfull
-  ◈ .toimg <sticker>
-  ◈ .tovid
-  ◈ .trigger <@user>
-  ◈ .ttp
-  ◈ .ttp2
-  ◈ .ttp3
-  ◈ .ttp4
-  ◈ .ttp5
-  ◈ .attp
-  ◈ .attp2
-  ◈ .attp3
-  ◈ .take <name>|<author>
+━━━━『 *economy*━━━━ 
+ > .addgold <@user>
+ > .addxp <@user>
+ > .bank
+ > .buych
+ > .cock-fight <amount>
+ > .buy
+ > .buyall
+ > .daily
+ > .deposit
+ > .gamble <amount> <color(red/black)>
+ > .give credit [amount] [@tag]
+ > .levelup
+ > .rank
+ > .rob
+ > .roulette <amount> <color(red/black)>
+ > .wallet
+ > .withdraw
+ > .work
 
-   ───『 *audio* 』─── ⚝
-  ◈ .bass [vn]
-  ◈ .blown [vn]
-  ◈ .deep [vn]
-  ◈ .earrape [vn]
-  ◈ .fast [vn]
-  ◈ .fat [vn]
-  ◈ .nightcore [vn]
-  ◈ .reverse [vn]
-  ◈ .robot [vn]
-  ◈ .slow [vn]
-  ◈ .smooth [vn]
-  ◈ .tupai [vn]
+━━━━『 *anime*━━━━ 
+ > .anime
+ > .akira
+ > .akiyama
+ > .anna
+ > .asuna
+ > .ayuzawa
+ > .boruto
+ > .chiho
+ > .chitoge
+ > .deidara
+ > .erza
+ > .elaina
+ > .eba
+ > .emilia
+ > .hestia
+ > .hinata
+ > .inori
+ > .isuzu
+ > .itachi
+ > .itori
+ > .kaga
+ > .kagura
+ > .kaori
+ > .keneki
+ > .kotori
+ > .kurumi
+ > .madara
+ > .mikasa
+ > .miku
+ > .minato
+ > .naruto
+ > .nezuko
+ > .sagiri
+ > .sasuke
+ > .sakura
+ > .manhwa
+ > .waifu
+ > .neko
+ > .zerotwo
+ > .loli
+ > .pokedex <pokemon>
+ > .trace
 
-  ───『 *news* 』─── ⚝
-  ◈ .news
-  ◈ .technews
-  ◈ .ndtv
+━━━━『 *nsfw*━━━━ 
+ > .genshin
+ > .swimsuit
+ > .schoolswimsuit
+ > .white
+ > .barefoot
+ > .touhou
+ > .gamecg
+ > .hololive
+ > .uncensored
+ > .sunglasses
+ > .glasses
+ > .weapon
+ > .shirtlift
+ > .chain
+ > .fingering
+ > .flatchest
+ > .torncloth
+ > .bondage
+ > .demon
+ > .wet
+ > .pantypull
+ > .headdress
+ > .headphone
+ > .tie
+ > .anusview
+ > .shorts
+ > .stokings
+ > .topless
+ > .beach
+ > .bunnygirl
+ > .bunnyear
+ > .idol
+ > .vampire
+ > .gun
+ > .maid
+ > .bra
+ > .nobra
+ > .bikini
+ > .whitehair
+ > .blonde
+ > .pinkhair
+ > .bed
+ > .ponytail
+ > .nude
+ > .dress
+ > .underwear
+ > .foxgirl
+ > .uniform
+ > .skirt
+ > .sex
+ > .sex2
+ > .sex3
+ > .breast
+ > .twintail
+ > .spreadpussy
+ > .tears
+ > .seethrough
+ > .breasthold
+ > .drunk
+ > .fateseries
+ > .spreadlegs
+ > .openshirt
+ > .headband
+ > .food
+ > .close
+ > .tree
+ > .nipples
+ > .erectnipples
+ > .horns
+ > .greenhair
+ > .wolfgirl
+ > .catgirl
+ > .nsfw
+ > .ass
+ > .boobs
+ > .lesbian
+ > .pussy
+ > .pack
+ > .xvid
+ > .xnxx
 
-   ───『 *economy* 』─── ⚝
-  ◈ .addgold <@user>
-  ◈ .addxp <@user>
-  ◈ .bank
-  ◈ .buych
-  ◈ .cock-fight <amount>
-  ◈ .buy
-  ◈ .buyall
-  ◈ .daily
-  ◈ .deposit
-  ◈ .gamble <amount> <color(red/black)>
-  ◈ .give credit [amount] [@tag]
-  ◈ .levelup
-  ◈ .rank
-  ◈ .rob
-  ◈ .roulette <amount> <color(red/black)>
-  ◈ .wallet
-  ◈ .withdraw
-  ◈ .work
+━━━━『 *tools*━━━━ 
+ > .nowa
+ > .qr <text>
+ > .qrcode <text>
+ > .style <key> <text>
+ > .weather *<place>*
+ > .dehaze
+ > .recolor
+ > .hdr
+ > .length <amount>
+ > .tinyurl <link>
+ > .shorten <link>
+ > .tempmail
+ > .shazam
+ > .cal <equation>
+ > .carbon <code>
+ > .define <word>
+ > .element
+ > .google
+ > .itunes
+ > .lyrics
+ > .imdb
+ > .course
+ > .randomcourse
+ > .readmore <text1>|<text2>
+ > .readvo
+ > .removebg
+ > .ss <url>
+ > .ssf <url>
+ > .subreddit
+ > .telesticker  Ⓛ
+ > .tourl
+ > .translate <lang> <text>
+ > .true
+ > .tts <lang> <task>
+ > .wa
+ > .wikipedia
+━━━━『 *AI*━━━━ 
+ > .bing
+ > .dalle
+ > .chatgpt
+ > .toanime
+ > .gitagpt
+ > .tocartoon
+ > .ai
+ > .bard
+ > .alexa
+ > .bingimg
+ > .gemini
 
-   ───『 *anime* 』─── ⚝
-  ◈ .anime
-  ◈ .akira
-  ◈ .akiyama
-  ◈ .anna
-  ◈ .asuna
-  ◈ .ayuzawa
-  ◈ .boruto
-  ◈ .chiho
-  ◈ .chitoge
-  ◈ .deidara
-  ◈ .erza
-  ◈ .elaina
-  ◈ .eba
-  ◈ .emilia
-  ◈ .hestia
-  ◈ .hinata
-  ◈ .inori
-  ◈ .isuzu
-  ◈ .itachi
-  ◈ .itori
-  ◈ .kaga
-  ◈ .kagura
-  ◈ .kaori
-  ◈ .keneki
-  ◈ .kotori
-  ◈ .kurumi
-  ◈ .madara
-  ◈ .mikasa
-  ◈ .miku
-  ◈ .minato
-  ◈ .naruto
-  ◈ .nezuko
-  ◈ .sagiri
-  ◈ .sasuke
-  ◈ .sakura
-  ◈ .manhwa
-  ◈ .waifu
-  ◈ .neko
-  ◈ .zerotwo
-  ◈ .loli
-  ◈ .pokedex <pokemon>
-  ◈ .trace
+━━━━『 *religion*━━━━ 
+ > .gita [verse_number]
+ > .quran [surah_number|surah_name]
 
-   ───『 *nsfw* 』─── ⚝
-  ◈ .genshin
-  ◈ .swimsuit
-  ◈ .schoolswimsuit
-  ◈ .white
-  ◈ .barefoot
-  ◈ .touhou
-  ◈ .gamecg
-  ◈ .hololive
-  ◈ .uncensored
-  ◈ .sunglasses
-  ◈ .glasses
-  ◈ .weapon
-  ◈ .shirtlift
-  ◈ .chain
-  ◈ .fingering
-  ◈ .flatchest
-  ◈ .torncloth
-  ◈ .bondage
-  ◈ .demon
-  ◈ .wet
-  ◈ .pantypull
-  ◈ .headdress
-  ◈ .headphone
-  ◈ .tie
-  ◈ .anusview
-  ◈ .shorts
-  ◈ .stokings
-  ◈ .topless
-  ◈ .beach
-  ◈ .bunnygirl
-  ◈ .bunnyear
-  ◈ .idol
-  ◈ .vampire
-  ◈ .gun
-  ◈ .maid
-  ◈ .bra
-  ◈ .nobra
-  ◈ .bikini
-  ◈ .whitehair
-  ◈ .blonde
-  ◈ .pinkhair
-  ◈ .bed
-  ◈ .ponytail
-  ◈ .nude
-  ◈ .dress
-  ◈ .underwear
-  ◈ .foxgirl
-  ◈ .uniform
-  ◈ .skirt
-  ◈ .sex
-  ◈ .sex2
-  ◈ .sex3
-  ◈ .breast
-  ◈ .twintail
-  ◈ .spreadpussy
-  ◈ .tears
-  ◈ .seethrough
-  ◈ .breasthold
-  ◈ .drunk
-  ◈ .fateseries
-  ◈ .spreadlegs
-  ◈ .openshirt
-  ◈ .headband
-  ◈ .food
-  ◈ .close
-  ◈ .tree
-  ◈ .nipples
-  ◈ .erectnipples
-  ◈ .horns
-  ◈ .greenhair
-  ◈ .wolfgirl
-  ◈ .catgirl
-  ◈ .nsfw
-  ◈ .ass
-  ◈ .boobs
-  ◈ .lesbian
-  ◈ .pussy
-  ◈ .pack
-  ◈ .xvid
-  ◈ .xnxx
+━━━━『 *Bot Menu*━━━━ 
+ > .ping
+ > .runtime
+ > .script
+ > .server
+ > .blocklist
+ > .alive
+ > .info
+ > .owner
+ > .totalfeature
+ > .list
+ > .messi
+ > .cristianoronaldo
+ > .cr7
+ > .ppcouple
+ > .ppcp
+ > .pinterest
+ > .reg <name.age>
+ > .mysn
+ > .unreg 
 
-   ───『 *tools* 』─── ⚝
-  ◈ .nowa
-  ◈ .qr <text>
-  ◈ .qrcode <text>
-  ◈ .style <key> <text>
-  ◈ .weather *<place>*
-  ◈ .dehaze
-  ◈ .recolor
-  ◈ .hdr
-  ◈ .length <amount>
-  ◈ .tinyurl <link>
-  ◈ .shorten <link>
-  ◈ .tempmail
-  ◈ .shazam
-  ◈ .cal <equation>
-  ◈ .carbon <code>
-  ◈ .define <word>
-  ◈ .element
-  ◈ .google
-  ◈ .itunes
-  ◈ .lyrics
-  ◈ .imdb
-  ◈ .course
-  ◈ .randomcourse
-  ◈ .readmore <text1>|<text2>
-  ◈ .readvo
-  ◈ .removebg
-  ◈ .ss <url>
-  ◈ .ssf <url>
-  ◈ .subreddit
-  ◈ .telesticker  Ⓛ
-  ◈ .tourl
-  ◈ .translate <lang> <text>
-  ◈ .true
-  ◈ .tts <lang> <task>
-  ◈ .wa
-  ◈ .wikipedia
-
-  ───『 *AI* 』─── ⚝
-  ◈ .bing
-  ◈ .dalle
-  ◈ .chatgpt
-  ◈ .toanime
-  ◈ .gitagpt
-  ◈ .tocartoon
-  ◈ .ai
-  ◈ .bard
-  ◈ .alexa
-  ◈ .bingimg
-  ◈ .gemini
-
-   ───『 *religion* 』─── ⚝
-  ◈ .gita [verse_number]
-  ◈ .quran [surah_number|surah_name]
-
-   ───『 *Bot Menu* 』─── ⚝
-  ◈ .ping
-  ◈ .runtime
-  ◈ .script
-  ◈ .server
-  ◈ .blocklist
-  ◈ .alive
-  ◈ .info
-  ◈ .owner
-  ◈ .totalfeature
-  ◈ .list
-  ◈ .messi
-  ◈ .cristianoronaldo
-  ◈ .cr7
-  ◈ .ppcouple
-  ◈ .ppcp
-  ◈ .pinterest
-  ◈ .reg <name.age>
-  ◈ .mysn
-  ◈ .unreg 
-
-   ───『 *plugin* 』─── ⚝
-  ◈ .plugins
-  ◈ .install <Gist URL>
+━━━━『 *plugin*━━━━ 
+ > .plugins
+ > .install <Gist URL>
 
 `
 
@@ -494,16 +490,20 @@ function clockString(ms) {
     function ucapan() {
       const time = moment.tz('Asia/Kolkata').format('HH')
       let res = "happy early in the day☀️"
-      if (time >= 4) {
+      if (tim
+         >= 4) {
         res = "Good Morning 🌄"
       }
-      if (time >= 10) {
+      if (tim
+         >= 10) {
         res = "Good Afternoon ☀️"
       }
-      if (time >= 15) {
+      if (tim
+         >= 15) {
         res = "Good Afternoon 🌇"
       }
-      if (time >= 18) {
+      if (tim
+         >= 18) {
         res = "Good Night 🌙"
       }
       return res
