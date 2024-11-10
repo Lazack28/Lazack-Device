@@ -5,14 +5,6 @@ import fs from 'fs'
 import { promises } from 'fs'
 import { join } from 'path'
 
-let handler = async (m, { conn, usedPrefix, command }) => {
-  let d = new Date(new Date + 3600000)
-  let locale = 'en'
-  let week = d.toLocaleDateString(locale, { weekday: 'long' })
-  let date = d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })
-  let _uptime = process.uptime() * 1000
-  let uptime = clockString(_uptime)
-
   let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
   if (!(who in global.db.data.users)) throw `✳️ The user is not found in my database`
 
@@ -69,7 +61,6 @@ ${readMore}
 
   conn.sendFile(m.chat, './jusorts/lazack.jpg', 'perfil.jpg', str, m, null, canal)
   m.react(done)
-}
 
 handler.help = ['main']
 handler.tags = ['group']
