@@ -77,6 +77,8 @@ ${readMore}
 > *17.* Religion Menu
 > *18.* Plugin Menu
 ┗━━━━━━━━━━━━━┈⊷
+
+> 💡 *_Remember, when in doubt, use ${usedPrefix}list or ${usedPrefix}help2. It's like my magic spell book!_* 💡
 `
 
     
