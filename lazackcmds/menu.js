@@ -50,12 +50,11 @@ let str = `
 ${readMore}
 ───『 *I N F O  C M D*』───
 > Try use shortcats to get the menu example *.botmenu*
-___________________     
+___________________ 
+
 ${readMore}
-        *INFO* 
-*SHORTCUT MENU*
+『 *SHORTCUT MENU* 』 
 > *use this shortcuts*
-╰───────
 ${readMore}
 ┏━━━━━━━━━━━━━━┈⊷
 > *1.* Bot Menu
