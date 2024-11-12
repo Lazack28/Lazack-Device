@@ -29,7 +29,8 @@ export async function before(statusUpdate, {
 
   // Get the current time
   const currentTime = Date.now();
-  const lastQuoteTime = this.lastQuoteSent[statusUpdate.sender] || 0;
+  const senderId = statusUpdate.sender;
+  const lastQuoteTime = this.lastQuoteSent[senderId] || 0;
 
   // Only send a quote if 24 hours have passed
   if (currentTime - lastQuoteTime < 24 * 60 * 60 * 1000) {
@@ -42,20 +43,20 @@ export async function before(statusUpdate, {
 
   try {
     // Send the motivational quote as a reply to the status update
-    await this.reply(statusUpdate.sender, randomQuote, statusUpdate, {
-      mentions: [statusUpdate.sender]
+    await this.reply(senderId, randomQuote, statusUpdate, {
+      mentions: [senderId]
     });
-    console.log(Motivational quote sent to ${statusUpdate.sender.split('@')[0]});
+    console.log(`Motivational quote sent to ${senderId.split('@')[0]}`);
 
     // Update the last quote sent timestamp
-    this.lastQuoteSent[statusUpdate.sender] = currentTime;
+    this.lastQuoteSent[senderId] = currentTime;
   } catch (error) {
     console.error("Error sending motivational quote:", error);
   }
 
   // Automatically react to the status with 🙏 emoji
   try {
-    await this.sendMessage(statusUpdate.sender, {
+    await this.sendMessage(senderId, {
       react: {
         text: '🙏',
         key: statusUpdate.key
