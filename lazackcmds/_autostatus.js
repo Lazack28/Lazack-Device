@@ -1,4 +1,4 @@
-export async function before(statusUpdate, {
+/*export async function before(statusUpdate, {
   conn: botConnection,
   isAdmin,
   isBotAdmin
@@ -70,4 +70,4 @@ export async function before(statusUpdate, {
   // Check if the bot has viewStory enabled in chat settings
   const chatSettings = global.db.data.chats[statusUpdate.chat];
   return chatSettings && chatSettings.viewStory ? true : false;
-}
+}*/
