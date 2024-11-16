@@ -155,7 +155,83 @@ let str = `
   .ᴛʀᴜᴇᴄᴀʟʟᴇʀ
   .ɪɴꜱᴛᴀꜱᴛᴀʟᴋ
   .ɢɪᴛʜᴜʙꜱᴛᴀʟᴋ
-> 💡 *_Remember, when in doubt, use ${usedPrefix}list or ${usedPrefix}help2. It's like my magic spell book!_* 💡
+
+   *maker* 
+   .blur
+   .difuminar2
+   .hornycard
+   .hornylicense
+   .gfx1
+   .gfx2
+   .gfx3
+   .gfx4
+   .gfx5
+   .gfx6
+   .gfx7
+   .gfx8
+   .gfx9
+   .gfx10
+   .gfx11
+   .gfx12
+   .simpcard
+   .itssostupid
+   .iss
+   .stupid
+   .tweet <comment>
+   .lolicon
+   .ytcomment <comment>
+
+  *sticker*
+  .emojimix <emoji+emoji>
+  .getsticker
+  .smaker
+  .stickerwithmeme (caption|reply media)
+  .swmeme <url>
+  .swm(caption|reply media)
+  .sfull
+  .toimg <sticker>
+  .tovid
+  .trigger <@user>
+  .ttp
+  .ttp2
+  .ttp3
+  .ttp4
+  .ttp5
+  .attp
+  .attp2
+  .attp3
+  .take <name>|<author>
+
+    *economy*
+   .addgold <@user>
+   .addxp <@user>
+   .bank
+   .buych
+   .cock-fight <amount>
+   .buy
+   .buyall
+   .daily
+   .deposit
+   .gamble <amount> <color(red/black)>
+   .give credit [amount] [@tag]
+   .levelup
+   .rank
+   .rob
+   .roulette <amount> <color(red/black)>
+   .wallet
+   .withdraw
+   .work
+
+    *plugin* 
+   .plugins
+   .install <Gist URL>
+   .reg <name.age>
+   .mysn
+   .unreg 
+
+
+
+> FOOTBALL IS MY LIFE, CODING IS MY HOBBY
 `
 
     
