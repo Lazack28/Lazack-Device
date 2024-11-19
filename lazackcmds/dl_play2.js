@@ -4,7 +4,7 @@ import { youtube } from "btch-downloader";
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) return m.reply(`Enter the title or YouTube link!\nExample: *${usedPrefix + command} Faded Alan Walker*`);
 
-  await m.reply("🔄 Please wait while I fetch the audio...");
+  await m.reply("🔄 Please wait while lazack is searching the audio...");
   try {
     const search = await ytSearch(text); // Search for the video
     const video = search.videos[0];
