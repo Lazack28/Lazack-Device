@@ -1,49 +1,28 @@
 const userLastMessageMap = new Map();
 
 export async function all(m) {
-  const ONE_DAY = 24 * 60 * 60 * 1000; 
-
-  const currentTime = Date.now();
-  const userId = m.sender;
-
-  if (userLastMessageMap.has(userId)) {
-    const lastMessageTime = userLastMessageMap.get(userId);
-    if (currentTime - lastMessageTime < ONE_DAY) {
-      return;
-    }
-  }
-
-  const greetings = [
-    'Hello',
-    'Hi',
-    'Mambo',
-    'bro',
-    'hello',
-    'Hie',
-    'hi',
-    'Heey',
-    'lazack'
-  ];
-
+  // when someone sends a group link to the bot's dm
   if (
-    greetings.includes(m.text) &&
+    (m.mtype === 'groupInviteMessage' ||
+      m.text.startsWith('Hello') ||
+      m.text.startsWith('Mambo')) &&
     !m.isBaileys &&
     !m.isGroup
   ) {
-    await this.sendMessage(
+    this.sendMessage(
       m.chat,
       {
         text: `*Hi*`.trim(),
       },
       { quoted: m }
-    );
-
-    // Update the last message time for the user
-    userLastMessageMap.set(userId, currentTime);
-
-    return true;
+    )
+    /*this.sendButton(m.chat, `*Invite bot to a group*      
+    Hallo @${m.sender.split('@')[0]} 
+    you can rent the bot to join a group or contact owner 
+    more info click on the button
+  `.trim(), igfg, null, [['Rent', '/buyprem']] , m, { mentions: [m.sender] })*/
+    m.react('💎')
   }
 
-  // Update the last message time for the user if the message is not a greeting
-  userLastMessageMap.set(userId, currentTime);
+  return !0
 }
