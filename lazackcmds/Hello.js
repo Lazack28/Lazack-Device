@@ -1,4 +1,4 @@
-const userLastMessageMap = new Map();
+/*const userLastMessageMap = new Map();
 
 export async function all(m) {
   // when someone sends a group link to the bot's dm
