@@ -30,21 +30,20 @@ export async function all(m) {
     !m.isBaileys &&
     !m.isGroup
   ) {
-    this.sendButton(
+    await this.sendMessage(
       m.chat,
-      `*WELCOME LAZACK ORGANISATION*      
-    Hello 💕🥰 @${m.sender.split('@')[0]} 
-    I may be offline or I may be slow to respond, but wait I will be back soon 😇\n\n\n *what we offer*\n\n1. Heroku credit cards\n2. Bot deployment works 24/7\n3. social media followers\n4. Web coding and bug fixing\n\n\n\n> use the buttons bellow to see me`.trim(),
-      igfg,
-      null,
-      [['OWNER HELP', '.mrcs'], ['SCRIPT', '.repo']],
-      m,
-      { mentions: [m.sender] }
+      {
+        text: `*Hi*`.trim(),
+      },
+      { quoted: m }
     );
-    m.react('💕');
 
+    // Update the last message time for the user
     userLastMessageMap.set(userId, currentTime);
+
+    return true;
   }
 
-  return !0;
+  // Update the last message time for the user if the message is not a greeting
+  userLastMessageMap.set(userId, currentTime);
 }
