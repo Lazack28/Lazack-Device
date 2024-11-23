@@ -5,6 +5,8 @@ export async function all(m) {
   if (
     (m.mtype === 'groupInviteMessage' ||
       m.text.startsWith('Hello') ||
+      m.text.startswith('Niaje') ||
+      m.text.startswith('Vp') ||
       m.text.startsWith('Mambo')) &&
     !m.isBaileys &&
     !m.isGroup
@@ -12,7 +14,7 @@ export async function all(m) {
     this.sendMessage(
       m.chat,
       {
-        text: `*Hi*`.trim(),
+        text: `*Hi ✋*`.trim(),
       },
       { quoted: m }
     )
