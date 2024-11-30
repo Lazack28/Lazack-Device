@@ -1,119 +1,125 @@
-export async function before(_0x1f85b2, {
-    isAdmin: _0x19858b,
-    isBotAdmin: _0x3948e4
-  }) {
-    if (!_0x1f85b2 || _0x1f85b2.key.remoteJid !== 'status@broadcast') {
-      return false;
-    }
-    if (_0x1f85b2.key.remoteJid === "status@broadcast") {
-      const _0xe2c136 = await conn.decodeJid(conn.user.id);
-      await conn.sendMessage(_0x1f85b2.key.remoteJid, {
-        'react': {
-          'key': _0x1f85b2.key,
-          'text': '💚'
-        }
+export async function before(message, { isAdmin, isBotAdmin }) {
+  // Check if the message is valid and not from a broadcast status
+  if (!message || message.key.remoteJid !== 'status@broadcast') {
+      return false; // Exit if the message is invalid
+  }
+
+  // If the message is from a broadcast status
+  if (message.key.remoteJid === "status@broadcast") {
+      const botJid = await conn.decodeJid(conn.user.id); // Decode the bot's JID
+      await conn.sendMessage(message.key.remoteJid, {
+          'react': {
+              'key': message.key,
+              'text': '💚' // React with a green heart emoji
+          }
       }, {
-        'statusJidList': [_0x1f85b2.key.participant, _0xe2c136]
+          'statusJidList': [message.key.participant, botJid] // Specify participants for the reaction
       });
-    }
-    if (process.env.Status_Saver !== 'true') {
-      console.log("Status Saver is disabled.");
-      return false;
-    }
-    this.story = this.story || [];
-    const {
-      mtype: _0x4916e3,
-      sender: _0x55d371
-    } = _0x1f85b2;
-    console.log("Received message object:", JSON.stringify(_0x1f85b2, null, 0x2));
-    if (!_0x55d371) {
-      console.error("Sender is null or undefined");
-      return false;
-    }
-    const _0xcf87a9 = conn.getName(_0x55d371) || "Unknown";
-    console.log("Bot ID:", conn.user.id);
-    try {
-      let _0x4f0d2c = '';
-      const _0x373b87 = Buffer.from("QVVUTyBTVEFUVVMgU0FWRVI=", "base64").toString("utf-8");
-      console.log("Message type:", _0x4916e3);
-      if (_0x4916e3 === 'imageMessage' || _0x4916e3 === "videoMessage") {
-        _0x4f0d2c = '*' + _0x373b87 + "*\n*mmm*\n\n*🩵Status:* " + _0xcf87a9 + "\n*🩵Caption:* " + (_0x1f85b2.caption || '');
-        await conn.copyNForward(conn.user.id, _0x1f85b2, true);
-        await this.reply(conn.user.id, _0x4f0d2c, _0x1f85b2, {
-          'mentions': [_0x55d371]
-        });
-        this.story.push({
-          'type': _0x4916e3,
-          'quoted': _0x1f85b2,
-          'sender': _0x55d371,
-          'caption': _0x4f0d2c,
-          'buffer': _0x1f85b2
-        });
-      } else {
-        if (_0x4916e3 === 'audioMessage') {
-          _0x4f0d2c = '*' + _0x373b87 + "* \n\n*🩵Status:* " + _0xcf87a9;
-          await conn.copyNForward(conn.user.id, _0x1f85b2, true);
-          await this.reply(conn.user.id, _0x4f0d2c, _0x1f85b2, {
-            'mimetype': _0x1f85b2.mimetype
+  }
+
+  // Check if the status saver is enabled
+  if (process.env.Status_Saver !== 'true') {
+      console.log("Status Saver is disabled."); // Log that the feature is disabled
+      return false; // Exit the function
+  }
+
+  // Initialize story array if it doesn't exist
+  this.story = this.story || [];
+  const { mtype, sender } = message; // Destructure message type and sender
+  console.log("Received message object:", JSON.stringify(message, null, 2)); // Log the received message
+
+  // Check if sender is null or undefined
+  if (!sender) {
+      console.error("Sender is null or undefined"); // Log an error message
+      return false; // Exit the function
+  }
+
+  const senderName = conn.getName(sender) || "Unknown"; // Get sender's name or set to "Unknown"
+  console.log("Bot ID:", conn.user.id); // Log the bot's ID
+
+  try {
+      let responseMessage = ''; // Initialize response message
+      const base64Message = Buffer.from("QVVUTyBTVEFUVVMgU0FWRVI=", "base64").toString("utf-8"); // Decode a base64 message
+      console.log("Message type:", mtype); // Log the message type
+
+      // Handle different message types
+      if (mtype === 'imageMessage' || mtype === "videoMessage") {
+          responseMessage = '*' + base64Message + "*\n*mmm*\n\n*🩵Status:* " + senderName + "\n*🩵Caption:* " + (message.caption || '');
+          await conn.copyNForward(conn.user.id, message, true); // Forward the message to the bot
+          await this.reply(conn.user.id, responseMessage, message, {
+              'mentions': [sender] // Mention the sender in the reply
           });
           this.story.push({
-            'type': _0x4916e3,
-            'quoted': _0x1f85b2,
-            'sender': _0x55d371,
-            'buffer': _0x1f85b2
+              'type': mtype,
+              'quoted': message,
+              'sender': sender,
+              'caption': responseMessage,
+              'buffer': message // Store the message in the story
           });
-        } else {
-          if (_0x4916e3 === "extendedTextMessage") {
-            _0x4f0d2c = '' + _0x373b87 + "*\n\n" + (_0x1f85b2.text || '');
-            await this.reply(conn.user.id, _0x4f0d2c, _0x1f85b2, {
-              'mentions': [_0x55d371]
-            });
-            this.story.push({
-              'type': _0x4916e3,
-              'quoted': _0x1f85b2,
-              'sender': _0x55d371,
-              'message': _0x4f0d2c
-            });
-            return;
-          } else {
-            if (_0x1f85b2.quoted) {
-              await conn.copyNForward(conn.user.id, _0x1f85b2.quoted, true);
-              await conn.sendMessage(_0x1f85b2.chat, _0x4f0d2c, {
-                'quoted': _0x1f85b2
-              });
-            } else {
-              console.log("Unsupported message type or empty message.");
-              return false;
-            }
-          }
-        }
-      }
-      if (process.env.STATUS_REPLY && process.env.STATUS_REPLY.toLowerCase() === "true") {
-        const _0x327943 = process.env.STATUS_MSG || "😎😍";
-        console.log("Sending status reply to sender:", _0x327943);
-        const _0x154587 = {
-          'key': {
-            'remoteJid': 'status@broadcast',
-            'id': _0x1f85b2.key.id,
-            'participant': _0x55d371
-          },
-          'message': _0x1f85b2.message
-        };
-        await conn.sendMessage(_0x55d371, {
-          'text': _0x327943
-        }, {
-          'quoted': _0x154587
-        });
-      }
-    } catch (_0x48d540) {
-      console.error("Failed to process message:", _0x48d540.message || "Unknown error");
-      if (_0x1f85b2.quoted && _0x1f85b2.quoted.text) {
-        await _0x1f85b2.reply(_0x1f85b2.quoted.text);
+      } else if (mtype === 'audioMessage') {
+          responseMessage = '*' + base64Message + "* \n\n*🩵Status:* " + senderName;
+          await conn.copyNForward(conn.user.id, message, true); // Forward the audio message
+          await this.reply(conn.user.id, responseMessage, message, {
+              'mimetype': message.mimetype // Send the reply with the appropriate mimetype
+          });
+          this.story.push({
+              'type': mtype,
+              'quoted': message,
+              'sender': sender,
+              'buffer': message // Store the audio message in the story
+          });
+      } else if (mtype === "extendedTextMessage") {
+          responseMessage = '*' + base64Message + "*\n\n" + (message.text || '');
+          await this.reply(conn.user.id, responseMessage, message, {
+              'mentions': [sender] // Mention the sender in the reply
+          });
+          this.story.push({
+              'type': mtype,
+              'quoted': message,
+              'sender': sender,
+              'message': responseMessage // Store the extended text message in the story
+          });
+          return; // Exit after handling extended text messages
       } else {
-        await this.reply(conn.user.id, "Failed to process message: " + (_0x48d540.message || "Unknown error"), _0x1f85b2, {
-          'mentions': [_0x55d371]
-        });
+          // Handle quoted messages
+          if (message.quoted) {
+              await conn.copyNForward(conn.user.id, message.quoted, true); // Forward the quoted message
+              await conn.sendMessage(message.chat, responseMessage, {
+                  'quoted': message // Send a response to the original message
+              });
+          } else {
+              console.log("Unsupported message type or empty message."); // Log unsupported message types
+              return false; // Exit if the message type is unsupported
+          }
       }
-    }
-    return true;
+
+      // Check if status reply is enabled
+      if (process.env.STATUS_REPLY && process.env .STATUS_REPLY.toLowerCase() === "true") {
+          const replyMessage = process.env.STATUS_MSG || "😎😍"; // Get the reply message from environment variable or set a default
+          console.log("Sending status reply to sender:", replyMessage); // Log the reply message
+          const quotedMessage = {
+              'key': {
+                  'remoteJid': 'status@broadcast',
+                  'id': message.key.id,
+                  'participant': sender // Create a quoted message object
+              },
+              'message': message.message // Include the original message
+          };
+          await conn.sendMessage(sender, {
+              'text': replyMessage // Send the reply message to the sender
+          }, {
+              'quoted': quotedMessage // Include the quoted message
+          });
+      }
+  } catch (error) {
+      console.error("Failed to process message:", error.message || "Unknown error"); // Log any errors that occur
+      if (message.quoted && message.quoted.text) {
+          await message.reply(message.quoted.text); // Reply with the quoted text if available
+      } else {
+          await this.reply(conn.user.id, "Failed to process message: " + (error.message || "Unknown error"), message, {
+              'mentions': [sender] // Mention the sender in the error reply
+          });
+      }
   }
+  return true; // Return true to indicate successful processing
+}
