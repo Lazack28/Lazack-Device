@@ -13,11 +13,11 @@ let { title, duration, data, stats, music_info } = json.result;
 if (data && data.length > 0) {
 if (data[0].type === 'nowatermark') {
 let dl_url = data[0].url;
-let JT = `- *Título:* ${title}
-* *Duración:* ${duration}
+let JT = `- *Tittle:* ${title}
+* *Duration:* ${duration}
 * *Likes:* ${stats.likes}
-* *Comentarios:* ${stats.comment}
-* *Visitas:* ${stats.views}`
+* *Comments:* ${stats.comment}
+* *Views:* ${stats.views}`
 
 await conn.sendFile(m.chat, dl_url, JT, m);
 } else if (data[0].type === 'photo') {
