@@ -5,7 +5,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 if (!text) return m.reply('please enter tiktok link');
 
 try {
-let api = await fetch(`https://api.vreden.my.id/api/tiktok?url=${encodeURIComponent(text)}`)
+let api = await fetch(`https://dashapi.lazackorganisation.my.id/api/downloader/tiktokdl?url=${encodeURIComponent(text)}`)
 let json = await api.json()
     
 let { title, duration, data, stats, music_info } = json.result;
