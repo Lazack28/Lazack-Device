@@ -11,6 +11,9 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     conn.reply(m.chat, 'The issue has been successfully sent to the Owner', m)
 
   }
-  handler.command = ['report']
 
-  export defult handler
+handler.help = ['report']
+handler.tags = ['main']
+handler.command = /^(report)$/i
+
+export defult handler
