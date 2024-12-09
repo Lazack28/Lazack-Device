@@ -14,7 +14,7 @@ let msg = await generateWAMessageFromContent(m.chat, {
     speedInMps: 0,
     degreesClockwiseFromMagneticNorth: 2,
     comment: "Your Welcome",
-    jpegThumbnail: await conn.resize("https://imgur.com/q7WXO5w.jpeg", 300, 300),
+    //jpegThumbnail: await conn.resize("https://imgur.com/q7WXO5w.jpeg", 300, 300),
   },
 }, { quoted: m })
 
