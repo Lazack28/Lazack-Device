@@ -16,4 +16,4 @@ handler.help = ['report']
 handler.tags = ['main']
 handler.command = /^(report)$/i
 
-export defult handler
+export default handler
