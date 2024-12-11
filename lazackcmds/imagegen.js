@@ -6,7 +6,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
   }
 
   // Thumbnail for external ad reply (optional)
-  const sponsorThumbnail = 'https://home.lazackorganisation.my.id/image/img2.png'; // Replace with your preferred image URL
+  const sponsorThumbnail = 'https://home.lazackorganisation.my.id/img/img1.png'; // Replace with your preferred image URL
 
   // Fake contact message (optional)
   let botContact = {
