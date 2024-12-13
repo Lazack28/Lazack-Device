@@ -10,7 +10,7 @@
       let member = await (await conn.groupMetadata(id)).participants.map(v => v.id)
       return conn.reply(m.chat, `Joined!`, m)
     } catch {
-      return conn.reply(m.chat, Func.texted('bold', `Sorry i can't join to this group :(`), m)
+      return conn.reply(m.chat, ( `Sorry i can't join to this group`), m)
     }
   }
 
