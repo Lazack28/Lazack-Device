@@ -35,6 +35,8 @@ let readMore = more.repeat(850)
 let greeting = ucapan()
 let quote = quotes[Math.floor(Math.random() * quotes.length)];
 
+
+let link = `https://whatsapp.com/channel/0029VaIRINGCXC3EussN4b2E`
 let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
 let str = `
 乂───『 *INFO*』───乂 
@@ -244,7 +246,7 @@ let str = `
     
 
 
-   conn.sendFile(m.chat, pp, 'perfil.jpg', str, m, null, canal)
+   conn.sendFile(m.chat, pp, 'perfil.jpg', str, link, m, null, canal)
     m.react(done)
 
 }
