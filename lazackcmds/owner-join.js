@@ -1,7 +1,7 @@
 
   let handler = async (m, { conn, usedPrefix, command, args, Func }) => {
     try {
-      if (!args || !args[0]) return conn.reply(m.chat, Func.example(usedPrefix, command, 'https://chat.whatsapp.com/codeInvite'), m)
+      if (!args || !args[0]) return conn.reply(m.chat, ('where is the link stupid????'), m)
       let link = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})/i
       let [_, code] = args[0].match(link) || []
       if (!code) return conn.reply(m.chat, global.status.invalid, m)
