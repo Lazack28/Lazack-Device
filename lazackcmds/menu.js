@@ -79,7 +79,7 @@ ${readMore}
 
 *https://home.lazackorganisation.my.id*
 
-> rememner to use the prefix and one of the commands above
+> rememner to use the prefix and one of the commands above... use ${usedPrefix}report to direct send feedback
 `
 
     
