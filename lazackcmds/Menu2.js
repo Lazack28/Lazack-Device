@@ -41,26 +41,28 @@ let str = `
 │ *Simple menu*
 │ *_TRY NOT TO LAUGH_*
 ╰───────⳹
-╭───────⳹
-│ *1.* Bot Menu
-│ *2.* Owner Menu
-│ *3.* Group Menu
-│ *4.* Fun Menu
-│ *5.* Reaction Menu
-│ *6.* Downloader Menu
-│ *7.* Game Menu
-│ *8.* Logo Menu
-│ *9.* Sticker Menu
-│ *10.* Audio Menu
-│ *11.* News Menu
-│ *12.* Economy Menu
-│ *13.* Anime Menu
-│ *14.* NSFW Menu
-│ *15.* Tools Menu
-│ *16.* AI Menu
-│ *17.* Religion Menu
-│ *18.* Plugin Menu
-╰───────⳹
+╭───────
+│  BotMenu
+│  OwnerMenu
+│  GroupMenu
+│  FunMenu
+│  ReactionMenu
+│  DownloaderMenu
+│  GameMenu
+│  LogoMenu
+│  StickerMenu
+│  AudioMenu
+│  NewsMenu
+│  EconomyMenu
+│  AnimeMenu
+│  NSFWMenu
+│  ToolsMenu
+│  AIMenu
+│  ReligionMenu
+│  PluginMenu
+╰───────
+
+*ALL LIST CMDS*
 
  *ᴀɪ* 
  .ᴀɪ
@@ -156,42 +158,44 @@ let str = `
   .ɪɴꜱᴛᴀꜱᴛᴀʟᴋ
   .ɢɪᴛʜᴜʙꜱᴛᴀʟᴋ
 
-   *maker* 
-   .blur
-   .difuminar2
-   .hornycard
-   .hornylicense
-   .gfx1
-   .gfx2
-   .gfx3
-   .gfx4
-   .gfx5
-   .gfx6
-   .gfx7
-   .gfx8
-   .gfx9
-   .gfx10
-   .gfx11
-   .gfx12
-   .simpcard
-   .itssostupid
-   .iss
-   .stupid
-   .tweet <comment>
-   .lolicon
-   .ytcomment <comment>
+ *MAKER*
 
-  *sticker*
-  .emojimix <emoji+emoji>
+  .blur
+  .difuminar2
+  .hornycard
+  .hornylicense
+  .gfx1
+  .gfx2
+  .gfx3
+  .gfx4
+  .gfx5
+  .gfx6
+  .gfx7
+  .gfx8
+  .gfx9
+  .gfx10
+  .gfx11
+  .gfx12
+  .simpcard
+  .itssostupid
+  .iss
+  .stupid
+  .tweet 
+  .lolicon
+  .ytcomment 
+
+ *STICKER*
+
+  .emojimix 
   .getsticker
   .smaker
-  .stickerwithmeme (caption|reply media)
-  .swmeme <url>
-  .swm(caption|reply media)
+  .stickerwithmeme 
+  .swmeme 
+  .swm
   .sfull
-  .toimg <sticker>
+  .toimg 
   .tovid
-  .trigger <@user>
+  .trigger 
   .ttp
   .ttp2
   .ttp3
@@ -200,36 +204,36 @@ let str = `
   .attp
   .attp2
   .attp3
-  .take <name>|<author>
+  .take 
 
-    *economy*
-   .addgold <@user>
-   .addxp <@user>
-   .bank
-   .buych
-   .cock-fight <amount>
-   .buy
-   .buyall
-   .daily
-   .deposit
-   .gamble <amount> <color(red/black)>
-   .give credit [amount] [@tag]
-   .levelup
-   .rank
-   .rob
-   .roulette <amount> <color(red/black)>
-   .wallet
-   .withdraw
-   .work
+ *ECONOMY*
+  .addgold 
+  .addxp 
+  .bank
+  .buych
+  .cock-fight 
+  .buy
+  .buyall
+  .daily
+  .deposit
+  .gamble
+  .give credit 
+  .levelup
+  .rank
+  .rob
+  .roulette
+  .wallet
+  .withdraw
+  .work
 
-    *plugin* 
-   .plugins
-   .install <Gist URL>
-   .reg <name.age>
-   .mysn
-   .unreg 
+ *PLUGINS* 
+  .plugins
+  .install 
+  .reg 
+  .mysn
+  .unreg 
 
-
+*https://home.lazackorganisation.my.id*
 
 > FOOTBALL IS MY LIFE, CODING IS MY HOBBY
 `
