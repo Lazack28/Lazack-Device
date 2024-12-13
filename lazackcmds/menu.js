@@ -57,27 +57,29 @@ ${readMore}
 > *use this shortcuts*
 ${readMore}
 ┏━━━━━━━━━━━━━━┈⊷
-> *1.* Bot Menu
-> *2.* Owner Menu
-> *3.* Group Menu
-> *4.* Fun Menu
-> *5.* Reaction Menu
-> *6.* Downloader Menu
-> *7.* Game Menu
-> *8.* Logo Menu
-> *9.* Sticker Menu
-> *10.* Audio Menu
-> *11.* News Menu
-> *12.* Economy Menu
-> *13.* Anime Menu
-> *14.* NSFW Menu
-> *15.* Tools Menu
-> *16.* AI Menu
-> *17.* Religion Menu
-> *18.* Plugin Menu
+> *1.* BotMenu
+> *2.* OwnerMenu
+> *3.* GroupMenu
+> *4.* FunMenu
+> *5.* ReactionMenu
+> *6.* DownloaderMenu
+> *7.* GameMenu
+> *8.* LogoMenu
+> *9.* StickerMenu
+> *10.* AudioMenu
+> *11.* NewsMenu
+> *12.* EconomyMenu
+> *13.* AnimeMenu
+> *14.* NSFWMenu
+> *15.* ToolsMenu
+> *16.* AIMenu
+> *17.* ReligionMenu
+> *18.* PluginMenu
 ┗━━━━━━━━━━━━━┈⊷
 
-> 💡 *_Remember, when in doubt, use ${usedPrefix}list or ${usedPrefix}help2. It's like my magic spell book!_* 💡
+*https://home.lazackorganisation.my.id*
+
+> rememner to use the prefix and one of the commands above
 `
 
     
