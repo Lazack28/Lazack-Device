@@ -1,9 +1,9 @@
 let handler = async (m, {conn, text}) => {
     const [nomor, pesan, jumlah] = text.split('|');
     
-    if (!nomor) return conn.reply(m.chat, '*Uso Correcto:*\n*🐉 #spamwa number|text|quantity*', m,);
+    if (!nomor) return conn.reply(m.chat, '*use correct:*\n*🐉 #spamwa number|text|quantity*', m,);
     
-    if (!pesan) return conn.reply(m.chat, '*Uso Correcto:*\n*🐉 #spamwa number|text|quantity*', m,);
+    if (!pesan) return conn.reply(m.chat, '*use correct:*\n*🐉 #spamwa number|text|quantity*', m,);
     
     if (jumlah && isNaN(jumlah)) return conn.reply(m.chat, '*💨 The quantity must be a number*', m,);
     
