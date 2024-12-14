@@ -1,30 +1,33 @@
-const linkRegex = /chat.whatsapp.com\/(?:invite\/)?([0-9A-Za-z]{20,24})/i
+let linkRegex = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})/i;
+let linkRegex1 = /whatsapp.com\/channel\/([0-9A-Za-z]{20,24})/i;
 
-export async function before(m, { conn, isAdmin, isBotAdmin }) {
-  if (m.isBaileys && m.fromMe) return !0
-  if (!m.isGroup) return !1
-  let chat = global.db.data.chats[m.chat]
-  let bot = global.db.data.settings[this.user.jid] || {}
-  const isGroupLink = linkRegex.exec(m.text)
+export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner, participants }) {
+if (!m.isGroup) return 
+if (isAdmin || isOwner || m.fromMe || isROwner) return
 
-  if (chat.antiLink && isGroupLink && !isAdmin) {
-    if (isBotAdmin) {
-      const linkThisGroup = `https://chat.whatsapp.com/${await this.groupInviteCode(m.chat)}`
-      if (m.text.includes(linkThisGroup)) return !0
-    }
-    await conn.reply(
-      m.chat,
-      `*≡ Link Detected*
-            
-We do not allow links from other groups 
-I'm sorry *@${m.sender.split('@')[0]}*  you will be kicked out of the group ${isBotAdmin ? '' : '\n\nIM not an admin so I canT expel you :"v'}`,
-      null,
-      { mentions: [m.sender] }
-    )
-    if (isBotAdmin && chat.antiLink) {
-      await conn.sendMessage(m.chat, { delete: m.key })
-      await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-    } else if (!chat.antiLink) return //m.reply('')
-  }
-  return !0
+let chat = global.db.data.chats[m.chat];
+let delet = m.key.participant;
+let bang = m.key.id;
+const user = `@${m.sender.split`@`[0]}`;
+const groupAdmins = participants.filter(p => p.admin);
+const listAdmin = groupAdmins.map((v, i) => `*» ${i + 1}. @${v.id.split('@')[0]}*`).join('\n');
+let bot = global.db.data.settings[this.user.jid] || {};
+const isGroupLink = linkRegex.exec(m.text) || linkRegex1.exec(m.text);
+const grupo = `https://chat.whatsapp.com`;
+if (isAdmin && chat.antiLink && m.text.includes(grupo)) return m.reply('🏷 *Hey!! the anti-link is active but you are an admin, saved corrupt admin 🗣️‼️!*.');
+if (chat.antiLink && isGroupLink && !isAdmin) {
+if (isBotAdmin) {
+const linkThisGroup = `https://chat.whatsapp.com/${await this.groupInviteCode(m.chat)}`;
+if (m.text.includes(linkThisGroup)) return !0;
+}
+await conn.sendMessage(m.chat, { text: `*「 📎 *Link Detected!* 」*\n\n${user} *!!Hey!! you sent a forbidden link, so you will be punished by all the group members*...`, mentions: [m.sender] }, { quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100 });
+if (!isBotAdmin) return conn.sendMessage(m.chat, { text: ` 🙄 *Dude, I'm not an admin, I can't remove intruders*.`, mentions: [...groupAdmins.map(v => v.id)] }, { quoted: m });
+if (isBotAdmin) {
+await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet } });
+let responseb = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove');
+if (responseb[0].status === "404") return;
+}} // else if (!bot.restrict) {
+// return m.reply('🐉 This feature is disabled!');
+// }
+return !0;
 }
