@@ -1,37 +1,43 @@
-import axios from 'axios'
+import yts from 'yt-search'
 
-let handler = async (m, { conn, text }) => {
-  if (!text) throw '✳️ What do you want me to search for on YouTube?'
+var handler = async (m, { text, conn, args, command, usedPrefix }) => {
 
-  try {
-    const query = encodeURIComponent(text)
-    const response = await axios.get(`https://weeb-api.vercel.app/ytsearch?query=${query}`)
-    const results = response.data
+if (!text) return conn.reply(m.chat, `🐉 *Please enter the title of a YouTube video\n\nExample, !${command} Goku Ultra Instinct*`, m, rcanal, )
 
-    if (results.length === 0) {
-      throw 'No results found for the given query.'
-    }
+conn.reply(m.chat, wait, m, {
+contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
+title: packname,
+body: wm,
+previewType: 0, thumbnail: icons,
+sourceUrl: channel }}})
 
-    const firstResult = results[0]
+let results = await yts(text)
+let tes = results.all
+let teks = results.all.map(v => {
+switch (v.type) {
+case 'video': return `☁️ *Title:* 
+» ${v.title}
 
-    const message = `
-乂 ${firstResult.title}
-乂 *Link* : ${firstResult.url}
-乂 *Duration* : ${firstResult.timestamp}
-乂 *Published :* ${firstResult.ago}
-乂 *Views:* ${firstResult.views}
+🔗 *Link:* 
+» ${v.url}
 
-    `
+🕝 *Duration:*
+» ${v.timestamp}
 
-    conn.sendFile(m.chat, firstResult.thumbnail, 'yts.jpeg', message, m)
-  } catch (error) {
-    console.error(error)
-    throw 'An error occurred while searching for YouTube videos.'
-  }
+📆 *Uploaded:* 
+» ${v.ago}
+
+👀 *Views:* 
+» ${v.views}`}}).filter(v => v).join('\n\n••••••••••••••••••••••••••••••••••••\n\n')
+
+conn.sendFile(m.chat, tes[0].thumbnail, 'yts.jpeg', teks, fkontak, m)
+
 }
-
 handler.help = ['ytsearch']
-handler.tags = ['downloader']
-handler.command = ['ytsearch', 'yts']
+handler.tags = ['searcher']
+handler.command = /^playlist|ytbuscar|yts(earch)?$/i
+
+handler.register = true
+//handler.yenes = 1
 
 export default handler

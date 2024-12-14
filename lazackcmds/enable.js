@@ -248,6 +248,7 @@ chat.antiLink2 = isEnable
 ⛊ grouponly
 ⛊ autotype
 ⛊ autobio
+⛊ self
 ╰──────────⳹
 *📌 Example :*
 *${usedPrefix}on* welcome
