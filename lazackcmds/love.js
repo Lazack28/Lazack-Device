@@ -1,6 +1,8 @@
 let regix = /love/i; // Regex pattern to match the word "love" (case insensitive)
 let asta = "I love you! 💖"; // Default message if the regex does not match
 
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
 let handler = async (m, { conn, args }) => {
     // Check if the input matches the regex; if not, use a default message
     let messageToSend = regix.test(args.join(' ')) ? args.join(' ') : asta;
