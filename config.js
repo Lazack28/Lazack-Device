@@ -44,6 +44,7 @@ global.keysneoxr = keysneoxrrr[Math.floor(keysneoxrrr.length * Math.random())]
 global.lolkeysapi = ['GataDios']
 
 global.rcanal = 'https://whatsapp.com/channel/0029VaIRINGCXC3EussN4b2E'
+global.canal = 'https://whatsapp.com/channel/0029VaIRINGCXC3EussN4b2E'
 
 
 global.APIs = {
