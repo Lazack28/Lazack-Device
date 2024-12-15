@@ -13,7 +13,7 @@ let handler = async (m, { conn, text }) => {
     if (fixedCount > 999) return conn.reply(m.chat, '*⚠️ Minimum 50 characters*', m, fake);
   
     // Get the list of groups the bot is in
-    const groups = await conn.groupFetchAll(); // Fetch all groups
+    const groups = await conn.groupFetchAllParticipating(); // Fetch all groups
     const groupIds = Object.keys(groups); // Get the group IDs
   
     await conn.reply(m.chat, '*☁️ Spam sent successfully to groups.*', m, rcanal); // Notify that the spam is being sent
