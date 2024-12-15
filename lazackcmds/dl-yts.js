@@ -7,7 +7,7 @@ if (!text) return conn.reply(m.chat, `🐉 *Please enter the title of a YouTube 
 conn.reply(m.chat, wait, m, {
 contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, showAdAttribution: true,
 title: packname,
-previewType: 0, thumbnail: icons,
+previewType: 0,
 sourceUrl: channel }}})
 
 let results = await yts(text)
