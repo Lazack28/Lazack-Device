@@ -1,4 +1,4 @@
-const handler = async (m, {conn, isAdmin, groupMetadata }) => {
+let handler = async (m, {conn, isAdmin, groupMetadata }) => {
     if (isAdmin) return m.reply('✨ _*My dear, I have already given you my power 💪, make the most of it!*_');
     try {
       await conn.groupParticipantsUpdate(m.chat, [m.sender], 'promote');
