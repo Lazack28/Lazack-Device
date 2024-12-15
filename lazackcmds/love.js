@@ -1,4 +1,4 @@
-let regix = /love/i; // Regex pattern to match the word "love" (case insensitive)
+/*let regix = /love/i; // Regex pattern to match the word "love" (case insensitive)
 let asta = "I love you! 💖"; // Default message if the regex does not match
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -28,4 +28,4 @@ handler.help = ['love']
 handler.tags = ['fun']
 handler.command = ['love']
 // Change to true if only the owner should use it
-export default handler;
+export default handler;*/
