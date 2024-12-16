@@ -223,7 +223,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, args, command }) => {
 }
 handler.help = ['menu']
 handler.tags = ['main']
-handler.command = /^(allmenu\?)$/i
+handler.command = ['allmenu']
 handler.register = true
 handler.exp = 3
 
