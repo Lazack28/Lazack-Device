@@ -22,9 +22,9 @@ return conn.reply(m.chat, '🚩 Responde to an *Audio/Video.*', m, rcanal)
 }}
 handler.help = ['shazam *<Audio/Video>*']
 handler.tags = ['tools']
-handler.command = /^(shazam)$/i
+handler.command = /^(shazam3)$/i
 //handler.limit = 3
-handler.register = true
+//handler.register = true
 export default handler
 
 async function uploadFile(path) {
