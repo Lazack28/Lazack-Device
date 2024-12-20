@@ -1,4 +1,4 @@
-const { proto, generateWAMessage, areJidsSameUser } = (await import('@shizodevs/shizoweb'))
+/*const { proto, generateWAMessage, areJidsSameUser } = (await import('@shizodevs/shizoweb'))
   .default
 
 export async function all(m, chatUpdate) {
@@ -28,3 +28,4 @@ export async function all(m, chatUpdate) {
   }
   this.ev.emit('messages.upsert', msg)
 }
+*/
