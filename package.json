@@ -50,6 +50,7 @@
         "@whiskeysockets/baileys": "^6.6.0",
         "@SumiFX/Scraper": "github:SumiFX/SumiFX-Scraper",
         "@xct007/frieren-scraper": "*",
+        "@ibaraki-douji/pixivts": "*",
         "@xct007/tiktok-scraper": "*",
         "acrcloud": "^1.4.0",
         "g-i-s": "^2.1.6",
