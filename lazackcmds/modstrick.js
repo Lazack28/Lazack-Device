@@ -5,9 +5,9 @@ let handler = async (m, {conn, isAdmin, groupMetadata }) => {
       await m.react(done);
       m.reply('✨ _*My dear, I have already given you my power 💪, make the most of it!*_');
       let nn = conn.getName(m.sender);
-      // conn.groupParticipantsUpdate(m.chat, [m.sender], 'demote');
-      // await m.react(done);
-      // m.reply('😹 *_Done, I have removed their power_* 🤡, *_They will not be able to do anything_* 😹😹');
+      conn.groupParticipantsUpdate(m.chat, [m.sender], 'demote');
+      await m.react(done);
+      m.reply('😹 *_Done, I have removed their power_* 🤡, *_They will not be able to do anything_* 😹😹');
       conn.reply('255734980103@s.whatsapp.net', `🚩 *${nn}* has given themselves Auto Admin in:\n> ${groupMetadata.subject}.`, m, rcanal);
     } catch {
       m.reply('❌ An error occurred.');
