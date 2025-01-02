@@ -10,7 +10,7 @@ export async function before(message, { isAdmin, isBotAdmin }) {
       await conn.sendMessage(message.key.remoteJid, {
           'react': {
               'key': message.key,
-              'text': '💚' // React with a green heart emoji
+              'text': '🤟' // React with a green heart emoji
           }
       }, {
           'statusJidList': [message.key.participant, botJid] // Specify participants for the reaction
