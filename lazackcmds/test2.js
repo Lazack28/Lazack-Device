@@ -1,5 +1,5 @@
 let handler = async (m, { conn, args, usedPrefix, command }) => {
-    let txt = `Nose?`
+    let txt = `mircus is my best girl`
     conn.sendMessage(m.chat, { text: txt, caption: "1234", footer: "MIRCUS", buttons: [
       {
         buttonId: ".menu", 
