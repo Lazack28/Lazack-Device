@@ -53,6 +53,7 @@
         "@ibaraki-douji/pixivts": "*",
         "@xct007/tiktok-scraper": "*",
         "acrcloud": "^1.4.0",
+        "ruhend-scraper": "^8.0.4",
         "g-i-s": "^2.1.6",
         "btch-downloader": "^2.2.9",
         "aptoide-scraper": "^1.0.1",

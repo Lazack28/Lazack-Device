@@ -1,40 +1,28 @@
-import fetch from 'node-fetch'
+import { igdl } from "ruhend-scraper";
 
-let handler = async (m, { conn, usedPrefix, args, command, text }) => {
-  if (!text) throw `You need to give the URL of Any Instagram video, post, reel, image`
-  m.reply(wait)
-
-  let res
-  try {
-    res = await fetch(`https://api.guruapi.tech/insta/v1/igdl?url=${text}`)
-  } catch (error) {
-    throw `An error occurred: ${error.message}`
-  }
-
-  let api_response = await res.json()
-
-  if (!api_response || !api_response.media) {
-    throw `No video or image found or Invalid response from API.`
-  }
-
-  const mediaArray = api_response.media
-
-  for (const mediaData of mediaArray) {
-    const mediaType = mediaData.type
-    const mediaURL = mediaData.url
-
-    let cap = `HERE IS THE ${mediaType.toUpperCase()} >,<`
-
-    if (mediaType === 'video') {
-      conn.sendFile(m.chat, mediaURL, 'instagram.mp4', cap, m)
-    } else if (mediaType === 'photo') {
-      conn.sendFile(m.chat, mediaURL, 'instagram.jpg', cap, m)
+let handler = async (m, { args, conn }) => { 
+    if (!args[0]) {
+        return conn.reply(m.chat, '*\`Please enter the link of the video to download 🤍\`*', m, fake);
     }
-  }
+    
+    try {
+        await m.react('🕑');
+        
+        let res = await igdl(args[0]);
+        let data = res.data; 
+        
+        for (let media of data) {
+            await new Promise(resolve => setTimeout(resolve, 2000));
+
+            await m.react('✅');
+            await conn.sendFile(m.chat, media.url, 'instagram.mp4', dev, null, m); 
+        }
+    } catch {
+        await m.react('❌');
+    }
 }
+handler.command = ['ig', 'igdl', 'instagram'];
+handler.tags = ['dl'];
+handler.help = ['ig *<link>*'];
 
-handler.help = ['instagram']
-handler.tags = ['downloader']
-handler.command = /^(instagram|igdl|ig|insta)$/i
-
-export default handler
+export default handler;
