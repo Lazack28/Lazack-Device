@@ -2,7 +2,7 @@ import { igdl } from "ruhend-scraper";
 
 let handler = async (m, { args, conn }) => { 
     if (!args[0]) {
-        return conn.reply(m.chat, '*\`Please enter the link of the video to download 🤍\`*', m, fake);
+        return conn.reply(m.chat, '*\`Please enter the link of the video to download 🤍\`*');
     }
     
     try {
@@ -23,6 +23,6 @@ let handler = async (m, { args, conn }) => {
 }
 handler.command = ['ig', 'igdl', 'instagram'];
 handler.tags = ['dl'];
-handler.help = ['ig *<link>*'];
+handler.help = ['ig *<link>*']
 
 export default handler;
