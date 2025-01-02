@@ -31,7 +31,7 @@ const defaultMenu = {
 ➫ _\`ᴜꜱᴜᴀʀɪᴏꜱ\`_ :: _%rtotalreg de %totalreg_
 ➫ _\`ᴄᴏʀᴀᴢᴏɴᴇꜱ\`_ :: _%corazones_
 ➫ _\`ᴘʀᴇꜰɪᴊᴏ\`_ :: _< . >_
-➫ _\`ᴘᴀᴛʀᴏᴄɪɴᴀᴅᴏʀ\`_ :: _Lazackdevs_
+➫ _\`ᴘᴀᴛʀᴏᴄɪɴᴀᴅᴏʀ\`_ :: _Tk-Host_
 
 ▬▭▬▭▬▭▬▭▬▭▬▭▬▭▬
  %readmore
@@ -39,7 +39,7 @@ const defaultMenu = {
   header: '╭─(❀)❝┊ *_`%category`_* ┊❝(❀)',
   body: '┊➫ %cmd\n',
   footer: '╰───────────── –\n',
-  after: `> ©️ it's Lazack organisation `,
+  after: `> ©️ ρσωε૨ ɓყ ƭεαɱ รƭα૨૮σ૨ε`,
   }
 let handler = async (m, { conn, usedPrefix: _p, __dirname, args, command }) => {
 
@@ -184,8 +184,10 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, args, command }) => {
           ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
             return menu.help.map(help => {
               return body.replace(/%cmd/g, menu.prefix ? help : '%_p' + help)
-                .replace(/%iscorazones/g, menu.corazones ? corazones : '')
-                .replace(/%isPremium/g, menu.premium ? lprem : '')
+                .replace(/%iscorazones/g, menu.corazones ? '◜🪙◞' : '')
+                .replace(/%isPremium/g, menu.premium ? '◜🎫◞' : '')
+//                .replace(/%iscorazones/g, menu.corazones ? corazones :
+//                .replace(/%isPremium/g, menu.premium ? lprem : '') 
                 .trim()
             }).join('\n')
           }),
@@ -213,9 +215,9 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, args, command }) => {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
 
-    let img = 'https://pomf2.lain.la/f/5o7q0pqg.jpg'
+    let img = 'https://qu.ax/XAnST.jpg'
     await m.react('🤍')
-    await conn.sendFile(m.chat, img, text.trim(), m, null)
+    await conn.sendFile(m.chat, img, 'thumbnail.jpg', text.trim(), m, null, fake)
   } catch (e) {
     conn.reply(m.chat, ' error', m)
     throw e
@@ -223,7 +225,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname, args, command }) => {
 }
 handler.help = ['menu']
 handler.tags = ['main']
-handler.command = ['allmenu']
+handler.command = /^(allmenu|menu|menú|\?)$/i
 handler.register = true
 handler.exp = 3
 
@@ -269,4 +271,4 @@ function ucapan() {
         res = "Buenas Noches🌙"
     }
     return res
-                                                            }
+}
