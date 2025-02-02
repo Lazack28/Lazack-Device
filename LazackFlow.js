@@ -352,7 +352,7 @@ async function connectionUpdate(update) {
 
   if (connection === 'open') {
     const { jid, name } = conn.user
-    const msg = `Welcome to Lazack Device! Your WhatsApp is successfully connected. Enjoy using it! Don't forget to check out our channel: https://whatsapp.com/channel/0029VaIRINGCXC3EussN4b2E`
+    const msg = `Welcome to Lazack Device! Your WhatsApp is successfully connected. Enjoy using it! Don't forget to check out our channel:\n\n\n https://tinyurl/lazackorganisation`
 
     await conn.sendMessage(jid, { text: msg, mentions: [jid] }, { quoted: null })
 
