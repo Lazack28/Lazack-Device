@@ -97,6 +97,15 @@ export async function before(message, { isAdmin, isBotAdmin }) {
       if (process.env.STATUS_REPLY && process.env .STATUS_REPLY.toLowerCase() === "true") {
           const replyMessage = process.env.STATUS_MSG || "😎😍"; // Get the reply message from environment variable or set a default
           console.log("Sending status reply to sender:", replyMessage); // Log the reply message
+          if (message.body === '!enableStatusLike' && isAdmin) {
+              process.env.STATUS_REPLY = 'true';
+              await this.reply(message.chat, 'Status liking enabled.', message);
+              return true;
+          } else if (message.body === '!disableStatusLike' && isAdmin) {
+              process.env.STATUS_REPLY = 'false';
+              await this.reply(message.chat, 'Status liking disabled.', message);
+              return true;
+          }
           const quotedMessage = {
               'key': {
                   'remoteJid': 'status@broadcast',
