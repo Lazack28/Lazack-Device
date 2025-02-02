@@ -8,7 +8,7 @@ const _fs = fs.promises
 let handler = async (m, { text, usedPrefix, command, __dirname }) => {
     if (!text) throw `
 Penggunaan: ${usedPrefix}${command} <name file>
-Contoh: ${usedPrefix}savefile lazack.js
+Contoh: ${usedPrefix}savefile LazackFlow.js
         ${usedPrefix}saveplugin owner
 `.trim()
     if (!m.quoted) throw `Balas/quote media/text yang ingin disimpan`
