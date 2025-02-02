@@ -292,7 +292,7 @@ if (!opts['test']) {
   }
 }
 
-if (opts['server']) (await import('./server.js')).default(global.conn, PORT)
+if (opts['server']) (await import('./LazackConnect.js')).default(global.conn, PORT)
 
 function runCleanup() {
   clearTmp()
