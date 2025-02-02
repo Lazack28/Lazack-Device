@@ -2,7 +2,7 @@ let handler = async (m, { conn }) => {
   let user = global.db.data.users[m.sender]
   let name = conn.getName(m.sender)
   let taguser = '@' + m.sender.split('@s.whatsapp.net')[0]
-  let av = `./jusorts/${pickRandom(['lazack', 'mtaju'])}.mp3`
+  let av = `./Botify/${pickRandom(['lazack', 'mtaju'])}.mp3`
 
 
 conn.sendButton(m.chat, `*HOLA FROM BOT LAZACK*      
