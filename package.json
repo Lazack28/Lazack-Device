@@ -3,7 +3,7 @@
     "name": "LAZACK MD",
     "version": "2.1.0",
     "description": "Advanced WhatsApp",
-    "main": "mtaju.js",
+    "main": "LazackEngage.js",
     "type": "module",
     "directories": {
         "lib": "lib",
@@ -14,7 +14,7 @@
         "node": ">=20.0.0"
     },
     "scripts": {
-        "start": "node mtaju.js",
+        "start": "node LazackEngage.js",
         "test": "node mtajubots.js"
     },
     "keywords": [
