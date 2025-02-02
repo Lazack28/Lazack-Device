@@ -39,11 +39,11 @@ let quote = quotes[Math.floor(Math.random() * quotes.length)];
 let link = `https://whatsapp.com/channel/0029VaIRINGCXC3EussN4b2E`
 let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
 let str = `
-乂───『 *INFO*』───乂 
-│ *Simple menu*
+╭───「 *INFO* 」───╮
+│ *Simple Menu*
 │ *_TRY NOT TO LAUGH_*
-╰───────⳹
-╭───────
+╰───────────────╯
+╭───────────────╮
 │  BotMenu
 │  OwnerMenu
 │  GroupMenu
@@ -62,163 +62,175 @@ let str = `
 │  AIMenu
 │  ReligionMenu
 │  PluginMenu
-╰───────
+╰───────────────╯
 *ALL LIST CMDS*
- *ᴀɪ* 
- .ᴀɪ
- .ʙᴜɢ
- .ʀᴇᴘᴏʀᴛ
- .ɢᴘᴛ
- .ᴅᴀʟʟᴇ
- .ʀᴇᴍɪɴɪ
- .ɢᴇᴍɪɴɪ
- *ᴛᴏᴏl* 
- .ᴄᴀʟᴄᴜʟᴀᴛᴏʀ
- .ᴛᴇᴍᴘᴍᴀɪʟ
- .ᴄʜᴇᴄᴋᴍᴀɪʟ
- .ᴛʀᴛ
- .ᴛᴛꜱ
-  *ɢʀᴏᴜᴘ* 
- .ʟɪɴᴋɢʀᴏᴜᴘ
- .ꜱᴇᴛᴘᴘɢᴄ
- .ꜱᴇᴛɴᴀᴍᴇ
- .ꜱᴇᴛᴅᴇꜱᴄ
- .ɢʀᴏᴜᴘ
- .ɢᴄꜱᴇᴛᴛɪɴɢ
- .ᴡᴇʟᴄᴏᴍᴇ
- .ᴀᴅᴅ
- .ᴋɪᴄᴋ
- .ʜɪᴅᴇᴛᴀɢ
- .ᴛᴀɢᴀʟʟ
- .ᴀɴᴛɪʟɪɴᴋ
- .ᴀɴᴛɪᴛᴏxɪᴄ
- .ᴘʀᴏᴍᴏᴛᴇ
- .ᴅᴇᴍᴏᴛᴇ
- .ɢᴇꜰʙɪᴏ
- *ᴅᴏᴡɴʟᴏᴀᴅ* 
-  .ᴀᴘᴋ
- .ꜰᴀᴄᴇʙᴏᴏᴋ
- .ᴍᴇᴅɪᴀꜰɪʀᴇ
- .ᴘɪɴᴛᴇʀᴇꜱᴛᴅʟ
- .ɢᴜᴛᴄʟᴏɴᴇ
- .ɢᴅʀɪᴠᴇ
- .ɪɴꜱʀᴀ
- .ʏᴛᴍᴘ3
- .ʏᴛᴍᴘ4
- .ᴘʟᴀʏ
- .ꜱᴏɴɢ
- .ᴠɪᴅᴇᴏ
- .ʏᴛᴍᴘ3ᴅᴏᴄ
- .ʏᴛᴍᴘ4ᴅᴏᴄ
- .ᴛɪᴋᴛᴏᴋ
- *ꜱᴇᴀʀᴄʜ* 
- .ᴘʟᴀʏ
- .ʏᴛꜱ
- .ɪᴍᴅʙ
- .ɢᴏᴏɢʟᴇ
- .ɢɪᴍᴀɢᴇ
- .ɪᴍɢ
- .ᴘɪɴᴛᴇʀᴇꜱᴛ
- .ᴡᴀʟʟᴘᴀᴘᴇʀ
- .ᴡɪᴋɪᴍᴇᴅɪᴀ
- .ʏᴛꜱᴇᴀʀᴄʜ
- .ʀɪɴɢᴛᴏɴᴇ
- .ʟʏʀɪᴄꜱ
- *ᴍᴀɪɴ* 
- .ᴘɪɴɢ
- .ᴀʟɪᴠᴇ>
- .ᴏᴡɴᴇʀ
- .ᴍᴇɴᴜ
- .ʜᴇʟᴘ
- .ɪɴꜰᴏʙᴏᴛ
- *ᴏᴡɴᴇʀ* 
- .ᴊᴏɪɴ
- .ʟᴇᴀᴠᴇ
- .ʙʟᴏᴄᴋ
- .ᴜɴʙʟᴏᴄᴋ
- .ꜱᴇᴛᴘᴘʙᴏᴛ
- .ᴀɴᴛɪᴄᴀʟʟ
- .ꜱᴇᴛꜱᴛᴀᴛᴜꜱ
- .ꜱᴇᴛɴᴀᴍᴇʙᴏᴛ
- .ᴀᴜᴛᴏᴛʏᴘɪɴɢ
- .ᴀʟᴡᴀʏꜱᴏɴʟɪɴᴇ
- .ᴀᴜᴛᴏʀᴇᴀᴅ
- .ᴀᴜᴛᴏꜱᴠɪᴇᴡ
- .ᴜᴘᴅᴀᴛᴇ
- .ʀᴇꜱᴛᴀʀᴛ
- *ꜱᴛᴀʟᴋ* 
-  .ᴛʀᴜᴇᴄᴀʟʟᴇʀ
-  .ɪɴꜱᴛᴀꜱᴛᴀʟᴋ
-  .ɢɪᴛʜᴜʙꜱᴛᴀʟᴋ
- *MAKER*
-  .blur
-  .difuminar2
-  .hornycard
-  .hornylicense
-  .gfx1
-  .gfx2
-  .gfx3
-  .gfx4
-  .gfx5
-  .gfx6
-  .gfx7
-  .gfx8
-  .gfx9
-  .gfx10
-  .gfx11
-  .gfx12
-  .simpcard
-  .itssostupid
-  .iss
-  .stupid
-  .tweet 
-  .lolicon
-  .ytcomment 
- *STICKER*
-  .emojimix 
-  .getsticker
-  .smaker
-  .stickerwithmeme 
-  .swmeme 
-  .swm
-  .sfull
-  .toimg 
-  .tovid
-  .trigger 
-  .ttp
-  .ttp2
-  .ttp3
-  .ttp4
-  .ttp5
-  .attp
-  .attp2
-  .attp3
-  .take 
- *ECONOMY*
-  .addgold 
-  .addxp 
-  .bank
-  .buych
-  .cock-fight 
-  .buy
-  .buyall
-  .daily
-  .deposit
-  .gamble
-  .give credit 
-  .levelup
-  .rank
-  .rob
-  .roulette
-  .wallet
-  .withdraw
-  .work
- *PLUGINS* 
-  .plugins
-  .install 
-  .reg 
-  .mysn
-  .unreg 
+╭───「 *AI* 」───╮
+│ .ai
+│ .bug
+│ .report
+│ .gpt
+│ .dalle
+│ .remini
+│ .gemini
+╰───────────────╯
+╭───「 *TOOLS* 」───╮
+│ .calculator
+│ .tempmail
+│ .checkmail
+│ .trt
+│ .tts
+╰───────────────╯
+╭───「 *GROUP* 」───╮
+│ .linkgroup
+│ .setppgc
+│ .setname
+│ .setdesc
+│ .group
+│ .gcsetting
+│ .welcome
+│ .add
+│ .kick
+│ .hidetag
+│ .tagall
+│ .antilink
+│ .antitoxic
+│ .promote
+│ .demote
+│ .getbio
+╰───────────────╯
+╭───「 *DOWNLOAD* 」───╮
+│ .apk
+│ .facebook
+│ .mediafire
+│ .pinterestdl
+│ .gutclone
+│ .gdrive
+│ .insta
+│ .ytmp3
+│ .ytmp4
+│ .play
+│ .song
+│ .video
+│ .ytmp3doc
+│ .ytmp4doc
+│ .tiktok
+╰───────────────╯
+╭───「 *SEARCH* 」───╮
+│ .play
+│ .yts
+│ .imdb
+│ .google
+│ .gimage
+│ .img
+│ .pinterest
+│ .wallpaper
+│ .wikimedia
+│ .ytsearch
+│ .ringtone
+│ .lyrics
+╰───────────────╯
+╭───「 *MAIN* 」───╮
+│ .ping
+│ .alive
+│ .owner
+│ .menu
+│ .help
+│ .infobot
+╰───────────────╯
+╭───「 *OWNER* 」───╮
+│ .join
+│ .leave
+│ .block
+│ .unblock
+│ .setppbot
+│ .anticall
+│ .setstatus
+│ .setnamebot
+│ .autotyping
+│ .alwaysonline
+│ .autoread
+│ .autosview
+│ .update
+│ .restart
+╰───────────────╯
+╭───「 *STALK* 」───╮
+│ .truecaller
+│ .instastalk
+│ .githubstalk
+╰───────────────╯
+╭───「 *MAKER* 」───╮
+│ .blur
+│ .difuminar2
+│ .hornycard
+│ .hornylicense
+│ .gfx1
+│ .gfx2
+│ .gfx3
+│ .gfx4
+│ .gfx5
+│ .gfx6
+│ .gfx7
+│ .gfx8
+│ .gfx9
+│ .gfx10
+│ .gfx11
+│ .gfx12
+│ .simpcard
+│ .itssostupid
+│ .iss
+│ .stupid
+│ .tweet
+│ .lolicon
+│ .ytcomment
+╰───────────────╯
+╭───「 *STICKER* 」───╮
+│ .emojimix
+│ .getsticker
+│ .smaker
+│ .stickerwithmeme
+│ .swmeme
+│ .swm
+│ .sfull
+│ .toimg
+│ .tovid
+│ .trigger
+│ .ttp
+│ .ttp2
+│ .ttp3
+│ .ttp4
+│ .ttp5
+│ .attp
+│ .attp2
+│ .attp3
+│ .take
+╰───────────────╯
+╭───「 *ECONOMY* 」───╮
+│ .addgold
+│ .addxp
+│ .bank
+│ .buych
+│ .cock-fight
+│ .buy
+│ .buyall
+│ .daily
+│ .deposit
+│ .gamble
+│ .give credit
+│ .levelup
+│ .rank
+│ .rob
+│ .roulette
+│ .wallet
+│ .withdraw
+│ .work
+╰───────────────╯
+╭───「 *PLUGINS* 」───╮
+│ .plugins
+│ .install
+│ .reg
+│ .mysn
+│ .unreg
+╰───────────────╯
 *https://home.lazackorganisation.my.id*
 > FOOTBALL IS MY LIFE, CODING IS MY HOBBY
 `
