@@ -63,16 +63,170 @@ let str = `
 │  ReligionMenu
 │  PluginMenu
 ╰───────
-
 *ALL LIST CMDS*
-
-${Object.values(global.db.data.commands).map(cmd => ` *${cmd.category.toUpperCase()}* \n ${cmd.commands.map(c => `.${c}`).join('\n ')}`).join('\n\n')}
+ *ᴀɪ* 
+ .ᴀɪ
+ .ʙᴜɢ
+ .ʀᴇᴘᴏʀᴛ
+ .ɢᴘᴛ
+ .ᴅᴀʟʟᴇ
+ .ʀᴇᴍɪɴɪ
+ .ɢᴇᴍɪɴɪ
+ *ᴛᴏᴏl* 
+ .ᴄᴀʟᴄᴜʟᴀᴛᴏʀ
+ .ᴛᴇᴍᴘᴍᴀɪʟ
+ .ᴄʜᴇᴄᴋᴍᴀɪʟ
+ .ᴛʀᴛ
+ .ᴛᴛꜱ
+  *ɢʀᴏᴜᴘ* 
+ .ʟɪɴᴋɢʀᴏᴜᴘ
+ .ꜱᴇᴛᴘᴘɢᴄ
+ .ꜱᴇᴛɴᴀᴍᴇ
+ .ꜱᴇᴛᴅᴇꜱᴄ
+ .ɢʀᴏᴜᴘ
+ .ɢᴄꜱᴇᴛᴛɪɴɢ
+ .ᴡᴇʟᴄᴏᴍᴇ
+ .ᴀᴅᴅ
+ .ᴋɪᴄᴋ
+ .ʜɪᴅᴇᴛᴀɢ
+ .ᴛᴀɢᴀʟʟ
+ .ᴀɴᴛɪʟɪɴᴋ
+ .ᴀɴᴛɪᴛᴏxɪᴄ
+ .ᴘʀᴏᴍᴏᴛᴇ
+ .ᴅᴇᴍᴏᴛᴇ
+ .ɢᴇꜰʙɪᴏ
+ *ᴅᴏᴡɴʟᴏᴀᴅ* 
+  .ᴀᴘᴋ
+ .ꜰᴀᴄᴇʙᴏᴏᴋ
+ .ᴍᴇᴅɪᴀꜰɪʀᴇ
+ .ᴘɪɴᴛᴇʀᴇꜱᴛᴅʟ
+ .ɢᴜᴛᴄʟᴏɴᴇ
+ .ɢᴅʀɪᴠᴇ
+ .ɪɴꜱʀᴀ
+ .ʏᴛᴍᴘ3
+ .ʏᴛᴍᴘ4
+ .ᴘʟᴀʏ
+ .ꜱᴏɴɢ
+ .ᴠɪᴅᴇᴏ
+ .ʏᴛᴍᴘ3ᴅᴏᴄ
+ .ʏᴛᴍᴘ4ᴅᴏᴄ
+ .ᴛɪᴋᴛᴏᴋ
+ *ꜱᴇᴀʀᴄʜ* 
+ .ᴘʟᴀʏ
+ .ʏᴛꜱ
+ .ɪᴍᴅʙ
+ .ɢᴏᴏɢʟᴇ
+ .ɢɪᴍᴀɢᴇ
+ .ɪᴍɢ
+ .ᴘɪɴᴛᴇʀᴇꜱᴛ
+ .ᴡᴀʟʟᴘᴀᴘᴇʀ
+ .ᴡɪᴋɪᴍᴇᴅɪᴀ
+ .ʏᴛꜱᴇᴀʀᴄʜ
+ .ʀɪɴɢᴛᴏɴᴇ
+ .ʟʏʀɪᴄꜱ
+ *ᴍᴀɪɴ* 
+ .ᴘɪɴɢ
+ .ᴀʟɪᴠᴇ>
+ .ᴏᴡɴᴇʀ
+ .ᴍᴇɴᴜ
+ .ʜᴇʟᴘ
+ .ɪɴꜰᴏʙᴏᴛ
+ *ᴏᴡɴᴇʀ* 
+ .ᴊᴏɪɴ
+ .ʟᴇᴀᴠᴇ
+ .ʙʟᴏᴄᴋ
+ .ᴜɴʙʟᴏᴄᴋ
+ .ꜱᴇᴛᴘᴘʙᴏᴛ
+ .ᴀɴᴛɪᴄᴀʟʟ
+ .ꜱᴇᴛꜱᴛᴀᴛᴜꜱ
+ .ꜱᴇᴛɴᴀᴍᴇʙᴏᴛ
+ .ᴀᴜᴛᴏᴛʏᴘɪɴɢ
+ .ᴀʟᴡᴀʏꜱᴏɴʟɪɴᴇ
+ .ᴀᴜᴛᴏʀᴇᴀᴅ
+ .ᴀᴜᴛᴏꜱᴠɪᴇᴡ
+ .ᴜᴘᴅᴀᴛᴇ
+ .ʀᴇꜱᴛᴀʀᴛ
+ *ꜱᴛᴀʟᴋ* 
+  .ᴛʀᴜᴇᴄᴀʟʟᴇʀ
+  .ɪɴꜱᴛᴀꜱᴛᴀʟᴋ
+  .ɢɪᴛʜᴜʙꜱᴛᴀʟᴋ
+ *MAKER*
+  .blur
+  .difuminar2
+  .hornycard
+  .hornylicense
+  .gfx1
+  .gfx2
+  .gfx3
+  .gfx4
+  .gfx5
+  .gfx6
+  .gfx7
+  .gfx8
+  .gfx9
+  .gfx10
+  .gfx11
+  .gfx12
+  .simpcard
+  .itssostupid
+  .iss
+  .stupid
+  .tweet 
+  .lolicon
+  .ytcomment 
+ *STICKER*
+  .emojimix 
+  .getsticker
+  .smaker
+  .stickerwithmeme 
+  .swmeme 
+  .swm
+  .sfull
+  .toimg 
+  .tovid
+  .trigger 
+  .ttp
+  .ttp2
+  .ttp3
+  .ttp4
+  .ttp5
+  .attp
+  .attp2
+  .attp3
+  .take 
+ *ECONOMY*
+  .addgold 
+  .addxp 
+  .bank
+  .buych
+  .cock-fight 
+  .buy
+  .buyall
+  .daily
+  .deposit
+  .gamble
+  .give credit 
+  .levelup
+  .rank
+  .rob
+  .roulette
+  .wallet
+  .withdraw
+  .work
+ *PLUGINS* 
+  .plugins
+  .install 
+  .reg 
+  .mysn
+  .unreg 
+*https://home.lazackorganisation.my.id*
+> FOOTBALL IS MY LIFE, CODING IS MY HOBBY
 `
 
-    
+
 
        // await conn.sendMessage(m.chat, { video: { url: [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8, pp9, pp10, pp11, pp12, pp13, pp14, pp15].getRandom() }, gifPlayback: true, caption: text.trim(), mentions: [m.sender] }, { quoted: estilo })
-    
+
 
 
    conn.sendFile(m.chat, pp, 'perfil.jpg', str, m, null, link)
@@ -89,7 +243,7 @@ function clockString(ms) {
     let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
     let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
     return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}
-    
+
     function ucapan() {
       const time = moment.tz('Asia/Kolkata').format('HH')
       let res = "happy early in the day☀️"
@@ -156,11 +310,4 @@ function clockString(ms) {
       "I'm not saying I'm Superman. I'm just saying no one has ever seen me and Superman in the same room together.",
       "I'm not saying I'm Spider-Man. I'm just saying no one has ever seen me and Spider-Man in the same room together.",
       "I'm not saying I'm a superhero. I'm just saying no one has ever seen me and a superhero in the same room together.",
-      "वक्त हमे बहुत कुछ सिखा देता है, खासकर तब जब हमारे पास वक्त नहीं होता।",
-      "जिंदगी एक किताब की तरह होती है, हर दिन नया पन्ना बदलता है। कभी हंसते हैं, कभी रोते हैं, पर हर किसी की कहानी अधूरी होती है!",
-      "पढ़ाई करो तो दिल लगता नही, दिल लगाओ तो दिमाग़ लगता नहीं।",
-      "दोस्ती इतनी गहरी करो की दिल में बस जाओ, ऐसे दोस्ती निभाओ की हमे भी तुम्हारे दोस्त होने पर नाज हो।",
-      "मेरे दोस्त तुम बहुत याद आते हो, जब भी भूख लगती है वो समोसे बहुत याद आते है।",
-      "जीवन का असली मज़ा तो तब आता है, जब दूसरे आपकी ज़िंदगी जीने की कोशिश करते हैं।",
-      "कुछ लोग तो इतने फालतू होते हैं, खुद की ज़िंदगी खुद ही नहीं जी पाते और दूसरों की ज़िंदगी में टांग अड़ा देते हैं।"
-];
+      ]
