@@ -27,6 +27,11 @@
       "required": true,
       "value": "public"
     },
+    "SESSION_ID": {
+      "description": "get you're session through bot website",
+      "required": true,
+      "value": ""
+    },
     "PREFIX": {
       "description": "put any one symbol here except @ and + , leave it Blank if you want to use multiple prefix",
       "required": false,
@@ -45,7 +50,7 @@
     "statusview": {
       "description": "make it true if you want bot to view status",
       "required": false,
-      "value": ""
+      "value": "true"
     },
     "autoRead": {
       "description": "make it true if you want bot to read messages",
