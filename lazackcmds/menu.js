@@ -88,7 +88,7 @@ ${readMore}
     
 
 
-  conn.sendFile(m.chat, pp, 'perfil.jpg', str, m, null, { quoted: canal })
+  conn.sendFile(m.chat, pp, 'perfil.jpg', str, m, null, rpwp)
     m.react(done)
 
 }
