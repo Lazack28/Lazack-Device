@@ -19,6 +19,6 @@ handler.all = async function (m) {
 //reply link WhatsApp Channel
     global.rpwp = { contextInfo: { externalAdReply: { showAdAttribution: true, mediaUrl: 'https://home.lazackorganisation.my.id/img/img1.jpg', mediaType: 'VIDEO', description: 'Follow Channel', title: 'LAZACK BOTS CHANNEL', body: 'To Get Updates LAZACK BOTS', thumbnailUrl: 'https://home.lazackorganisation.my.id/img/img1.jpg', sourceUrl: 'https://whatsapp.com/channel/0029ValRlNGCXC3EussN4b2E' }}}
     
-	global.canal = "https://whatsapp.com/channel/0029ValRlNGCXC3EussN4b2E"
+	global.canal = { contextInfo: { externalAdReply: { sourceUrl: "https://whatsapp.com/channel/0029ValRlNGCXC3EussN4b2E" }}}
 } 
 export default handler

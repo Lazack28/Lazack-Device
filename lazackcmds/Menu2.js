@@ -241,7 +241,7 @@ let str = `
 
 
 
-   conn.sendFile(m.chat, pp, 'perfil.jpg', str, m, null, link)
+   conn.sendFile(m.chat, pp, 'perfil.jpg', str, m, null, rpwp)
     m.react(done)
 
 }
