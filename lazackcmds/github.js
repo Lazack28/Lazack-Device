@@ -16,7 +16,7 @@ let handler = async (m, { text, command, usedPrefix }) => {
     if (res.status !== 200) throw json;
 
     if (json.items.length > 0) {
-      let txt = '`乂  G I T H U B  -  B Ú S Q U E D A`\n\n';
+      let txt = '`乂  G I T H U B - S T A T S`\n\n';
       
       json.items.forEach((repo, i) => {
         txt += `    ✩  *Nro* : ${i + 1}\n`;
@@ -26,7 +26,7 @@ let handler = async (m, { text, command, usedPrefix }) => {
         txt += `    ✩  *Updated on* : ${formatDate(repo.updated_at)}\n`;
         txt += `    ✩  *Watchers* : ${repo.watchers}\n`;
         txt += `    ✩  *Forks* : ${repo.forks}\n`;
-        txt += `    ✩  *Estrellas* : ${repo.stargazers_count}\n`;
+        txt += `    ✩  *Stars* : ${repo.stargazers_count}\n`;
         txt += `    ✩  *Issues* : ${repo.open_issues}\n`;
         txt += `    ✩  *Description* : ${repo.description || 'Sin descripción'}\n`;
         txt += `    ✩  *Clone* : \`\`\`$ git clone ${repo.clone_url}\`\`\`\n\n`;
