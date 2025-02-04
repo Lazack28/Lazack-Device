@@ -24,7 +24,7 @@ await conn.sendMessage(m.chat, { video: { url: download.url }, caption: title },
 
 } catch (error) {
 console.error(error)
-conn.reply(m.chat, '❌ Error al descargar el video.', m)
+conn.reply(m.chat, '❌ Error downloading your video.', m)
 }}
 
 handler.command = ['ytmp4']
