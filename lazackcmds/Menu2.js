@@ -141,6 +141,7 @@ let str = `
 │ .truecaller
 │ .instastalk
 │ .githubstalk
+| .channelstalk
 ╰───────────────╯
 ╭───「 *MAKER* 」───╮
 │ .blur
