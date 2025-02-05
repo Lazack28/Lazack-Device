@@ -1,4 +1,4 @@
-import ws from 'ws'
+/*import ws from 'ws'
 import fetch from 'node-fetch'
 
 async function handler(m, { conn: _envio, usedPrefix }) {
@@ -22,4 +22,4 @@ await _envio.sendFile(m.chat, img, 'thumbnail.jpg', responseMessage, m, false, {
 handler.command = ['listjadibot', 'bots']
 handler.help = ['bots']
 handler.tags = ['serbot']
-export default handler
+export default handler*/
