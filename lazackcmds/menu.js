@@ -53,8 +53,8 @@ ${readMore}
 ___________________ 
 
 ${readMore}
-『 *SHORTCUT MENU* 』 
-> *Use these shortcuts*
+『 *REAL MENU* 』 
+> *Use _.menu2_ for better experience*
 ${readMore}
 ╔═══════════════════════╗
 ║ *1.* BotMenu
