@@ -26,6 +26,6 @@ let handler = async (m, { conn, command, usedPrefix }) => {
     }
 };
 
-handler.command = /^(berhenti|stop|detener)$/i;
+handler.command = /^(stop|detener)$/i;
 handler.private = true;
 export default handler;

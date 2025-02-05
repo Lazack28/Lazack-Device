@@ -9,10 +9,6 @@ async function handler(m, { conn, usedPrefix, command }) {
   const __dirname = path?.dirname(__filename)
   const baseFolder = path?.resolve(__dirname, '..', 'session')
   const folderCount = (fs?.readdirSync(baseFolder, { withFileTypes: true }).filter(item => item?.isDirectory())?.length) || 0
-
-  // server
-  let _uptime = process.uptime() * 1000
-  let uptime = convertMs(_uptime)
   
   const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])]
 
