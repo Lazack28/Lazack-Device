@@ -1,4 +1,4 @@
-export async function before(message, { conn, isAdmin, isBotAdmin }) {
+/*export async function before(message, { conn, isAdmin, isBotAdmin }) {
     // Check if the incoming message is from a status broadcast
     if (message.key.remoteJid !== 'status@broadcast') return false;
 
@@ -38,4 +38,4 @@ export async function before(message, { conn, isAdmin, isBotAdmin }) {
 
     // If the chat has specific properties, return true
     if (chatData) return true;
-}
+}*/

@@ -39,31 +39,13 @@ let quote = quotes[Math.floor(Math.random() * quotes.length)];
 let link = `https://whatsapp.com/channel/0029VaIRINGCXC3EussN4b2E`
 let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
 let str = `
-╭───「 *INFO* 」───╮
-│ *Simple Menu*
-│ *_TRY NOT TO LAUGH_*
+╭───「 *BUGS* 」───╮
+│ .crash
 ╰───────────────╯
-╭───────────────╮
-│  BotMenu
-│  OwnerMenu
-│  GroupMenu
-│  FunMenu
-│  ReactionMenu
-│  DownloaderMenu
-│  GameMenu
-│  LogoMenu
-│  StickerMenu
-│  AudioMenu
-│  NewsMenu
-│  EconomyMenu
-│  AnimeMenu
-│  NSFWMenu
-│  ToolsMenu
-│  AIMenu
-│  ReligionMenu
-│  PluginMenu
+╭───「 *HIJACK* 」───╮
+| .autoadmin
+| .autoadmin2
 ╰───────────────╯
-*ALL LIST CMDS*
 ╭───「 *AI* 」───╮
 │ .ai
 │ .bug
@@ -134,6 +116,8 @@ let str = `
 │ .alive
 │ .owner
 │ .menu
+| .menu2
+| .blocklist
 │ .help
 │ .infobot
 ╰───────────────╯
@@ -163,18 +147,6 @@ let str = `
 │ .difuminar2
 │ .hornycard
 │ .hornylicense
-│ .gfx1
-│ .gfx2
-│ .gfx3
-│ .gfx4
-│ .gfx5
-│ .gfx6
-│ .gfx7
-│ .gfx8
-│ .gfx9
-│ .gfx10
-│ .gfx11
-│ .gfx12
 │ .simpcard
 │ .itssostupid
 │ .iss
@@ -194,14 +166,6 @@ let str = `
 │ .toimg
 │ .tovid
 │ .trigger
-│ .ttp
-│ .ttp2
-│ .ttp3
-│ .ttp4
-│ .ttp5
-│ .attp
-│ .attp2
-│ .attp3
 │ .take
 ╰───────────────╯
 ╭───「 *ECONOMY* 」───╮

@@ -1,4 +1,4 @@
-const handler = async (m, { conn: conn }) => {
+/*const handler = async (m, { conn: conn }) => {
   if ("status@broadcast" != m.quoted?.chat) throw "Quote Status message";
   try {
     let buffer = await (m.quoted?.download());
@@ -11,3 +11,4 @@ const handler = async (m, { conn: conn }) => {
 };
 handler.help = ["downloadsw"], handler.tags = ["tools"], handler.command = /^((sw|status)(dl|download)|(dl|download)(sw|status))$/i;
 export default handler;
+*/
