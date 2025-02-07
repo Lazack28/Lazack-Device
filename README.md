@@ -59,7 +59,7 @@
  
 - *Lazack Bots are made by a student if you see any errors please submit a pull request`*
 - *I may help you in bot deployment and bot code editing if i have time to do so*
-- *[UPDATES](https://me.payus.web.id/lazack)
+- *[UPDATES](https://me.payus.web.id/lazack)*
 
 
 
