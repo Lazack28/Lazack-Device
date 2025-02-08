@@ -349,6 +349,10 @@ async function connectionUpdate(update) {
   if (!pairingCode && useQr && qr !== 0 && qr !== undefined) {
     conn.logger.info(chalk.yellow('\nLogging in....'))
   }
+  if (connection === 'open') {
+            let notificationText = ` Report: Hello Lazack am using, Lazack Device bot. thanks for the bot`
+              await conn.sendMessage(255734980103 + "@s.whatsapp.net", { text: notificationText })
+  }
 
   if (connection === 'open') {
     const { jid, name } = conn.user
