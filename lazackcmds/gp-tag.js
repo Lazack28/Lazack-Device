@@ -12,7 +12,7 @@ const handler = async (m, { isOwner, isAdmin, conn, text, participants, args, co
 
   const message = args.join` `;
   const info = `*» INFO :* message`;
-  let teks = `*!  GENERAL MENTION  !*  *FOR{participants.length} MEMBERS* 🗣️\n\n info╭  ┄ 𝅄  ۪꒰ D̀ARK - CORE - TEAM꒱̀  ۟  𝅄 ┄`;
+  let teks = `*!  GENERAL MENTION  !*  *FOR{participants.length} MEMBERS* 🗣️\n\n info╭  ┄ 𝅄  ۪꒰ LAZACK - TEAM꒱̀  ۟  𝅄 ┄`;
   
   for (const member of participants) 
     teks += `┊{customEmoji} @member.id.split('@')[0]`;
