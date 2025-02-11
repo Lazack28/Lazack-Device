@@ -6,98 +6,97 @@ import FormData from "form-data";
 import Jimp from "jimp";
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-    if (!text) return m.reply(`• *Ejemplo:* ${usedPrefix + command} elaina edit`);
+  if (!text) return m.reply(`• *Example:* ${usedPrefix + command} elaina edit`);
 
   await m.react('🕓')
 
-    async function createImage(img) {
-        const { imageMessage } = await generateWAMessageContent({
-            image: img
-        }, {
-            upload: conn.waUploadToServer
-        });
-        return imageMessage;
-    }
-
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-    }
-
-    let push = [];
-    let results = await yts(text);
-    let videos = results.videos.slice(0, 9); 
-    shuffleArray(videos);
-
-    let i = 1;
-    for (let video of videos) {
-        let imageUrl = video.thumbnail;
-        let imageK = await fetch(imageUrl);
-        let imageB = await imageK.buffer();
-      let pr = await remini(imageB, "enhance")
-        push.push({
-            body: proto.Message.InteractiveMessage.Body.fromObject({
-                text: `◦ *Título:* ${video.title}\n◦ *Duración:* ${video.timestamp}\n◦ *Vistas:* ${video.views}`
-            }),
-            footer: proto.Message.InteractiveMessage.Footer.fromObject({
-                text: '' 
-            }),
-            header: proto.Message.InteractiveMessage.Header.fromObject({
-                title: ``,
-                hasMediaAttachment: true,
-                imageMessage: await createImage(pr) 
-            }),
-            nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
-                buttons: [
-                    {
-                "name": "cta_copy",
-                "buttonParamsJson": JSON.stringify({
-                "display_text": "Descargar audio! 🎧",
-                "copy_code": `.ytmp3 ${video.url}`
-                })
-              },{
-                "name": "cta_copy",
-                "buttonParamsJson": JSON.stringify({
-                "display_text": "Descargar video! 📹",
-                "copy_code": `.ytmp4 ${video.url}`
-                })
-              }
-                ]
-            })
-        });
-    }
-
-    const bot = generateWAMessageFromContent(m.chat, {
-        viewOnceMessage: {
-            message: {
-                messageContextInfo: {
-                    deviceListMetadata: {},
-                    deviceListMetadataVersion: 2
-                },
-                interactiveMessage: proto.Message.InteractiveMessage.fromObject({
-                    body: proto.Message.InteractiveMessage.Body.create({
-                        text: '*🤍 Resultados de:* ' + `*${text}*`
-                    }),
-                    footer: proto.Message.InteractiveMessage.Footer.create({
-                        text: 'Para descargar, solo desliza sobre los resultados y toca el botón para copiar, y copiaras el comando, solo envialo, y listo! 😁'
-                    }),
-                    header: proto.Message.InteractiveMessage.Header.create({
-                        hasMediaAttachment: false
-                    }),
-                    carouselMessage: proto.Message.InteractiveMessage.CarouselMessage.fromObject({
-                        cards: [...push] // Mengisi carousel dengan hasil video
-                    })
-                    
-                })
-            }
-        }
+  async function createImage(img) {
+    const { imageMessage } = await generateWAMessageContent({
+      image: img
     }, {
+      upload: conn.waUploadToServer
+    });
+    return imageMessage;
+  }
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
+  let push = [];
+  let results = await yts(text);
+  let videos = results.videos.slice(0, 9); 
+  shuffleArray(videos);
+
+  let i = 1;
+  for (let video of videos) {
+    let imageUrl = video.thumbnail;
+    let imageK = await fetch(imageUrl);
+    let imageB = await imageK.buffer();
+    let pr = await remini(imageB, "enhance")
+    push.push({
+      body: proto.Message.InteractiveMessage.Body.fromObject({
+        text: `◦ *Title:* ${video.title}\n◦ *Duration:* ${video.timestamp}\n◦ *Views:* ${video.views}`
+      }),
+      footer: proto.Message.InteractiveMessage.Footer.fromObject({
+        text: '' 
+      }),
+      header: proto.Message.InteractiveMessage.Header.fromObject({
+        title: ``,
+        hasMediaAttachment: true,
+        imageMessage: await createImage(pr) 
+      }),
+      nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
+        buttons: [
+          {
+            "name": "cta_copy",
+            "buttonParamsJson": JSON.stringify({
+              "display_text": "Download audio! 🎧",
+              "copy_code": `.ytmp3 ${video.url}`
+            })
+          },{
+            "name": "cta_copy",
+            "buttonParamsJson": JSON.stringify({
+              "display_text": "Download video! 📹",
+              "copy_code": `.ytmp4 ${video.url}`
+            })
+          }
+        ]
+      })
+    });
+  }
+
+  const bot = generateWAMessageFromContent(m.chat, {
+    viewOnceMessage: {
+      message: {
+        messageContextInfo: {
+          deviceListMetadata: {},
+          deviceListMetadataVersion: 2
+        },
+        interactiveMessage: proto.Message.InteractiveMessage.fromObject({
+          body: proto.Message.InteractiveMessage.Body.create({
+            text: '*🤍 Results for:* ' + `*${text}*`
+          }),
+          footer: proto.Message.InteractiveMessage.Footer.create({
+            text: 'To download, just swipe over the results and tap the button to copy, and you will copy the command, just send it, and done! 😁'
+          }),
+          header: proto.Message.InteractiveMessage.Header.create({
+            hasMediaAttachment: false
+          }),
+          carouselMessage: proto.Message.InteractiveMessage.CarouselMessage.fromObject({
+            cards: [...push] // Fill the carousel with video results
+          })
+        })
+      }
+    }
+  }, {
     'quoted': m
   });
 
-    await conn.relayMessage(m.chat, bot.message, { messageId: bot.key.id });
+  await conn.relayMessage(m.chat, bot.message, { messageId: bot.key.id });
   await m.react('✅')
 }
 
@@ -125,9 +124,9 @@ async function remini(imageData, operation) {
         res.on("data", function (chunk) {chunks.push(chunk)});
         res.on("end", function () {resolve(Buffer.concat(chunks))});
         res.on("error", function (err) {
-        reject(err);
+          reject(err);
         });
       },
     )
   })
-              }
+}
