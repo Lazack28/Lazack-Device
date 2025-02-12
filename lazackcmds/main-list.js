@@ -311,18 +311,6 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     > 🗡️⃝🎋 _${usedPrefix}difuminar2_
     > 🗡️⃝🎋 _${usedPrefix}hornycard_
     > 🗡️⃝🎋 _${usedPrefix}hornylicense_
-    > 🗡️⃝🎋 _${usedPrefix}gfx1_
-    > 🗡️⃝🎋 _${usedPrefix}gfx2_
-    > 🗡️⃝🎋 _${usedPrefix}gfx3_
-    > 🗡️⃝🎋 _${usedPrefix}gfx4_
-    > 🗡️⃝🎋 _${usedPrefix}gfx5_
-    > 🗡️⃝🎋 _${usedPrefix}gfx6_
-    > 🗡️⃝🎋 _${usedPrefix}gfx7_
-    > 🗡️⃝🎋 _${usedPrefix}gfx8_
-    > 🗡️⃝🎋 _${usedPrefix}gfx9_
-    > 🗡️⃝🎋 _${usedPrefix}gfx10_
-    > 🗡️⃝🎋 _${usedPrefix}gfx11_
-    > 🗡️⃝🎋 _${usedPrefix}gfx12_
     > 🗡️⃝🎋 _${usedPrefix}simpcard_
     > 🗡️⃝🎋 _${usedPrefix}itssostupid_
     > 🗡️⃝🎋 _${usedPrefix}iss_
