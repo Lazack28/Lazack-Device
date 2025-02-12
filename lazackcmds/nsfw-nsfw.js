@@ -1,58 +1,24 @@
 import fetch from 'node-fetch'
-import axios from 'axios'
-let handler = async (m, { conn, usedPrefix, command }) => {
-  if (!global.db.data.chats[m.chat].nsfw)
-    throw `🚫 group doesnt supprt nsfw \n\n enable it by \n*${usedPrefix}enable* nsfw`
-  let user = global.db.data.users[m.sender].age
-  if (user < 17) throw m.reply(`❎ uneed to be atleast 18 years`)
 
-  m.react(rwait)
-  let type = command.toLowerCase()
-
-  switch (type) {
-    case 'ass':
-    case 'gand':
-      let as = await conn.getFile(`${gurubot}/rnsfw/gand`)
-      conn.sendFile(m.chat, as.data, 'img.jpg', `✅ Random ${command}`, m)
-      m.react(xmoji)
-      break
-
-    case 'boobs':
-    case 'boobies':
-      let xb = await conn.getFile(`${gurubot}/rnsfw/tits`)
-      conn.sendFile(m.chat, xb.data, 'img.jpg', `✅ Random ${command}`, m)
-      m.react(xmoji)
-      break
-
-    case 'pussy':
-    case 'chut':
-      let xp = await conn.getFile(`${gurubot}/rnsfw/porn`)
-      conn.sendFile(m.chat, xp.data, 'img.jpg', `✅ Random ${command}`, m)
-      m.react(xmoji)
-      break
-
-    case 'lesbians':
-    case 'lesbian':
-      let les = await conn.getFile(`${gurubot}/rnsfw/imglesbian`)
-      conn.sendFile(m.chat, les.data, 'img.jpg', `✅ Random ${command}`, m)
-      m.react(xmoji)
-      break
-
-    case 'pack':
-    case 'cosplay':
-      let img = await conn.getFile(`${gurubot}/rnsfw/packgirl`)
-      conn.sendFile(m.chat, img.data, 'img.jpg', `✅ Result 🤭`, m)
-      m.react(xmoji)
-      break
-
-    default:
-  }
+let handler = async (m, { conn, args, usedPrefix, command }) => {
+if (!global.db.data.chats[m.chat].nsfw) {
+    return conn.reply(m.chat, `🚩 this can be used in group *Nsfw.*\n\n> administrator onl can activate this command */on nsfw*`, m, rcanal);
 }
-handler.help = ['ass', 'boobs', 'lesbian', 'pussy', 'pack']
-handler.tags = ['nsfw']
-handler.command = /^(ass|gand|boobs|boobies|lesbian|lesbians|pussy|chut|cosplay|pack)$/i
-handler.diamond = true
-handler.register = true
-handler.group = true
+let res = await fetch(`https://fantox-apis.vercel.app/${command}`)
+await m.react('🕓')
+try {
+if (!res.ok) throw await res.text()
+let json = await res.json()
+if (!json.url) throw m.react('✖️')
+await conn.sendFile(m.chat, json.url, 'thumbnail.jpg', `*» Resultado* : ${command}`, m, null, rcanal)
+await m.react('✅')
+} catch {
+await m.react('✖️')
+}}
+handler.command = ['genshin', 'swimsuit', 'schoolswimsuit', 'white', 'barefoot', 'touhou', 'gamecg', 'hololive', 'uncensored', 'sunglasses', 'glasses', 'weapon', 'shirtlift', 'chain', 'fingering', 'flatchest', 'torncloth', 'bondage', 'demon', 'wet', 'pantypull', 'headdress', 'headphone', 'tie', 'anusview', 'shorts','stokings', 'topless', 'beach', 'bunnygirl', 'bunnyear', 'idol', 'vampire', 'gun', 'maid', 'bra', 'nobra', 'bikini', 'whitehair', 'blonde', 'pinkhair', 'bed', 'ponytail', 'nude', 'dress', 'underwear', 'foxgirl', 'uniform', 'skirt', 'sex', 'sex2', 'sex3', 'breast', 'twintail', 'spreadpussy', 'tears', 'seethrough', 'breasthold', 'drunk', 'fateseries', 'spreadlegs', 'openshirt', 'headband', 'food', 'close', 'tree', 'nipples', 'erectnipples', 'horns', 'greenhair', 'wolfgirl', 'catgirl']
+handler.premium = false 
+handler.register = true 
+//handler.limit = 10
+handler.group = true 
 
 export default handler
