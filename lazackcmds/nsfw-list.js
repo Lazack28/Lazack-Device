@@ -98,7 +98,7 @@ let handler = async (m, { isPrems, conn }) => {
     • pornolesbianav
     • pornolesv
   ──────────────────
-  ⚠️ *Nota:* Usa estos comandos bajo tu responsabilidad.`
+  ⚠️ *Not:* please dont use this it will bann youre acc`
   const fkontak = {
           "key": {
       "participants":"0@s.whatsapp.net",
