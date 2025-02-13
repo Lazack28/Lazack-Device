@@ -1,30 +1,20 @@
+let handler = async (m, { conn, text, participants, isAdmin, isOwner, groupMetadata }) => {
+  let users = participants.map(u => u.id).filter(v => v !== conn.user.jid)
+  m.reply(
+    `▢ Group : *${groupMetadata.subject}*\n▢ Members : *${participants.length}*${text ? `\n▢ Message : ${text}\n` : ''}\n┌───⊷ *MENTIONS*\n` +
+      users.map(v => '▢ @' + v.replace(/@.+/, '')).join`\n` +
+      '\n└──✪ 𝐌𝐒𝐄𝐋𝐀-𝐂𝐇𝐔𝐈-𝐌𝐀𝐒𝐓𝐄𝐑-𝐁𝐎𝐓 ┃ ᴮᴼᵀ ✪──',
+    null,
+    {
+      mentions: users,
+    }
+  )
+}
 
-const handler = async (m, { isOwner, isAdmin, conn, participants, args, command, usedPrefix }) => {
-  // Check if the used prefix is correct
-  if (usedPrefix == 'a' || usedPrefix == 'A') return;
+handler.help = ['tagall']
+handler.tags = ['group']
+handler.command = ['tagall']
+handler.admin = true
+handler.group = true
 
-  // Only allow admin or owner to use the command
-  if (!(isAdmin || isOwner)) {
-    global.dfail('admin', m, conn);
-    throw false;
-  }
-
-  // Initialize the message text to mention all participants
-  let teks = `*List of All Participants* 🗣️\n\n`;
-
-  // Loop through participants to add mentions
-  for (const member of participants) {
-    teks += `┊ @member.id.split('@')[0]`;
-  
-
-  // Send the message with all participant mentions
-  conn.sendMessage(m.chat,  text: teks, mentions: participants.map((a) => a.id) );
-;
-
-handler.help = ['tagall'];
-handler.tags = ['group'];
-handler.command = /^(tagall)/i;
-handler.admin = true;
-handler.group = true;
-
-export default handler;
+export default handler
