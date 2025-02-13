@@ -12,20 +12,22 @@ const handler = async (m, { isOwner, isAdmin, conn, text, participants, args, co
 
   const message = args.join` `;
   const info = `*» INFO :* message`;
-  let teks = `*!  GENERAL MENTION  !*  *FOR{participants.length} MEMBERS* 🗣️\n\n info╭  ┄ 𝅄  ۪꒰ LAZACK - TEAM꒱̀  ۟  𝅄 ┄`;
-  
+  let teks = `*!  GENERAL MENTION  !*  *FOR{participants.length} MEMBERS* 🗣️\n\n info╭  ┄ 𝅄  ۪꒰ LAZACK - TEAM ꒱  ۟  𝅄 ┄`;
+
+  // Loop through participants to add mentions
   for (const member of participants) 
     teks += `┊{customEmoji} @member.id.split('@')[0]`;
   
 
   teks += `╰⸼ ┄ ┄ ┄ ─  ꒰  ׅ୭ *{vs}* ୧ ׅ ꒱  ┄  ─ ┄ ⸼`;
 
+  // Send the message with all mentions
   conn.sendMessage(m.chat, { text: teks, mentions: participants.map((a) => a.id) });
 };
 
 handler.help = ['todos <message>'];
 handler.tags = ['group'];
-handler.command = /^(tagall|invocar|marcar|todos|invocación)$/i;
+handler.command = /^(tagall|Z)$/i;
 handler.admin = true;
 handler.group = true;
 
