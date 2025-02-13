@@ -1,33 +1,29 @@
 
-const handler = async (m, { isOwner, isAdmin, conn, text, participants, args, command, usedPrefix }) => {
+const handler = async (m, { isOwner, isAdmin, conn, participants, args, command, usedPrefix }) => {
+  // Check if the used prefix is correct
   if (usedPrefix == 'a' || usedPrefix == 'A') return;
 
-  const customEmoji = global.db.data.chats[m.chat]?.customEmoji || '🤍';
-  m.react(customEmoji);
-
+  // Only allow admin or owner to use the command
   if (!(isAdmin || isOwner)) {
     global.dfail('admin', m, conn);
     throw false;
   }
 
-  const message = args.join` `;
-  const info = `*» INFO :* message`;
-  let teks = `*!  GENERAL MENTION  !*  *FOR{participants.length} MEMBERS* 🗣️\n\n info╭  ┄ 𝅄  ۪꒰ LAZACK - TEAM ꒱  ۟  𝅄 ┄`;
+  // Initialize the message text to mention all participants
+  let teks = `*List of All Participants* 🗣️\n\n`;
 
   // Loop through participants to add mentions
-  for (const member of participants) 
-    teks += `┊{customEmoji} @member.id.split('@')[0]`;
+  for (const member of participants) {
+    teks += `┊ @member.id.split('@')[0]`;
   
 
-  teks += `╰⸼ ┄ ┄ ┄ ─  ꒰  ׅ୭ *{vs}* ୧ ׅ ꒱  ┄  ─ ┄ ⸼`;
+  // Send the message with all participant mentions
+  conn.sendMessage(m.chat,  text: teks, mentions: participants.map((a) => a.id) );
+;
 
-  // Send the message with all mentions
-  conn.sendMessage(m.chat, { text: teks, mentions: participants.map((a) => a.id) });
-};
-
-handler.help = ['todos <message>'];
+handler.help = ['tagall'];
 handler.tags = ['group'];
-handler.command = /^(tagall|Z)$/i;
+handler.command = /^(tagall)/i;
 handler.admin = true;
 handler.group = true;
 
