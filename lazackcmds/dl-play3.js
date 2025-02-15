@@ -1,32 +1,32 @@
 import yts from 'yt-search';
 
 let handler = async (m, { conn, args }) => {
-    if (!args[0]) return conn.reply(m.chat, `*Please enter a search term*`, m);
+    if (!args[0]) return conn.reply(m.chat, `*Por favor ingresa un término de búsqueda*`, m);
 
     await m.react('⏳');
     try {
         let searchResults = await search(args.join(" "));
 
         if (!searchResults || searchResults.length === 0) {
-            throw new Error('No videos found.');
+            throw new Error('No se encontraron videos.');
         }
 
         let video = searchResults.find(v => v.seconds < 3600) || searchResults[0];
 
-        let messageText = `🌟 *YouTube Player* 🌟\n\n`;
-        messageText += `🎬 *Title:* ${video.title}\n`;
-        messageText += `⏰ *Duration:* ${formatDuration(video.seconds)}\n`;
-        messageText += `👤 *Author:* ${video.author.name || 'Unknown'}\n`;
-        messageText += `📅 *Published:* ${convertTimeToEnglish(video.ago)}\n`;
-        messageText += `👀 *Views:* ${video.views.toLocaleString()}\n`;
-        messageText += `🔗 *Direct link:* ${video.url}\n`;
+        let messageText = `🌟 *YouTube Reproductor* 🌟\n\n`;
+        messageText += `🎬 *Título:* ${video.title}\n`;
+        messageText += `⏰ *Duración:* ${formatDuration(video.seconds)}\n`;
+        messageText += `👤 *Autor:* ${video.author.name || 'Desconocido'}\n`;
+        messageText += `📅 *Publicado:* ${convertTimeToSpanish(video.ago)}\n`;
+        messageText += `👀 *Vistas:* ${video.views.toLocaleString()}\n`;
+        messageText += `🔗 *Enlace directo:* ${video.url}\n`;
 
         let image = video.image || 'default-image-url';
 
         await conn.sendButton2(
             m.chat,
             messageText,
-            'WhatsApp Bot',
+            'Bot WhatsApp',
             image,
             [
                 ['🎶 MP3', `.ytmp3 ${video.url}`],
@@ -44,18 +44,18 @@ let handler = async (m, { conn, args }) => {
     } catch (error) {
         console.error(error);
         await m.react('❌');
-        conn.reply(m.chat, '*`There was an error searching for the video.`*', m);
+        conn.reply(m.chat, '*`Hubo un error al buscar el video.`*', m);
     }
 };
 
-handler.help = ['play *<text>*'];
+handler.help = ['play *<texto>*'];
 handler.tags = ['dl'];
 handler.command = ['play3'];
 
 export default handler;
 
 async function search(query, options = {}) {
-    let search = await yts.search({ query, hl: "en", gl: "US", ...options });
+    let search = await yts.search({ query, hl: "es", gl: "ES", ...options });
     return search.videos;
 }
 
