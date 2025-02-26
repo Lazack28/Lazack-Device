@@ -1,9 +1,8 @@
-/*let regix = /love/i; // Regex pattern to match the word "love" (case insensitive)
-let asta = "I love you! 💖"; // Default message if the regex does not match
-
-const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
 let handler = async (m, { conn, args }) => {
+    // Define regex and default message
+    let regix = /\S+/; // Matches any non-space character
+    let asta = "Sending love to you! ❤️"; // Default message if no input
+
     // Check if the input matches the regex; if not, use a default message
     let messageToSend = regix.test(args.join(' ')) ? args.join(' ') : asta;
 
@@ -14,18 +13,24 @@ let handler = async (m, { conn, args }) => {
         "🙂", "🤗", "😌", "😉", "🤗", "😊", "🎊", "🎉", "🎁", "❤"
     ];
 
-    // Send the first heart emoji
-    let { key: messageKey } = await conn.reply(m.chat, messageToSend.replace(regix, "" + heartEmojis[0]), m);
+    // Send the first heart emoji message
+    let sentMessage = await conn.reply(m.chat, messageToSend.replace(/\{emoji\}/g, heartEmojis[0]), m);
+    let messageKey = sentMessage?.key; // Ensure messageKey exists
 
     // Loop through the heart emojis and send them with a delay
     for (let i = 0; i < heartEmojis.length; i++) {
         await sleep(800); // Wait for 800 milliseconds
-        await conn.reply(m.chat, messageToSend.replace(regix, "" + heartEmojis[i]), { edit: messageKey });
+        if (messageKey) {
+            await conn.reply(m.chat, messageToSend.replace(/\{emoji\}/g, heartEmojis[i]), { edit: messageKey });
+        }
     }
 }
 
-handler.help = ['love']
-handler.tags = ['fun']
-handler.command = ['love']
-// Change to true if only the owner should use it
-export default handler;*/
+// Sleep function to create delays
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+handler.help = ['love'];
+handler.tags = ['fun'];
+handler.command = ['love'];
+
+export default handler;
