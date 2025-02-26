@@ -1,7 +1,7 @@
 let handler = async (m, { conn, args }) => {
     // Define regex and default message
     let regix = /\S+/; // Matches any non-space character
-    let asta = "Sending love to you! ❤️"; // Default message if no input
+    let asta = "I LOVE YOU! "; // Default message if no input
 
     // Check if input matches regex, else use default
     let messageToSend = regix.test(args.join(' ')) ? args.join(' ') : asta;
