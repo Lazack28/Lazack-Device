@@ -3,7 +3,7 @@ let handler = async (m, { conn, args }) => {
     let regix = /\S+/; // Matches any non-space character
     let asta = "Sending love to you! ❤️"; // Default message if no input
 
-    // Check if the input matches the regex; if not, use a default message
+    // Check if input matches regex, else use default
     let messageToSend = regix.test(args.join(' ')) ? args.join(' ') : asta;
 
     // Array of heart emojis
@@ -13,18 +13,22 @@ let handler = async (m, { conn, args }) => {
         "🙂", "🤗", "😌", "😉", "🤗", "😊", "🎊", "🎉", "🎁", "❤"
     ];
 
-    // Send the first heart emoji message
-    let sentMessage = await conn.reply(m.chat, messageToSend.replace(/\{emoji\}/g, heartEmojis[0]), m);
-    let messageKey = sentMessage?.key; // Ensure messageKey exists
+    try {
+        // Send the initial message
+        let sentMessage = await conn.sendMessage(m.chat, { text: messageToSend.replace(/\{emoji\}/g, heartEmojis[0]) }, { quoted: m });
+        let messageKey = sentMessage?.key; // Ensure messageKey exists
 
-    // Loop through the heart emojis and send them with a delay
-    for (let i = 0; i < heartEmojis.length; i++) {
-        await sleep(800); // Wait for 800 milliseconds
-        if (messageKey) {
-            await conn.reply(m.chat, messageToSend.replace(/\{emoji\}/g, heartEmojis[i]), { edit: messageKey });
+        // Loop through the heart emojis and edit the message
+        for (let i = 0; i < heartEmojis.length; i++) {
+            await sleep(800); // Wait for 800ms
+            if (messageKey) {
+                await conn.sendMessage(m.chat, { text: messageToSend.replace(/\{emoji\}/g, heartEmojis[i]), edit: messageKey });
+            }
         }
+    } catch (error) {
+        console.error("Error in love.js:", error);
     }
-}
+};
 
 // Sleep function to create delays
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
