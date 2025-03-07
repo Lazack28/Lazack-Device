@@ -19,13 +19,14 @@ let handler = async (m, { conn }) => {
 
   console.log(`✅ Command detected: ${cmd}`); // Debugging
 
-  // Check if quoted message exists
-  if (!m.quoted.message) return m.reply('*No quoted message detected!*');
+  // Ensure quoted message exists
+  if (!m.quoted || !m.quoted.message) return m.reply('*No quoted message detected!*');
 
-  // Check for View Once message
-  let msg = m.quoted.message.viewOnceMessageV2?.message || m.quoted.message.viewOnceMessage?.message;
-
-  if (!msg) return m.reply('*This is not a View Once message!*');
+  // Extract the actual message content
+  let msg = m.quoted.message;
+  if (msg.viewOnceMessageV2) msg = msg.viewOnceMessageV2.message;
+  else if (msg.viewOnceMessage) msg = msg.viewOnceMessage.message;
+  else return m.reply('*This is not a View Once message!*');
 
   // Restrict commands to Owner/Bot
   const isOwner = m.sender === ownerNumber;
