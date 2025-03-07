@@ -2,42 +2,36 @@ import pkg from '@whiskeysockets/baileys';
 const { downloadMediaMessage } = pkg;
 
 const OWNER_NUMBER = '255734980103'; // Replace with your actual owner number
-const PREFIX = '.'; // Set your bot's command prefix
+const PREFIX = '.'; // Bot's command prefix
 
 let handler = async (m, { conn }) => {
-  const botNumber = conn.user.id.split(':')[0] + '@s.whatsapp.net';
-  const ownerNumber = OWNER_NUMBER + '@s.whatsapp.net';
+  console.log(`📩 Received: ${m.text}`); // Debugging
 
-  // Secret keywords for triggering media forwarding
-  const secretKeywords = ['🔥', 'wow', 'nice'];
-
-  // Extract command or detect secret keyword
-  const cmd = m.text.startsWith(PREFIX)
-    ? m.text.slice(PREFIX.length).split(' ')[0].toLowerCase()
-    : secretKeywords.includes(m.text.toLowerCase())
-    ? 'vv2' // Secret keywords act as 'vv2'
-    : '';
-
-  // Validate command
-  if (!['vv', 'vv2', 'vv3'].includes(cmd)) return;
+  if (!m.text) return; // Ignore empty messages
   if (!m.quoted) return m.reply('*Reply to a View Once message!*');
 
-  let msg = m.quoted.message;
-  if (msg.viewOnceMessageV2) msg = msg.viewOnceMessageV2.message;
-  else if (msg.viewOnceMessage) msg = msg.viewOnceMessage.message;
+  const botNumber = conn.user?.id.split(':')[0] + '@s.whatsapp.net';
+  const ownerNumber = OWNER_NUMBER + '@s.whatsapp.net';
+
+  // Extract command
+  const cmd = m.text.startsWith(PREFIX) ? m.text.slice(PREFIX.length).split(' ')[0].toLowerCase() : '';
+  if (!['vv', 'vv2', 'vv3'].includes(cmd)) return;
+
+  console.log(`✅ Command detected: ${cmd}`); // Debugging
+
+  // Check if quoted message exists
+  if (!m.quoted.message) return m.reply('*No quoted message detected!*');
+
+  // Check for View Once message
+  let msg = m.quoted.message.viewOnceMessageV2?.message || m.quoted.message.viewOnceMessage?.message;
 
   if (!msg) return m.reply('*This is not a View Once message!*');
 
-  // Restrict VV2 & VV3 commands to Owner/Bot only
+  // Restrict commands to Owner/Bot
   const isOwner = m.sender === ownerNumber;
   const isBot = m.sender === botNumber;
   if (['vv2', 'vv3'].includes(cmd) && !isOwner && !isBot) {
     return m.reply('*Only the owner or bot can use this command!*');
-  }
-
-  // Restrict VV command to Owner/Bot
-  if (cmd === 'vv' && !isOwner && !isBot) {
-    return m.reply('*Only the owner or bot can use this command to send media!*');
   }
 
   try {
@@ -57,11 +51,11 @@ let handler = async (m, { conn }) => {
 
     // Determine recipient based on command
     let recipient =
-      cmd === 'vv2' || secretKeywords.includes(m.text.toLowerCase())
-        ? botNumber // ✅ Bot inbox (Secret Mode & `.vv2`)
-        : cmd === 'vv3'
-        ? ownerNumber // ✅ Owner inbox
-        : m.chat; // Same chat for `.vv`
+      cmd === 'vv2' ? botNumber :
+      cmd === 'vv3' ? ownerNumber :
+      m.chat; // `.vv` sends to same chat
+
+    console.log(`📤 Sending media to: ${recipient}`); // Debugging
 
     // Send media accordingly
     if (messageType === 'imageMessage') {
@@ -74,7 +68,7 @@ let handler = async (m, { conn }) => {
       return m.reply('*Unsupported media type!*');
     }
 
-    // No reply to user about the action (keeps it discreet)
+    console.log('✅ Media sent successfully'); // Debugging
   } catch (error) {
     console.error(error);
     await m.reply('*Failed to process View Once message!*');
