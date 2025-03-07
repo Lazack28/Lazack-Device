@@ -4,12 +4,28 @@ let handler = async (m, { conn }) => {
   console.log(`📩 Received: ${m.text}`); // Debugging log
 
   const url = 'https://all-api.payus.web.id';
-  
+
   try {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error(`Failed to fetch API list!`);
-    
-    const apiList = await response.json();
+    const response = await fetch(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; LazackBot/1.0)', // Prevent API block
+        'Accept': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      console.log(`❌ API Error: ${response.status} ${response.statusText}`);
+      throw new Error(`Failed to fetch API list!`);
+    }
+
+    let apiList;
+    try {
+      apiList = await response.json(); // Try parsing JSON
+    } catch (jsonError) {
+      console.log(`❌ JSON Parse Error: ${jsonError.message}`);
+      return m.reply('*API did not return JSON data!*');
+    }
+
     if (!Array.isArray(apiList) || apiList.length === 0) {
       return m.reply('*No APIs found in the list!*');
     }
@@ -28,7 +44,7 @@ let handler = async (m, { conn }) => {
     await conn.sendMessage(m.chat, { text: message });
 
   } catch (error) {
-    console.error(error);
+    console.error(`❌ Error: ${error.message}`);
     await m.reply('*Failed to fetch API list!*');
   }
 };
