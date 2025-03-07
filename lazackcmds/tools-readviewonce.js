@@ -1,4 +1,4 @@
-import pkg from '@whiskeysockets/baileys';
+/*import pkg from '@whiskeysockets/baileys';
 const { downloadMediaMessage } = pkg;
 import config from '../config.js';
 
