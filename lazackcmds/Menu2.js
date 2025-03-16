@@ -85,16 +85,12 @@ let str = `
 │ .facebook
 │ .mediafire
 │ .pinterestdl
-│ .gutclone
-│ .gdrive
 │ .insta
 │ .ytmp3
 │ .ytmp4
 │ .play
-│ .song
-│ .video
-│ .ytmp3doc
-│ .ytmp4doc
+| .p
+| .s
 │ .tiktok
 ╰───────────────╯
 ╭───「 *SEARCH* 」───╮
