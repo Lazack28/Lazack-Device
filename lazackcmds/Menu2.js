@@ -2,40 +2,29 @@ import fs from 'fs';
 import path from 'path';
 import os from 'os';
 import moment from 'moment-timezone';
-import { promisify } from 'util';
-
-const readdir = promisify(fs.readdir);
 
 let handler = async (m, { conn }) => {
   try {
     const menuThumbnail = 'https://i.imgur.com/r4TueFV.jpeg';
-    const lazackpath = './lazackcmds';
+    const lazackpath = path.join(process.cwd(), 'lazackcmds'); // Ensure absolute path
 
     let commandGroups = {};
 
     try {
-      const commandFiles = await readdir(lazackpath);
+      const commandFiles = fs.readdirSync(lazackpath).filter(file => file.endsWith('.js'));
 
       for (const file of commandFiles) {
-        if (!file.endsWith('.js')) continue; // Ensure only JavaScript files are processed
         const cmdPath = path.join(lazackpath, file);
-        let cmdModule;
+        let cmdModule = require(cmdPath); // Using require() instead of import() for compatibility
 
-        try {
-          cmdModule = await import(`file://${cmdPath}`);
-        } catch (err) {
-          console.error(`❌ Error loading command: ${file}`, err);
-          continue;
-        }
-
-        if (cmdModule?.default?.command) {
+        if (cmdModule.default && cmdModule.default.command) {
           const cmd = cmdModule.default;
           const cmdNames = Array.isArray(cmd.command) ? cmd.command : [cmd.command];
           const tags = Array.isArray(cmd.tags) ? cmd.tags : ['Other'];
 
           for (const tag of tags) {
             if (!commandGroups[tag]) commandGroups[tag] = [];
-            cmdNames.forEach(name => commandGroups[tag].push(`➤ *${name}*`)); // One command per line
+            cmdNames.forEach(name => commandGroups[tag].push(`➤ *${name}*`)); // Listing commands properly
           }
         }
       }
@@ -65,27 +54,20 @@ let handler = async (m, { conn }) => {
 
     let sections = [];
     for (const [tag, commands] of Object.entries(commandGroups)) {
-      sections.push(`\n✨ *${tag.toUpperCase()}* ✨\n${commands.join('\n')}`); // One by one under the tag
+      sections.push(`\n✨ *${tag.toUpperCase()}* ✨\n${commands.join('\n')}`);
     }
 
     let fullMenu = menuHeader + (sections.length ? sections.join('\n') : "\n❌ No commands found!");
 
-    if (fullMenu.length > 4096) {
-      let parts = fullMenu.match(/.{1,4000}/gs); // Split long messages
-      for (const part of parts) {
-        await conn.sendMessage(m.chat, { text: part }, { quoted: m });
+    await conn.sendMessage(m.chat, {
+      image: { url: menuThumbnail },
+      caption: fullMenu,
+      contextInfo: {
+        mentionedJid: [m.sender],
+        forwardingScore: 999,
+        isForwarded: true,
       }
-    } else {
-      await conn.sendMessage(m.chat, {
-        image: { url: menuThumbnail },
-        caption: fullMenu,
-        contextInfo: {
-          mentionedJid: [m.sender],
-          forwardingScore: 999,
-          isForwarded: true,
-        }
-      }, { quoted: m });
-    }
+    }, { quoted: m });
 
   } catch (error) {
     console.error("❌ Error in allmenu handler:", error);
