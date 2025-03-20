@@ -12,33 +12,35 @@ let handler = async (m, { conn }) => {
     const lazackpath = './lazackcmds';
 
     let commandGroups = {};
-    
+
     try {
       const commandFiles = await readdir(lazackpath);
-      
+
       for (const file of commandFiles) {
+        if (!file.endsWith('.js')) continue; // Ensure only JavaScript files are processed
         const cmdPath = path.join(lazackpath, file);
         let cmdModule;
 
         try {
           cmdModule = await import(`file://${cmdPath}`);
         } catch (err) {
-          console.error(`Error loading command: ${file}`, err);
+          console.error(`❌ Error loading command: ${file}`, err);
           continue;
         }
 
         if (cmdModule?.default?.command) {
           const cmd = cmdModule.default;
-          const tags = cmd.tags || ['Other'];
+          const cmdNames = Array.isArray(cmd.command) ? cmd.command : [cmd.command];
+          const tags = Array.isArray(cmd.tags) ? cmd.tags : ['Other'];
 
           for (const tag of tags) {
             if (!commandGroups[tag]) commandGroups[tag] = [];
-            commandGroups[tag].push(`➤ *${cmd.command.join(', ')}*`);
+            cmdNames.forEach(name => commandGroups[tag].push(`➤ *${name}*`)); // One command per line
           }
         }
       }
     } catch (err) {
-      console.error("Error reading commands:", err);
+      console.error("❌ Error reading commands:", err);
     }
 
     const sysInfo = {
@@ -52,22 +54,21 @@ let handler = async (m, { conn }) => {
     };
 
     let menuHeader = `
-*📌 LAZACK-DEVICE*
-👤 User: ${m.pushName || 'User'}
-🕒 Time: ${sysInfo.timestamp}
+📌 *LAZACK-DEVICE*
+👤 *User:* ${m.pushName || 'User'}
+🕒 *Time:* ${sysInfo.timestamp}
 
 📊 *System Info:*
-⏱ Uptime: ${sysInfo.uptime}
+⏱ *Uptime:* ${sysInfo.uptime}
 
-🔍 *Available Commands:*
-    `.trim();
+🔍 *Available Commands:*`.trim();
 
     let sections = [];
     for (const [tag, commands] of Object.entries(commandGroups)) {
-      sections.push(`\n✨ *${tag.toUpperCase()}* ✨\n${commands.join('\n')}`);
+      sections.push(`\n✨ *${tag.toUpperCase()}* ✨\n${commands.join('\n')}`); // One by one under the tag
     }
 
-    let fullMenu = menuHeader + sections.join('\n');
+    let fullMenu = menuHeader + (sections.length ? sections.join('\n') : "\n❌ No commands found!");
 
     if (fullMenu.length > 4096) {
       let parts = fullMenu.match(/.{1,4000}/gs); // Split long messages
@@ -87,7 +88,7 @@ let handler = async (m, { conn }) => {
     }
 
   } catch (error) {
-    console.error("Error in allmenu handler:", error);
+    console.error("❌ Error in allmenu handler:", error);
   }
 };
 
