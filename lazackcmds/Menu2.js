@@ -18,15 +18,22 @@ let handler = async (m, { conn }) => {
       
       for (const file of commandFiles) {
         const cmdPath = path.join(lazackpath, file);
-        const cmdModule = await import(`file://${cmdPath}`).catch(() => null);
-        
-        if (cmdModule && cmdModule.default && cmdModule.default.command) {
+        let cmdModule;
+
+        try {
+          cmdModule = await import(`file://${cmdPath}`);
+        } catch (err) {
+          console.error(`Error loading command: ${file}`, err);
+          continue;
+        }
+
+        if (cmdModule?.default?.command) {
           const cmd = cmdModule.default;
-          const tags = cmd.tags || ['other'];
-          
+          const tags = cmd.tags || ['Other'];
+
           for (const tag of tags) {
             if (!commandGroups[tag]) commandGroups[tag] = [];
-            commandGroups[tag].push(`• *${cmd.command.join(', ')}*`);
+            commandGroups[tag].push(`➤ *${cmd.command.join(', ')}*`);
           }
         }
       }
@@ -44,33 +51,40 @@ let handler = async (m, { conn }) => {
       developer: '@lazack',
     };
 
-    let formattedMenu = `
-╔════════════════════╗
-║  *LAZACK-DEVICE*   
-╠════════════════════╣
-║ 👤 User: ${m.pushName || 'User'}
-║ ⏳ Time: ${sysInfo.timestamp}
-╠════════════════════╣
-║ 📊 System Info:
-║ ⏱ Uptime: ${sysInfo.uptime}
-╠════════════════════╣
+    let menuHeader = `
+*📌 LAZACK-DEVICE*
+👤 User: ${m.pushName || 'User'}
+🕒 Time: ${sysInfo.timestamp}
+
+📊 *System Info:*
+⏱ Uptime: ${sysInfo.uptime}
+
+🔍 *Available Commands:*
     `.trim();
 
+    let sections = [];
     for (const [tag, commands] of Object.entries(commandGroups)) {
-      formattedMenu += `\n╠══ ✨ *${tag.toUpperCase()}* ✨ ══\n║ ${commands.join('\n║ ')}`;
+      sections.push(`\n✨ *${tag.toUpperCase()}* ✨\n${commands.join('\n')}`);
     }
 
-    formattedMenu += `\n╠════════════════════╣\n║ 🔗 github.com/Lazack28\n╚════════════════════╝`;
+    let fullMenu = menuHeader + sections.join('\n');
 
-    await conn.sendMessage(m.chat, {
-      image: { url: menuThumbnail },
-      caption: formattedMenu,
-      contextInfo: {
-        mentionedJid: [m.sender],
-        forwardingScore: 999,
-        isForwarded: true,
+    if (fullMenu.length > 4096) {
+      let parts = fullMenu.match(/.{1,4000}/gs); // Split long messages
+      for (const part of parts) {
+        await conn.sendMessage(m.chat, { text: part }, { quoted: m });
       }
-    }, { quoted: m });
+    } else {
+      await conn.sendMessage(m.chat, {
+        image: { url: menuThumbnail },
+        caption: fullMenu,
+        contextInfo: {
+          mentionedJid: [m.sender],
+          forwardingScore: 999,
+          isForwarded: true,
+        }
+      }, { quoted: m });
+    }
 
   } catch (error) {
     console.error("Error in allmenu handler:", error);
@@ -79,6 +93,6 @@ let handler = async (m, { conn }) => {
 
 handler.help = ['allmenu'];
 handler.tags = ['main'];
-handler.command = ['allmenu', 'menu2'];
+handler.command = ['allmenu'];
 
 export default handler;
