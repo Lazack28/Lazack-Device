@@ -2,13 +2,25 @@ import gis from 'g-i-s';
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
   if (!text) {
-    return m.reply(`Please provide a search term for the images.\n\nUsage: ${usedPrefix}${command} <search term>`);
+    return m.reply(
+      `📌 *Usage:* ${usedPrefix}${command} <search term>\n\n🔎 Please provide a search term for the images.`
+    );
   }
 
-  // Thumbnail for external ad reply (optional)
-  const sponsorThumbnail = 'https://home.lazackorganisation.my.id/img/img1.png'; // Replace with your preferred image URL
+  // Keywords to block adult content and download-related searches
+  const blockedKeywords = [
+    'sex', 'porn', 'xxx', 'nude', '18+', 'explicit', 'nsfw',
+    'download', 'mp3', 'mp4', 'convert', 'torrent'
+  ];
 
-  // Fake contact message (optional)
+  if (blockedKeywords.some(keyword => text.toLowerCase().includes(keyword))) {
+    return m.reply(`🚫 Sorry, but I cannot process this request.`);
+  }
+
+  // Sponsor thumbnail (Optional)
+  const sponsorThumbnail = 'https://home.lazackorganisation.my.id/img/img1.png'; 
+
+  // Fake contact message (Optional)
   let botContact = {
     key: { fromMe: false, participant: `0@s.whatsapp.net`, remoteJid: 'status@broadcast' },
     message: {
@@ -19,36 +31,38 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     },
   };
 
-  // Search for images
   try {
     gis(text, async (error, results) => {
       if (error) {
-        return m.reply(`An error occurred while searching for images:\n${error.message}`);
+        console.error('Image Search Error:', error);
+        return m.reply(`❌ An error occurred while searching for images. Please try again later.`);
       }
 
-      // Check if results are available
       if (!results || results.length === 0) {
-        return m.reply(`No images were found for your search term: *${text}*`);
+        return m.reply(`⚠️ No images were found for your search term: *${text}*`);
       }
 
-      // Limit the number of images to send (e.g., 5)
+      // Limit images to send (e.g., 5)
       const numberOfImages = Math.min(results.length, 5);
       const imageUrls = results.slice(0, numberOfImages).map(result => result.url);
 
       // Send images with captions
       for (const url of imageUrls) {
-        const message = {
-          image: { url },
-          caption: `Just Downloeaded youre pics\nSearch term: *${text}*`,
-        };
-        await conn.sendMessage(m.chat, message, { quoted: botContact });
+        await conn.sendMessage(
+          m.chat,
+          {
+            image: { url },
+            caption: `🔹 *Search Term:* ${text}\n🔹 *Source:* Internet`,
+          },
+          { quoted: botContact }
+        );
       }
 
-      // Optional: Send a final thank-you message with an external ad reply
+      // Final message with external ad reply
       await conn.sendMessage(
         m.chat,
         {
-          text: `✨ *Search completed!* to use this feature then, consider supporting us: https://github.com/Lazack28/Lazack-Device`,
+          text: `✨ *Search Completed!*\n🔗 Support us: https://github.com/Lazack28/Lazack-Device`,
           contextInfo: {
             externalAdReply: {
               title: '🔍 Powered by Team Lazack28!',
@@ -64,8 +78,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
       );
     });
   } catch (e) {
-    console.error('Error in the image search handler:', e);
-    m.reply(`An unexpected error occurred. Please try again later.`);
+    console.error('Unexpected Error:', e);
+    m.reply(`⚠️ An unexpected error occurred. Please try again later.`);
   }
 };
 

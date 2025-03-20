@@ -1,50 +1,58 @@
-let handler = async (m, { conn, text, usedPrefix, command }) => {
-  // Sound
-  let name = m.pushName || conn.getName(m.sender)
-  var vn = 'https://cdn.jsdelivr.net/gh/Lazack28/Lazack-md@main/media/Alive.mp3'
-  let url = 'https://github.com/Lazack28/Lazack-md'
-  let murl = 'https://youtu.be/3j_EIP--2t8?si=4TFWV0On6Bl1wr-e'
-  let img = 'https://i.imgur.com/QMyKIPq.jpeg'
-  let con = {
+import util from 'util';
+
+let handler = async (m, { conn }) => {
+  // User details
+  let name = m.pushName || conn.getName(m.sender);
+  let senderId = m.sender.split('@')[0];
+
+  // Media URLs
+  const audioUrl = 'https://cdn.jsdelivr.net/gh/Lazack28/Lazack-md@main/media/Alive.mp3';
+  const githubUrl = 'https://github.com/Lazack28/Lazack-md';
+  const youtubeUrl = 'https://youtu.be/3j_EIP--2t8?si=4TFWV0On6Bl1wr-e';
+  const imageUrl = 'https://i.imgur.com/QMyKIPq.jpeg';
+  const groupInviteUrl = 'https://chat.whatsapp.com/IIpL6gf6dcq4ial8gaJLE9';
+
+  // Contact Information
+  let contact = {
     key: {
       fromMe: false,
-      participant: `${m.sender.split`@`[0]}@s.whatsapp.net`,
+      participant: `${senderId}@s.whatsapp.net`,
       ...(m.chat ? { remoteJid: '16504228206@s.whatsapp.net' } : {}),
     },
     message: {
       contactMessage: {
-        displayName: `${name}`,
-        vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:${name}\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`,
+        displayName: name,
+        vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;${name};;;\nFN:${name}\nitem1.TEL;waid=${senderId}:${senderId}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`,
       },
     },
-  }
-  let doc = {
-    audio: {
-      url: vn,
-    },
+  };
+
+  // Audio Message with Metadata
+  let responseMessage = {
+    audio: { url: audioUrl },
     mimetype: 'audio/mpeg',
     ptt: true,
     waveform: [100, 0, 100, 0, 100, 0, 100],
-    fileName: 'shizo',
-
+    fileName: 'Lazack_MD_Alive',
     contextInfo: {
       mentionedJid: [m.sender],
       externalAdReply: {
-        title: 'LAZACK MD ALIVE',
-        body: 'Lazack md',
-        thumbnailUrl: img,
-        sourceUrl: 'https://chat.whatsapp.com/IIpL6gf6dcq4ial8gaJLE9',
+        title: 'LAZACK MD - ALIVE',
+        body: 'Experience the best of Lazack MD',
+        thumbnailUrl: imageUrl,
+        sourceUrl: groupInviteUrl,
         mediaType: 1,
         renderLargerThumbnail: true,
       },
     },
-  }
+  };
 
-  await conn.sendMessage(m.chat, doc, { quoted: con })
-}
+  // Send message
+  await conn.sendMessage(m.chat, responseMessage, { quoted: contact });
+};
 
-handler.help = ['alive']
-handler.tags = ['main']
-handler.command = /^(alive)$/i
+handler.help = ['alive'];
+handler.tags = ['main'];
+handler.command = /^alive$/i;
 
-export default handler
+export default handler;
