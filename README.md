@@ -47,6 +47,24 @@
 
 ----------------------
 
+***ENV SETTINGS***
+     
+     ```SESSION_ID= YOR SESSION ID
+                    OWNER_NAME= YOUR NAME
+                    OWNER_NUMBER= YOUR NUMBER
+                    AUTO_STATUS_SEEN=true
+                    REJECT_CALL=false
+                    MODE=public
+                    WELCOME=false
+                    AUTO_READ=false
+                    AUTO_TYPING=false
+                    AUTO_RECORDING=false
+                    ALWAYS_ONLINE=false
+                    AUTO_BLOCK=true
+                    AUTO_REACT=false
+
+-------------------------
+
 ****MAIN DEV EDITOR****
 
  [![Lazack28](https://github.com/Lazack28.png?size=100)](https://github.com/Lazack28)
@@ -65,4 +83,3 @@
 
 
 
-         CREDIT TO GURU & SILVA MD

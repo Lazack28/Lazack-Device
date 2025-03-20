@@ -90,10 +90,10 @@ const logger = MAIN_LOGGER.child({})
 logger.level = 'fatal'
 
 const store = useStore ? makeInMemoryStore({ logger }) : undefined
-store?.readFromFile('../session.json')
+store?.readFromFile('./session.json')
 
 setInterval(() => {
-  store?.writeToFile('../session.json')
+  store?.writeToFile('./session.json')
 }, 10000 * 6)
 
 const msgRetryCounterCache = new NodeCache()
@@ -179,7 +179,7 @@ global.loadDatabase = async function loadDatabase() {
   global.db.chain = chain(global.db.data)
 }
 loadDatabase()
-global.authFolder = `session`
+global.authFolder = `../session`
 const { state, saveCreds } = await useMultiFileAuthState(global.authFolder)
 //let { version, isLatest } = await fetchLatestWaWebVersion()
 
