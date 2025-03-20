@@ -371,10 +371,10 @@ async function connectionUpdate(update) {
 process.on('uncaughtException', console.error)
 
 let isInit = true
-let handler = await import('./startup/handler.js')
+let handler = await import('./handler.js')
 global.reloadHandler = async function (restatConn) {
   try {
-    const Handler = await import(`./starup/handler.js?update=${Date.now()}`).catch(console.error)
+    const Handler = await import(`./handler.js?update=${Date.now()}`).catch(console.error)
     if (Object.keys(Handler || {}).length) handler = Handler
   } catch (error) {
     console.error
