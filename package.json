@@ -3,7 +3,7 @@
     "name": "LAZACK MD",
     "version": "2.1.0",
     "description": "Advanced WhatsApp",
-    "main": "LazackEngage.js",
+    "main": "startup/LazackEngage.js",
     "type": "module",
     "directories": {
         "lib": "lib",
@@ -14,8 +14,8 @@
         "node": ">=20.0.0"
     },
     "scripts": {
-        "start": "node LazackEngage.js",
-        "test": "node LazackEcho.js"
+        "start": "node startup/LazackEngage.js",
+        "test": "node startup/LazackEcho.js"
     },
     "keywords": [
         "termux-whatsapp-bot",
@@ -24,7 +24,7 @@
         "js-whatsapp",
         "whatsapp",
         "guru-bot",
-        "GURU-bot-md",
+        "lazack-bot-md",
         "multi-device",
         "MD",
         "baileys-md"
