@@ -16,7 +16,7 @@ let handler = async (m, { conn }) => {
     try {
       const commands = await readdir(lazackpath);
       commandList = commands
-        .map((cmd, idx) => `${idx + 1}. ${path.parse(cmd).name}`)
+        .map((cmd, idx) => `║ • *${path.parse(cmd).name}*`)
         .join('\n');
     } catch (err) {
       console.error("Error reading commands:", err);
