@@ -1,19 +1,31 @@
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-
-    if (!text) return conn.reply(m.chat, `Please enter your report\n\nExample: ${usedPrefix + command} Report user sending pornographic photos, please take action.`, m)
-
-    if (text.length > 300) return conn.reply(m.chat, 'Sorry, the text is too long. Maximum 300 characters.', m)
-
-    const teks1 = `*[ REPORT ]*\nNumber: wa.me/${m.sender.split("@s.whatsapp.net")[0]}\nMessage: ${text}`
-
-    conn.reply('255734980103@s.whatsapp.net', teks1, m)
-
-    conn.reply(m.chat, 'The issue has been successfully sent to the Owner', m)
-
+  if (!text) {
+      return conn.reply(m.chat, `❌ *Error:* Please provide a report.\n\n📌 *Example:*\n${usedPrefix + command} Report user sending inappropriate content.`, m);
   }
 
-handler.help = ['report']
-handler.tags = ['main']
-handler.command = /^(report)$/i
+  if (text.length > 300) {
+      return conn.reply(m.chat, '⚠️ *Your report is too long!*\nMaximum allowed characters: 300.', m);
+  }
 
-export default handler
+  const reportMessage = `
+📢 *New Report Received!*
+────────────────────────
+👤 *Reporter:* wa.me/${m.sender.split("@")[0]}
+📝 *Issue:* ${text}
+────────────────────────
+⏳ *Status:* Pending review
+📌 *Action will be taken accordingly!*
+  `.trim();
+
+  // Send report to owner
+  conn.reply('255734980103@s.whatsapp.net', reportMessage, m);
+
+  // Confirmation message to user
+  conn.reply(m.chat, `✅ *Your report has been successfully sent to the Owner!*\n\n📌 *Thank you for your feedback! We will take the necessary action.*`, m);
+};
+
+handler.help = ['report'];
+handler.tags = ['main'];
+handler.command = /^(report)$/i;
+
+export default handler;
