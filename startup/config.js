@@ -85,7 +85,7 @@ global.fgsc = 'https://github.com/Lazack28/Lazack-Device'
 global.fgyt = 'https://youtube.com/@lazaromtaju'
 global.fgpyp = 'https://youtube.com/@lazaromtaju'
 global.fglog = ''
-global.thumb = fs.readFileSync('./Botify/lazack.jpg')
+global.thumb = fs.readFileSync('../Bots/lazack.jpg')
 
 global.wait = '*⌛ _Charging..._*\n*▰▰▰▱▱▱▱▱*'
 global.rwait = '⌛'

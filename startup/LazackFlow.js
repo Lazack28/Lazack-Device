@@ -9,8 +9,8 @@ import path, { join } from 'path'
 import { platform } from 'process'
 import { fileURLToPath, pathToFileURL } from 'url'
 import * as ws from 'ws'
-import processTxtAndSaveCredentials from './lib/makesession.js'
-import clearTmp from './lib/tempclear.js'
+import processTxtAndSaveCredentials from '../lib/makesession.js'
+import clearTmp from '../lib/tempclear.js'
 global.__filename = function filename(pathURL = import.meta.url, rmPrefix = platform !== 'win32') {
   return rmPrefix
     ? /file:\/\/\//.test(pathURL)
@@ -35,9 +35,9 @@ import { default as Pino, default as pino } from 'pino'
 import syntaxerror from 'syntax-error'
 import { format } from 'util'
 import yargs from 'yargs'
-import CloudDBAdapter from './lib/cloudDBAdapter.js'
-import { MongoDB } from './lib/mongoDB.js'
-import { makeWASocket, protoType, serialize } from './lib/simple.js'
+import CloudDBAdapter from '../lib/cloudDBAdapter.js'
+import { MongoDB } from '../lib/mongoDB.js'
+import { makeWASocket, protoType, serialize } from '../lib/simple.js'
 
 const {
   DisconnectReason,
@@ -90,10 +90,10 @@ const logger = MAIN_LOGGER.child({})
 logger.level = 'fatal'
 
 const store = useStore ? makeInMemoryStore({ logger }) : undefined
-store?.readFromFile('./session.json')
+store?.readFromFile('../session.json')
 
 setInterval(() => {
-  store?.writeToFile('./session.json')
+  store?.writeToFile('../session.json')
 }, 10000 * 6)
 
 const msgRetryCounterCache = new NodeCache()
@@ -292,7 +292,7 @@ if (!opts['test']) {
   }
 }
 
-if (opts['server']) (await import('./startup/LazackConnect.js')).default(global.conn, PORT)
+if (opts['server']) (await import('./LazackConnect.js')).default(global.conn, PORT)
 
 function runCleanup() {
   clearTmp()
@@ -312,13 +312,13 @@ runCleanup()
 
 function clearsession() {
   let prekey = []
-  const directorio = readdirSync('./session')
+  const directorio = readdirSync('../session')
   const filesFolderPreKeys = directorio.filter(file => {
     return file.startsWith('pre-key-')
   })
   prekey = [...prekey, ...filesFolderPreKeys]
   filesFolderPreKeys.forEach(files => {
-    unlinkSync(`./session/${files}`)
+    unlinkSync(`../session/${files}`)
   })
 }
 
@@ -447,7 +447,7 @@ global.reloadHandler = async function (restatConn) {
   return true
 }
 
-const pluginFolder = global.__dirname(join(__dirname, './lazackcmds/index'))
+const pluginFolder = global.__dirname(join(__dirname, '../lazackcmds/index'))
 const pluginFilter = filename => /\.js$/.test(filename)
 global.plugins = {}
 async function filesInit() {
