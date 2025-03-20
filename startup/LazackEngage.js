@@ -43,7 +43,7 @@ const port = process.env.PORT || 5000
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.use(express.static(path.join(__dirname, 'Botify')));
+app.use(express.static(path.join(__dirname, '../Botify')));
 
 app.get('/', (req, res) => {
   res.redirect('/lazack.html');
@@ -98,7 +98,7 @@ async function start(file) {
     start('LazackFlow.js')
   })
 
-  const pluginsFolder = path.join(path.dirname(currentFilePath), 'lazackcmds')
+  const pluginsFolder = path.join(path.dirname(currentFilePath), '../lazackcmds')
 
   fs.readdir(pluginsFolder, async (err, files) => {
     if (err) {
