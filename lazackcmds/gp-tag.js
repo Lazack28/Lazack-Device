@@ -1,20 +1,20 @@
-let handler = async (m, { conn, text, participants, isAdmin, isOwner, groupMetadata }) => {
-  let users = participants.map(u => u.id).filter(v => v !== conn.user.jid)
-  m.reply(
-    `▢ Group : *${groupMetadata.subject}*\n▢ Members : *${participants.length}*${text ? `\n▢ Message : ${text}\n` : ''}\n┌───⊷ *MENTIONS*\n` +
-      users.map(v => '▢ @' + v.replace(/@.+/, '')).join`\n` +
-      '\n',
-    null,
-    {
-      mentions: users,
-    }
-  )
-}
+let handler = async (m, { conn, text, participants, groupMetadata }) => {
+  let users = participants.map(u => u.id).filter(v => v !== conn.user.jid); // Exclude bot itself
 
-handler.help = ['tagall']
-handler.tags = ['group']
-handler.command = ['tagall']
-handler.admin = true
-handler.group = true
+  if (users.length === 0) return m.reply(`❌ *No members found to mention!*`);
 
-export default handler
+  let message = `📢 *Group Broadcast* 📢\n\n`;
+  message += `🏷 *Group:* ${groupMetadata.subject}\n👥 *Members:* ${participants.length}\n`;
+  if (text) message += `📝 *Message:* ${text}\n`;
+  message += `\n🔹 *MENTION LIST* 🔹\n${users.map(v => `▢ @${v.split('@')[0]}`).join('\n')}`;
+
+  m.reply(message, null, { mentions: users });
+};
+
+handler.help = ['tagall'];
+handler.tags = ['group'];
+handler.command = ['tagall'];
+handler.admin = true;
+handler.group = true;
+
+export default handler;
