@@ -34,16 +34,15 @@ let handler = async (m, { conn }) => {
 
     const menu = `
 ╔════════════════════╗
-║  *LAZACK-DEVICE*   ║
+║  *LAZACK-DEVICE*   
 ╠════════════════════╣
 ║ 👤 User: ${m.pushName || 'User'}
 ║ ⏳ Time: ${sysInfo.timestamp}
 ╠════════════════════╣
-║ 📊 System Info:
 ║ ⏱ Uptime: ${sysInfo.uptime}
 ╠════════════════════╣
 ║ 📜 Available Commands:
-║ ${commandList}
+${commandList}
 ╠════════════════════╣
 ║ 🔗 github.com/Lazack28
 ╚════════════════════╝
