@@ -1,6 +1,6 @@
 
 
-import { promisfy } from 'util';
+import { promisify } from 'util';
 const readdir = promisfy(fs.readdir);
 
 let handler = async (m, { conn }) => {
