@@ -2,7 +2,7 @@ import { exec } from 'child_process';
 import speed from 'performance-now';
 
 let handler = async (m, { conn }) => {
-  let thumbnail = 'https://www.guruapi.tech/K.jpg';
+  let thumbnail = 'https://home.lazackorganisation.my.id/img/img1.png';
   
   let fgg = {
     key: { fromMe: false, participant: `0@s.whatsapp.net`, remoteJid: 'status@broadcast' },
@@ -17,14 +17,19 @@ let handler = async (m, { conn }) => {
   let timestamp = speed();
   let pingMsg = await conn.sendMessage(m.chat, { text: '*🔄 Checking ping...*' }, { quoted: fgg });
 
-  exec('neofetch --stdout', async (error, stdout) => {
+  exec('uptime', async (error, stdout) => {
     let latency = (speed() - timestamp).toFixed(2);
 
     if (error) {
-      return conn.sendMessage(m.chat, { text: `⚠️ *Error checking ping!*\n\n${error.message}` }, { quoted: pingMsg });
+      return conn.sendMessage(m.chat, { text: `⚠️ *Error checking ping!*
+
+${error.message}` }, { quoted: pingMsg });
     }
 
-    let result = `🟢 *Lazack 28 Ping*\n\n📡 *Speed:* ${latency} ms\n🚀 *Server:* Online`;
+    let result = `🟢 *Lazack 28 Ping*
+
+📡 *Speed:* ${latency} ms
+🚀 *Server Uptime:* ${stdout.trim()}`;
     
     await conn.relayMessage(
       m.chat,
@@ -45,4 +50,3 @@ handler.tags = ['main'];
 handler.command = ['ping', 'speed'];
 
 export default handler;
-
