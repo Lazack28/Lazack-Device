@@ -16,6 +16,7 @@ let handler = async (m, { conn, text, botname }) => {
         let apis = [
             `https://apis.davidcyriltech.my.id/youtube/mp3?url=${link}`,
             `https://api.ryzendesu.vip/api/downloader/yymp3?url=${link}`,
+            `https://home.lazacktech.biz.id/api/ytdl?url=${link}&format=mp3`,
         ];
 
         for (const api of apis) {
