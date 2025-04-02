@@ -1,4 +1,4 @@
-import axios from "axios";
+/*import axios from "axios";
 import lazacksongs from "yt-search";
 
 let handler = async (m, { conn, text, botname }) => {
@@ -68,4 +68,4 @@ handler.help = ["video <title>"];
 handler.tags = ["video"];
 handler.command = /^(video|v)$/i;
 
-export default handler;
+export default handler;*/
