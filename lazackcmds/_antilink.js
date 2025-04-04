@@ -10,18 +10,15 @@ export async function before(m, { conn, isAdmin, isBotAdmin }) {
   chat = global.db.data.chats[m.chat];
 
   // Log current settings to confirm they are correctly loaded
-  console.log(`AntiLink is ${chat.antiLink}, Admin status: ${isAdmin}, Bot Admin: ${isBotAdmin}`);
+  console.log(`Admin status: ${isAdmin}, Bot Admin: ${isBotAdmin}`);
 
-  // Check if message contains a group link and antiLink is enabled
+  // Check if message contains a group link (not dependent on antiLink)
   const isGroupLink = linkRegex.exec(m.text);
-  if (chat.antiLink && isGroupLink && !isAdmin) {
+  if (isGroupLink && !isAdmin) {
     console.log(`Detected a link by non-admin: ${m.sender}`);
 
-    // Check if the bot is admin to proceed with removing the user
+    // Check if the bot is an admin to proceed with removal
     if (isBotAdmin) {
-      const linkThisGroup = `https://chat.whatsapp.com/${await this.groupInviteCode(m.chat)}`;
-      if (m.text.includes(linkThisGroup)) return true; // Ignore links to the same group
-
       await conn.reply(
         m.chat,
         `*≡ Link Detected*
@@ -39,5 +36,6 @@ I'm sorry *@${m.sender.split('@')[0]}*, you will be removed from the group.`,
       console.log("Bot is not an admin and cannot remove members.");
     }
   }
+
   return true;
-      }
+}
