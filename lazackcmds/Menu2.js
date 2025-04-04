@@ -17,9 +17,14 @@ let handler = async (m, { conn }) => {
         const cmdPath = path.join(lazackpath, file);
         let cmdModule = require(cmdPath); // Using require() instead of import() for compatibility
 
+        // Check if handler has 'command' and 'tags' properties
         if (cmdModule.default && cmdModule.default.command) {
           const cmd = cmdModule.default;
+
+          // Extract command names (could be an array or a single string)
           const cmdNames = Array.isArray(cmd.command) ? cmd.command : [cmd.command];
+
+          // Extract tags (could be an array or default to 'Other')
           const tags = Array.isArray(cmd.tags) ? cmd.tags : ['Other'];
 
           for (const tag of tags) {
