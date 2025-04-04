@@ -1,76 +1,87 @@
-const isToxic =
-  /(gandu|maderchod|bhosdike|bhosda|laud?a|chut?iya|maa ki chut|behenchod|behen ki chut|tatto ke saudagar|machar ki jhant|jhant? ka baal|Rand?i ka aulad|chuchi|booob?ie?s|to?lo?l|idiot|nigga|fuck|dick|bitch|tits|bastard|asshole|a[su,w,yu])/i
+const offensiveWords = [
+  // English offensive words
+  'gandu', 'maderchod', 'bhosdike', 'bhosda', 'laud?a', 'chut?iya', 'maa ki chut', 'behenchod', 'behen ki chut', 'tatto ke saudagar',
+  'machar ki jhant', 'jhant? ka baal', 'Rand?i ka aulad', 'chuchi', 'booob?ie?s', 'to?lo?l', 'idiot', 'nigga', 'fuck', 'dick', 'bitch',
+  'tits', 'bastard', 'asshole', 'a[su,w,yu]',
+  // Swahili offensive words
+  'ujinga', 'mpumbavu', 'malaya', 'mavi', 'punda', 'mchafu', 'mwizi', 'kaka', 'shenzi', 'kapuku', 'mbwa', 'mavi ya mbwa'
+];
 
-import axios from 'axios'
-import fetch from 'node-fetch'
+const linkRegex = /(?:chat\.whatsapp\.com\/(?:invite\/)?([0-9A-Za-z]{20,24})|https:\/\/whatsapp\.com\/channel\/[0-9A-Za-z]+)/i;
+import axios from 'axios';
+import fetch from 'node-fetch';
 
 export async function before(m, { isAdmin, isBotAdmin }) {
-  if (m.isBaileys && m.fromMe) return !0
-  if (!m.isGroup) return !1
-  let chat = global.db.data.chats[m.chat]
-  let bot = global.db.data.settings[this.user.jid] || {}
-  const isAntiToxic = isToxic.exec(m.text)
-  let removeParticipant = m.key.participant
-  let messageId = m.key.id
+  if (m.isBaileys && m.fromMe) return true;
+  if (!m.isGroup) return false;
 
-  if (chat.antiToxic && isAntiToxic) {
-    var analysisResult = await Analyze(m.text)
-    var toxicityLevels = [
-      '❤️  ❤️  ❤️  ❤️  ❤️', // Very friendly and welcoming
-      '☠️  ❤️  ❤️  ❤️  ❤️', // Mildly toxic, is it fun?
-      '☠️  ☠️  ❤️  ❤️  ❤️', // A bit toxic, calm down!
-      '☠️  ☠️  ☠️  ❤️  ❤️', // Quite toxic, you can relax!
-      '☠️  ☠️  ☠️  ☠️  ❤️', // Highly toxic, be careful!
-      '☠️  ☠️  ☠️  ☠️  ☠️', // Extremely toxic!
-    ]
-    var toxicityVerdict = [
+  let chat = global.db.data.chats[m.chat];
+  let bot = global.db.data.settings[this.user.jid] || {};
+  const isAntiToxic = isToxic.exec(m.text);
+  let removeParticipant = m.key.participant;
+  let messageId = m.key.id;
+
+  // Check for offensive words in both English and Swahili
+  const containsOffensiveWords = offensiveWords.some(word => new RegExp(word, 'i').test(m.text));
+  
+  if (containsOffensiveWords || isAntiToxic) {
+    let toxicityLevel = 0;
+
+    // Analyze the toxicity if we need more info
+    if (isAntiToxic) {
+      var analysisResult = await Analyze(m.text);
+      var toxicityPercentage = Number(analysisResult.toxicity * 100).toFixed(2);
+
+      if (toxicityPercentage > 50) toxicityLevel = 5;
+      else if (toxicityPercentage > 35) toxicityLevel = 4;
+      else if (toxicityPercentage > 20) toxicityLevel = 3;
+      else if (toxicityPercentage > 10) toxicityLevel = 2;
+      else toxicityLevel = 1;
+    }
+
+    // Send a message to the group with the verdict
+    const toxicityLevels = [
+      '❤️  ❤️  ❤️  ❤️  ❤️', // Very friendly
+      '☠️  ❤️  ❤️  ❤️  ❤️', // Mildly toxic
+      '☠️  ☠️  ❤️  ❤️  ❤️', // A bit toxic
+      '☠️  ☠️  ☠️  ❤️  ❤️', // Quite toxic
+      '☠️  ☠️  ☠️  ☠️  ❤️', // Highly toxic
+      '☠️  ☠️  ☠️  ☠️  ☠️', // Extremely toxic
+    ];
+
+    const toxicityVerdict = [
       'You are so friendly. Very welcoming to know you!',
       'You are not too toxic, is it fun?',
       'You appear to be toxic. Calm down!',
       "Don't be so toxic. You can relax!",
-      "There's nothing more I could say, you're totally the most toxic person in the world!",
+      "You're totally the most toxic person in the world!",
       'Your toxic meter also goes above 100%.',
-    ]
+    ];
 
-    const toxicityPercentage = Number(analysisResult.toxicity * 100).toFixed(2)
-    let toxicityIndex
-    if (toxicityPercentage < 15) {
-      toxicityIndex = 0
-    } else if (toxicityPercentage > 14 && toxicityPercentage < 35) {
-      toxicityIndex = 1
-    } else if (toxicityPercentage > 34 && toxicityPercentage < 51) {
-      toxicityIndex = 2
-    } else if (toxicityPercentage > 50 && toxicityPercentage < 76) {
-      toxicityIndex = 3
-    } else if (toxicityPercentage > 75 && toxicityPercentage < 95) {
-      toxicityIndex = 4
-    } else {
-      toxicityIndex = 5
-    }
-
-    var caption = `*[ TOXIC STRENGTH ]*\n\n${toxicityLevels[toxicityIndex]}\n${toxicityVerdict[toxicityIndex]}\n`
+    const caption = `*[ TOXIC STRENGTH ]*\n\n${toxicityLevels[toxicityLevel]}\n${toxicityVerdict[toxicityLevel]}`;
 
     await this.reply(
       m.chat,
       `*Bad Words Detected!*\n ${caption} ${isBotAdmin ? '' : '\n\n_Bot is not admin_'}`,
       m
-    )
+    );
 
+    // Delete the message with the link or offensive word
     if (isBotAdmin) {
-      // Remove the participant from the group
-      global.db.data.users[m.sender].warn += 1
+      global.db.data.users[m.sender].warn += 1;
       return this.sendMessage(m.chat, {
         delete: { remoteJid: m.chat, fromMe: false, id: messageId, participant: removeParticipant },
-      })
+      });
     }
   }
-  return !0
+
+  return true;
 }
 
 async function Analyze(text) {
   try {
     const result = await axios.post(
-      'https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=AIzaSyDh6d2S3S4zOuZSgyySRcnj8uZMNJ6kdFQ',
+      'https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=YOUR_API_KEY',
       {
         comment: {
           text: text,
@@ -79,17 +90,17 @@ async function Analyze(text) {
         languages: ['en'],
         requestedAttributes: { SEVERE_TOXICITY: {}, INSULT: {} },
       }
-    )
+    );
+
     return {
       toxicity: result.data.attributeScores.SEVERE_TOXICITY.summaryScore.value,
       insult: result.data.attributeScores.INSULT.summaryScore.value,
       combined:
         (result.data.attributeScores.SEVERE_TOXICITY.summaryScore.value +
-          result.data.attributeScores.INSULT.summaryScore.value) /
-        2,
-    }
+          result.data.attributeScores.INSULT.summaryScore.value) / 2,
+    };
   } catch (error) {
-    console.error(error)
-    return { toxicity: NaN, insult: NaN, combined: NaN }
+    console.error(error);
+    return { toxicity: NaN, insult: NaN, combined: NaN };
   }
 }
