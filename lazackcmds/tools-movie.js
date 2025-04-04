@@ -1,7 +1,9 @@
 import fetch from 'node-fetch'
 
 let imdbHandler = async (m, { conn, text }) => {
-  if (!text) throw 'Please provide a movie title'
+  if (!text) {
+    return conn.reply(m.chat, '🎬 Please provide a movie title! Usage: *imdb <movie name>*', m)
+  }
 
   try {
     let res = await fetch(`https://api.popcat.xyz/imdb?q=${encodeURIComponent(text)}`)
@@ -16,37 +18,39 @@ let imdbHandler = async (m, { conn, text }) => {
 
     let ratings = json.ratings.map(rating => `• *${rating.source}:* ${rating.value}`).join('\n')
 
-    let movieInfo = `*Movie Information:*\n
-     • *Title:* ${json.title}\n
-     • *Year:* ${json.year}\n
-     • *Seasons:* ${json.totalseasons}\n
-     • *Rated:* ${json.rated}\n
-     • *Released:* ${json.released}\n
-     • *Runtime:* ${json.runtime}\n
-     • *Genres:* ${json.genres}\n
-     • *Director:* ${json.director}\n
-     • *Writer:* ${json.writer}\n
-     • *Actors:* ${json.actors}\n
-     • *Plot:* ${json.plot}\n
-     • *Languages:* ${json.languages}\n
-     • *Country:* ${json.country}\n
-     • *Awards:* ${json.awards}\n
-     • *Metascore:* ${json.metascore}\n
-     • *Rating:* ${json.rating}\n
-     • *Votes:* ${json.votes}\n
-     • *IMDB ID:* ${json.imdbid}\n
-     • *Type:* ${json.type}\n
-     • *DVD:* ${json.dvd}\n
-     • *Box Office:* ${json.boxoffice}\n
-     • *Production:* ${json.production}\n
-     • *Website:* ${json.website}\n\n
-     *Ratings:*\n${ratings}`
+    let movieInfo = `🎥 *Movie Information:*\n
+    • *Title:* ${json.title}
+    • *Year:* ${json.year}
+    • *Seasons:* ${json.totalseasons || 'N/A'}
+    • *Rated:* ${json.rated}
+    • *Released:* ${json.released}
+    • *Runtime:* ${json.runtime || 'N/A'}
+    • *Genres:* ${json.genres.join(', ') || 'N/A'}
+    • *Director:* ${json.director || 'N/A'}
+    • *Writer:* ${json.writer || 'N/A'}
+    • *Actors:* ${json.actors || 'N/A'}
+    • *Plot:* ${json.plot || 'N/A'}
+    • *Languages:* ${json.languages || 'N/A'}
+    • *Country:* ${json.country || 'N/A'}
+    • *Awards:* ${json.awards || 'N/A'}
+    • *Metascore:* ${json.metascore || 'N/A'}
+    • *Rating:* ${json.rating || 'N/A'}
+    • *Votes:* ${json.votes || 'N/A'}
+    • *IMDB ID:* ${json.imdbid}
+    • *Type:* ${json.type}
+    • *DVD:* ${json.dvd || 'N/A'}
+    • *Box Office:* ${json.boxoffice || 'N/A'}
+    • *Production:* ${json.production || 'N/A'}
+    • *Website:* ${json.website || 'N/A'}
 
-    // send the movie poster along with the movie information as caption
+    🎬 *Ratings:*
+    ${ratings || 'No ratings available'}`
+
+    // Send the movie poster along with the formatted information
     await conn.sendFile(m.chat, json.poster, 'poster.jpg', movieInfo, m)
   } catch (error) {
     console.error(error)
-    // Handle the error appropriately
+    m.reply('❌ Sorry, I couldn’t find the movie details. Please try again later!', m)
   }
 }
 
