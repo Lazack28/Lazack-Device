@@ -10,12 +10,22 @@ let handler = async (m, { conn }) => {
 
     let commandGroups = {};
 
+    // Ensure the lazackcmds directory exists
+    if (!fs.existsSync(lazackpath)) {
+      console.error('❌ lazackcmds directory does not exist.');
+      return m.reply('❌ Could not find command files.');
+    }
+
     try {
       const commandFiles = fs.readdirSync(lazackpath).filter(file => file.endsWith('.js'));
 
+      if (commandFiles.length === 0) {
+        console.log('❌ No command files found in lazackcmds.');
+      }
+
       for (const file of commandFiles) {
         const cmdPath = path.join(lazackpath, file);
-        let cmdModule = require(cmdPath); // Using require() instead of import() for compatibility
+        let cmdModule = require(cmdPath); // Using require() for compatibility
 
         // Check if handler has 'command' and 'tags' properties
         if (cmdModule.default && cmdModule.default.command) {
@@ -31,10 +41,13 @@ let handler = async (m, { conn }) => {
             if (!commandGroups[tag]) commandGroups[tag] = [];
             cmdNames.forEach(name => commandGroups[tag].push(`➤ *${name}*`)); // Listing commands properly
           }
+        } else {
+          console.warn(`⚠️ Command in ${file} doesn't have 'command' or 'tags' properties.`);
         }
       }
     } catch (err) {
-      console.error("❌ Error reading commands:", err);
+      console.error('❌ Error reading commands:', err);
+      return m.reply('❌ Failed to load commands.');
     }
 
     const sysInfo = {
@@ -75,7 +88,8 @@ let handler = async (m, { conn }) => {
     }, { quoted: m });
 
   } catch (error) {
-    console.error("❌ Error in allmenu handler:", error);
+    console.error('❌ Error in allmenu handler:', error);
+    m.reply('❌ An unexpected error occurred.');
   }
 };
 
