@@ -47,3 +47,5 @@ export async function before(m, { isAdmin, isBotAdmin, text }) {
 
   return !0;
 }
+
+export default handler;
