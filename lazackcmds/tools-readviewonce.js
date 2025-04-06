@@ -1,84 +1,55 @@
-import pkg from '@whiskeysockets/baileys';
-const { downloadMediaMessage } = pkg;
+import uploadtoimgur from "../lib/imgur.js";
+import fs from "fs";
+import path from "path";
 
-const OWNER_NUMBER = '255734980103'; // Replace with your actual owner number
-const PREFIX = '.'; // Bot's command prefix
+let handler = async (m) => {
+    let message = m.quoted ? m.quoted : m;
+    let mimeType = message.mimetype || "";
 
-let handler = async (m, { conn }) => {
-  console.log(`📩 Received: ${m.text}`); // Debugging
-
-  if (!m.text) return; // Ignore empty messages
-  if (!m.quoted) return m.reply('*Reply to a View Once message!*');
-
-  const botNumber = conn.user?.id.split(':')[0] + '@s.whatsapp.net';
-  const ownerNumber = OWNER_NUMBER + '@s.whatsapp.net';
-
-  // Extract command
-  const cmd = m.text.startsWith(PREFIX) ? m.text.slice(PREFIX.length).split(' ')[0].toLowerCase() : '';
-  if (!['vv', 'vv2', 'vv3'].includes(cmd)) return;
-
-  console.log(`✅ Command detected: ${cmd}`); // Debugging
-
-  // Ensure quoted message exists
-  if (!m.quoted || !m.quoted.message) return m.reply('*No quoted message detected!*');
-
-  // Extract the actual message content
-  let msg = m.quoted.message;
-  if (msg.viewOnceMessageV2) msg = msg.viewOnceMessageV2.message;
-  else if (msg.viewOnceMessage) msg = msg.viewOnceMessage.message;
-  else return m.reply('*This is not a View Once message!*');
-
-  // Restrict commands to Owner/Bot
-  const isOwner = m.sender === ownerNumber;
-  const isBot = m.sender === botNumber;
-  if (['vv2', 'vv3'].includes(cmd) && !isOwner && !isBot) {
-    return m.reply('*Only the owner or bot can use this command!*');
-  }
-
-  try {
-    const messageType = Object.keys(msg)[0];
-    let buffer;
-
-    if (messageType === 'audioMessage') {
-      buffer = await downloadMediaMessage(m.quoted, 'buffer', {}, { type: 'audio' });
-    } else {
-      buffer = await downloadMediaMessage(m.quoted, 'buffer');
+    if (!mimeType) {
+        return m.reply("❌ *Please reply to an image or video to upload!*");
     }
 
-    if (!buffer) return m.reply('*Failed to retrieve media!*');
+    try {
+        let mediaBuffer = await message.download();
+        let fileSizeMB = (mediaBuffer.length / (1024 * 1024)).toFixed(2);
 
-    let mimetype = msg.audioMessage?.mimetype || 'audio/ogg';
-    let caption = `> *© Powered By Lazack Bot*`;
+        if (mediaBuffer.length > 10 * 1024 * 1024) {
+            return m.reply("⚠️ *Media size exceeds 10MB. Please upload a smaller file!*");
+        }
 
-    // Determine recipient based on command
-    let recipient =
-      cmd === 'vv2' ? botNumber :
-      cmd === 'vv3' ? ownerNumber :
-      m.chat; // `.vv` sends to same chat
+        let tmpDir = path.join(process.cwd(), "tmp");
+        if (!fs.existsSync(tmpDir)) {
+            fs.mkdirSync(tmpDir, { recursive: true });
+        }
 
-    console.log(`📤 Sending media to: ${recipient}`); // Debugging
+        let fileExtension = mimeType.split("/")[1] || "unknown";
+        let mediaPath = path.join(tmpDir, `media_${Date.now()}.${fileExtension}`);
 
-    // Send media accordingly
-    if (messageType === 'imageMessage') {
-      await conn.sendMessage(recipient, { image: buffer, caption });
-    } else if (messageType === 'videoMessage') {
-      await conn.sendMessage(recipient, { video: buffer, caption, mimetype: 'video/mp4' });
-    } else if (messageType === 'audioMessage') {
-      await conn.sendMessage(recipient, { audio: buffer, mimetype, ptt: true });
-    } else {
-      return m.reply('*Unsupported media type!*');
+        fs.writeFileSync(mediaPath, mediaBuffer);
+
+        let isSupportedMedia = /image\/(png|jpe?g|gif)|video\/mp4/.test(mimeType);
+
+        if (isSupportedMedia) {
+            let uploadLink = await uploadtoimgur(mediaPath);
+
+            await m.reply(`✅ *VIEW ONCE MESSAGES!*\n📁 *File Size:* ${fileSizeMB} MB\n🔗 *MEDIA URL:* ${uploadLink}\n\n click the link to view and download the message`);
+
+        } else {
+            await m.reply(`⚠️ *sorry Unsupported file type!*\n📁 *Size:* ${fileSizeMB} MB`);
+        }
+
+        // Cleanup
+        fs.unlinkSync(mediaPath);
+
+    } catch (error) {
+        console.error("❌ Media Upload Error:", error);
+        return m.reply("⚠️ *An error occurred while uploading the media. Please try again!*");
     }
-
-    console.log('✅ Media sent successfully'); // Debugging
-  } catch (error) {
-    console.error(error);
-    await m.reply('*Failed to process View Once message!*');
-  }
 };
 
-handler.help = ['vv', 'vv2', 'vv3'];
-handler.tags = ['owner'];
-handler.command = /^vv|vv2|vv3$/i;
-handler.owner = true;
+handler.help = ["vv"];
+handler.tags = ["tools"];
+handler.command = ["vv", "view"];
 
 export default handler;
