@@ -1,33 +1,32 @@
-const isLinkTik = /tiktok\.com/i;
-const isLinkYt = /youtube\.com|youtu\.be/i;
-const isLinkTel = /t\.me|telegram\.me/i;
-const isLinkFb = /facebook\.com|fb\.me/i;
-const isLinkIg = /instagram\.com/i;
-const isLinkTw = /twitter\.com/i;
-const isLinkWaGroup = /chat\.whatsapp\.com/i;
-const isLinkWaChannel = /whatsapp\.com\/channel/i;
+import fetch from 'node-fetch'; // Optional if you're using Node.js older than v18
 
-// Number to exclude (in plain number format)
-const excludedNumber = '255734980103';
+const isLinkTik = /tiktok.com/i;
+const isLinkYt = /youtube.com|youtu.be/i;
+const isLinkTel = /telegram.com/i;
+const isLinkFb = /facebook.com|fb.me/i;
+const isLinkIg = /instagram.com/i;
+const isLinkTw = /twitter.com/i;
+const isLinkWa = /whatsapp.com/i;
 
 let handler = m => m;
 
-handler.before = async function (m, { conn, isBotAdmin }) {
+handler.before = async function (m, { conn, args, usedPrefix, command, isAdmin, isBotAdmin }) {
   if (m.isBaileys && m.fromMe) return !0;
   if (!m.isGroup) return !1;
 
-  const senderNumber = m.sender.split('@')[0];
-  if (senderNumber === excludedNumber) return !0; // Skip check for excluded number
-
+  let chat = global.db.data.chats[m.chat];
+  let bot = global.db.data.settings[this.user.jid] || {};
   let delet = m.key.participant;
   let bang = m.key.id;
-  let aa = `${senderNumber}@s.whatsapp.net`;
+  let toUser = `${m.sender.split("@")[0]}`;
+  let aa = toUser + '@s.whatsapp.net';
 
-  const checkAndDeleteLink = async (regex, linkName) => {
-    if (regex.test(m.text)) {
+  const checkAndDeleteLink = async (linkRegex, linkName) => {
+    const isLinkDetected = linkRegex.exec(m.text);
+    if (isLinkDetected) {
       if (isBotAdmin) {
         try {
-          await conn.reply(m.chat, `『🐯』A \`${linkName}\` link was detected.\nYou will be deleted: *@${senderNumber}*`, null, { mentions: [aa] });
+          await conn.reply(m.chat, `『🐯』A \`${linkName}\` link was detected.\nYou will be deleted: *@${toUser}*`, null, { mentions: [aa] });
           await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet } });
           await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove');
         } catch (error) {
@@ -46,8 +45,7 @@ handler.before = async function (m, { conn, isBotAdmin }) {
     await checkAndDeleteLink(isLinkFb, 'Facebook');
     await checkAndDeleteLink(isLinkIg, 'Instagram');
     await checkAndDeleteLink(isLinkTw, 'Twitter');
-    await checkAndDeleteLink(isLinkWaGroup, 'WhatsApp Group');
-    await checkAndDeleteLink(isLinkWaChannel, 'WhatsApp Channel');
+    await checkAndDeleteLink(isLinkWa, 'WhatsApp');
   } catch (error) {
     console.error('Error during link checking:', error);
   }
