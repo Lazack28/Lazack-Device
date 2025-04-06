@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'; // Optional if you're using Node.js older than v18
+/*import fetch from 'node-fetch'; // Optional if you're using Node.js older than v18
 
 const isLinkTik = /tiktok.com/i;
 const isLinkYt = /youtube.com|youtu.be/i;
@@ -51,4 +51,4 @@ handler.before = async function (m, { conn, args, usedPrefix, command, isAdmin, 
   return !0;
 };
 
-export default handler;
+export default handler;*/
