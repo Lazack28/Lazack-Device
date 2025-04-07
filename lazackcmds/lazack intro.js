@@ -33,7 +33,7 @@ let handler = async (m, { conn, args }) => {
                 {}
             );
 
-            await sleep(800); // Delay between edits
+            await sleep(2000); // Delay between edits
         }
     } catch (error) {
         console.error("Error in Lazack Organisation intro.js:", error);
