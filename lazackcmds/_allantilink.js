@@ -1,58 +1,109 @@
-import fetch from 'node-fetch'; // Optional if you're using Node.js older than v18
+import fetch from 'node-fetch'  
+const isLinkTik = /tiktok.com/i 
+const isLinkYt = /youtube.com|youtu.be/i 
+const isLinkTel = /telegram.com/i 
+const isLinkFb = /facebook.com|fb.me/i 
+const isLinkIg = /instagram.com/i 
+const isLinkTw = /twitter.com/i 
+  
+let handler = m => m
+handler.before = async function (m, { conn, args, usedPrefix, command, isAdmin, isBotAdmin }) {
+  if (m.isBaileys && m.fromMe)
+    return !0 // Ignore messages from the bot itself
+  if (!m.isGroup) return !1 // Only process messages in groups
 
-const isLinkTik = /tiktok.com/i;
-const isLinkYt = /youtube.com|youtu.be/i;
-const isLinkTel = /t\.me|telegram\.me|telegram\.com/i;
-const isLinkFb = /facebook.com|fb.me/i;
-const isLinkIg = /instagram.com/i;
-const isLinkTw = /twitter.com/i;
-const isLinkWa = /chat\.whatsapp\.com|whatsapp\.com\/channel/i; // Covers group & channel
-
-const excludedNumbers = ['255734980103']; // Numbers to exclude from deletion
-
-let handler = m => m;
-
-handler.before = async function (m, { conn, isBotAdmin }) {
-  if (m.isBaileys && m.fromMe) return !0;
-  if (!m.isGroup) return !1;
-
-  const senderNumber = m.sender.split("@")[0];
-
-  if (excludedNumbers.includes(senderNumber)) return !0; // Skip if user is excluded
-
-  const delet = m.key.participant;
-  const bang = m.key.id;
-  const aa = `${senderNumber}@s.whatsapp.net`;
-
-  const checkAndDeleteLink = async (linkRegex, linkName) => {
-    if (linkRegex.test(m.text)) {
-      if (isBotAdmin) {
-        try {
-          await conn.reply(m.chat, `『🐯』A \`${linkName}\` link was detected.\nYou will be deleted: *@${senderNumber}*`, null, { mentions: [aa] });
-          await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet } });
-          await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove');
-        } catch (error) {
-          console.error(`Error deleting ${linkName} user:`, error);
-        }
-      } else {
-        return m.reply(`『🐯』The bot is not admin, I can't delete people.`);
-      }
+  let chat = global.db.data.chats[m.chat]
+  let bot = global.db.data.settings[this.user.jid] || {}
+  let delet = m.key.participant
+  let bang = m.key.id
+  let toUser = `${m.sender.split("@")[0]}`
+  let aa = toUser + '@s.whatsapp.net'
+  
+  // Check for specific links
+  const isAntiLinkTik = isLinkTik.exec(m.text)
+  const isAntiLinkYt = isLinkYt.exec(m.text)
+  const isAntiLinkTel = isLinkTel.exec(m.text)
+  const isAntiLinkFb = isLinkFb.exec(m.text)
+  const isAntiLinkIg = isLinkIg.exec(m.text)
+  const isAntiLinkTw = isLinkTw.exec(m.text)
+ 
+  // Handle TikTok links
+  if (chat.antiTiktok && isAntiLinkTik) {  
+    if (isBotAdmin && bot.restrict) {
+      await conn.reply(m.chat, `《★》A \`TikTok\` link was detected.\nYou will be removed: *@${toUser}*`, null, { mentions: [aa] })
+      await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
+      await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+    } else if (!isBotAdmin) {
+      return m.reply(`《★》The bot is not an admin, I cannot remove people.`)
+    } else if (!bot.restrict) {
+      return m.reply(`《★》Restrictions are not active.`)
     }
-  };
-
-  try {
-    await checkAndDeleteLink(isLinkTik, 'TikTok');
-    await checkAndDeleteLink(isLinkYt, 'YouTube');
-    await checkAndDeleteLink(isLinkTel, 'Telegram');
-    await checkAndDeleteLink(isLinkFb, 'Facebook');
-    await checkAndDeleteLink(isLinkIg, 'Instagram');
-    await checkAndDeleteLink(isLinkTw, 'Twitter');
-    await checkAndDeleteLink(isLinkWa, 'WhatsApp');
-  } catch (error) {
-    console.error('Error during link checking:', error);
   }
-
-  return !0;
-};
-
-export default handler;
+  
+  // Handle YouTube links
+  if (chat.antiYoutube && isAntiLinkYt) {
+    if (isBotAdmin && bot.restrict) {
+      await conn.reply(m.chat, `《★》A \`YouTube\` link was detected.\nYou will be removed: *@${toUser}*`, null, { mentions: [aa] })
+      await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
+      await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+    } else if (!isBotAdmin) {
+      return m.reply(`《★》The bot is not an admin, I cannot remove people.`)
+    } else if (!bot.restrict) {
+      return m.reply(`《★》Restrictions are not active.`)
+    }
+  }  
+  
+  // Handle Telegram links
+  if (chat.antiTelegram && isAntiLinkTel) {
+    if (isBotAdmin && bot.restrict) {
+      await conn.reply(m.chat, `《★》A \`Telegram\` link was detected.\nYou will be removed: *@${toUser}*`, null, { mentions: [aa] })
+      await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
+      await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+    } else if (!isBotAdmin) {
+      return m.reply(`《★》The bot is not an admin, I cannot remove people.`)
+    } else if (!bot.restrict) {
+      return m.reply(`《★》Restrictions are not active.`)
+    }
+  }    
+  
+  // Handle Facebook links
+  if (chat.antiFacebook && isAntiLinkFb) {
+    if (isBotAdmin && bot.restrict) {
+      await conn.reply(m.chat, `《★》A \`Facebook\` link was detected.\nYou will be removed: *@${toUser}*`, null, { mentions: [aa] })
+      await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
+      await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+    } else if (!isBotAdmin) {
+      return m.reply(`《★》The bot is not an admin, I cannot remove people.`)
+    } else if (!bot.restrict) {
+      return m.reply(`《★》Restrictions are not active.`)
+    }
+  }  
+  
+  // Handle Instagram links
+  if (chat.antiInstagram && isAntiLinkIg) {
+    if (isBotAdmin && bot.restrict) {
+      await conn.reply(m.chat, `《★》A \`Instagram\` link was detected.\nYou will be removed: *@${toUser}*`, null, { mentions: [aa] })
+      await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
+      await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+    } else if (!isBotAdmin) {
+      return m.reply(`《★》The bot is not an admin, I cannot remove people.`)
+    } else if (!bot.restrict) {
+      return m.reply(`《★》Restrictions are not active.`)
+    }
+  }
+  
+  // Handle Twitter links
+  if (chat.antiTwitter && isAntiLinkTw) {
+    if (isBotAdmin && bot.restrict) {
+      await conn.reply(m.chat, `《★》A \`Twitter\` link was detected.\nYou will be removed: *@${toUser}*`, null, { mentions: [aa] })
+      await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
+      await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+    } else if (!isBotAdmin) {
+      return m.reply(`《★》The bot is not an admin, I cannot remove people.`)
+    } else if (!bot.restrict) {
+      return m.reply(`《★》Restrictions are not active.`)
+    }
+  }
+  return !0
+}
+export default handler
