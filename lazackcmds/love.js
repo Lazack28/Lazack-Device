@@ -13,27 +13,34 @@ let handler = async (m, { conn, args }) => {
         "🙂", "🤗", "😌", "😉", "🤗", "😊", "🎊", "🎉", "🎁", "❤"
     ];
 
-    let lastMessage; // Store last message key
+    // Send initial message
+    let sent = await conn.sendMessage(m.chat, { text: `${messageToSend} 💖` }, { quoted: m });
 
     try {
         for (let i = 0; i < heartEmojis.length; i++) {
-            // If there's a previous message, delete it
-            if (lastMessage) {
-                await conn.sendMessage(m.chat, { delete: lastMessage });
-            }
+            let newText = `${messageToSend} ${heartEmojis[i]}`;
 
-            // Send new heart emoji message
-            let sentMessage = await conn.sendMessage(m.chat, { text: `${messageToSend} ${heartEmojis[i]}` }, { quoted: m });
-            lastMessage = sentMessage?.key; // Store the key of the last sent message
+            // Edit the message using protocolMessage
+            await conn.relayMessage(
+                m.chat,
+                {
+                    protocolMessage: {
+                        key: sent.key,
+                        type: 14,
+                        editedMessage: { conversation: newText },
+                    },
+                },
+                {}
+            );
 
-            await sleep(800); // Wait for 800ms before sending the next emoji
+            await sleep(800); // Delay between edits
         }
     } catch (error) {
         console.error("Error in love.js:", error);
     }
 };
 
-// Sleep function to create delays
+// Sleep helper
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 handler.help = ['love'];
