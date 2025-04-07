@@ -18,7 +18,7 @@ let handler = async (m, { conn, args }) => {
 
     try {
         for (let i = 0; i < heartEmojis.length; i++) {
-            let newText = `${messageToSend} ${heartEmojis[i]}`;
+            let newText = `${heartEmojis[i]}`;
 
             // Edit the message using protocolMessage
             await conn.relayMessage(
