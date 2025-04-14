@@ -89,7 +89,7 @@ global.fgpyp = 'https://youtube.com/@lazaromtaju'
 global.fglog = ''
 global.thumb = fs.readFileSync(path.join(__dirname, '..', 'Botify', 'lazack.jpg'));
 
-global.wait = '*⌛ _Charging..._*\n*▰▰▰▱▱▱▱▱*'
+global.wait = '*⏳ Please hold on, your request is being processed...*\n*▰▰▰▰▰▱▱▱*'
 global.rwait = '⌛'
 global.dmoji = '🤭'
 global.done = '✅'
