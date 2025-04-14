@@ -65,6 +65,6 @@ return m.reply("Failed to download the song, please try again later");
 
 handler.help = ["play4 <song>"];
 handler.tags = ["music"];
-handler.command = /^(p|s)$/i;
+handler.command = /^(play|song)$/i;
 
 export default handler;

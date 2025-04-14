@@ -101,6 +101,10 @@ ${readMore}
 ╭───『 *Downloader* 』───╮
 │
 ├─ ✦ .ytmp3
+├─ ✦ .song
+├─ ✦ .yts
+├─ ✦ .play
+├─ ✦ .splay
 ├─ ✦ .ytmp4
 ├─ ✦ .tiktok
 ├─ ✦ .instagram
