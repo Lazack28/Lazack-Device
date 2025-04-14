@@ -1,8 +1,9 @@
-import { promises, readFileSync } from 'fs'
 import { join } from 'path'
-import { xpRange } from '../lib/levelling.js'
-import moment from 'moment-timezone'
-import os from 'os'
+import { existsSync } from 'fs'
+
+const target = join(__dirname, '../lib/levelling.js')
+console.log('Path exists:', existsSync(target))
+console.log('Resolved path:', target)
 
 let groupmenu = `
 ╭───✦ 『 *Group Menu* 』 ✦───╮
