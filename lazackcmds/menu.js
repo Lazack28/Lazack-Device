@@ -569,7 +569,7 @@ ${readMore}
       mentionedJid: [m.sender],
       isForwarded: true,
       forwardedNewsletterMessageInfo: {
-        newsletterJid: '120@newsletter',
+        newsletterJid: '120363321705798318@newsletter',
         newsletterName: 'Free bot',
         serverMessageId: -1,
       },
