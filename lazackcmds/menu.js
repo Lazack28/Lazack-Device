@@ -1,5 +1,10 @@
 import { join } from 'path'
 import { existsSync } from 'fs'
+import { promises, readFileSync } from 'fs'
+import { join } from 'path'
+import { xpRange } from '../lib/levelling.js'
+import moment from 'moment-timezone'
+import os from 'os'
 
 const target = join(__dirname, '../lib/levelling.js')
 console.log('Path exists:', existsSync(target))
