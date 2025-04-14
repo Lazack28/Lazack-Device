@@ -8,28 +8,30 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
     let senderName = conn.getName(m.sender);
 
     if (user.registered) {
-        throw `✅ *You are already registered!*  
+        throw `🌟 *You are already registered!* 🌟  
         
-🔄 Do you want to re-register?  
+🔄 *Want to re-register?*  
 🗑️ Use *${usedPrefix}unreg <Serial Number>* to remove your record.`;
     }
 
     if (!Reg.test(text)) {
-        throw `⚠️ *Incorrect format!*  
+        throw `⚠️ *Invalid Format!* ⚠️  
         
-📝 Use: *${usedPrefix + command} name.age*  
-📌 Example: *${usedPrefix + command}* ${senderName}.16`;
+📝 *Correct Usage:*  
+*${usedPrefix + command} name.age*  
+📌 *Example:*  
+*${usedPrefix + command}* ${senderName}.16`;
     }
 
     let [_, name, , age] = text.match(Reg);
     
-    if (!name) throw '⚠️ *Name cannot be empty!*';
-    if (!age) throw '⚠️ *Age cannot be empty!*';
-    if (name.length >= 30) throw '⚠️ *Name is too long! (Max: 30 characters)*';
+    if (!name) throw '❌ *Name cannot be empty!*';
+    if (!age) throw '❌ *Age cannot be empty!*';
+    if (name.length >= 30) throw '❌ *Name is too long! (Max: 30 characters)*';
     
     age = parseInt(age);
     
-    if (isNaN(age)) throw '⚠️ *Invalid age format!*';
+    if (isNaN(age)) throw '❌ *Invalid age format!*';
     if (age > 100) throw '👴🏻 *Whoa, grandpa wants to play with the bot!*';
     if (age < 5) throw '🚼 *Are you a baby trying to register?* 😂';
 
@@ -44,14 +46,18 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
 
     // Success message
     m.reply(
-        `🎉 *Registration Successful!*  
+        `🎉 *Registration Complete!* 🎉  
         
-📌 *Name:* ${name}  
-🎂 *Age:* ${age} years  
-🔢 *Serial Number:*  
-${serialNumber}  
-
-✅ *Use ${usedPrefix}help to see available commands!*`
+┏━━━━━━━━━━━━━━━━━━━┓
+┃ *✨ User Details ✨*  
+┃  
+┃ 📌 *Name:* ${name}  
+┃ 🎂 *Age:* ${age} years  
+┃ 🔢 *Serial Number:*  
+┃ ${serialNumber}  
+┃  
+┃ ✅ *Use ${usedPrefix}help to explore commands!*  
+┗━━━━━━━━━━━━━━━━━━━┛`
     );
 }
 

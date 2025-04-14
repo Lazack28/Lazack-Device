@@ -706,56 +706,75 @@ export async function groupsUpdate(groupsUpdate) {
 
     if (groupUpdate.desc) {
       text = (
-        chats.sDesc ||
-        this.sDesc ||
-        conn.sDesc ||
-        `*${emoji.desc} Description has been changed to*\n@desc`
+      chats.sDesc ||
+      this.sDesc ||
+      conn.sDesc ||
+      `╭━━━❰ ${emoji.desc} *Group Description Updated* ❱━━━╮\n` +
+      `┃ 📜 *New Description:*\n` +
+      `┃ @desc\n` +
+      `╰━━━━━━━━━━━━━━━━━━━━━━╯`
       ).replace('@desc', groupUpdate.desc)
     } else if (groupUpdate.subject) {
       text = (
-        chats.sSubject ||
-        this.sSubject ||
-        conn.sSubject ||
-        `*${emoji.subject} Subject has been changed to*\n@subject`
+      chats.sSubject ||
+      this.sSubject ||
+      conn.sSubject ||
+      `╭━━━❰ ${emoji.subject} *Group Subject Updated* ❱━━━╮\n` +
+      `┃ 📝 *New Subject:*\n` +
+      `┃ @subject\n` +
+      `╰━━━━━━━━━━━━━━━━━━━━━━╯`
       ).replace('@subject', groupUpdate.subject)
     } else if (groupUpdate.icon) {
       text = (
-        chats.sIcon ||
-        this.sIcon ||
-        conn.sIcon ||
-        `*${emoji.icon} Icon has been changed*`
-      ).replace('@icon', groupUpdate.icon)
+      chats.sIcon ||
+      this.sIcon ||
+      conn.sIcon ||
+      `╭━━━❰ ${emoji.icon} *Group Icon Updated* ❱━━━╮\n` +
+      `┃ 🖼️ *The group icon has been changed!*\n` +
+      `╰━━━━━━━━━━━━━━━━━━━━━━╯`
+      )
     } else if (groupUpdate.revoke) {
       text = (
-        chats.sRevoke ||
-        this.sRevoke ||
-        conn.sRevoke ||
-        `*${emoji.revoke} Group link has been changed to*\n@revoke`
+      chats.sRevoke ||
+      this.sRevoke ||
+      conn.sRevoke ||
+      `╭━━━❰ ${emoji.revoke} *Group Link Updated* ❱━━━╮\n` +
+      `┃ 🔗 *New Link:*\n` +
+      `┃ @revoke\n` +
+      `╰━━━━━━━━━━━━━━━━━━━━━━╯`
       ).replace('@revoke', groupUpdate.revoke)
     } else if (groupUpdate.announce === true) {
       text =
-        chats.sAnnounceOn ||
-        this.sAnnounceOn ||
-        conn.sAnnounceOn ||
-        `*${emoji.announceOn} Group is now closed!*`
+      chats.sAnnounceOn ||
+      this.sAnnounceOn ||
+      conn.sAnnounceOn ||
+      `╭━━━❰ ${emoji.announceOn} *Group Closed* ❱━━━╮\n` +
+      `┃ 🔒 *The group is now closed for participants!*\n` +
+      `╰━━━━━━━━━━━━━━━━━━━━━━╯`
     } else if (groupUpdate.announce === false) {
       text =
-        chats.sAnnounceOff ||
-        this.sAnnounceOff ||
-        conn.sAnnounceOff ||
-        `*${emoji.announceOff} Group is now open!*`
+      chats.sAnnounceOff ||
+      this.sAnnounceOff ||
+      conn.sAnnounceOff ||
+      `╭━━━❰ ${emoji.announceOff} *Group Opened* ❱━━━╮\n` +
+      `┃ 🔓 *The group is now open for participants!*\n` +
+      `╰━━━━━━━━━━━━━━━━━━━━━━╯`
     } else if (groupUpdate.restrict === true) {
       text =
-        chats.sRestrictOn ||
-        this.sRestrictOn ||
-        conn.sRestrictOn ||
-        `*${emoji.restrictOn} Group is now restricted to participants only!*`
+      chats.sRestrictOn ||
+      this.sRestrictOn ||
+      conn.sRestrictOn ||
+      `╭━━━❰ ${emoji.restrictOn} *Group Restricted* ❱━━━╮\n` +
+      `┃ 🚫 *Only admins can send messages now!*\n` +
+      `╰━━━━━━━━━━━━━━━━━━━━━━╯`
     } else if (groupUpdate.restrict === false) {
       text =
-        chats.sRestrictOff ||
-        this.sRestrictOff ||
-        conn.sRestrictOff ||
-        `*${emoji.restrictOff} Group is now restricted to admins only!*`
+      chats.sRestrictOff ||
+      this.sRestrictOff ||
+      conn.sRestrictOff ||
+      `╭━━━❰ ${emoji.restrictOff} *Group Unrestricted* ❱━━━╮\n` +
+      `┃ ✅ *All participants can send messages now!*\n` +
+      `╰━━━━━━━━━━━━━━━━━━━━━━╯`
     }
 
     if (!text) continue
@@ -859,7 +878,7 @@ export async function presenceUpdate(presenceUpdate) {
 dfail
  */
 global.dfail = (type, m, conn) => {
-  const userTag = `👋 Hai *@${m.sender.split('@')[0]}*, `
+  const userTag = `🌟 *Hey *@${m.sender.split('@')[0]}*,*\n\n`
   const emoji = {
     general: '⚙️',
     owner: '👑',
@@ -876,26 +895,38 @@ global.dfail = (type, m, conn) => {
   }
 
   const msg = {
-    owner: `*${emoji.owner} Owner's Query*\n
-    ${userTag} This command can only be used by the *Bot Owner*!`,
-    moderator: `*${emoji.moderator} Moderator's Query*\n
-    ${userTag} This command can only be used by *Moderators*!`,
-    premium: `*${emoji.premium} Premium Query*\n
-    ${userTag} This command is only for *Premium Members*!`,
-    group: `*${emoji.group} Group Query*\n
-    ${userTag} This command can only be used in *Group Chats*!`,
-    private: `*${emoji.private} Private Query*\n
-    ${userTag} This command can only be used in *Private Chats*!`,
-    admin: `*${emoji.admin} Admin's Query*\n
-    ${userTag} This command is only for *Group Admins*!`,
-    botAdmin: `*${emoji.botAdmin} Bot Admin's Query*\n
-    ${userTag} Make the bot an *Admin* to use this command!`,
-    unreg: `*${emoji.unreg} Registration Query*\n
-    ${userTag} Please register to use this feature by typing:\n\n*#register name.age*\n\nExample: *#register ${m.name}.18*!`,
-    nsfw: `*${emoji.nsfw} NSFW Query*\n
-    ${userTag} NSFW is not active. Please contact the Group admin to enable this feature!`,
-    restrict: `*${emoji.restrict} Inactive Feature Query*\n
-    ${userTag} This feature is *disabled*!`,
+    owner: `╭━━━❰ ${emoji.owner} *Owner's Only* ❱━━━╮\n` +
+           `┃ ${userTag}Sorry, this command is exclusive to the *Bot Owner*! 🚫\n` +
+           `╰━━━━━━━━━━━━━━━━━━━━━━╯`,
+    moderator: `╭━━━❰ ${emoji.moderator} *Moderator's Only* ❱━━━╮\n` +
+               `┃ ${userTag}Oops! This command is reserved for *Moderators*! 🛡️\n` +
+               `╰━━━━━━━━━━━━━━━━━━━━━━╯`,
+    premium: `╭━━━❰ ${emoji.premium} *Premium Only* ❱━━━╮\n` +
+             `┃ ${userTag}This feature is for *Premium Members* only! 💎\n` +
+             `╰━━━━━━━━━━━━━━━━━━━━━━╯`,
+    group: `╭━━━❰ ${emoji.group} *Group Only* ❱━━━╮\n` +
+           `┃ ${userTag}This command works only in *Group Chats*! 👥\n` +
+           `╰━━━━━━━━━━━━━━━━━━━━━━╯`,
+    private: `╭━━━❰ ${emoji.private} *Private Only* ❱━━━╮\n` +
+             `┃ ${userTag}This command is available only in *Private Chats*! 📱\n` +
+             `╰━━━━━━━━━━━━━━━━━━━━━━╯`,
+    admin: `╭━━━❰ ${emoji.admin} *Admin Only* ❱━━━╮\n` +
+           `┃ ${userTag}You need to be a *Group Admin* to use this! 👤\n` +
+           `╰━━━━━━━━━━━━━━━━━━━━━━╯`,
+    botAdmin: `╭━━━❰ ${emoji.botAdmin} *Bot Admin Required* ❱━━━╮\n` +
+              `┃ ${userTag}Please make the bot an *Admin* to proceed! 🤖\n` +
+              `╰━━━━━━━━━━━━━━━━━━━━━━╯`,
+    unreg: `╭━━━❰ ${emoji.unreg} *Registration Required* ❱━━━╮\n` +
+           `┃ ${userTag}You need to register first! Use:\n` +
+           `┃ *#register name.age*\n` +
+           `┃ Example: *#register ${m.name}.18*\n` +
+           `╰━━━━━━━━━━━━━━━━━━━━━━╯`,
+    nsfw: `╭━━━❰ ${emoji.nsfw} *NSFW Disabled* ❱━━━╮\n` +
+          `┃ ${userTag}NSFW is not enabled. Ask the Group Admin to activate it! 🔞\n` +
+          `╰━━━━━━━━━━━━━━━━━━━━━━╯`,
+    restrict: `╭━━━❰ ${emoji.restrict} *Feature Disabled* ❱━━━╮\n` +
+              `┃ ${userTag}Sorry, this feature is currently *disabled*! ⛔\n` +
+              `╰━━━━━━━━━━━━━━━━━━━━━━╯`,
   }[type]
   if (msg) return m.reply(msg)
 }
