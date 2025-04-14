@@ -141,10 +141,35 @@ ${readMore}
 
        // await conn.sendMessage(m.chat, { video: { url: [pp, pp2, pp3, pp4, pp5, pp6, pp7, pp8, pp9, pp10, pp11, pp12, pp13, pp14, pp15].getRandom() }, gifPlayback: true, caption: text.trim(), mentions: [m.sender] }, { quoted: estilo })
     
-
-
-  conn.sendFile(m.chat, pp, 'perfil.jpg', str, m, null, rpwp)
-    m.react(done)
+       await conn.sendMessage(
+        m.chat,
+        {
+          image: { url: pp }, // `pp` is the image URL or buffer
+          caption: str,       // `str` is your caption
+          contextInfo: {
+            mentionedJid: [m.sender], // Mentioning the sender
+            isForwarded: true,
+            forwardingScore: 999,
+            forwardedNewsletterMessageInfo: {
+              newsletterJid: 'YOUR_CHANNEL_JID@newsletter', // Replace with actual channel JID
+              newsletterName: 'Your Channel Name', // Replace with actual channel name
+              serverMessageId: -1,
+            },
+            externalAdReply: {
+              title: 'LAZACK ORG',
+              body: 'ᴘʀᴏғɪʟᴇ',
+              thumbnailUrl: 'https://lazackorganisation.my.id/mtaju.jpg',
+              sourceUrl: 'https://wa.me/255734980103',
+              mediaType: 1,
+              renderLargerThumbnail: false,
+            },
+          },
+        },
+        { quoted: m }
+      );
+      
+      m.react(done);
+      
 
 }
 handler.help = ['main']
