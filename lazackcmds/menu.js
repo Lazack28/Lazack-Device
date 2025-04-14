@@ -45,7 +45,7 @@ let str = `
 ║ 📞 *Contact*: +255734980103
 ║ 💻 *Platform*: *𝙇𝙄𝙉𝙐𝙓*
 ║ 🔒 *Mode*: *ℙ𝕌𝔹𝕃𝕀ℂ*
-║ ✨ *Prefix*: [ . ]
+║ ✨ *Prefix*: [ ${usedPrefix} ]
 ╚══════════════════════╝
 
 ${readMore}
@@ -60,85 +60,85 @@ ${greeting}
 ${readMore}
 ╭───『 *Main Menu* 』───╮
 │
-├─ ✦ .menu
-├─ ✦ .help
-├─ ✦ .info
-├─ ✦ .owner
-├─ ✦ .runtime
-├─ ✦ .ping
+├─ ✦ ${usedPrefix}menu
+├─ ✦ ${usedPrefix}help
+├─ ✦ ${usedPrefix}info
+├─ ✦ ${usedPrefix}owner
+├─ ✦ ${usedPrefix}runtime
+├─ ✦ ${usedPrefix}ping
 │
 ╰──────────────────────╯
 
 ${readMore}
 ╭───『 *Group Commands* 』───╮
 │
-├─ ✦ .add
-├─ ✦ .kick
-├─ ✦ .promote
-├─ ✦ .demote
-├─ ✦ .tagall
-├─ ✦ .setname
-├─ ✦ .setdesc
-├─ ✦ .link
-├─ ✦ .group *open/close*
+├─ ✦ ${usedPrefix}add
+├─ ✦ ${usedPrefix}kick
+├─ ✦ ${usedPrefix}promote
+├─ ✦ ${usedPrefix}demote
+├─ ✦ ${usedPrefix}tagall
+├─ ✦ ${usedPrefix}setname
+├─ ✦ ${usedPrefix}setdesc
+├─ ✦ ${usedPrefix}link
+├─ ✦ ${usedPrefix}group *open/close*
 │
 ╰───────────────────────╯
 
 ${readMore}
 ╭───『 *Fun Commands* 』───╮
 │
-├─ ✦ .meme
-├─ ✦ .quote
-├─ ✦ .joke
-├─ ✦ .truth
-├─ ✦ .dare
-├─ ✦ .flirt
-├─ ✦ .ship
+├─ ✦ ${usedPrefix}meme
+├─ ✦ ${usedPrefix}quote
+├─ ✦ ${usedPrefix}joke
+├─ ✦ ${usedPrefix}truth
+├─ ✦ ${usedPrefix}dare
+├─ ✦ ${usedPrefix}flirt
+├─ ✦ ${usedPrefix}ship
 │
 ╰──────────────────────╯
 
 ${readMore}
 ╭───『 *Downloader* 』───╮
 │
-├─ ✦ .ytmp3
-├─ ✦ .song
-├─ ✦ .yts
-├─ ✦ .play
-├─ ✦ .splay
-├─ ✦ .ytmp4
-├─ ✦ .tiktok
-├─ ✦ .instagram
-├─ ✦ .facebook
-├─ ✦ .mediafire
+├─ ✦ ${usedPrefix}ytmp3
+├─ ✦ ${usedPrefix}song
+├─ ✦ ${usedPrefix}yts
+├─ ✦ ${usedPrefix}play
+├─ ✦ ${usedPrefix}splay
+├─ ✦ ${usedPrefix}ytmp4
+├─ ✦ ${usedPrefix}tiktok
+├─ ✦ ${usedPrefix}instagram
+├─ ✦ ${usedPrefix}facebook
+├─ ✦ ${usedPrefix}mediafire
 │
 ╰──────────────────────╯
 
 ${readMore}
 ╭───『 *Tools* 』───╮
 │
-├─ ✦ .qr
-├─ ✦ .weather
-├─ ✦ .translate
-├─ ✦ .shorten
-├─ ✦ .define
-├─ ✦ .google
+├─ ✦ ${usedPrefix}qr
+├─ ✦ ${usedPrefix}weather
+├─ ✦ ${usedPrefix}translate
+├─ ✦ ${usedPrefix}shorten
+├─ ✦ ${usedPrefix}define
+├─ ✦ ${usedPrefix}google
 │
 ╰───────────────────╯
 
 ${readMore}
 ╭───『 *AI Features* 』───╮
 │
-├─ ✦ .chatgpt
-├─ ✦ .dalle
-├─ ✦ .bing
-├─ ✦ .bard
-├─ ✦ .ai
+├─ ✦ ${usedPrefix}chatgpt
+├─ ✦ ${usedPrefix}dalle
+├─ ✦ ${usedPrefix}bing
+├─ ✦ ${usedPrefix}bard
+├─ ✦ ${usedPrefix}ai
 │
 ╰────────────────────╯
 
 🌐 *Visit*: https://home.lazackorganisation.my.id
 
-💡 *Tip*: Use the prefix and one of the commands above. For feedback, use ${usedPrefix}report.
+💡 *Tip*: Use the prefix *${usedPrefix}* and one of the commands above. For feedback, use ${usedPrefix}report.
 `
 
     
