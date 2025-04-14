@@ -38,6 +38,14 @@ cd ${repoData.name}
 npm install
 node index.js
 \`\`\`
+📘 *Documentation:*  
+For detailed usage and customization instructions, check out the [Wiki](https://github.com/Lazack28/Lazack-Device/wiki).
+
+🎉 *Contribute:*  
+We welcome contributions! Feel free to fork the repository, submit issues, or create pull requests to help improve Lazack-Device.
+
+📞 *Support:*  
+Need help? Join our [Support Group](https://chat.whatsapp.com/255734980103) or contact us directly.
 
 📢 Join our community and contribute to the project!  
       `.trim();
