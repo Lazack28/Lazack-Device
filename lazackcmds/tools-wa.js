@@ -1,24 +1,30 @@
 let handler = async (m, { conn, usedPrefix, text, command }) => {
-  let waLin = ''
+  let waLin = '';
+  
   if (text) {
-    waLin = text.replace(/[^0-9]/g, '')
+    waLin = text.replace(/[^0-9]/g, '');
   } else if (m.quoted) {
-    waLin = m.quoted.sender.replace(/[^0-9]/g, '')
+    waLin = m.quoted.sender.replace(/[^0-9]/g, '');
   } else if (m.mentionedJid && m.mentionedJid[0]) {
-    waLin = m.mentionedJid[0].replace(/[^0-9]/g, '')
+    waLin = m.mentionedJid[0].replace(/[^0-9]/g, '');
   } else {
-    throw `Please provide a number, quote a user, or mention a user`
+    throw `❌ Please provide a valid phone number, quote a user, or mention a user.\n\nExample usage:\n- ${usedPrefix}${command} 1234567890\n- Reply to a message with ${usedPrefix}${command}\n- Mention a user with ${usedPrefix}${command}`;
   }
-  const waLink = `https://wa.me/${waLin}`
-  const message = `*WhatsApp Link:*\n${waLink}`
 
-  conn.sendMessage(m.chat, { text: message, quoted: m, contextInfo: { mentionedJid: [m.sender] } })
+  if (!waLin || waLin.length < 10 || waLin.length > 15) {
+    throw `❌ Invalid phone number detected. Please ensure the number is between 10 and 15 digits.`;
+  }
 
-  m.react('✅')
-}
+  const waLink = `https://wa.me/${waLin}`;
+  const message = `✅ *WhatsApp Link Generated:*\n${waLink}\n\nClick the link to open the chat.`;
 
-handler.help = ['wa']
-handler.tags = ['tools']
-handler.command = ['wa']
+  await conn.sendMessage(m.chat, { text: message, quoted: m, contextInfo: { mentionedJid: [m.sender] } });
 
-export default handler
+  m.react('✅');
+};
+
+handler.help = ['wa'];
+handler.tags = ['tools'];
+handler.command = ['wa'];
+
+export default handler;
