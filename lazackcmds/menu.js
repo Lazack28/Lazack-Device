@@ -37,16 +37,16 @@ let quote = quotes[Math.floor(Math.random() * quotes.length)];
 
 let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
 let str = `
-╔═════════════════════════╗
+╔══════════════════════╗
 ║ 🌟 *𝐋𝐚𝐳𝐚𝐜𝐤-𝐌-𝐃𝐞𝐯𝐢𝐜𝐞* 🌟
-║ ──────────────────────────
+║ ─────────────────────
 ║ 📌 *Version*: 1.0.1
 ║ 👨‍💻 *Owner*: 𝐋𝐚𝐳𝐚𝐜𝐤
 ║ 📞 *Contact*: +255734980103
 ║ 💻 *Platform*: *𝙇𝙄𝙉𝙐𝙓*
 ║ 🔒 *Mode*: *ℙ𝕌𝔹𝕃𝕀ℂ*
 ║ ✨ *Prefix*: [ . ]
-╚═════════════════════════╝
+╚══════════════════════╝
 
 ${readMore}
 👋 *Hello, ${username}!*
@@ -151,17 +151,9 @@ ${readMore}
             isForwarded: true,
             forwardingScore: 999,
             forwardedNewsletterMessageInfo: {
-              newsletterJid: 'YOUR_CHANNEL_JID@newsletter', // Replace with actual channel JID
-              newsletterName: 'Your Channel Name', // Replace with actual channel name
+              newsletterJid: '120363321705798318@newsletter', // Replace with actual channel JID
+              newsletterName: 'FREE BOT', // Replace with actual channel name
               serverMessageId: -1,
-            },
-            externalAdReply: {
-              title: 'LAZACK ORG',
-              body: 'ᴘʀᴏғɪʟᴇ',
-              thumbnailUrl: 'https://lazackorganisation.my.id/mtaju.jpg',
-              sourceUrl: 'https://wa.me/255734980103',
-              mediaType: 1,
-              renderLargerThumbnail: false,
             },
           },
         },
