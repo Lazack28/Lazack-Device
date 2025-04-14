@@ -14,15 +14,17 @@
 **Genenerate pairing code**
 
 
+<a href="https://lazack-cred.onrender.com/pair" target="_blank"><img alt='PAIRING' src='https://img.shields.io/badge/GET CREDS.JSON-magenta?style=for-the-badge&logo=opencv&logoColor=white'/></a>
 
-<a href="https://lazackorganisation.my.id" target="_blank"><img alt='PAIRING' src='https://img.shields.io/badge/PAIRING CODE-magenta?style=for-the-badge&logo=opencv&logoColor=white'/></a>
+
+<a href="https://lazackorganisation.my.id" target="_blank"><img alt='PAIRING' src='https://img.shields.io/badge/GET SESSION_ID-magenta?style=for-the-badge&logo=opencv&logoColor=white'/></a>
 
 
 
 **Get in touch with the creator**
 
 
-<a href="https://lazackorganisation.us.kg"><img alt='OWNER' src='https://img.shields.io/badge/GET IN TOUCH-magenta?style=for-the-badge&logo=opencv&logoColor=white'/></a>
+<a href="https://lazack.biz.id"><img alt='OWNER' src='https://img.shields.io/badge/GET IN TOUCH-magenta?style=for-the-badge&logo=opencv&logoColor=white'/></a>
 
 
 -------------------------
