@@ -42,7 +42,7 @@ let handler = async (m) => {
                 const imageBuffer = Buffer.from(imageRes.data, "binary");
 
                 await m.conn.sendMessage(m.chat, {
-                    image: imageBuffer,
+                    image: { url: uploadLink },
                     caption: "*📎 Uploaded Image Preview*"
                 }, { quoted: m });
             } else if (mimeType === "video/mp4") {
@@ -50,7 +50,7 @@ let handler = async (m) => {
                 const videoBuffer = Buffer.from(videoRes.data, "binary");
 
                 await m.conn.sendMessage(m.chat, {
-                    video: videoBuffer,
+                    video: { url: uploadLink },
                     caption: "*🎞️ Uploaded Video Preview*"
                 }, { quoted: m });
             }
