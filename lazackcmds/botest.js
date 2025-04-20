@@ -20,7 +20,7 @@ let handler = async (m, { conn }) => {
 };
 
 // Custom prefix and command configuration
-handler.customPrefix = /^(bot|Silva)$/i;
+handler.customPrefix = /^(bot)$/i;
 handler.command = new RegExp();
 
 // Export the handler
