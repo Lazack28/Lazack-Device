@@ -1,21 +1,21 @@
 {
-  "name": "Lazack Device",
-  "description": " Whatsapp botz made by team lazack.",
+  "name": "shungu_device",
+  "description": " Whatsapp botz made by team shungutz.",
   "keywords": [
     "whatsapp bot"
   ],
-  "repository": "https://github.com/Lazack28/Lazack-Device",
+  "repository": "https://github.com/Cuctus-13/shungutz-Device",
   "stack": "container",
   "env": {
     "OWNERS": {
       "description": "owner numbers",
       "required": true,
-      "value": "255734980103"
+      "value": "255758687864"
     },
     "BOTNAME": {
       "description": "Give your BOT a name",
       "required": true,
-      "value": "𝐋𝐀𝐙𝐀𝐂𝐊-𝐃𝐄𝐕𝐈𝐂𝐄"
+      "value": "SHUNGU_DEVICE"
     },
     "DATABASE_URL": {
       "description": "your mongodb database url",
