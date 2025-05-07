@@ -24,9 +24,8 @@ let handler = async (m) => {
             fs.mkdirSync(tmpDir, { recursive: true });
         }
 
-        let fileExtension = mimeType.split("/")[1] || "unknown";
+        let fileExtension = mimeType.split("/")[1] || "bin";
         let mediaPath = path.join(tmpDir, `media_${Date.now()}.${fileExtension}`);
-
         fs.writeFileSync(mediaPath, mediaBuffer);
 
         let isSupportedMedia = /image\/(png|jpe?g|gif)|video\/mp4/.test(mimeType);
@@ -36,21 +35,20 @@ let handler = async (m) => {
 
             await m.reply(`✅ *VIEW ONCE MESSAGE UPLOADED!*\n📁 *File Size:* ${fileSizeMB} MB\n🔗 *MEDIA URL:* ${uploadLink}\n\n🖼️ Sending preview...`);
 
-            // 👉 Fetch the uploaded media and resend it as an image
-            if (mimeType.startsWith("image/")) {
-                const imageRes = await axios.get(uploadLink, { responseType: "arraybuffer" });
-                const imageBuffer = Buffer.from(imageRes.data, "binary");
+            // Fetch and send the media preview using buffer
+            const response = await axios.get(uploadLink, { responseType: "arraybuffer" });
+            const mediaData = Buffer.from(response.data, "binary");
 
+            if (mimeType.startsWith("image/")) {
                 await m.conn.sendMessage(m.chat, {
-                    image: { url: uploadLink },
+                    image: mediaData,
+                    mimetype: mimeType,
                     caption: "*📎 Uploaded Image Preview*"
                 }, { quoted: m });
             } else if (mimeType === "video/mp4") {
-                const videoRes = await axios.get(uploadLink, { responseType: "arraybuffer" });
-                const videoBuffer = Buffer.from(videoRes.data, "binary");
-
                 await m.conn.sendMessage(m.chat, {
-                    video: { url: uploadLink },
+                    video: mediaData,
+                    mimetype: mimeType,
                     caption: "*🎞️ Uploaded Video Preview*"
                 }, { quoted: m });
             }
@@ -59,7 +57,7 @@ let handler = async (m) => {
             await m.reply(`⚠️ *Sorry, unsupported file type!*\n📁 *Size:* ${fileSizeMB} MB`);
         }
 
-        fs.unlinkSync(mediaPath);
+        fs.unlinkSync(mediaPath); // Clean up
 
     } catch (error) {
         console.error("❌ Media Upload Error:", error);
