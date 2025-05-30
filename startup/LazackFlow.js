@@ -38,7 +38,8 @@ import yargs from 'yargs'
 import CloudDBAdapter from '../lib/cloudDBAdapter.js'
 import { MongoDB } from '../lib/mongoDB.js'
 import { makeWASocket, protoType, serialize } from '../lib/simple.js'
-require('events').EventEmitter.defaultMaxListeners = 20; // or higher if needed
+import { EventEmitter } from 'events';
+EventEmitter.defaultMaxListeners = 20;
 
 const {
   DisconnectReason,
