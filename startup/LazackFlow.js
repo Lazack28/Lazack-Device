@@ -39,7 +39,7 @@ import CloudDBAdapter from '../lib/cloudDBAdapter.js'
 import { MongoDB } from '../lib/mongoDB.js'
 import { makeWASocket, protoType, serialize } from '../lib/simple.js'
 import { EventEmitter } from 'events';
-EventEmitter.defaultMaxListeners = 20;
+EventEmitter.defaultMaxListeners = 50;
 
 const {
   DisconnectReason,
