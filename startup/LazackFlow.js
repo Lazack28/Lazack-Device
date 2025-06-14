@@ -159,7 +159,7 @@ if (!methodCodeQR && !methodCode && !fs.existsSync(`../${authFile}/creds.json`))
     if (!/^[1-2]$/.test(option)) {
       console.log(chalk.bold.redBright(`ONLY THE NUMBERS ${chalk.bold.greenBright("1")} OR ${chalk.bold.greenBright("2")} ARE ALLOWED, NO LETTERS OR SPECIAL SYMBOLS.\n${chalk.bold.yellowBright("TIP: COPY THE NUMBER OF THE OPTION AND PASTE IT INTO THE CONSOLE.")}`))
     }
-  } while (option !== '1' && option !== '2' || fs.existsSync(`../${authFile}/creds.json`))
+  } while ((option !== '1' && option !== '2') && !fs.existsSync(`../${authFile}/creds.json`))
 }
 
 const filterStrings = [
