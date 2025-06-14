@@ -442,28 +442,28 @@ unlinkSync(filePath)})
 }
 function purgeSession() {
 let prekey = []
-let directorio = readdirSync("./session")
+let directorio = readdirSync("../session")
 let filesFolderPreKeys = directorio.filter(file => {
 return file.startsWith('pre-key-')
 })
 prekey = [...prekey, ...filesFolderPreKeys]
 filesFolderPreKeys.forEach(files => {
-unlinkSync(`./session/${files}`)
+unlinkSync(`../session/${files}`)
 })
 } 
 function purgeSessionSB() {
 try {
-const listaDirectorios = readdirSync(`./${authFileJB}/`);
+const listaDirectorios = readdirSync(`../${authFileJB}/`);
 let SBprekey = [];
 listaDirectorios.forEach(directorio => {
-if (statSync(`./${authFileJB}/${directorio}`).isDirectory()) {
-const DSBPreKeys = readdirSync(`./${authFileJB}/${directorio}`).filter(fileInDir => {
+if (statSync(`../${authFileJB}/${directorio}`).isDirectory()) {
+const DSBPreKeys = readdirSync(`../${authFileJB}/${directorio}`).filter(fileInDir => {
 return fileInDir.startsWith('pre-key-')
 })
 SBprekey = [...SBprekey, ...DSBPreKeys];
 DSBPreKeys.forEach(fileInDir => {
 if (fileInDir !== 'creds.json') {
-unlinkSync(`./${authFileJB}/${directorio}/${fileInDir}`)
+unlinkSync(`../${authFileJB}/${directorio}/${fileInDir}`)
 }})
 }})
 if (SBprekey.length === 0) {
