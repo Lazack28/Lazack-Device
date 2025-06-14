@@ -172,20 +172,22 @@ const filterStrings = [
 ]
 console.info = () => {} 
 console.debug = () => {} 
+// Redefine console methods to filter out specific log messages
 ['log', 'warn', 'error'].forEach(methodName => redefineConsoleMethod(methodName, filterStrings))
+// Connection options for WhatsApp socket
 const connectionOptions = {
-logger: pino({ level: 'silent' }),
-printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
-mobile: MethodMobile, 
-browser: opcion == '1' ? ['Lazack-bot', 'Edge', '20.0.04'] : methodCodeQR ? ['Lazack-bot', 'Edge', '20.0.04'] : ["Ubuntu", "Chrome", "20.0.04"],
-auth: {
-creds: state.creds,
-keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
-},
-markOnlineOnConnect: true, 
-generateHighQualityLinkPreview: true, 
-syncFullHistory: false,
-getMessage: async (clave) => {
+  logger: pino({ level: 'silent' }),
+  printQRInTerminal: option == '1' ? true : methodCodeQR ? true : false,
+  mobile: MethodMobile, 
+  browser: option == '1' ? ['Lazack-bot', 'Edge', '20.0.04'] : methodCodeQR ? ['Lazack-bot', 'Edge', '20.0.04'] : ["Ubuntu", "Chrome", "20.0.04"],
+  auth: {
+    creds: state.creds,
+    keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
+  },
+  markOnlineOnConnect: true, 
+  generateHighQualityLinkPreview: true, 
+  syncFullHistory: false,
+  getMessage: async (key) => {
 let jid = jidNormalizedUser(clave.remoteJid)
 let msg = await store.loadMessage(jid, clave.id)
 return msg?.message || ""
