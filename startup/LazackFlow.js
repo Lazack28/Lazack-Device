@@ -137,8 +137,9 @@ resolver(respuesta.trim())
 
 let option = '1' // Always use creds.json
 
-if (!fs.existsSync(`../${authFile}/creds.json`)) {
-  console.log(chalk.bold.redBright(`\n⚠️ creds.json not found in ../${authFile}/. Please add your credentials file and restart the bot.`))
+const credsPath = path.join(__dirname, '../', authFile, 'creds.json')
+if (!fs.existsSync(credsPath)) {
+  console.log(chalk.bold.redBright(`\n⚠️ creds.json not found in ${credsPath}. Please add your credentials file and restart the bot.`))
   process.exit(1)
 }
 
