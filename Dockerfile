@@ -4,7 +4,7 @@ RUN git clone https://github.com/Lazack28/Lazack-Device /root/lazack
 
 WORKDIR /root/lazack/
 
-RUN npm install --platform=linuxmusl
+RUN npm install
 
 EXPOSE 5000
 
