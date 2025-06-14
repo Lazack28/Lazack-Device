@@ -139,7 +139,7 @@ let option
 if (methodCodeQR) {
   option = '1'
 }
-if (!methodCodeQR && !methodCode && !fs.existsSync(`./${authFile}/creds.json`)) {
+if (!methodCodeQR && !methodCode && !fs.existsSync(`../${authFile}/creds.json`)) {
   do {
     let lineM = '┄╴───┈┈┈┈──┈┈┈┈───┈╴♡'
     option = await question(`╭${lineM}  
@@ -159,7 +159,7 @@ if (!methodCodeQR && !methodCode && !fs.existsSync(`./${authFile}/creds.json`)) 
     if (!/^[1-2]$/.test(option)) {
       console.log(chalk.bold.redBright(`ONLY THE NUMBERS ${chalk.bold.greenBright("1")} OR ${chalk.bold.greenBright("2")} ARE ALLOWED, NO LETTERS OR SPECIAL SYMBOLS.\n${chalk.bold.yellowBright("TIP: COPY THE NUMBER OF THE OPTION AND PASTE IT INTO THE CONSOLE.")}`))
     }
-  } while (option !== '1' && option !== '2' || fs.existsSync(`./${authFile}/creds.json`))
+  } while (option !== '1' && option !== '2' || fs.existsSync(`../${authFile}/creds.json`))
 }
 
 const filterStrings = [
@@ -198,7 +198,7 @@ defaultQueryTimeoutMs: undefined,
 version: [2, 3000, 1015901307],
 }
 global.conn = makeWASocket(connectionOptions)
-if (!fs.existsSync(`./${authFile}/creds.json`)) {
+if (!fs.existsSync(`../${authFile}/creds.json`)) {
   if (option === '2' || methodCode) {
     option = '2'
     if (!conn.authState.creds.registered) {
@@ -231,8 +231,8 @@ conn.well = false
 if (!opts['test']) {
 if (global.db) setInterval(async () => {
 if (global.db.data) await global.db.write()
-if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp', "CrowJadiBot"], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '2', '-type', 'f', '-delete'])))}, 30 * 1000)}
-if (opts['server']) (await import('./lib/server.js')).default(global.conn, PORT)
+if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp', "pairbot"], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '2', '-type', 'f', '-delete'])))}, 30 * 1000)}
+if (opts['server']) (await import('../lib/server.js')).default(global.conn, PORT)
 async function getMessage(key) {
 if (store) {
 } return {
