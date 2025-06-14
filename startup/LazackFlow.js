@@ -38,7 +38,8 @@ import yargs from 'yargs'
 import CloudDBAdapter from '../lib/cloudDBAdapter.js'
 import { MongoDB } from '../lib/mongoDB.js'
 import { makeWASocket, protoType, serialize } from '../lib/simple.js'
-import { makeInMemoryStore } from '@whiskeysockets/baileys'
+const { makeInMemoryStore } = require('@whiskeysockets/baileys')
+
 
 
 const {
