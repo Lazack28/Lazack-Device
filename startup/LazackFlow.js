@@ -93,8 +93,23 @@ const MAIN_LOGGER = pino({ timestamp: () => `,"time":"${new Date().toJSON()}"` }
 const logger = MAIN_LOGGER.child({})
 logger.level = 'fatal'
 
-const store = useStore ? makeInMemoryStore({ logger }) : undefined
-store?.readFromFile('./session.json')
+const store = {
+  data: {},
+  readFromFile: (path) => {
+    try {
+      store.data = JSON.parse(require('fs').readFileSync(path, 'utf-8'));
+    } catch (e) {
+      store.data = {};
+    }
+  },
+  writeToFile: (path) => {
+    require('fs').writeFileSync(path, JSON.stringify(store.data, null, 2));
+  }
+};
+
+// Usage
+store.readFromFile('./session.json');
+
 
 setInterval(() => {
   store?.writeToFile('./session.json')
