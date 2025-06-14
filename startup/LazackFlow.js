@@ -135,31 +135,11 @@ resolver(respuesta.trim())
 })})
 }
 
-let option
-if (methodCodeQR) {
-  option = '1'
-}
-if (!methodCodeQR && !methodCode && !fs.existsSync(`../${authFile}/creds.json`)) {
-  do {
-    let lineM = '┄╴───┈┈┈┈──┈┈┈┈───┈╴♡'
-    option = await question(`╭${lineM}  
-│ ${chalk.blueBright('╭┄┈┅┈┄┈┅┈┄┅┈┄┈┅┄┈┅┈┄')}
-│ ${chalk.blueBright('┊')} ${chalk.blue.bgBlue.bold.cyan("LINKING METHOD")}
-│ ${chalk.blueBright('╰┄┈┅┈┄┈┅┈┄┅┈┄┈┅┄┈┅┈┄')}   
-│ ${chalk.blueBright('╭┄┈┅┈┄┈┅┈┄┅┈┄┈┅┄┈┅┈┄')}     
-│ ${chalk.blueBright('┊')} ${chalk.bold.redBright(`⇢  Option 1:`)} ${chalk.greenBright("QR Code")}
-│ ${chalk.blueBright('┊')} ${chalk.bold.redBright(`⇢  Option 2:`)} ${chalk.greenBright("8-digit Code")}
-│ ${chalk.blueBright('╰┄┈┅┈┄┈┅┈┄┅┈┄┈┅┄┈┅┈┄')}
-│ ${chalk.blueBright('╭┄┈┅┈┄┈┅┈┄┅┈┄┈┅┄┈┅┈┄')}     
-│ ${chalk.blueBright('┊')} ${chalk.italic.magenta("Type only the number of")}
-│ ${chalk.blueBright('┊')} ${chalk.italic.magenta("the option to connect")}
-│ ${chalk.blueBright('╰┄┈┅┈┄┈┅┈┄┅┈┄┈┅┄┈┅┈┄')} 
-│ ${chalk.italic.red(`Lazack-device 🌠`)}
-╰${lineM}\n${chalk.bold.magentaBright('---> ')}`)
-    if (!/^[1-2]$/.test(option)) {
-      console.log(chalk.bold.redBright(`ONLY THE NUMBERS ${chalk.bold.greenBright("1")} OR ${chalk.bold.greenBright("2")} ARE ALLOWED, NO LETTERS OR SPECIAL SYMBOLS.\n${chalk.bold.yellowBright("TIP: COPY THE NUMBER OF THE OPTION AND PASTE IT INTO THE CONSOLE.")}`))
-    }
-  } while ((option !== '1' && option !== '2') && !fs.existsSync(`../${authFile}/creds.json`))
+let option = '1' // Always use creds.json
+
+if (!fs.existsSync(`../${authFile}/creds.json`)) {
+  console.log(chalk.bold.redBright(`\n⚠️ creds.json not found in ../${authFile}/. Please add your credentials file and restart the bot.`))
+  process.exit(1)
 }
 
 const filterStrings = [
