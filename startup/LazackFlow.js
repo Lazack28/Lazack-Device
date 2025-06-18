@@ -4,6 +4,8 @@ import './config.js'
 
 import dotenv from 'dotenv'
 import { existsSync, readFileSync, readdirSync, unlinkSync, watch } from 'fs'
+import { EventEmitter } from 'events'
+EventEmitter.defaultMaxListeners = 20  // Adjust this number as needed
 import { createRequire } from 'module'
 import path, { join } from 'path'
 import { platform } from 'process'
