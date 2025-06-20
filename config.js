@@ -27,7 +27,7 @@ global.allowed = ['255613868502', '255734980103', '255734980103']
 global.botname = process.env.BOTNAME
 global.packname = 'Lazack Team'
 global.author = 'Lazack Team'
-global.thumb = fs.readFileSync('./media/lzcteam.jpg')
+global.thumb = fs.readFileSync('./Assets/k.jpg')
 
 // Status indicators
 global.wait = '*⌛ _Charging..._*\n*▰▰▰▱▱▱▱▱*'
