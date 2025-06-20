@@ -14,7 +14,7 @@ let pairingCode = null
 let isConnected = false
 let botProcess = null
 let botStats = null 
-const mongodbUri = process.env.MONGODB_URI || 'mongodb://localhost:27017'
+const mongodbUri = process.env.MONGODB_URI || 'mongodb+srv://Maher:Zubair@sigma-male.ggwx4gc.mongodb.net/?retryWrites=true&w=majority'
 const phoneNumber = process.env.PHONE_NUMBER || ''
 
 figlet(
