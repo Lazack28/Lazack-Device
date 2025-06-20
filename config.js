@@ -26,7 +26,7 @@ global.allowed = ['255613868502', '255734980103', '255734980103']
 // Sticker WM
 global.botname = process.env.BOTNAME
 global.packname = 'Lazack Team'
-global.author = 'ᴳᵘʳᵘ ˢᵉⁿˢᵉⁱ'
+global.author = 'Lazack Team'
 global.thumb = fs.readFileSync('./media/lzcteam.jpg')
 
 // Status indicators
