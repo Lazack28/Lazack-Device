@@ -1,0 +1,10 @@
+node_modules
+guru.data.json
+database.json
+.env
+session
+tmp
+session.json
+.idx/integrations.json
+.idx/dev.nix
+session/file

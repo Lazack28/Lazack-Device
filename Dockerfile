@@ -1,10 +1,10 @@
 FROM quay.io/gurusensei/gurubhay:latest
 
-RUN git clone https://github.com/Lazack28/Lazack-Device /root/lazack
+RUN git clone https://github.com/Guru322/GURU-Ai /root/guru
 
-WORKDIR /root/lazack/
+WORKDIR /root/guru/
 
-RUN npm install
+RUN npm install --platform=linuxmusl
 
 EXPOSE 5000
 
