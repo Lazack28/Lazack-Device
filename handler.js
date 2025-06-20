@@ -199,7 +199,7 @@ export async function handler(chatUpdate) {
     const isBotAdmin = bot?.admin || false
 
     // Plugin execution
-    const ___dirname = path.join(path.dirname(fileURLToPath(import.meta.url)), './plugins')
+    const ___dirname = path.join(path.dirname(fileURLToPath(import.meta.url)), './lazackcmds')
     for (let name in global.plugins) {
       let plugin = global.plugins[name]
       if (!plugin) continue
@@ -465,8 +465,8 @@ export async function participantsUpdate({ id, participants, action }) {
             ppgp = await this.profilePictureUrl(id, 'image')
           } catch (error) {
             console.error(`Error retrieving profile picture: ${error}`)
-            pp = 'https://i.imgur.com/8B4jwGq.jpeg'
-            ppgp = 'https://i.imgur.com/8B4jwGq.jpeg'
+            pp = 'https://home.lazackorganisation.my.id/img/img1.jpg'
+            ppgp = 'https://home.lazackorganisation.my.id/img/img1.jpg'
           } finally {
             let text = (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user')
               .replace('@group', await this.getName(id))
@@ -477,17 +477,17 @@ export async function participantsUpdate({ id, participants, action }) {
             let secondText = `Welcome, ${await this.getName(user)}, our ${nthMember}th member`
 
             // Use simple static welcome image
-            let welcomeImage = 'https://st.depositphotos.com/1823785/2635/i/450/depositphotos_26357899-stock-photo-banner-with-welcome.jpg'
+            let welcomeImage = 'https://home.lazackorganisation.my.id/img/img1.jpg'
 
             this.sendMessage(id, {
               text: text,
               contextInfo: {
                 mentionedJid: [user],
                 externalAdReply: {
-                  title: 'ᴛʜᴇ ɢᴜʀᴜ-ʙᴏᴛ',
+                  title: 'lazack device',
                   body: 'welcome to Group',
                   thumbnailUrl: welcomeImage,
-                  sourceUrl: 'https://chat.whatsapp.com/F3sB3pR3tClBvVmlIkqDJp',
+                  sourceUrl: '',
                   mediaType: 1,
                   renderLargerThumbnail: true,
                 },
@@ -508,8 +508,8 @@ export async function participantsUpdate({ id, participants, action }) {
             ppgp = await this.profilePictureUrl(id, 'image')
           } catch (error) {
             console.error(`Error retrieving profile picture: ${error}`)
-            pp = 'https://i.imgur.com/8B4jwGq.jpeg'
-            ppgp = 'https://i.imgur.com/8B4jwGq.jpeg'
+            pp = 'https://home.lazackorganisation.my.id/img/img1.jpg'
+            ppgp = 'https://home.lazackorganisation.my.id/img/img1.jpg'
           } finally {
             let text = (chat.sBye || this.bye || conn.bye || 'HELLO, @user').replace(
               '@user',
@@ -520,17 +520,17 @@ export async function participantsUpdate({ id, participants, action }) {
             let secondText = `Goodbye, our ${nthMember}th group member`
 
             // Use simple static bye image
-            let byeImage = 'https://st5.depositphotos.com/10811838/70765/i/600/depositphotos_707650604-stock-photo-good-bye-phrase-made-wooden.jpg'
+            let byeImage = 'https://home.lazackorganisation.my.id/img/img1.jpg'
 
             this.sendMessage(id, {
               text: text,
               contextInfo: {
                 mentionedJid: [user],
                 externalAdReply: {
-                  title: 'ᴛʜᴇ ɢᴜʀᴜ-ʙᴏᴛ',
+                  title: 'lazack device',
                   body: 'Goodbye from Group',
                   thumbnailUrl: byeImage,
-                  sourceUrl: 'https://chat.whatsapp.com/F3sB3pR3tClBvVmlIkqDJp',
+                  sourceUrl: '',
                   mediaType: 1,
                   renderLargerThumbnail: true,
                 },
