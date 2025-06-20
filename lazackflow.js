@@ -213,7 +213,7 @@ if (!conn.authState.creds.registered) {
 
   setTimeout(async () => {
     try {
-      let code = await conn.requestPairingCode(phoneNumber, "LAZACKDEV")
+      let code = await conn.requestPairingCode(phoneNumber, "LAZACK28")
       code = code?.match(/.{1,4}/g)?.join('-') || code
       
       global.pairingCode = code
