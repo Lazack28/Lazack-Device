@@ -55,7 +55,7 @@ dotenv.config()
 const groupMetadataCache = new NodeCache({ stdTTL: 5 * 60, useClones: false })
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017'
-const DB_NAME = process.env.DB_NAME || 'guru_bot'
+const DB_NAME = process.env.DB_NAME || 'Lazack-Device'
 
 const globalDB = new MongoDB(MONGODB_URI)
 
@@ -188,7 +188,7 @@ if (!conn.authState.creds.registered) {
     
     if (!phoneNumber || phoneNumber.length < 8) {
       console.log(
-        chalk.bgBlack(chalk.redBright("Invalid phone number format. Please include country code (Example: 62xxx)"))
+        chalk.bgBlack(chalk.redBright("Invalid phone number format. Please include country code (Example: 25573498xxx)"))
       )
       if (process.send) {
         process.send({ 
@@ -213,7 +213,7 @@ if (!conn.authState.creds.registered) {
 
   setTimeout(async () => {
     try {
-      let code = await conn.requestPairingCode(phoneNumber, "GURUAI11")
+      let code = await conn.requestPairingCode(phoneNumber, "Lazack")
       code = code?.match(/.{1,4}/g)?.join('-') || code
       
       global.pairingCode = code
@@ -340,12 +340,12 @@ async function connectionUpdate(update) {
       const dashboardStats = await generateDatabaseStats()
       conn.logger.info(chalk.cyan('\n' + dashboardStats + '\n'))
       
-      const welcomeMessage = `*🤖 GURU-BOT DASHBOARD*\n\nHai ${name}, your bot is now online!\n\n${dashboardStats}\n\nNeed help? Join support group:\nhttps://chat.whatsapp.com/F3sB3pR3tClBvVmlIkqDJp`
+      const welcomeMessage = `*🤖 Lazack Device Bot Online!*\n\nHai ${name}, your bot is now active and ready to use.\n\n${dashboardStats}\n\nWelcome to Lazack Device Bot!`
 
       await conn.sendMessage(jid, { text: welcomeMessage }, { quoted: null })
     } catch (error) {
       console.error('Error generating dashboard:', error)
-      const msg = `Hai🤩 ${name}, Congrats you have successfully deployed GURU-BOT\nJoin my support Group for any Query\n https://chat.whatsapp.com/F3sB3pR3tClBvVmlIkqDJp`
+      const msg = `Hai🤩 ${name}, Congrats you have successfully deployed Lazack Device Bot!\nYour bot is now online and ready to use.`
       await conn.sendMessage(jid, { text: msg, mentions: [jid] }, { quoted: null })
     }
 
@@ -546,7 +546,7 @@ async function generateStatsData() {
   }
 }
 
-const pluginFolder = global.__dirname(join(__dirname, './plugins/index'))
+const pluginFolder = global.__dirname(join(__dirname, './lazackcmds/index'))
 const pluginFilter = filename => /\.js$/.test(filename)
 global.plugins = {}
 async function filesInit() {
@@ -665,40 +665,37 @@ async function generateDatabaseStats() {
       registeredUsers: Object.values(global.db.data.users || {}).filter(user => user.registered).length,
     }
     
-    let activeChats = []
+    let topPlugins = []
     if (global.db.data.stats) {
-      const pluginStats = global.db.data.stats
-      // Get plugin with most usage
-      const topPlugins = Object.entries(pluginStats)
+      topPlugins = Object.entries(global.db.data.stats)
         .map(([name, stat]) => ({ name, total: stat.total || 0 }))
         .sort((a, b) => b.total - a.total)
         .slice(0, 5)
-      
-      stats.topPlugins = topPlugins
     }
-    
+
+    // Lazack Device Bot dashboard
     return `
-┌─────────────────────────────┐
-│   🤖 GURU-BOT DASHBOARD 🤖   │
-├─────────────────────────────┤
-│                             │
-│ 👥 Users: ${padRight(stats.users, 19)} │
-│ 🛡️ Banned Users: ${padRight(stats.bannedUsers, 13)} │
-│ 📝 Registered: ${padRight(stats.registeredUsers, 14)} │
-│                             │
-│ 👥 Groups: ${padRight(stats.groups, 18)} │
-│ 💬 Private Chats: ${padRight(stats.privateChats, 11)} │
-│ 📊 Total Chats: ${padRight(stats.totalChats, 13)} │
-│ 🟢 Active Groups: ${padRight(stats.activeGroups, 11)} │
-│                             │
-│ ⚙️ Settings: ${padRight(stats.settings, 16)} │
-│ 🔌 Plugins: ${padRight(stats.plugins, 17)} │
-│                             │
-│ ⏱️ Uptime: ${padRight(stats.uptime, 18)} │
-│ 💾 Memory: ${padRight(stats.memoryUsage, 18)} │
-│                             │
-${stats.topPlugins ? `│ 🔝 Top Plugins:               │\n${stats.topPlugins.map(p => `│   • ${padRight(p.name.replace('.js', ''), 20)} ${p.total} │`).join('\n')}` : ''}
-└─────────────────────────────┘
+┌────────────────────────────────────┐
+│   🤖 LAZACK DEVICE BOT DASHBOARD   │
+├────────────────────────────────────┤
+│                                    │
+│ 👤 Users:           ${padRight(stats.users, 8)}           │
+│ 🚫 Banned:          ${padRight(stats.bannedUsers, 8)}           │
+│ 📝 Registered:      ${padRight(stats.registeredUsers, 8)}           │
+│                                    │
+│ 👥 Groups:          ${padRight(stats.groups, 8)}           │
+│ 💬 Private Chats:   ${padRight(stats.privateChats, 8)}           │
+│ 📊 Total Chats:     ${padRight(stats.totalChats, 8)}           │
+│ 🟢 Active Groups:   ${padRight(stats.activeGroups, 8)}           │
+│                                    │
+│ ⚙️ Settings:         ${padRight(stats.settings, 8)}           │
+│ 🔌 Plugins:          ${padRight(stats.plugins, 8)}           │
+│                                    │
+│ ⏱️ Uptime:           ${padRight(stats.uptime, 12)}      │
+│ 💾 Memory:           ${padRight(stats.memoryUsage, 12)}      │
+│                                    │
+${topPlugins.length ? `│ 🔝 Top Plugins:                        │\n${topPlugins.map(p => `│   • ${padRight(p.name.replace('.js', ''), 18)} ${p.total}         │`).join('\n')}` : ''}
+└────────────────────────────────────┘
     `.trim()
   } catch (error) {
     console.error("Error generating dashboard:", error)
