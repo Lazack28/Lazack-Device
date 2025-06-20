@@ -1,7 +1,7 @@
 {
-    "name": "guruai",
+    "name": "lazack-device",
     "version": "2.1.0",
-    "description": "Advanced WhatsApp Ai",
+    "description": "Advanced WhatsApp Device",
     "main": "index.js",
     "type": "module",
     "directories": {
@@ -17,22 +17,22 @@
         "whatsapp",
         "js-whatsapp",
         "whatsapp",
-        "guru-bot",
-        "GURU-bot-md",
+        "Lazack-bot",
+        "Lazack-bot-md",
         "multi-device",
         "MD",
         "baileys-md"
     ],
-    "homepage": "https://github.com/Guru322/GURU-Ai",
+    "homepage": "https://github.com/Lazack28/Lazack-Device",
     "author": {
-        "name": "GURU"
+        "name": "Lazack"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Guru322/GURU-Ai.git"
+        "url": "git+https://github.com/Lazack28/Lazack-Device.git"
     },
     "bugs": {
-        "url": "https://github.com/Guru322/GURU-Ai/issues"
+        "url": "https://github.com/Lazack28/Lazack-Device/issues"
     },
     "license": "Apache License 2.0",
     "dependencies": {

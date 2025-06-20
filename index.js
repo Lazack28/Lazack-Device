@@ -18,7 +18,7 @@ const mongodbUri = process.env.MONGODB_URI || 'mongodb://localhost:27017'
 const phoneNumber = process.env.PHONE_NUMBER || ''
 
 figlet(
-  'GURU BOT',
+  'Lazack-Device',
   {
     font: 'Ghost',
     horizontalLayout: 'default',
@@ -65,7 +65,7 @@ const homeLimiter = rateLimit({
 })
 
 app.get('/', homeLimiter, (req, res) => {
-  res.sendFile(path.join(__dirname, 'Assets', 'guru.html'))
+  res.sendFile(path.join(__dirname, 'Assets', 'lazack.html'))
 })
 
 app.get('/pairing-status', (req, res) => {
@@ -98,7 +98,7 @@ app.listen(port, () => {
 function startBot() {
   if (botProcess) return
 
-  console.log(chalk.blue('Starting GURU Bot with:'))
+  console.log(chalk.blue('Starting Lazack Device with:'))
   console.log(chalk.blue(`MongoDB URI:`))
   console.log(chalk.blue(`Phone number is ${phoneNumber ? 'set' : 'not specified'}`))
 
@@ -112,7 +112,7 @@ function startBot() {
   }
 
   const currentFilePath = new URL(import.meta.url).pathname
-  const args = [path.join(path.dirname(currentFilePath), 'Guru.js'), ...process.argv.slice(2)]
+  const args = [path.join(path.dirname(currentFilePath), 'lazackflow.js'), ...process.argv.slice(2)]
   
   const env = {
     ...process.env,
