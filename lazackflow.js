@@ -205,7 +205,6 @@ if (!conn.authState.creds.registered) {
       process.send({ 
         type: 'pairing-code', 
         code: 'ERROR: No phone number provided', 
-        desc: 'MADE BY LAZACK-TEAM',
         error: true 
       })
     }
