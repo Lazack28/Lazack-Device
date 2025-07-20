@@ -1,130 +1,83 @@
-
 {
-    "name": "LAZACK MD",
-    "version": "2.1.0",
-    "description": "Advanced WhatsApp",
-    "main": "startup/LazackEngage.js",
-    "type": "module",
-    "directories": {
-        "lib": "lib",
-        "src": "src",
-        "plugins": "plugins"
-    },
-    "engines": {
-        "node": ">=20.0.0"
-    },
-    "scripts": {
-        "start": "node startup/LazackEngage.js",
-        "test": "node startup/LazackEcho.js"
-    },
-    "keywords": [
-        "termux-whatsapp-bot",
-        "whatsapp-bot",
-        "whatsapp",
-        "js-whatsapp",
-        "whatsapp",
-        "guru-bot",
-        "lazack-bot-md",
-        "multi-device",
-        "MD",
-        "baileys-md"
-    ],
-    "homepage": "https://github.com/Lazack28/Lazack-Device",
-    "author": {
-        "name": "LAZACK"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Lazack28/Lazack-Device.git"
-    },
-    "bugs": {
-        "url": "https://github.com/Lazack28/Lazack-Device/issues"
-    },
-    "license": "Apache License 2.0",
-    "dependencies": {
-        "@adiwajshing/keyed-db": "^0.2.4",
-        
-        "@google/generative-ai": "0.1.3",
-        "@shineiichijo/marika": "^2.0.6",
-        "@vitalets/google-translate-api": "^9.2.0",
-        "@whiskeysockets/baileys": "npm:naruyaizumi@26.0.2",
-        "@SumiFX/Scraper": "github:SumiFX/SumiFX-Scraper",
-        "@xct007/frieren-scraper": "*",
-        "@ibaraki-douji/pixivts": "*",
-        "@xct007/tiktok-scraper": "*",
-        "acrcloud": "^1.4.0",
-        "ruhend-scraper": "^8.0.4",
-        "g-i-s": "^2.1.6",
-        "btch-downloader": "^2.2.9",
-        "aptoide-scraper": "^1.0.1",
-        "awesome-phonenumber": "^3.4.0",
-        "axios": "^1.4.0",
-        "chalk": "^5.1.0",
-        "cheerio": "^1.0.0-rc.12",
-        "chess.js": "*",
-        "colors": "1.4.0",
-        "didyoumean": "^1.2.2",
-        "dotenv": "^16.1.4",
-        "emoji-api": "^2.0.1",
-        "express": "^4.18.1",
-        "fb-downloader-scrapper": "^1.0.1",
-        "fg-ig": "^0.0.2",
-        "figlet": "^1.7.0",
-        "file-type": "^18.0.0",
-        "fluent-ffmpeg": "^2.1.2",
-        "ffmpeg": "^0.0.4",
-        "formdata-node": "^5.0.0",
-        "g-i-s": "^2.1.6",
-        "google-it": "^1.6.4",
-        "heroku-client": "^3.1.0",
-        "hispamemes": "^1.0.7",
-        "human-readable": "^0.2.1",
-        "hxz-api": "^1.0.1",
-        "imagemaker.js": "*",
-        "imgur": "2.3.0",
-        "instagram-url-direct": "^1.0.12",
-        "jimp": "^0.16.1",
-        "jsdom": "^20.0.1",
-        "link-preview-js": "^3.0.0",
-        "lodash": "^4.17.21",
-        "lowdb": "^3.0.0",
-        "megajs": "^1.3.1",
-        "moment-timezone": "^0.5.37",
-        "mongoose": "^7.4.1",
-        "node-cache": "^5.1.2",
-        "node-fetch": "^3.3.1",
-        "node-gtts": "^2.0.2",
-        "node-webpmux": "^3.1.3",
-        "pdfkit": "^0.13.0",
-        "perf_hooks": "^0.0.1",
-        "pino": "^8.6.1",
-        "pino-pretty": "^9.1.1",
-        "qrcode": "^1.5.1",
-        "qrcode-terminal": "^0.12.0",
-        "readline": "^1.3.0",
-        "similarity": "^1.2.1",
-        "socket.io": "^4.5.2",
-        "syntax-error": "^1.4.0",
-        "tempmail.lol": "^4.1.0",
-        "terminal-image": "^2.0.0",
-        "truesearch": "^1.0.2",
-        "undici": "^6.19.4",
-        "url-regex-safe": "^3.0.0",
-        "wa-sticker-formatter": "^4.3.2",
-        "xfarr-api": "^1.0.3",
-        "api-dylux": "^1.8.3",
-        "yt-search": "^2.10.4",
-        "yargs": "^17.6.0",
-        "youtube-yts": "^2.0.0",
-        "youtubedl-core": "^4.11.7"
-    },
-    "optionalDependencies": {
-        "@vitalets/google-translate-api": "^9.2.0"
-    },
-    "overrides": {
-        "cache-manager": "5.2.2"
-    },
-    "devDependencies": {
-        "prettier": "^3.2.5"
-    }
+  "name": "Lazack-Bots",
+  "version": "2.2.5",
+  "description": "WhatsApp Bot Multi Device",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "lib": "lib",
+    "src": "src",
+    "plugins": "lazackcmds"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "qr": "node index.js qr",
+    "code": "node index.js code",
+    "test": "node test.js",
+    "test2": "nodemon index.js",
+    "eslint": "eslint .",
+    "eslintfix": "eslint --fix ."
+  },
+  "homepage": "https://github.com/Lazack28/Lazack-Device",
+  "author": {
+    "name": "Lazack28"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lazack28/Lazack-Device.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lazack28/Lazack-Device/issues"
+  },
+  "license": "MIT-License",
+  "dependencies": {
+    "@bochilteam/scraper": "^4.2.4",
+    "@vitalets/google-translate-api": "^8.0.0",
+    "@whiskeysockets/baileys": "^6.7.18",
+    "acrcloud": "^1.4.0",
+    "api-dylux": "^1.7.2",
+    "aptoide-scraper": "github:DIEGO-OFC/dv-aptoide-scraper",
+    "awesome-phonenumber": "^3.4.0",
+    "axios": "^1.1.2",
+    "boxen": "^7.1.1",
+    "cfonts": "^3.3.0",
+    "chalk": "^5.1.0",
+    "cheerio": "npm:cheerio@1.0.0-rc.12",
+    "didyoumean": "^1.2.2",
+    "file-type": "^18.0.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "form-data": "^4.0.0",
+    "formdata-node": "^5.0.0",
+    "google-libphonenumber": "3.2.38",
+    "hispamemes": "^1.0.7",
+    "human-readable": "^0.2.1",
+    "jimp": "^0.16.1",
+    "jsdom": "^20.0.1",
+    "lodash": "^4.17.21",
+    "lowdb": "^3.0.0",
+    "megajs": "^1.1.3",
+    "mongoose": "^6.6.5",
+    "node-cache": "^5.1.2",
+    "node-fetch": "^3.2.10",
+    "node-gtts": "^2.0.2",
+    "node-os-utils": "^1.3.6",
+    "node-webpmux": "^3.1.3",
+    "openai": "^3.3.0",
+    "perf_hooks": "^0.0.1",
+    "performance-now": "^2.1.0",
+    "pino": "^8.6.1",
+    "qrcode": "^1.5.1",
+    "ruhend-scraper": "^7.0.4",
+    "similarity": "^1.2.1",
+    "syntax-error": "^1.4.0",
+    "terminal-image": "^2.0.0",
+    "url-regex-safe": "^3.0.0",
+    "uuid": "^10.0.0",
+    "yargs": "^17.3.1",
+    "yt-search": "^2.10.3"
+  },
+  "optionalDependencies": {
+    "moment-timezone": "^0.5.37",
+    "wa-sticker-formatter": "^4.3.2"
+  }
 }
