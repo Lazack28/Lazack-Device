@@ -362,7 +362,7 @@ let user = global.db.data.users[m.sender]
 if (!['grupo-unbanchat.js'].includes(name) && chat && chat.isBanned && !isROwner) return
 if (name != 'grupo-unbanchat.js' && name != 'owner-exec.js' && name != 'owner-exec2.js' && name != 'grupo-delete.js' && chat?.isBanned && !isROwner) return
 if (m.text && user.banned && !isROwner) {
-m.reply(`《✦》Estas baneado/a, no puedes usar comandos en este bot!\n\n${user.bannedReason ? `✰ *Motivo:* ${user.bannedReason}` : '✰ *Motivo:* Sin Especificar'}\n\n> ✧ Si este Bot es cuenta oficial y tiene evidencia que respalde que este mensaje es un error, puedes exponer tu caso con un moderador.`)
+m.reply(`《✦》You are banned, you cannot use commands in this bot!\n\n${user.bannedReason ? `✰ *Reason:* ${user.bannedReason}` : '✰ *Reason:* Not Specified'}\n\n> ✧ If this Bot is an official account and you have evidence that this message is an error, you can present your case to a moderator.`)
 return
 }
 
@@ -422,11 +422,11 @@ m.isCommand = true
 let xp = 'exp' in plugin ? parseInt(plugin.exp) : 10
 m.exp += xp
 if (!isPrems && plugin.coin && global.db.data.users[m.sender].coin < plugin.coin * 1) {
-conn.reply(m.chat, `❮✦❯ Se agotaron tus ${moneda}`, m)
+conn.reply(m.chat, `❮✦❯ You have run out of ${moneda}`, m)
 continue
 }
 if (plugin.level > _user.level) {
-conn.reply(m.chat, `❮✦❯ Se requiere el nivel: *${plugin.level}*\n\n• Tu nivel actual es: *${_user.level}*\n\n• Usa este comando para subir de nivel:\n*${usedPrefix}levelup*`, m)
+conn.reply(m.chat, `❮✦❯ Required level: *${plugin.level}*\n\n• Your current level is: *${_user.level}*\n\n• Use this command to level up:\n*${usedPrefix}levelup*`, m)
 continue
 }
 let extra = {
@@ -462,7 +462,7 @@ console.error(e)
 if (e) {
 let text = format(e)
 for (let key of Object.values(global.APIKeys))
-text = text.replace(new RegExp(key, 'g'), 'Administrador')
+text = text.replace(new RegExp(key, 'g'), 'Administrator')
 m.reply(text)
 }
 } finally {
@@ -473,7 +473,7 @@ await plugin.after.call(this, m, extra)
 console.error(e)
 }}
 if (m.coin)
-conn.reply(m.chat, `❮✦❯ Utilizaste ${+m.coin} ${moneda}`, m)
+conn.reply(m.chat, `❮✦❯ You used ${+m.coin} ${moneda}`, m)
 }
 break
 }}
@@ -540,31 +540,32 @@ function pickRandom(list) { return list[Math.floor(Math.random() * list.length)]
 
 global.dfail = (type, m, usedPrefix, command, conn) => {
 
-let edadaleatoria = ['10', '28', '20', '40', '18', '21', '15', '11', '9', '17', '25'].getRandom()
-let user2 = m.pushName || 'Anónimo'
-let verifyaleatorio = ['registrar', 'reg', 'verificar', 'verify', 'register'].getRandom()
+let randomAge = ['10', '28', '20', '40', '18', '21', '15', '11', '9', '17', '25'].getRandom()
+let user2 = m.pushName || 'Anonymous'
+let randomVerify = ['register', 'reg', 'verify', 'verificar', 'registrar'].getRandom()
 
 const msg = {
-rowner: `『✦』El comando *${comando}* solo puede ser usado por los creadores del bot.`, 
-owner: `『✦』El comando *${comando}* solo puede ser usado por los desarrolladores del bot.`, 
-mods: `『✦』El comando *${comando}* solo puede ser usado por los moderadores del bot.`, 
-premium: `『✦』El comando *${comando}* solo puede ser usado por los usuarios premium.`, 
-group: `『✦』El comando *${comando}* solo puede ser usado en grupos.`,
-private: `『✦』El comando *${comando}* solo puede ser usado al chat privado del bot.`,
-admin: `『✦』El comando *${comando}* solo puede ser usado por los administradores del grupo.`, 
-botAdmin: `『✦』Para ejecutar el comando *${comando}* debo ser administrador del grupo.`,
-unreg: `『✦』El comando *${comando}* solo puede ser usado por los usuarios registrado, registrate usando:\n> » #${verifyaleatorio} ${user2}.${edadaleatoria}`,
-restrict: `『✦』Esta caracteristica está desactivada.`
+rowner: `『✦』The command *${comando}* can only be used by the bot creators.`,
+owner: `『✦』The command *${comando}* can only be used by the bot developers.`,
+mods: `『✦』The command *${comando}* can only be used by the bot moderators.`,
+premium: `『✦』The command *${comando}* can only be used by premium users.`,
+group: `『✦』The command *${comando}* can only be used in groups.`,
+private: `『✦』The command *${comando}* can only be used in the bot's private chat.`,
+admin: `『✦』The command *${comando}* can only be used by group administrators.`,
+botAdmin: `『✦』To execute the command *${comando}* I must be a group administrator.`,
+unreg: `『✦』The command *${comando}* can only be used by registered users. Register using:\n> » #${randomVerify} ${user2}.${randomAge}`,
+restrict: `『✦』This feature is disabled.`
 }[type];
 if (msg) return m.reply(msg).then(_ => m.react('✖️'))}
-
 let file = global.__filename(import.meta.url, true)
 watchFile(file, async () => {
-unwatchFile(file)
-console.log(chalk.magenta("Se actualizo 'handler.js'"))
+    unwatchFile(file)
+    console.log(chalk.magenta("Updated 'handler.js'"))
 
-if (global.conns && global.conns.length > 0 ) {
-const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])]
-for (const userr of users) {
-userr.subreloadHandler(false)
-}}})
+    if (global.conns && global.conns.length > 0) {
+        const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])]
+        for (const userr of users) {
+            userr.subreloadHandler(false)
+        }
+    }
+})
