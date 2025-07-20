@@ -134,26 +134,28 @@ if (!methodCodeQR && !methodCode && !fs.existsSync(`./${sessions}/creds.json`)) 
 console.info = () => {} 
 console.debug = () => {} 
 
+// Connection options for WhatsApp socket
 const connectionOptions = {
-logger: pino({ level: 'silent' }),
-printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
-mobile: MethodMobile, 
-browser: opcion == '1' ? Browsers.macOS("Desktop") : methodCodeQR ? Browsers.macOS("Desktop") : Browsers.macOS("Chrome"),
-auth: {
-creds: state.creds,
-keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
-},
-markOnlineOnConnect: true, 
-generateHighQualityLinkPreview: true, 
-getMessage: async (clave) => {
-let jid = jidNormalizedUser(clave.remoteJid)
-let msg = await store.loadMessage(jid, clave.id)
-return msg?.message || ""
-},
-msgRetryCounterCache,
-msgRetryCounterMap,
-defaultQueryTimeoutMs: undefined,
-version,
+    logger: pino({ level: 'silent' }), // Logging level set to silent
+    printQRInTerminal: option == '1' ? true : methodCodeQR ? true : false, // Show QR code in terminal if option 1 or QR method
+    mobile: MethodMobile, // Use mobile mode if MethodMobile is true
+    browser: option == '1' ? Browsers.macOS("Desktop") : methodCodeQR ? Browsers.macOS("Desktop") : Browsers.macOS("Chrome"), // Browser type for connection
+    auth: {
+        creds: state.creds, // Authentication credentials
+        keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })), // Signal key store
+    },
+    markOnlineOnConnect: true, // Mark as online when connected
+    generateHighQualityLinkPreview: true, // Enable high quality link previews
+    getMessage: async (key) => {
+        // Function to get a message by key
+        let jid = jidNormalizedUser(key.remoteJid)
+        let msg = await store.loadMessage(jid, key.id)
+        return msg?.message || ""
+    },
+    msgRetryCounterCache, // Message retry cache
+    msgRetryCounterMap, // Message retry map
+    defaultQueryTimeoutMs: undefined, // Default query timeout
+    version, // WhatsApp protocol version
 }
 
 global.conn = makeWASocket(connectionOptions);
