@@ -36,7 +36,7 @@ import readline, { createInterface } from 'readline'
 import NodeCache from 'node-cache'
 const {CONNECTING} = ws
 const {chain} = lodash
-const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
+const PORT = process.env.PORT || 3000
 
 let { say } = cfonts
 
@@ -487,3 +487,12 @@ async function isValidPhoneNumber(number) {
         return false
     }
 }
+
+import http from 'http'
+
+http.createServer((req, res) => {
+  res.writeHead(200, {'Content-Type': 'text/plain'})
+  res.end('Lazack-Device V2 is running\n')
+}).listen(PORT, () => {
+  console.log(chalk.bold.green(`Server running at http://localhost:${PORT}/`))
+})
