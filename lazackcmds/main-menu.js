@@ -77,8 +77,8 @@ let handler = async (m, { conn }) => {
 
  
   let channelRD = {
-    id: '120363374826926142@newsletter',
-    name: 'Nino Nakano✨️'
+    id: '@newsletter',
+    name: 'Lazackorganisation',
   }
 
   let banner = 'https://lazackorganisation.my.id/mtaju.jpg'
