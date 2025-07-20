@@ -26,8 +26,8 @@ let handler = async (m, { conn }) => {
   const user = global.db.data.users[userId] || {}
   const name = await conn.getName(userId)
   const botname = conn.user?.name || 'LazackDevice 🌸'
-  const fecha = moment.tz('America/Lima').format('DD/MM/YYYY')
-  const hora = moment.tz('America/Lima').format('HH:mm:ss')
+  const fecha = moment.tz('Africa/Nairobi').format('DD/MM/YYYY')
+  const hora = moment.tz('Africa/Nairobi').format('HH:mm:ss')
   const uptime = clockString(process.uptime() * 1000)
   const totalreg = Object.keys(global.db.data.users).length
   const limit = user.limite || 0
@@ -52,20 +52,18 @@ let handler = async (m, { conn }) => {
     }
   }
 
- 
   let text = `╭─❀「 *Main Menu of ${global.botname}* 」❀─╮
-🌼 Konichiwaa~ *${name}*~! (≧◡≦)
+🌼 Welcome~ *${name}*~! (≧◡≦)
 💖 I'm *${global.botname}*, your assistant~
 
 📅 Lovely date: *${fecha}*
-⏰ Peru time: *${hora}*
+⏰ Nairobi time: *${hora}*
 🎀 Active users: *${totalreg}*
 🍬 Your daily limit: *${limit}*
 🔋 Uptime: *${uptime}*
 🤖 Status: ${botOfc}
 ╰───────────────🌸╯\n`
 
-  
   for (const tag of Object.keys(grouped)) {
     const section = tagsMap[tag] || '📚 Others'
     text += `\n╭─🎀 *${section}* 🎀─╮\n`
@@ -75,7 +73,6 @@ let handler = async (m, { conn }) => {
     text += '╰───────────────🌸\n'
   }
 
- 
   let channelRD = {
     id: '@newsletter',
     name: 'Lazackorganisation',
@@ -86,7 +83,6 @@ let handler = async (m, { conn }) => {
   let textbot = `🌸 Thanks for using me, *${name}*~\nDon't forget to follow the channel and give me love on GitHub~ 💕`
 
   await conn.sendMessage(m.chat, {
-    video: { url: 'https://files.catbox.moe/q8nw6b.mp4' },
     caption: text,
     contextInfo: {
       mentionedJid: [m.sender, userId],
@@ -112,7 +108,7 @@ let handler = async (m, { conn }) => {
 
 handler.help = ['menu']
 handler.tags = ['main']
-handler.command = ['menu', 'menú', 'help']
+handler.command = ['menu', 'help']
 export default handler
 
 function clockString(ms) {
