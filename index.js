@@ -12,7 +12,7 @@ import yargs from 'yargs';
 import {spawn} from 'child_process'
 import lodash from 'lodash'
 import { yukiJadiBot } from './lazackcmds/jadibot-serbot.js'
-// English translation: Import the yukiJadiBot function from the jadibot-serbot.js file in the lazackcmds directory.
+// Import the yukiJadiBot function from the jadibot-serbot.js file in the lazackcmds directory.
 import chalk from 'chalk'
 import syntaxerror from 'syntax-error'
 import {tmpdir} from 'os'
@@ -111,11 +111,11 @@ let phoneNumber = global.botNumber
 const methodCodeQR = process.argv.includes("qr")
 const methodCode = !!phoneNumber || process.argv.includes("code")
 const MethodMobile = process.argv.includes("mobile")
-const colores = chalk.bgMagenta.white
-const opcionQR = chalk.bold.green
-const opcionTexto = chalk.bold.cyan
+const colorOption = chalk.bgMagenta.white
+const qrOption = chalk.bold.green
+const textOption = chalk.bold.cyan
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
-const question = (texto) => new Promise((resolver) => rl.question(texto, resolver))
+const question = (text) => new Promise((resolve) => rl.question(text, resolve))
 
 let option
 if (methodCodeQR) {
@@ -123,7 +123,7 @@ if (methodCodeQR) {
 }
 if (!methodCodeQR && !methodCode && !fs.existsSync(`./${sessions}/creds.json`)) {
     do {
-        option = await question(colores('⌨ Select an option:\n') + opcionQR('1. With QR code\n') + opcionTexto('2. With 8-digit text code\n--> '))
+        option = await question(colorOption('⌨ Select an option:\n') + qrOption('1. With QR code\n') + textOption('2. With 8-digit text code\n--> '))
 
         if (!/^[1-2]$/.test(option)) {
             console.log(chalk.bold.redBright(`✦ Only numbers 1 or 2 are allowed, no letters or special symbols.`))
@@ -288,21 +288,21 @@ return true
 };
 
 
-global.rutaJadiBot = join(__dirname, './JadiBots')
+global.jadiBotPath = join(__dirname, './JadiBots')
 
 if (global.yukiJadibts) {
-    if (!existsSync(global.rutaJadiBot)) {
-        mkdirSync(global.rutaJadiBot, { recursive: true }) 
+    if (!existsSync(global.jadiBotPath)) {
+        mkdirSync(global.jadiBotPath, { recursive: true }) 
         console.log(chalk.bold.cyan(`The folder: ${jadi} was created successfully.`))
     } else {
         console.log(chalk.bold.cyan(`The folder: ${jadi} is already created.`)) 
     }
 
-    const readRutaJadiBot = readdirSync(rutaJadiBot)
-    if (readRutaJadiBot.length > 0) {
+    const readJadiBotPath = readdirSync(jadiBotPath)
+    if (readJadiBotPath.length > 0) {
         const creds = 'creds.json'
-        for (const gjbts of readRutaJadiBot) {
-            const botPath = join(rutaJadiBot, gjbts)
+        for (const gjbts of readJadiBotPath) {
+            const botPath = join(jadiBotPath, gjbts)
             const readBotPath = readdirSync(botPath)
             if (readBotPath.includes(creds)) {
                 yukiJadiBot({pathYukiJadiBot: botPath, m: null, conn, args: '', usedPrefix: '/', command: 'pair'})
@@ -388,8 +388,8 @@ unlinkSync(filePath)})
 
 function purgeSession() {
 let prekey = []
-let directorio = readdirSync(`./${sessions}`)
-let filesFolderPreKeys = directorio.filter(file => {
+let directory = readdirSync(`./${sessions}`)
+let filesFolderPreKeys = directory.filter(file => {
 return file.startsWith('pre-key-')
 })
 prekey = [...prekey, ...filesFolderPreKeys]
@@ -400,17 +400,17 @@ unlinkSync(`./${sessions}/${files}`)
 
 function purgeSessionSB() {
 try {
-const listaDirectorios = readdirSync(`./${jadi}/`);
+const listDirectories = readdirSync(`./${jadi}/`);
 let SBprekey = [];
-listaDirectorios.forEach(directorio => {
-if (statSync(`./${jadi}/${directorio}`).isDirectory()) {
-const DSBPreKeys = readdirSync(`./${jadi}/${directorio}`).filter(fileInDir => {
+listDirectories.forEach(directory => {
+if (statSync(`./${jadi}/${directory}`).isDirectory()) {
+const DSBPreKeys = readdirSync(`./${jadi}/${directory}`).filter(fileInDir => {
 return fileInDir.startsWith('pre-key-')
 })
 SBprekey = [...SBprekey, ...DSBPreKeys];
 DSBPreKeys.forEach(fileInDir => {
 if (fileInDir !== 'creds.json') {
-unlinkSync(`./${jadi}/${directorio}/${fileInDir}`)
+unlinkSync(`./${jadi}/${directory}/${fileInDir}`)
 }})
 }})
 if (SBprekey.length === 0) {
