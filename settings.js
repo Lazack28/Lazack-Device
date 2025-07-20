@@ -42,7 +42,7 @@ global.baileys = 'V 6.7.17'
 global.vs = '2.2.5'
 global.nameqr = 'Nino Nakano V2'
 global.namebot = '✿◟Nino Bot◞✿'
-global.sessions = 'Sessions'
+global.sessions = 'session'
 global.jadi = 'JadiBots' 
 global.yukiJadibts = true
 
