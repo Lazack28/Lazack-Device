@@ -17,14 +17,11 @@ global.botNumber = '' //Example: 573218138672
 
 global.owner = [
 // <-- Number @s.whatsapp.net -->
-  ['51901930696', 'Angelithoxyz', true],
-  ['584146277368', 'Barboza', true],
-  ['59897246324', 'izumi', true],
-  ['50557865603', 'Willzek', true], 
-  ['50248019799', '🐉NeoTokyo Beats🐲', true],
+  ['255734980103', 'LAZACK28', true],
+  ['255613868502', 'LAZACK28', true],
   
 // <-- Number @lid -->
-  ['184486729879638', 'Angelithoxyz', true],
+  ['', 'lAZACK', true],
   ['', '', true], 
   ['', '', true]
 ];
@@ -32,53 +29,53 @@ global.owner = [
 //*─────────────────────────────*
 
 global.mods = []
-global.suittag = ['51901930696'] 
+global.suittag = ['255734980103'] 
 global.prems = []
 
 //*─────────────────────────────*
 
-global.libreria = 'Baileys'
+global.library = 'Baileys'
 global.baileys = 'V 6.7.17' 
 global.vs = '2.2.5'
-global.nameqr = 'Nino Nakano V2'
-global.namebot = '✿◟Nino Bot◞✿'
+global.nameqr = 'LAZACK DEVICE'
+global.namebot = 'LAZACK-DEVICE'
 global.sessions = 'session'
 global.jadi = 'JadiBots' 
 global.yukiJadibts = true
 
 //*─────────────────────────────*
 
-global.packname = '⪛✰ Nino Nakano V2 ✰⪜'
-global.botname = 'NINO NAKANO V2'
-global.wm = '✿◟Nino Nakano V2◞✿'
-global.author = 'Made With By Ryusei Club'
-global.dev = '© Powered By Angelithoxyz'
-global.textbot = 'Nino, Made With By Ryusei Club'
-global.etiqueta = 'Angelithoxyz'
+global.packname = '⪛✰ LAZACK-DEVICE ✰⪜'
+global.botname = 'LAZACK-DEVICE'
+global.wm = '✿◟LAZACK DEVICE◞✿'
+global.author = 'Made With By LzcTeam'
+global.dev = '© Powered By LzcTeam'
+global.textbot = 'lazackorganisation'
+global.tag = 'lazack28'
 
 //*─────────────────────────────*
 
-global.moneda = 'NinoCoins'
-global.welcom1 = '❍ Edit With The Command setwelcome'
-global.welcom2 = '❍ Edit With The Command setbye'
-global.banner = 'https://files.catbox.moe/bvew26.jpg'
-global.avatar = 'https://files.catbox.moe/syn9ao.jpg'
+global.currency = 'teamlz'
+global.welcome1 = '❍ Edit With The Command setwelcome'
+global.welcome2 = '❍ Edit With The Command setbye'
+global.banner = 'https://lazackorganisation.my.id/mtaju.jpg'
+global.avatar = 'https://lazackorganisation.my.id/mtaju.jpg'
 
 //*─────────────────────────────*
 
-global.gp1 = 'https://chat.whatsapp.com/LYLiORNWzHkIsiecvCCdgK?mode=ac_t'
-global.comunidad1 = 'https://chat.whatsapp.com/HeKcGyv2idq0tMFRFGN6qL?mode=ac_t'
-global.channel = 'https://whatsapp.com/channel/0029Vaz6RTR0LKZIKwudX32x'
-global.channel2 = 'https://whatsapp.com/channel/0029VapUpsT9mrGcypZy141s'
-global.md = 'https://github.com/Angelithoxyz/Nino-Nakano-V2'
-global.correo = 'angelithoxyz@gmail.com'
+global.gp1 = ''
+global.community1 = ''
+global.channel = ''
+global.channel2 = ''
+global.md = 'https://github.com/Lazack28/Lazack-Device'
+global.email = 'lazaromtaju12@gmail.com'
 
 //*─────────────────────────────*
 
-global.catalogo = fs.readFileSync('./src/catalogo.jpg');
-global.estilo = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "5219992095479-1625305606@g.us" } : {}) }, message: { orderMessage: { itemCount : -999999, status: 1, surface : 1, message: packname, orderTitle: 'Bang', thumbnail: catalogo, sellerJid: '0@s.whatsapp.net'}}}
+global.catalog = fs.readFileSync('./Botify/lazack.jpg');
+global.style = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "@g.us" } : {}) }, message: { orderMessage: { itemCount : -999999, status: 1, surface : 1, message: packname, orderTitle: 'Bang', thumbnail: catalog, sellerJid: '0@s.whatsapp.net'}}}
 global.ch = {
-ch1: '120363374826926142@newsletter',
+ch1: '120363374@newsletter',
 }
 global.multiplier = 60
 
@@ -98,4 +95,3 @@ watchFile(file, () => {
   console.log(chalk.redBright("Update 'settings.js'"))
   import(`${file}?update=${Date.now()}`)
 })
-
