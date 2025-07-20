@@ -25,7 +25,7 @@ let handler = async (m, { conn }) => {
   const userId = m.mentionedJid?.[0] || m.sender
   const user = global.db.data.users[userId] || {}
   const name = await conn.getName(userId)
-  const botname = conn.user?.name || 'NinoBot 🌸'
+  const botname = conn.user?.name || 'LazackDevice 🌸'
   const fecha = moment.tz('America/Lima').format('DD/MM/YYYY')
   const hora = moment.tz('America/Lima').format('HH:mm:ss')
   const uptime = clockString(process.uptime() * 1000)
