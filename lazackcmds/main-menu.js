@@ -74,7 +74,7 @@ let handler = async (m, { conn }) => {
   }
 
   let channelRD = {
-    id: '@newsletter',
+    id: '120363321705798318@newsletter',
     name: 'LazackOrganisation',
   }
 
