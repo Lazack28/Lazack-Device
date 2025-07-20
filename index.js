@@ -12,6 +12,7 @@ import yargs from 'yargs';
 import {spawn} from 'child_process'
 import lodash from 'lodash'
 import { yukiJadiBot } from './lazackcmds/jadibot-serbot.js'
+// English translation: Import the yukiJadiBot function from the jadibot-serbot.js file in the lazackcmds directory.
 import chalk from 'chalk'
 import syntaxerror from 'syntax-error'
 import {tmpdir} from 'os'
