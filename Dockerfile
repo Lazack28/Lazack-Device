@@ -1,11 +1,19 @@
-FROM quay.io/gurusensei/gurubhay:latest
+FROM node:lts-buster
 
-RUN git clone https://github.com/Lazack28/Lazack-Device /root/lazack
+RUN apt-get update && \
+  apt-get install -y \
+  ffmpeg \
+  imagemagick \
+  webp && \
+  apt-get upgrade -y && \
+  rm -rf /var/lib/apt/lists/*
 
-WORKDIR /root/lazack/
+COPY package.json .
 
-RUN npm install --platform=linuxmusl
+RUN npm install
+
+COPY . .
 
 EXPOSE 5000
 
-CMD ["npm", "start"]
+CMD ["node", "index.js"]
