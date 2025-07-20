@@ -7,7 +7,7 @@
   "directories": {
     "lib": "lib",
     "src": "src",
-    "plugins": "plugins"
+    "plugins": "lazackcmds"
   },
   "scripts": {
     "start": "node index.js",
