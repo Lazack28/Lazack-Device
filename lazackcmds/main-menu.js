@@ -10,11 +10,11 @@ const tagsMap = {
   group: '👥 Groups',
   nable: '🎛️ Features',
   nsfw: '🔞 NSFW +18',
-  buscadores: '🔎 Searchers',
+  buscadores: '🔎 Search Tools',
   sticker: '🌈 Stickers',
   econ: '💰 Economy',
   convertidor: '🌀 Converters',
-  logo: '🎀 Kawaii Logos',
+  logo: '🎀 Logo Generator',
   tools: '🧰 Tools',
   randow: '🎁 Random',
   efec: '🎶 Audio Effects',
@@ -52,20 +52,20 @@ let handler = async (m, { conn }) => {
     }
   }
 
-  let text = `╭─❀「 *Main Menu of ${global.botname}* 」❀─╮
-🌼 Welcome~ *${name}*~! (≧◡≦)
-💖 I'm *${global.botname}*, your assistant~
+  let text = `╭─ *𝐋𝐀𝐙𝐀𝐂𝐊-𝐌𝐃* ─╮
+🌼 Hello *${name}*! Welcome~
+💖 I am *${botname}*, your virtual assistant~
 
-📅 Lovely date: *${fecha}*
-⏰ Nairobi time: *${hora}*
-🎀 Active users: *${totalreg}*
-🍬 Your daily limit: *${limit}*
+📅 Date: *${fecha}*
+⏰ Nairobi Time: *${hora}*
+🎀 Active Users: *${totalreg}*
+🍬 Your Daily Limit: *${limit}*
 🔋 Uptime: *${uptime}*
 🤖 Status: ${botOfc}
 ╰───────────────🌸╯\n`
 
   for (const tag of Object.keys(grouped)) {
-    const section = tagsMap[tag] || '📚 Others'
+    const section = tagsMap[tag] || '📚 Other Commands'
     text += `\n╭─🎀 *${section}* 🎀─╮\n`
     for (const cmd of grouped[tag]) {
       text += `💫 ${cmd}\n`
@@ -74,16 +74,17 @@ let handler = async (m, { conn }) => {
   }
 
   let channelRD = {
-    id: '@newsletter',
-    name: 'Lazackorganisation',
+    id: '120363321705798318@newsletter',
+    name: 'LazackOrganisation',
   }
 
   let banner = 'https://lazackorganisation.my.id/mtaju.jpg'
   let redes = 'https://lazackorganisation.my.id'
-  let textbot = `🌸 Thanks for using me, *${name}*~\nDon't forget to follow the channel and give me love on GitHub~ 💕`
+  let textbot = `🌸 Thank you for using me, *${name}*~
+Don't forget to follow our official channel and show some love on GitHub 💕`
 
   await conn.sendMessage(m.chat, {
-    caption: text,
+    text: text,
     contextInfo: {
       mentionedJid: [m.sender, userId],
       isForwarded: false,
@@ -116,4 +117,4 @@ function clockString(ms) {
   let minutes = Math.floor((ms / (1000 * 60)) % 60)
   let hours = Math.floor((ms / (1000 * 60 * 60)) % 24)
   return `${hours}h ${minutes}m ${seconds}s`
-}
+    }
