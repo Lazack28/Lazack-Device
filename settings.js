@@ -11,7 +11,7 @@ import moment from 'moment-timezone'
 
 //BETA: If you want to avoid typing the number that will be the bot in the console, add it here:
 //Only applies for option 2 (being a bot with 8-digit text code)
-global.botNumber = '' //Example: 573218138672
+global.botNumber = '' //Example: 255734980103
 
 //*─────────────────────────────*
 
@@ -63,10 +63,10 @@ global.avatar = 'https://lazackorganisation.my.id/mtaju.jpg'
 
 //*─────────────────────────────*
 
-global.gp1 = ''
-global.community1 = ''
-global.channel = ''
-global.channel2 = ''
+global.gp1 = 'https://chat.whatsapp.com/EATTgyi5jx16HgAggPg8yI?mode=r_c'
+global.community1 = 'https://chat.whatsapp.com/EATTgyi5jx16HgAggPg8yI?mode=r_c'
+global.channel = 'https://whatsapp.com/channel/0029ValRlNGCXC3EussN4b2E'
+global.channel2 = 'https://whatsapp.com/channel/0029ValRlNGCXC3EussN4b2E'
 global.md = 'https://github.com/Lazack28/Lazack-Device'
 global.email = 'lazaromtaju12@gmail.com'
 
