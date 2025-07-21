@@ -34,7 +34,7 @@ let handler = async (m, { conn }) => {
 
   const botTag = conn.user?.jid?.split('@')[0] || 'bot'
   const botOfc = conn.user?.id === global.conn?.user?.id
-    ? `💫 *Official Bot:* wa.me/${botTag}`
+    ? `🌐 *Official Bot:* wa.me/${botTag}`
     : `🔗 *Sub Bot of:* wa.me/${global.conn?.user?.jid?.split('@')[0]}`
 
   const grouped = {}
@@ -48,29 +48,28 @@ let handler = async (m, { conn }) => {
     if (!grouped[tag]) grouped[tag] = []
     for (const cmd of cmds) {
       if (typeof cmd !== 'string') continue
-      grouped[tag].push(`🌸 .${cmd}`)
+      grouped[tag].push(`➤ .${cmd}`)
     }
   }
 
-  let text = `╭─ *𝐋𝐀𝐙𝐀𝐂𝐊-𝐌𝐃* ─╮
-🌼 Hello *${name}*! Welcome~
-💖 I am *${botname}*, your virtual assistant~
-
-📅 Date: *${fecha}*
-⏰ Nairobi Time: *${hora}*
-🎀 Active Users: *${totalreg}*
-🍬 Your Daily Limit: *${limit}*
-🔋 Uptime: *${uptime}*
-🤖 Status: ${botOfc}
-╰───────────────🌸╯\n`
+  let text = `╭━━❰ *Lazack-MD Menu* ❱━━╮
+┃ ✨ *Hello:* ${name}
+┃ 🤖 *Bot Name:* ${botname}
+┃ 📅 *Date:* ${fecha}
+┃ 🕒 *Time:* ${hora}
+┃ 🔋 *Uptime:* ${uptime}
+┃ 🧑‍🤝‍🧑 *Total Users:* ${totalreg}
+┃ 🎯 *Your Limit:* ${limit}
+┃ ${botOfc}
+╰━━━━━━━━━━━━━━━━━━━━━╯\n`
 
   for (const tag of Object.keys(grouped)) {
     const section = tagsMap[tag] || '📚 Other Commands'
-    text += `\n╭─🎀 *${section}* 🎀─╮\n`
+    text += `\n╭───〔 ${section} 〕───╮\n`
     for (const cmd of grouped[tag]) {
-      text += `💫 ${cmd}\n`
+      text += `┃ ${cmd}\n`
     }
-    text += '╰───────────────🌸\n'
+    text += `╰────────────────────╯\n`
   }
 
   let channelRD = {
@@ -80,11 +79,10 @@ let handler = async (m, { conn }) => {
 
   let banner = 'https://lazackorganisation.my.id/mtaju.jpg'
   let redes = 'https://lazackorganisation.my.id'
-  let textbot = `🌸 Thank you for using me, *${name}*~
-Don't forget to follow our official channel and show some love on GitHub 💕`
+  let textbot = `🌸 Thank you for using *${botname}*, ${name}!\n🔔 Follow our official channel and support on GitHub.`
 
   await conn.sendMessage(m.chat, {
-    text: text,
+    text,
     contextInfo: {
       mentionedJid: [m.sender, userId],
       isForwarded: false,
@@ -113,8 +111,8 @@ handler.command = ['menu', 'help']
 export default handler
 
 function clockString(ms) {
-  let seconds = Math.floor((ms / 1000) % 60)
-  let minutes = Math.floor((ms / (1000 * 60)) % 60)
-  let hours = Math.floor((ms / (1000 * 60 * 60)) % 24)
-  return `${hours}h ${minutes}m ${seconds}s`
-    }
+  let h = Math.floor(ms / 3600000)
+  let m = Math.floor((ms % 3600000) / 60000)
+  let s = Math.floor((ms % 60000) / 1000)
+  return `${h}h ${m}m ${s}s`
+  }
