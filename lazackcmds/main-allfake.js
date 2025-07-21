@@ -28,7 +28,7 @@ global.getBuffer = async function getBuffer(url, options) {
   }
 }
 
-global.creator = 'wa.me/51901930696'
+global.creator = 'wa.me/255734980103'
 global.botUser = `${conn.user.jid.split('@')[0]}`
 global.channelName = '=͟͟͞❀ Lazackorganisation ⏤͟͟͞͞★'
 global.channelName2 = '=͟͟͞❀ silvatech ⏤͟͟͞͞★'
@@ -37,8 +37,8 @@ global.communityName = 'ᰔᩚ javascript users ❀'
 global.ready = '❀ *Here you go ฅ^•ﻌ•^ฅ*'
 global.profilePhoto = await conn.profilePictureUrl(m.sender, 'image').catch(_ => 'https://lazackorganisation.my.id/mtaju.jpg')
 
-global.channelIdList = ["@newsletter", "@newsletter"]
-global.channelNameList = ["Lazackorganisation", "silvatech"]
+global.channelIdList = ["120363321705798318@newsletter", "120363321705798318@newsletter"]
+global.channelNameList = ["Lazackorganisation", "LzcTeam"]
 global.randomChannel = await getRandomChannel()
 
 global.d = new Date(new Date + 3600000)
