@@ -75,7 +75,7 @@ global.email = 'lazaromtaju12@gmail.com'
 global.catalog = fs.readFileSync('./Botify/lazack.jpg');
 global.style = { key: {  fromMe: false, participant: `0@s.whatsapp.net`, ...(false ? { remoteJid: "@g.us" } : {}) }, message: { orderMessage: { itemCount : -999999, status: 1, surface : 1, message: packname, orderTitle: 'Bang', thumbnail: catalog, sellerJid: '0@s.whatsapp.net'}}}
 global.ch = {
-ch1: '120363374@newsletter',
+ch1: '120363321705798318@newsletter',
 }
 global.multiplier = 60
 
