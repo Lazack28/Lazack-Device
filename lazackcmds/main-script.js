@@ -26,7 +26,7 @@ let handler = async (m, { conn }) => {
         externalAdReply: {
           title: '✨ Lazack-Device v2.0.0 (BETA)',
           body: 'Official bot repository',
-          thumbnailUrl: 'https://qu.ax/nGaLj.jpg',
+          thumbnailUrl: 'https://lazackorganisation.my.id/mtaju.jpg',
           sourceUrl: json.html_url,
           mediaType: 1,
           renderLargerThumbnail: true
@@ -43,6 +43,5 @@ let handler = async (m, { conn }) => {
 handler.help = ['script', 'sc', 'repo']
 handler.tags = ['main']
 handler.command = ['script', 'sc', 'repo']
-handler.register = true
 
 export default handler
