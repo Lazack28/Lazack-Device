@@ -12,7 +12,7 @@ let handler = async (m, { conn }) => {
     txt += `✩  *Name* : ${json.name}\n`
     txt += `✩  *Watchers* : ${json.watchers_count}\n`
     txt += `✩  *Size* : ${(json.size / 1024).toFixed(2)} MB\n`
-    txt += `✩  *Updated* : ${moment(json.updated_at).tz('America/Lima').format('DD/MM/YY - HH:mm:ss')}\n`
+    txt += `✩  *Updated* : ${moment(json.updated_at).tz('Africa/Nairobi').format('DD/MM/YY - HH:mm:ss')}\n`
     txt += `✩  *Url* : ${json.html_url}\n`
     txt += `✩  *Forks* : ${json.forks_count}\n`
     txt += `✩  *Stars* : ${json.stargazers_count}\n\n`
@@ -26,7 +26,7 @@ let handler = async (m, { conn }) => {
         externalAdReply: {
           title: '✨ Lazack-Device v2.0.0 (BETA)',
           body: 'Official bot repository',
-          thumbnailUrl: 'https://qu.ax/nGaLj.jpg',
+          thumbnailUrl: 'https://lazackorganisation.my.id/mtaju.jpg',
           sourceUrl: json.html_url,
           mediaType: 1,
           renderLargerThumbnail: true
@@ -43,6 +43,5 @@ let handler = async (m, { conn }) => {
 handler.help = ['script', 'sc', 'repo']
 handler.tags = ['main']
 handler.command = ['script', 'sc', 'repo']
-handler.register = true
 
 export default handler
