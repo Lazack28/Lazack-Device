@@ -65,11 +65,11 @@ let handler = async (m, { conn }) => {
 
   for (const tag of Object.keys(grouped)) {
     const section = tagsMap[tag] || '📚 Other Commands'
-    text += `\n╭───〔 ${section} 〕───╮\n`
+    text += `\n╭──〔 ${section} 〕─╮\n`
     for (const cmd of grouped[tag]) {
       text += `┃ ${cmd}\n`
     }
-    text += `╰────────────────────╯\n`
+    text += `╰──────────────────╯\n`
   }
 
   let channelRD = {
