@@ -40,6 +40,7 @@ for (const msg of chatUpdate.messages || []) {
           participant: participant
         }
       ])
+      console.log(`👀 Viewed status from: ${participant}`);
     }
   }
 }
