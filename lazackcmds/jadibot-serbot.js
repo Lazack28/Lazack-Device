@@ -117,97 +117,99 @@ sock.isInit = false
 let isInit = true
 
 async function connectionUpdate(update) {
-const { connection, lastDisconnect, isNewLogin, qr } = update
-if (isNewLogin) sock.isInit = false
-if (qr && !mcode) {
-if (m?.chat) {
-txtQR = await conn.sendMessage(m.chat, { image: await qrcode.toBuffer(qr, { scale: 8 }), caption: rtx.trim()}, { quoted: m})
-} else {
-return 
-}
-if (txtQR && txtQR.key) {
-setTimeout(() => { conn.sendMessage(m.sender, { delete: txtQR.key })}, 30000)
-}
-return
-} 
-if (qr && mcode) {
-let secret = await sock.requestPairingCode((m.sender.split`@`[0]))
-secret = secret.match(/.{1,4}/g)?.join("-")
-txtCode = await conn.sendMessage(m.chat, {text : rtx2}, { quoted: m })
-codeBot = await m.reply(secret)
-console.log(secret)
-}
-if (txtCode && txtCode.key) {
-setTimeout(() => { conn.sendMessage(m.sender, { delete: txtCode.key })}, 30000)
-}
-if (codeBot && codeBot.key) {
-setTimeout(() => { conn.sendMessage(m.sender, { delete: codeBot.key })}, 30000)
-}
-const endSesion = async (loaded) => {
-if (!loaded) {
-try {
-sock.ws.close()
-} catch {
-}
-sock.ev.removeAllListeners()
-let i = global.conns.indexOf(sock)                
-if (i < 0) return 
-delete global.conns[i]
-global.conns.splice(i, 1)
-}}
+    const { connection, lastDisconnect, isNewLogin, qr } = update
+    if (isNewLogin) sock.isInit = false
+    if (qr && !mcode) {
+        if (m?.chat) {
+            txtQR = await conn.sendMessage(m.chat, { image: await qrcode.toBuffer(qr, { scale: 8 }), caption: rtx.trim()}, { quoted: m})
+        } else {
+            return 
+        }
+        if (txtQR && txtQR.key) {
+            setTimeout(() => { conn.sendMessage(m.sender, { delete: txtQR.key })}, 30000)
+        }
+        return
+    } 
+    if (qr && mcode) {
+        let secret = await sock.requestPairingCode((m.sender.split`@`[0]))
+        secret = secret.match(/.{1,4}/g)?.join("-")
+        txtCode = await conn.sendMessage(m.chat, {text : rtx2}, { quoted: m })
+        codeBot = await m.reply(secret)
+        console.log(secret)
+    }
+    if (txtCode && txtCode.key) {
+        setTimeout(() => { conn.sendMessage(m.sender, { delete: txtCode.key })}, 30000)
+    }
+    if (codeBot && codeBot.key) {
+        setTimeout(() => { conn.sendMessage(m.sender, { delete: codeBot.key })}, 30000)
+    }
+    const endSesion = async (loaded) => {
+        if (!loaded) {
+            try {
+                sock.ws.close()
+            } catch {
+            }
+            sock.ev.removeAllListeners()
+            let i = global.conns.indexOf(sock)                
+            if (i < 0) return 
+            delete global.conns[i]
+            global.conns.splice(i, 1)
+        }
+    }
 
-const reason = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
-if (connection === 'close') {
-if (reason === 428) {
-console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ La conexión (+${path.basename(pathYukiJadiBot)}) fue cerrada inesperadamente. Intentando reconectar...\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
-await creloadHandler(true).catch(console.error)
-}
-if (reason === 408) {
-console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ La conexión (+${path.basename(pathYukiJadiBot)}) se perdió o expiró. Razón: ${reason}. Intentando reconectar...\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
-await creloadHandler(true).catch(console.error)
-}
-if (reason === 440) {
-console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ La conexión (+${path.basename(pathYukiJadiBot)}) fue reemplazada por otra sesión activa.\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
-try {
-if (options.fromCommand) m?.chat ? await conn.sendMessage(`${path.basename(pathYukiJadiBot)}@s.whatsapp.net`, {text : '*HEMOS DETECTADO UNA NUEVA SESIÓN, BORRE LA NUEVA SESIÓN PARA CONTINUAR*\n\n> *SI HAY ALGÚN PROBLEMA VUELVA A CONECTARSE*' }, { quoted: m || null }) : ""
-} catch (error) {
-console.error(chalk.bold.yellow(`Error 440 no se pudo enviar mensaje a: +${path.basename(pathYukiJadiBot)}`))
-}}
-if (reason == 405 || reason == 401) {
-console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ La sesión (+${path.basename(pathYukiJadiBot)}) fue cerrada. Credenciales no válidas o dispositivo desconectado manualmente.\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
-try {
-if (options.fromCommand) m?.chat ? await conn.sendMessage(`${path.basename(pathYukiJadiBot)}@s.whatsapp.net`, {text : '*SESIÓN PENDIENTE*\n\n> *INTENTÉ NUEVAMENTE VOLVER A SER SUB-BOT*' }, { quoted: m || null }) : ""
-} catch (error) {
-console.error(chalk.bold.yellow(`Error 405 no se pudo enviar mensaje a: +${path.basename(pathYukiJadiBot)}`))
-}
-fs.rmdirSync(pathYukiJadiBot, { recursive: true })
-}
-if (reason === 500) {
-    console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Connection lost in session (+${path.basename(pathYukiJadiBot)}). Deleting data...\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
-    if (options.fromCommand) m?.chat ? await conn.sendMessage(`${path.basename(pathYukiJadiBot)}@s.whatsapp.net`, {text : '*CONNECTION LOST*\n\n> *TRY TO BECOME SUB-BOT AGAIN MANUALLY*' }, { quoted: m || null }) : ""
-    return creloadHandler(true).catch(console.error)
-}
-if (reason === 515) {
-    console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Automatic restart for session (+${path.basename(pathYukiJadiBot)}).\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
-    await creloadHandler(true).catch(console.error)
-}
-if (reason === 403) {
-    console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Session closed or account in support for session (+${path.basename(pathYukiJadiBot)}).\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
-    fs.rmdirSync(pathYukiJadiBot, { recursive: true })
-}}
-if (global.db.data == null) loadDatabase()
-if (connection == `open`) {
-    if (!global.db.data?.users) loadDatabase()
-    let userName, userJid 
-    userName = sock.authState.creds.me.name || 'Anonymous'
-    userJid = sock.authState.creds.me.jid || `${path.basename(pathYukiJadiBot)}@s.whatsapp.net`
-    console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• SUB-BOT •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${userName} (+${path.basename(pathYukiJadiBot)}) connected successfully.\n│\n❒⸺⸺⸺【• CONNECTED •】⸺⸺⸺❒`))
-    sock.isInit = true
-    global.conns.push(sock)
-    await joinChannels(sock)
+    const reason = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
+    if (connection === 'close') {
+        if (reason === 428) {
+            console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ The connection (+${path.basename(pathYukiJadiBot)}) was unexpectedly closed. Trying to reconnect...\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+            await creloadHandler(true).catch(console.error)
+        }
+        if (reason === 408) {
+            console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ The connection (+${path.basename(pathYukiJadiBot)}) was lost or expired. Reason: ${reason}. Trying to reconnect...\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+            await creloadHandler(true).catch(console.error)
+        }
+        if (reason === 440) {
+            console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ The connection (+${path.basename(pathYukiJadiBot)}) was replaced by another active session.\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+            try {
+                if (options.fromCommand) m?.chat ? await conn.sendMessage(`${path.basename(pathYukiJadiBot)}@s.whatsapp.net`, {text : '*A NEW SESSION HAS BEEN DETECTED, DELETE THE NEW SESSION TO CONTINUE*\n\n> *IF THERE IS ANY PROBLEM, TRY TO CONNECT AGAIN*' }, { quoted: m || null }) : ""
+            } catch (error) {
+                console.error(chalk.bold.yellow(`Error 440 could not send message to: +${path.basename(pathYukiJadiBot)}`))
+            }}
+        if (reason == 405 || reason == 401) {
+            console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ The session (+${path.basename(pathYukiJadiBot)}) was closed. Invalid credentials or device manually disconnected.\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+            try {
+                if (options.fromCommand) m?.chat ? await conn.sendMessage(`${path.basename(pathYukiJadiBot)}@s.whatsapp.net`, {text : '*PENDING SESSION*\n\n> *TRY TO BECOME SUB-BOT AGAIN*' }, { quoted: m || null }) : ""
+            } catch (error) {
+                console.error(chalk.bold.yellow(`Error 405 could not send message to: +${path.basename(pathYukiJadiBot)}`))
+            }
+            fs.rmdirSync(pathYukiJadiBot, { recursive: true })
+        }
+        if (reason === 500) {
+            console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Connection lost in session (+${path.basename(pathYukiJadiBot)}). Deleting data...\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+            if (options.fromCommand) m?.chat ? await conn.sendMessage(`${path.basename(pathYukiJadiBot)}@s.whatsapp.net`, {text : '*CONNECTION LOST*\n\n> *TRY TO BECOME SUB-BOT AGAIN MANUALLY*' }, { quoted: m || null }) : ""
+            return creloadHandler(true).catch(console.error)
+        }
+        if (reason === 515) {
+            console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Automatic restart for session (+${path.basename(pathYukiJadiBot)}).\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+            await creloadHandler(true).catch(console.error)
+        }
+        if (reason === 403) {
+            console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Session closed or account in support for session (+${path.basename(pathYukiJadiBot)}).\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+            fs.rmdirSync(pathYukiJadiBot, { recursive: true })
+        }}
+    if (global.db.data == null) loadDatabase()
+    if (connection == `open`) {
+        if (!global.db.data?.users) loadDatabase()
+        let userName, userJid 
+        userName = sock.authState.creds.me.name || 'Anonymous'
+        userJid = sock.authState.creds.me.jid || `${path.basename(pathYukiJadiBot)}@s.whatsapp.net`
+        console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• SUB-BOT •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${userName} (+${path.basename(pathYukiJadiBot)}) connected successfully.\n│\n❒⸺⸺⸺【• CONNECTED •】⸺⸺⸺❒`))
+        sock.isInit = true
+        global.conns.push(sock)
+        await joinChannels(sock)
 
-    m?.chat ? await conn.sendMessage(m.chat, {text: args[0] ? `@${m.sender.split('@')[0]}, you are already connected, reading incoming messages...` : `@${m.sender.split('@')[0]}, great, you are now part of our Sub-Bots family.`, mentions: [m.sender]}, { quoted: m }) : ''
-}}
+        m?.chat ? await conn.sendMessage(m.chat, {text: args[0] ? `@${m.sender.split('@')[0]}, you are already connected, reading incoming messages...` : `@${m.sender.split('@')[0]}, great, you are now part of our Sub-Bots family.`, mentions: [m.sender]}, { quoted: m }) : ''
+    }
+}
 setInterval(async () => {
 if (!sock.user) {
 try { sock.ws.close() } catch (e) {      
