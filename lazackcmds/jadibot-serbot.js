@@ -1,15 +1,4 @@
-/*⚠ PROHIBIDO EDITAR ⚠
-Este codigo fue modificado, adaptado y mejorado por
-- ReyEndymion >> https://github.com/ReyEndymion
-El codigo de este archivo esta inspirado en el codigo original de:
-- Aiden_NotLogic >> https://github.com/ferhacks
-*El archivo original del MysticBot-MD fue liberado en mayo del 2024 aceptando su liberacion*
-El codigo de este archivo fue parchado en su momento por:
-- BrunoSobrino >> https://github.com/BrunoSobrino
-Contenido adaptado por:
-- GataNina-Li >> https://github.com/GataNina-Li
-- elrebelde21 >> https://github.com/elrebelde21
-*/
+
 
 const { useMultiFileAuthState, DisconnectReason, makeCacheableSignalKeyStore, fetchLatestBaileysVersion, Browsers } = (await import("@whiskeysockets/baileys"));
 import qrcode from "qrcode"
