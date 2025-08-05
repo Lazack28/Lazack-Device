@@ -32,11 +32,11 @@ if (!globalThis.db.data.settings[conn.user.jid].jadibotmd) {
 return m.reply(`♡ El Comando *${command}* está desactivado temporalmente.`)
 }
 let time = global.db.data.users[m.sender].Subs + 120000
-if (new Date - global.db.data.users[m.sender].Subs < 120000) return conn.reply(m.chat, `${emoji} Debes esperar ${msToTime(time - new Date())} para volver a vincular un *Sub-Bot.*`, m)
+return conn.reply(m.chat, `${emoji} You must wait ${msToTime(time - new Date())} before linking a new *Sub-Bot.*`, m)
 const subBots = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])]
 const subBotsCount = subBots.length
 if (subBotsCount === 20) {
-return m.reply(`${emoji2} No se han encontrado espacios para *Sub-Bots* disponibles.`)
+return m.reply(`${emoji2} No available slots for *Sub-Bots* found.`)
 }
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let id = `${who.split`@`[0]}`
