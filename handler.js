@@ -21,30 +21,6 @@ return
 this.pushMessage(chatUpdate.messages).catch(console.error)
 let m = chatUpdate.messages[chatUpdate.messages.length - 1]
 if (!m)
-
-    // Auto view status updates
-for (const msg of chatUpdate.messages || []) {
-  if (!msg.key) continue
-
-  // Check if it's a status update
-  if (msg.key.remoteJid === 'status@broadcast') {
-    const fromMe = msg.key.fromMe
-    const participant = msg.key.participant || msg.participant || msg.pushName || msg.key.remoteJid
-
-    // Mark the status as read
-    if (!fromMe && participant) {
-      await this.readMessages([
-        {
-          remoteJid: msg.key.remoteJid,
-          id: msg.key.id,
-          participant: participant
-        }
-      ])
-      console.log(`👀 Viewed status from: ${participant}`);
-    }
-  }
-}
-
 return;
 if (global.db.data == null)
 await global.loadDatabase()       
