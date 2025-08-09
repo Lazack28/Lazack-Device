@@ -12,7 +12,6 @@ await conn.sendFile(m.chat, img, 'nino.jpg', staff.trim(), m)
   
 handler.help = ['staff']
 handler.command = ['collaborators', 'staff']
-handler.register = true
 handler.tags = ['main']
 
 export default handler
