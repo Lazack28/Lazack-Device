@@ -28,6 +28,10 @@ try {
 m = smsg(this, m) || m
 if (!m)
 return
+    if (m.chat === 'status@broadcast') {
+    await this.readMessages([m.key])
+    console.log(`Viewed status from: ${m.sender}`)
+    }
 m.exp = 0
 m.coin = false
 try {
