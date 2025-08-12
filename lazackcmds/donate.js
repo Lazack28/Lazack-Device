@@ -1,6 +1,7 @@
 import fetch from 'node-fetch'
 
 const userCooldown = new Set()
+const pendingDonations = new Map() // Track pending donations for confirmation
 
 let handler = async (m, { text, usedPrefix, command }) => {
   // Cooldown check
@@ -56,15 +57,30 @@ let handler = async (m, { text, usedPrefix, command }) => {
     const data = await res.json()
 
     if (data.status === 'success') {
+      // Store pending donation for confirmation tracking
+      pendingDonations.set(orderId, {
+        chat: m.chat,
+        user: m.sender,
+        amount,
+        phone,
+        timestamp: Date.now()
+      })
+
       const msg = `《✧》 *Donation Initiated* 《✧》
 
 💳 Order ID: ${orderId}
 💰 Amount: ${amount} TZS
 📱 Phone: ${phone}
 
-📌 Check your phone for an STK pop-up and enter your PIN.`
+📌 Check your phone for an STK pop-up and enter your PIN.
+
+I'll notify you once payment is confirmed.`
       await conn.reply(m.chat, msg, m)
       await m.react(done)
+
+      // Start confirmation polling
+      pollPaymentConfirmation(orderId, m)
+
     } else {
       await conn.reply(m.chat, `❌ Failed: ${data.message || 'Unknown error'}`, m)
       await m.react(error)
@@ -74,6 +90,61 @@ let handler = async (m, { text, usedPrefix, command }) => {
     await conn.reply(m.chat, '⚠️ Server error. Try again later.', m)
     await m.react(error)
   }
+}
+
+// Poll payment status until confirmed or timeout
+async function pollPaymentConfirmation(orderId, originalMessage) {
+  const maxAttempts = 12 // 12 attempts (1 minute total)
+  const delay = 5000 // 5 seconds between checks
+  let attempts = 0
+
+  const checkPayment = async () => {
+    try {
+      const res = await fetch(`https://api-pay-du0j.onrender.com/check-payment?order_id=${orderId}`)
+      const data = await res.json()
+
+      if (data.status === 'confirmed') {
+        // Payment confirmed!
+        const donation = pendingDonations.get(orderId)
+        if (donation) {
+          const successMsg = `🎉 *Donation Confirmed!*\n\n` +
+            `💳 Order ID: ${orderId}\n` +
+            `💰 Amount: ${donation.amount} TZS\n` +
+            `📱 Phone: ${donation.phone}\n\n` +
+            `Thank you for your support! ❤️`
+
+          await conn.reply(donation.chat, successMsg, originalMessage)
+          await conn.react(originalMessage, '✅')
+          pendingDonations.delete(orderId)
+        }
+        return
+      }
+
+      attempts++
+      if (attempts < maxAttempts) {
+        setTimeout(checkPayment, delay)
+      } else {
+        // Timeout reached
+        const donation = pendingDonations.get(orderId)
+        if (donation) {
+          await conn.reply(
+            donation.chat,
+            `⚠️ Payment for order ${orderId} not confirmed yet. ` +
+            `Please check your mobile money transaction history.`,
+            originalMessage
+          )
+          pendingDonations.delete(orderId)
+        }
+      }
+    } catch (err) {
+      console.error('Confirmation check error:', err)
+      if (attempts < maxAttempts) {
+        setTimeout(checkPayment, delay)
+      }
+    }
+  }
+
+  setTimeout(checkPayment, delay) // Start first check after delay
 }
 
 handler.help = ['donate <phone> [amount]']
