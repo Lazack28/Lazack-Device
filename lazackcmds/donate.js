@@ -103,7 +103,7 @@ async function pollPaymentConfirmation(orderId, originalMessage) {
       const res = await fetch(`https://api-pay-du0j.onrender.com/check-payment?order_id=${orderId}`)
       const data = await res.json()
 
-      if (data.status === 'confirmed') {
+      if (data.status === 'completed') {
         // Payment confirmed!
         const donation = pendingDonations.get(orderId)
         if (donation) {
