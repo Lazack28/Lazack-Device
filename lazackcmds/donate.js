@@ -94,8 +94,8 @@ I'll notify you once payment is confirmed.`
 
 // Poll payment status until confirmed or timeout
 async function pollPaymentConfirmation(orderId, originalMessage) {
-  const maxAttempts = 12 // 12 attempts (1 minute total)
-  const delay = 5000 // 5 seconds between checks
+  const maxAttempts = 2 // 12 attempts (1 minute total)
+  const delay = 30 * 1000 // 5 seconds between checks
   let attempts = 0
 
   const checkPayment = async () => {
