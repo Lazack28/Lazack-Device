@@ -2,16 +2,15 @@ import fetch from 'node-fetch'
 
 const userCooldown = new Set()
 const pendingDonations = new Map() // Track pending donations for confirmation
+const processedDonations = new Set() // Track completed orders to avoid duplicates
 
 let handler = async (m, { text, usedPrefix, command }) => {
-  // Cooldown check
   if (userCooldown.has(m.sender)) {
     return conn.reply(m.chat, '⏳ Please wait 5 minutes before donating again.', m)
   }
 
-  // Parse input
   let phone = text.trim()
-  let amount = 500 // Default amount
+  let amount = 500
 
   if (text.includes(' ')) {
     const [inputPhone, inputAmount] = text.split(' ')
@@ -19,7 +18,6 @@ let handler = async (m, { text, usedPrefix, command }) => {
     amount = parseInt(inputAmount) || 500
   }
 
-  // Validate phone number
   if (!phone || !/^(0\d{8,9}|\+255\d{9})$/.test(phone)) {
     return conn.reply(
       m.chat,
@@ -28,7 +26,6 @@ let handler = async (m, { text, usedPrefix, command }) => {
     )
   }
 
-  // Format phone for API
   if (phone.startsWith('0')) {
     phone = '255' + phone.slice(1)
   } else if (phone.startsWith('+255')) {
@@ -57,7 +54,6 @@ let handler = async (m, { text, usedPrefix, command }) => {
     const data = await res.json()
 
     if (data.status === 'success') {
-      // Store pending donation for confirmation tracking
       pendingDonations.set(orderId, {
         chat: m.chat,
         user: m.sender,
@@ -78,7 +74,6 @@ I'll notify you once payment is confirmed.`
       await conn.reply(m.chat, msg, m)
       await m.react(done)
 
-      // Start confirmation polling
       pollPaymentConfirmation(orderId, m)
 
     } else {
@@ -92,10 +87,10 @@ I'll notify you once payment is confirmed.`
   }
 }
 
-// Poll payment status until confirmed or timeout
+// Updated poller
 async function pollPaymentConfirmation(orderId, originalMessage) {
-  const maxAttempts = 2 // 12 attempts (1 minute total)
-  const delay = 30 * 1000 // 5 seconds between checks
+  const maxAttempts = 2 // Only 2 checks (1 minute total)
+  const delay = 30 * 1000 // 30 seconds apart
   let attempts = 0
 
   const checkPayment = async () => {
@@ -103,8 +98,7 @@ async function pollPaymentConfirmation(orderId, originalMessage) {
       const res = await fetch(`https://api-pay-du0j.onrender.com/check-payment?order_id=${orderId}`)
       const data = await res.json()
 
-      if (data.status === 'completed') {
-        // Payment confirmed!
+      if (data.status === 'completed' && !processedDonations.has(orderId)) {
         const donation = pendingDonations.get(orderId)
         if (donation) {
           const successMsg = `🎉 *Donation Confirmed!*\n\n` +
@@ -115,6 +109,8 @@ async function pollPaymentConfirmation(orderId, originalMessage) {
 
           await conn.reply(donation.chat, successMsg, originalMessage)
           await conn.react(originalMessage, '✅')
+
+          processedDonations.add(orderId) // Mark as processed
           pendingDonations.delete(orderId)
         }
         return
@@ -124,13 +120,11 @@ async function pollPaymentConfirmation(orderId, originalMessage) {
       if (attempts < maxAttempts) {
         setTimeout(checkPayment, delay)
       } else {
-        // Timeout reached
         const donation = pendingDonations.get(orderId)
         if (donation) {
           await conn.reply(
             donation.chat,
-            `⚠️ Payment for order ${orderId} not confirmed yet. ` +
-            `Please check your mobile money transaction history.`,
+            `⚠️ Payment for order ${orderId} not confirmed yet. Please check your mobile money transaction history.`,
             originalMessage
           )
           pendingDonations.delete(orderId)
@@ -144,7 +138,7 @@ async function pollPaymentConfirmation(orderId, originalMessage) {
     }
   }
 
-  setTimeout(checkPayment, delay) // Start first check after delay
+  setTimeout(checkPayment, delay)
 }
 
 handler.help = ['donate <phone> [amount]']

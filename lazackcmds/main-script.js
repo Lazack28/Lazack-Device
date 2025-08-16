@@ -23,6 +23,11 @@ let handler = async (m, { conn }) => {
       contextInfo: {
         forwardingScore: 999,
         isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: '120363321705798318@newsletter', // Replace with your channel ID
+          newsletterName: 'Lazack Organisation', // Your channel name
+          serverMessageId: -1
+        },
         externalAdReply: {
           title: '✨ Lazack-Device v2.0.0 (BETA)',
           body: 'Official bot repository',

@@ -1,0 +1,140 @@
+const { generateWAMessageFromContent, proto } = (await import('@whiskeysockets/baileys')).default
+
+var handler = async (m, { conn, text}) => {
+
+conn.reply(m.chat, `${emoji2} Looking for advice, please wait a moment...`, m)
+
+conn.reply(m.chat, `*┏━_͜͡-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡⚘-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡⚘-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡⚘-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡_͜͡━┓*\n\n❥ *"${pickRandom(global.consejo)}"*\n\n*┗━_͜͡-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡⚘-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡⚘-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡⚘-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡_͜͡━┛*`, m)
+
+}
+handler.help = ['advice']
+handler.tags = ['fun']
+handler.command = ['advice']
+handler.fail = null
+handler.exp = 0
+handler.group = true;
+handler.register = true
+
+export default handler
+
+let hasil = Math.floor(Math.random() * 5000)
+function pickRandom(list) {
+return list[Math.floor(list.length * Math.random())]
+}
+
+global.consejo = [
+    "Remember that you cannot fail at being yourself (Wayne Dyer)",
+    "It's always too early to give up (Jorge Álvarez Camacho)",
+    "Only one thing makes a dream impossible: the fear of failure (Paulo Coelho)",
+    "What you do today can improve all your tomorrows (Ralph Marston)",
+    "Small actions each day make or break character (Oscar Wilde)",
+    "Fall seven times and get up eight (Japanese proverb)",
+    "For changes to have true value, they must be consistent and lasting (Anthony Robbins)",
+    "Nothing happens until something moves (Albert Einstein)",
+    "Being a good loser is learning how to win (Carl Sandburg)",
+    "All our dreams can come true, if we have the courage to pursue them (Walt Disney)",
+    "Whoever transforms himself, transforms the world (Dalai Lama)",
+    "Your time is limited, so don't waste it living someone else's life… have the courage to follow your heart and intuition (Steve Jobs)",
+    "Most people spend more time and energy talking about problems than facing them (Henry Ford)",
+    "It's not that we have little time, it's that we waste much (Seneca)",
+    "To succeed, your desire for success must be greater than your fear of failure (Bill Cosby)",
+    "The true seeker grows and learns, and discovers that he is always the main responsible for what happens (Jorge Bucay)",
+    "If opportunity doesn't knock, build a door (Milton Berle)",
+    "There is always a better way to do it, find it (Thomas A. Edison)",
+    "It's never too late to be the person you could have been (George Eliot)",
+    "When we can no longer change a situation, we are challenged to change ourselves (Viktor Frankl)",
+    "Defeat is not defeat until it is accepted as a reality in your own mind (Bruce Lee)",
+    "It's hard to fail, but it's even worse never to have tried to succeed (Theodore Roosevelt)",
+    "Happiness is hidden in the waiting room of happiness (Eduard Punset)",
+    "Self-confidence is the first secret of success (Ralph Waldo Emerson)",
+    "The well-prepared man for the fight has already achieved half the triumph (Miguel de Cervantes)",
+    "We know what we are, but not what we may be (William Shakespeare)",
+    "Life begins at the end of your comfort zone (Neale Donald Walsch)",
+    "Anyone who is not making mistakes is not trying hard enough (Wess Roberts)",
+    "You must do the things you think you cannot do (Eleanor Roosevelt)",
+    "Trusting yourself does not guarantee success, but not doing so guarantees failure (Albert Bandura)",
+    "The biggest mistake a person can make is being afraid to make a mistake (Elbert Hubbard)",
+    "From a small seed a mighty trunk may grow (Aeschylus)",
+    "The only way to discover the limits of the possible is to go beyond them into the impossible (Arthur C. Clarke)",
+    "When life gives you a lemon, squeeze it and make lemonade (Clement Stone)",
+    "The measure of what we are is what we do with what we have (Vince Lombardi)",
+    "We become what we think about (Earl Nightingale)",
+    "Only those who dare to have great failures end up achieving great successes (Robert F. Kennedy)",
+    "The power of imagination makes us infinite (John Muir)",
+    "Above all, preparation is the key to success (Alexander Graham Bell)",
+    "The best way to predict the future is to invent it (Alan Kay)",
+    "Things are not said, they are done, because by doing them they speak for themselves (Woody Allen)",
+    "Give light and the darkness will disappear by itself (Erasmus)",
+    "To increase our level of self-esteem, we must first learn to live consciously, because this is our foundation for everything (Nathaniel Branden)",
+    "The problem is you think you have time (Buddha)",
+    "A person with a new idea is a joke until the idea succeeds (Mark Twain)",
+    "If you truly wish to see the Creator, become a creator (Deepak Chopra)",
+    "You don't move forward by celebrating successes but by overcoming failures (Orison Swett Marden)",
+    "Fear can paralyze, dominate, isolate, but at the slightest hint of courage it will quickly give way (Jose Antonio Marina)",
+    "Success is not random; it is a variable dependent on effort (Sophocles)",
+    "Man needs difficulties because they are necessary to enjoy success (A.P.J. Abdul Kalam)",
+    "Sharpen your perception of everything that makes you feel good and revel in it (Martin Seligman)",
+    "Don't be discouraged. Often the last key you have to try opens the lock. (Anonymous)",
+    "It's not worth living an unexamined life (Socrates)",
+    "Everything is growth and learning, a continuous growth (Brian Weiss)",
+    "I'm always doing things I don't know how to do, so I have to learn how to do them (Pablo Picasso)",
+    "A leader is someone who knows the way, goes the way, and shows the way (John C. Maxwell)",
+    "All successes result from working and knowing how to persevere (Og Mandino)",
+    "When it's very dark you can see the stars (Persian proverb)",
+    "The greatest pleasure in life is doing what people say you cannot do (Walter Bagehot)",
+    "Success is getting what you want. Happiness is wanting what you already have (Lair Ribeiro)",
+    "You can do anything but you can't do everything (David Allen)",
+    "Only I can change my life. No one can do it for me (Carol Burnett)",
+    "Ninety percent of all who fail are not really defeated; they simply give up (Paul J. Meyer)",
+    "It always seems impossible… until it's done (Nelson Mandela)",
+    "Every man dies. Not every man really lives (William Wallace)",
+    "Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less (Marie Curie)",
+    "We are what we repeatedly do. Excellence, then, is not an act but a habit (Aristotle)",
+    "Life is not a problem to be solved, but a reality to be experienced (Soren Kierkegaard)",
+    "It is only possible to move forward when you look far. You can only progress when you think big (Ortega y Gasset)",
+    "Victory is sweeter when you have already known defeat (Malcolm Forbes)",
+    "What doesn't kill you makes you stronger (Friedrich Nietzsche)",
+    "Only those who dare to suffer great failures are capable of achieving great successes (Will Smith)",
+    "The true entrepreneur is a doer, not a dreamer (Nolan Bushnell)",
+    "You have to train your brain to be positive just as you train your body (Shawn Achor)",
+    "Strength and growth come only through continuous effort and struggle (Napoleon Hill)",
+    "Out there, in some garage, there's an entrepreneur forging a bullet with your company's name on it (Gary Hamel)",
+    "When you have a dream you have to grab it and never let it go (Carol Burnett)",
+    "Look closely at the present you are building, it should resemble the future you are dreaming (Alice Walker)",
+    "It is not the strongest species that survive, nor the most intelligent, but the ones most responsive to change (Darwin)",
+    "The more we do, the more we can do (William Hazlitt)",
+    "Life is not about finding yourself. Life is about creating yourself (George Bernard Shaw)",
+    "Luck is a dividend of sweat. The more you sweat, the luckier you get (Ray Kroc)",
+    "The most effective way to do it, is to do it (Amelia Earhart)",
+    "The meaning of life is to give life meaning (Ken Hudgins)",
+    "The key to success: want to win, know how to lose (Niccolò Machiavelli)",
+    "You can't beat the person who never gives up (Babe Ruth)",
+    "A dream is just a dream. A goal is a dream with a plan and a deadline (Harvey Mackay)",
+    "Success is a decision. Decide what you will do with your life or someone else will do it for you (John Atkinson)",
+    "You have to make it happen (Denis Diderot)",
+    "Life is a play that does not allow rehearsals… So, sing, laugh, dance, cry and live intensely every moment of your life… Before the curtain falls and the play ends without applause (Charles Chaplin)",
+    "If you mess up it's not your parents' or teachers' fault, so don't whine about your mistakes and learn from them (Bill Gates)",
+    "I don't run away from a challenge because I'm afraid. On the contrary, I run toward the challenge because the only way to escape fear is to trample it with your feet (Nadia Comaneci)",
+    "A good imperfect plan executed today is better than a perfect plan executed tomorrow (General Patton)",
+    "Determination is the starting point of all achievement (W. Clement Stone)",
+    "What is not started will never have an end (Johann Wolfgang von Goethe)",
+    "Choose a job you love, and you will never have to work a day in your life (Confucius)",
+    "The greatest risk is not taking any risk (Mark Zuckerberg)",
+    "I can accept failure, everyone fails at something. But I can't accept not trying (Michael Jordan)",
+    "One of the biggest mistakes people make is trying to force themselves to be interested in something. You don't choose your passions; your passions choose you (Jeff Bezos)",
+    "Do it, or don't do it, but don't try (Yoda)",
+    "The main weapon for a country to be powerful is education (HacheJota)",
+    "Be yourself. Everyone else is already taken (Oscar Wilde)",
+    "Be the best version of yourself (Anonymous)",
+    "Be the change you want to see in the world (Mahatma Gandhi)",
+    "The moment that is most frightening is always just before you start (Anonymous)",
+    "When you lose, don't lose the lesson (Dalai Lama)",
+    "Wish it, hope for it, dream it, but by all means… Do it! (HacheJota)",
+    "Don't wait. It's never going to be the right time (Napoleon Hill)",
+    "You can do more than you imagine, you are worth more than you think",
+    "Energy and persistence conquer all things (Benjamin Franklin)",
+    "Your best teacher is your biggest mistake (HacheJota)",
+    "You have to do the things you think you cannot do (Eleanor Roosevelt)",
+    "Every morning, get up with the idea of conquering the world",
+    "Don't count the days, make the days count (Anonymous)"
+]
