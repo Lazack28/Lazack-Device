@@ -18,13 +18,13 @@ var handler = async (m, { conn, text }) => {
         who = m.chat;
     }
 
-    if (!who) return conn.reply(m.chat, `${emoji} Por favor, ingrese el tag de algún usuario o responda a un mensaje.`, m);
+    if (!who) return conn.reply(m.chat, `${emoji} Please tag a user or reply to a message.`, m);
 
     if (!userName) {
-        userName = text || 'Usuario desconocido';
+        userName = text || 'Unknown user';
     }
 
-    let start = `🧑‍💻 *Iniciando doxeo*...`;
+    let start = `🧑‍💻 *Starting dox*...`;
     let boost = `*${pickRandom(['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20'])}%*`;
     let boost2 = `*${pickRandom(['21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40'])}%*`;
     let boost3 = `*${pickRandom(['41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60'])}%*`;
@@ -46,14 +46,14 @@ var handler = async (m, { conn, text }) => {
     let old = performance.now();
     let neww = performance.now();
     let speed = `${neww - old}`;
-    let doxeo = `👤 *Persona doxeada* 
+    let doxeo = `👤 *Doxxed person* 
 
 📅 ${new Date().toLocaleDateString()}
 ⏰ ${new Date().toLocaleTimeString()}
 
-📢 Resultados:
+📢 Results:
 
-*Nombre:* ${userName}
+*Name:* ${userName}
 *Ip:* 92.28.211.234
 *N:* 43 7462
 *W:* 12.4893
@@ -72,8 +72,8 @@ var handler = async (m, { conn, text }) => {
 *SUBNET MASK:* 255.255.0.255
 *UDP OPEN PORTS:* 8080, 80
 *TCP OPEN PORTS:* 443
-*ROUTER VENDEDOR:* ERICCSON
-*DEVICE VENDEDOR:* WIN32-X
+*ROUTER VENDOR:* ERICCSON
+*DEVICE VENDOR:* WIN32-X
 *CONNECTION TYPE:* TPLINK COMPANY
 *ICMPHOPS:* 192.168.0.1, 192.168.1.1, 100.73.43.4
 host-132.12.32.167.ucom.com

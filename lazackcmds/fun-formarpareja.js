@@ -5,13 +5,13 @@ function handler(m, {groupMetadata}) {
   let b;
   do b = ps.getRandom();
   while (b === a);
-  m.reply(`*${toM(a)}, Deberías casarte 💍 con ${toM(b)}, hacen una bonita pareja 💓*`, null, {
+  m.reply(`*${toM(a)}, you should marry 💍 ${toM(b)}, you make a beautiful couple 💓*`, null, {
     mentions: [a, b],
   });
 }
-handler.help = ['formarpareja'];
+handler.help = ['makecouple'];
 handler.tags = ['fun'];
-handler.command = ['formarpareja', 'formarparejas'];
+handler.command = ['makecouple', 'makecouples'];
 handler.group = true;
 handler.register = true;
 

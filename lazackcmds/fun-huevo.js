@@ -1,4 +1,4 @@
-//Codígo creado por Destroy wa.me/584120346669
+//Code created by Destroy wa.me/584120346669
 
 const handler = async (m, { conn, usedPrefix, command, text }) => {
   let who;
@@ -9,7 +9,7 @@ const handler = async (m, { conn, usedPrefix, command, text }) => {
     who = text ? text.replace(/[^0-9]/g, '') + '@s.whatsapp.net' : m.chat;
   }
 
-  if (!who) return m.reply(`${emoji} Por favor, menciona aun usuario.`);
+  if (!who) return m.reply(`${emoji} Please mention a user.`);
 
   let pp = './src/catalogo.jpg';
   try {
@@ -18,7 +18,7 @@ const handler = async (m, { conn, usedPrefix, command, text }) => {
   } finally {
     let pp = await conn.profilePictureUrl(who, 'image').catch(_ => './src/catalogo.jpg');
     let username = conn.getName(who);
-    let str = `@${m.sender.split('@')[0]} le está agarrando el huevo a @${who.split('@')[0]}.`;
+    let str = `@${m.sender.split('@')[0]} is grabbing the egg of @${who.split('@')[0]}.`;
     let mentionedJid = [who, m.sender];
 
     const abrazo = await conn.reply(m.chat, str, m, { mentions: mentionedJid });
@@ -27,9 +27,9 @@ const handler = async (m, { conn, usedPrefix, command, text }) => {
   }
 };
 
-handler.help = ['huevo @user'];
+handler.help = ['egg @user'];
 handler.tags = ['fun'];
-handler.command = ['huevo'];
+handler.command = ['egg'];
 handler.group = true;
 handler.register = true;
 

@@ -2,14 +2,14 @@ const { generateWAMessageFromContent, proto } = (await import('@whiskeysockets/b
 
 var handler = async (m, { conn, text}) => {
 
-conn.reply(m.chat, `${emoji2} Buscando una frase, espere un momento...`, m)
+conn.reply(m.chat, `${emoji2} Searching for a phrase, please wait a moment...`, m)
 
 conn.reply(m.chat, `*┏━_͜͡-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡⚘-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡⚘-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡⚘-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡_͜͡━┓*\n\n❥ *"${pickRandom(global.frases)}"*\n\n*┗━_͜͡-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡⚘-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡⚘-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡⚘-͜͡-͜͡-͜͡-͜͡-͜͡-͜͡_͜͡━┛*`, m)
 
 }
-handler.help = ['frase']
+handler.help = ['phrase']
 handler.tags = ['fun']
-handler.command = ['frase']
+handler.command = ['phrase']
 handler.fail = null
 handler.exp = 0
 handler.group = true;
@@ -23,41 +23,41 @@ return list[Math.floor(list.length * Math.random())]
 }
 
 global.frases = [
-    "Recuerda que no puedes fallar en ser tú mismo (Wayne Dyer)",
-    "Siempre es temprano para rendirse (Jorge Álvarez Camacho)",
-    "Sólo una cosa convierte en imposible un sueño: el miedo a fracasar (Paulo Coelho)",
-    "Lo que haces hoy puede mejorar todos tus mañanas (Ralph Marston)",
-    "Cáete siete veces y levántate ocho (Proverbio japonés)",
-    "Nada sucede hasta que algo se mueve (Albert Einstein)",
-    "La felicidad está escondida en la sala de espera de la felicidad (Eduard Punset)",
-    "El verdadero buscador crece y aprende, y descubre que siempre es el principal responsable de lo que sucede (Jorge Bucay)",
-    "La vida comienza al final de la zona de confort (Neale Donald Walsch)",
-    "La confianza en sí mismo es el primer secreto del éxito (Ralph Waldo Emerson)",
-    "No hay camino para la paz, la paz es el camino. (Mahatma Gandhi)",
-    "La vida es lo que pasa mientras estás ocupado haciendo otros planes. (John Lennon)",
-    "La vida es un 10% lo que me ocurre y un 90% cómo reacciono a ello. (Charles R. Swindoll)",
-    "El único modo de hacer un gran trabajo es amar lo que haces. (Steve Jobs)",
-    "No importa qué tan lento vayas, siempre y cuando no te detengas. (Confucio)",
-    "No te preocupes si no tienes éxito, siempre puedes ser un buen ejemplo de cómo no hacerlo.",
-    "La única razón por la que estoy en forma es porque redondeo.",
-    "Soy multitarea: puedo procrastinar, ignorar y olvidarme al mismo tiempo.",
-    "Si la vida te da limones, pide sal y tequila.",
-    "La risa es la distancia más corta entre dos personas.",
-    "No soy un completo inútil, al menos sirvo de mal ejemplo.",
-    "A veces la mayor aventura es simplemente un acto de valentía.",
-    "Soy vago, pero no me gusta que digan que soy perezoso.",
-    "Si no puedes convencerlos, confúndelos.",
-    "La vida es corta, haz que cuente.",
-    "La vida es una comedia escrita por un dramaturgo que es un poco sordo.",
-    "Hazlo o no lo hagas, pero no lo intentes.",
-    "La felicidad no es un destino, es una forma de viajar. (Margaret Lee Runbeck)",
-    "El tiempo vuela, pero yo soy el piloto.",
-    "No soy vago, estoy en modo de ahorro de energía.",
-    "La vida es como montar en bicicleta. Para mantener el equilibrio, debes seguir adelante. (Albert Einstein)",
-    "Nunca discutas con un tonto, te arrastrará a su nivel y te ganará por experiencia.",
-    "Ayer era la fecha límite para todos mis problemas.",
-    "La única forma de hacer un gran trabajo es amar lo que haces. (Steve Jobs)",
-    "La vida es un reto, enfréntalo.",
-    "Si no tienes un plan, estás planeando fracasar.",
-    "La vida es una aventura, atrévete a vivirla."
+    "Remember that you cannot fail at being yourself. (Wayne Dyer)",
+    "It is always too early to give up. (Jorge Álvarez Camacho)",
+    "Only one thing makes a dream impossible: the fear of failure. (Paulo Coelho)",
+    "What you do today can improve all your tomorrows. (Ralph Marston)",
+    "Fall seven times and get up eight. (Japanese proverb)",
+    "Nothing happens until something moves. (Albert Einstein)",
+    "Happiness is hidden in the waiting room of happiness. (Eduard Punset)",
+    "The true seeker grows and learns, and discovers that he is always the main person responsible for what happens. (Jorge Bucay)",
+    "Life begins at the end of your comfort zone. (Neale Donald Walsch)",
+    "Self-confidence is the first secret of success. (Ralph Waldo Emerson)",
+    "There is no way to peace, peace is the way. (Mahatma Gandhi)",
+    "Life is what happens while you are busy making other plans. (John Lennon)",
+    "Life is 10% what happens to me and 90% how I react to it. (Charles R. Swindoll)",
+    "The only way to do great work is to love what you do. (Steve Jobs)",
+    "It doesn't matter how slowly you go, as long as you do not stop. (Confucius)",
+    "Don't worry if you don't succeed, you can always be a good example of how not to do it.",
+    "The only reason I'm in shape is because I'm round.",
+    "I'm multitasking: I can procrastinate, ignore, and forget at the same time.",
+    "If life gives you lemons, ask for salt and tequila.",
+    "Laughter is the shortest distance between two people.",
+    "I'm not completely useless, at least I serve as a bad example.",
+    "Sometimes the greatest adventure is simply an act of bravery.",
+    "I'm lazy, but I don't like being called lazy.",
+    "If you can't convince them, confuse them.",
+    "Life is short, make it count.",
+    "Life is a comedy written by a playwright who is a bit deaf.",
+    "Do it or don't do it, but don't try.",
+    "Happiness is not a destination, it's a way of traveling. (Margaret Lee Runbeck)",
+    "Time flies, but I am the pilot.",
+    "I'm not lazy, I'm in energy-saving mode.",
+    "Life is like riding a bicycle. To keep your balance, you must keep moving. (Albert Einstein)",
+    "Never argue with a fool, he will drag you down to his level and beat you with experience.",
+    "Yesterday was the deadline for all my problems.",
+    "The only way to do great work is to love what you do. (Steve Jobs)",
+    "Life is a challenge, face it.",
+    "If you don't have a plan, you're planning to fail.",
+    "Life is an adventure, dare to live it."
 ];
