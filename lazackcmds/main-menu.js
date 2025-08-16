@@ -64,7 +64,7 @@ let handler = async (m, { conn }) => {
 
   // Generate the menu text with better formatting
   let text = `
-╭───◇ *${botname.toUpperCase()}* ◇───╮
+╭─◇ *${botname.toUpperCase()}* ◇─╮
 │ 
 │ � *User:* ${name}
 │ 🏷 *Limit:* ${limit}
@@ -76,13 +76,13 @@ let handler = async (m, { conn }) => {
 │ 
 │ ${botOfc}
 │ 
-╰────────────────────╯
+╰──────────────╯
 `.trim();
 
   // Add commands sections with better organization
   for (const tag of Object.keys(grouped).sort()) {
     const section = tagsMap[tag] || '📚 Other Commands';
-    text += `\n╭────── *${section}* ──────╮\n`;
+    text += `\n╭─── *${section}* ───╮\n`;
     
     // Organize commands in columns (2 columns)
     const commands = grouped[tag];
@@ -98,7 +98,7 @@ let handler = async (m, { conn }) => {
       text += `│ ${leftCmd} ${rightCmd}\n`;
     }
     
-    text += `╰───────────────────────────╯`;
+    text += `╰─────────────────────╯`;
   }
 
   // Footer with additional information
