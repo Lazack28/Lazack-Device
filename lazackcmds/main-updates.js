@@ -7,7 +7,7 @@ const config = {
     repoName: 'Lazack-Device',
     channelJid: '120363321705798318@newsletter', // Your newsletter channel JID
     checkInterval: 5, // Minutes between checks
-    notificationTarget: '120363305007891497@s.whatsapp.net' // YOUR bot's number or specific chat
+    notificationTarget: '120363305007891497@g.us' // YOUR bot's number or specific chat
 }
 
 // State tracking
