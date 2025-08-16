@@ -64,7 +64,7 @@ let handler = async (m, { conn }) => {
 ╰━━━━━━━━━━━━━━━━━━━━━╯\n`
 
   for (const tag of Object.keys(grouped)) {
-    const section = tagsMap[tag] || '📚 Other Commands'
+    const section = tagsMap[tag] || '📚Commands'
     text += `\n╭──〔 ${section} 〕─╮\n`
     for (const cmd of grouped[tag]) {
       text += `┃ ${cmd}\n`
@@ -85,7 +85,7 @@ let handler = async (m, { conn }) => {
     text,
     contextInfo: {
       mentionedJid: [m.sender, userId],
-      isForwarded: false,
+      isForwarded: true,
       forwardedNewsletterMessageInfo: {
         newsletterJid: channelRD.id,
         newsletterName: channelRD.name,
