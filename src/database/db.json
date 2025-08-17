@@ -1,8 +1,12 @@
 {
-"links": {
-"video": [
-"https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742711878559.jpeg"
-],
-"imagen": [
-"https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742711818813.jpeg"
-]}}
+  "links": {
+    "image": [
+      "https://lazackorganisation.my.id/mtaju.jpg",
+      "https://lazackorganisation.my.id/img/img1.jpg"
+    ],
+    "video": [
+      "https://example.com/video.mp4",
+      "https://example.com/another-video.mov"
+    ]
+  }
+}
