@@ -64,18 +64,14 @@ let handler = async (m, { conn }) => {
 
   // Generate the menu text with better formatting
   let text = `
-╭─◇ *${botname.toUpperCase()}* ◇─╮
-│ 
+╭─◇ *${botname.toUpperCase()}* ◇─╮ 
 │ � *User:* ${name}
 │ 🏷 *Limit:* ${limit}
-│ 
 │ 📅 *Date:* ${fecha}
 │ ⏱ *Time:* ${hora}
 │ ⏳ *Uptime:* ${uptime}
-│ 👥 *Users:* ${totalreg}
-│ 
+│ 👥 *Users:* ${totalreg} 
 │ ${botOfc}
-│ 
 ╰──────────────╯
 `.trim();
 
