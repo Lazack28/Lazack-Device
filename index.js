@@ -11,8 +11,8 @@ import fs, {readdirSync, statSync, unlinkSync, existsSync, mkdirSync, readFileSy
 import yargs from 'yargs';
 import {spawn} from 'child_process'
 import lodash from 'lodash'
-import { yukiJadiBot } from './lazackcmds/jadibot-serbot.js'
-// Import the yukiJadiBot function from the jadibot-serbot.js file in the lazackcmds directory.
+import { LazackBots } from './lazackcmds/lazack.js'
+// Import the LazackBots function from the jadibot-serbot.js file in the lazackcmds directory.
 import chalk from 'chalk'
 import syntaxerror from 'syntax-error'
 import {tmpdir} from 'os'
@@ -305,7 +305,7 @@ if (global.yukiJadibts) {
             const botPath = join(jadiBotPath, gjbts)
             const readBotPath = readdirSync(botPath)
             if (readBotPath.includes(creds)) {
-                yukiJadiBot({pathYukiJadiBot: botPath, m: null, conn, args: '', usedPrefix: '/', command: 'pair'})
+                LazackBots({pathLazackBots: botPath, m: null, conn, args: '', usedPrefix: '/', command: 'pair'})
             }
         }
     }

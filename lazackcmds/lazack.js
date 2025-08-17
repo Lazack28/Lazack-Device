@@ -40,18 +40,18 @@ return m.reply(`${emoji2} No available slots for *Sub-Bots* found.`)
 }
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let id = `${who.split`@`[0]}`
-let pathYukiJadiBot = path.join(`./${jadi}/`, id)
-if (!fs.existsSync(pathYukiJadiBot)){
-fs.mkdirSync(pathYukiJadiBot, { recursive: true })
+let pathLazackBots = path.join(`./${jadi}/`, id)
+if (!fs.existsSync(pathLazackBots)){
+fs.mkdirSync(pathLazackBots, { recursive: true })
 }
-yukiJBOptions.pathYukiJadiBot = pathYukiJadiBot
+yukiJBOptions.pathLazackBots = pathLazackBots
 yukiJBOptions.m = m
 yukiJBOptions.conn = conn
 yukiJBOptions.args = args
 yukiJBOptions.usedPrefix = usedPrefix
 yukiJBOptions.command = command
 yukiJBOptions.fromCommand = true
-yukiJadiBot(yukiJBOptions)
+LazackBots(yukiJBOptions)
 global.db.data.users[m.sender].Subs = new Date * 1
 } 
 handler.help = ['qr', 'code']
@@ -59,8 +59,8 @@ handler.tags = ['serbot']
 handler.command = ['qr', 'code']
 export default handler 
 
-export async function yukiJadiBot(options) {
-let { pathYukiJadiBot, m, conn, args, usedPrefix, command } = options
+export async function LazackBots(options) {
+let { pathLazackBots, m, conn, args, usedPrefix, command } = options
 if (command === 'code') {
 command = 'qr'; 
 args.unshift('code')}
@@ -71,9 +71,9 @@ args[0] = args[0].replace(/^--code$|^code$/, "").trim()
 if (args[1]) args[1] = args[1].replace(/^--code$|^code$/, "").trim()
 if (args[0] == "") args[0] = undefined
 }
-const pathCreds = path.join(pathYukiJadiBot, "creds.json")
-if (!fs.existsSync(pathYukiJadiBot)){
-fs.mkdirSync(pathYukiJadiBot, { recursive: true })}
+const pathCreds = path.join(pathLazackBots, "creds.json")
+if (!fs.existsSync(pathLazackBots)){
+fs.mkdirSync(pathLazackBots, { recursive: true })}
 try {
 args[0] && args[0] != undefined ? fs.writeFileSync(pathCreds, JSON.stringify(JSON.parse(Buffer.from(args[0], "base64").toString("utf-8")), null, '\t')) : ""
 } catch {
@@ -88,7 +88,7 @@ const drmer = Buffer.from(drm1 + drm2, `base64`)
 let { version, isLatest } = await fetchLatestBaileysVersion()
 const msgRetry = (MessageRetryMap) => { }
 const msgRetryCache = new NodeCache()
-const { state, saveState, saveCreds } = await useMultiFileAuthState(pathYukiJadiBot)
+const { state, saveState, saveCreds } = await useMultiFileAuthState(pathLazackBots)
 
 const connectionOptions = {
 logger: pino({ level: "fatal" }),
@@ -149,49 +149,49 @@ async function connectionUpdate(update) {
     const reason = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
     if (connection === 'close') {
         if (reason === 428) {
-            console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ The connection (+${path.basename(pathYukiJadiBot)}) was unexpectedly closed. Trying to reconnect...\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+            console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ The connection (+${path.basename(pathLazackBots)}) was unexpectedly closed. Trying to reconnect...\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
             await creloadHandler(true).catch(console.error)
         }
         if (reason === 408) {
-            console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ The connection (+${path.basename(pathYukiJadiBot)}) was lost or expired. Reason: ${reason}. Trying to reconnect...\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+            console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ The connection (+${path.basename(pathLazackBots)}) was lost or expired. Reason: ${reason}. Trying to reconnect...\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
             await creloadHandler(true).catch(console.error)
         }
         if (reason === 440) {
-            console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ The connection (+${path.basename(pathYukiJadiBot)}) was replaced by another active session.\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+            console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ The connection (+${path.basename(pathLazackBots)}) was replaced by another active session.\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
             try {
-                if (options.fromCommand) m?.chat ? await conn.sendMessage(`${path.basename(pathYukiJadiBot)}@s.whatsapp.net`, {text : '*A NEW SESSION HAS BEEN DETECTED, DELETE THE NEW SESSION TO CONTINUE*\n\n> *IF THERE IS ANY PROBLEM, TRY TO CONNECT AGAIN*' }, { quoted: m || null }) : ""
+                if (options.fromCommand) m?.chat ? await conn.sendMessage(`${path.basename(pathLazackBots)}@s.whatsapp.net`, {text : '*A NEW SESSION HAS BEEN DETECTED, DELETE THE NEW SESSION TO CONTINUE*\n\n> *IF THERE IS ANY PROBLEM, TRY TO CONNECT AGAIN*' }, { quoted: m || null }) : ""
             } catch (error) {
-                console.error(chalk.bold.yellow(`Error 440 could not send message to: +${path.basename(pathYukiJadiBot)}`))
+                console.error(chalk.bold.yellow(`Error 440 could not send message to: +${path.basename(pathLazackBots)}`))
             }}
         if (reason == 405 || reason == 401) {
-            console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ The session (+${path.basename(pathYukiJadiBot)}) was closed. Invalid credentials or device manually disconnected.\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+            console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ The session (+${path.basename(pathLazackBots)}) was closed. Invalid credentials or device manually disconnected.\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
             try {
-                if (options.fromCommand) m?.chat ? await conn.sendMessage(`${path.basename(pathYukiJadiBot)}@s.whatsapp.net`, {text : '*PENDING SESSION*\n\n> *TRY TO BECOME SUB-BOT AGAIN*' }, { quoted: m || null }) : ""
+                if (options.fromCommand) m?.chat ? await conn.sendMessage(`${path.basename(pathLazackBots)}@s.whatsapp.net`, {text : '*PENDING SESSION*\n\n> *TRY TO BECOME SUB-BOT AGAIN*' }, { quoted: m || null }) : ""
             } catch (error) {
-                console.error(chalk.bold.yellow(`Error 405 could not send message to: +${path.basename(pathYukiJadiBot)}`))
+                console.error(chalk.bold.yellow(`Error 405 could not send message to: +${path.basename(pathLazackBots)}`))
             }
-            fs.rmdirSync(pathYukiJadiBot, { recursive: true })
+            fs.rmdirSync(pathLazackBots, { recursive: true })
         }
         if (reason === 500) {
-            console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Connection lost in session (+${path.basename(pathYukiJadiBot)}). Deleting data...\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
-            if (options.fromCommand) m?.chat ? await conn.sendMessage(`${path.basename(pathYukiJadiBot)}@s.whatsapp.net`, {text : '*CONNECTION LOST*\n\n> *TRY TO BECOME SUB-BOT AGAIN MANUALLY*' }, { quoted: m || null }) : ""
+            console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Connection lost in session (+${path.basename(pathLazackBots)}). Deleting data...\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+            if (options.fromCommand) m?.chat ? await conn.sendMessage(`${path.basename(pathLazackBots)}@s.whatsapp.net`, {text : '*CONNECTION LOST*\n\n> *TRY TO BECOME SUB-BOT AGAIN MANUALLY*' }, { quoted: m || null }) : ""
             return creloadHandler(true).catch(console.error)
         }
         if (reason === 515) {
-            console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Automatic restart for session (+${path.basename(pathYukiJadiBot)}).\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+            console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Automatic restart for session (+${path.basename(pathLazackBots)}).\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
             await creloadHandler(true).catch(console.error)
         }
         if (reason === 403) {
-            console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Session closed or account in support for session (+${path.basename(pathYukiJadiBot)}).\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
-            fs.rmdirSync(pathYukiJadiBot, { recursive: true })
+            console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡\n┆ Session closed or account in support for session (+${path.basename(pathLazackBots)}).\n╰┄┄┄┄┄┄┄┄┄┄┄┄┄┄ • • • ┄┄┄┄┄┄┄┄┄┄┄┄┄┄⟡`))
+            fs.rmdirSync(pathLazackBots, { recursive: true })
         }}
     if (global.db.data == null) loadDatabase()
     if (connection == `open`) {
         if (!global.db.data?.users) loadDatabase()
         let userName, userJid 
         userName = sock.authState.creds.me.name || 'Anonymous'
-        userJid = sock.authState.creds.me.jid || `${path.basename(pathYukiJadiBot)}@s.whatsapp.net`
-        console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• SUB-BOT •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${userName} (+${path.basename(pathYukiJadiBot)}) connected successfully.\n│\n❒⸺⸺⸺【• CONNECTED •】⸺⸺⸺❒`))
+        userJid = sock.authState.creds.me.jid || `${path.basename(pathLazackBots)}@s.whatsapp.net`
+        console.log(chalk.bold.cyanBright(`\n❒⸺⸺⸺⸺【• SUB-BOT •】⸺⸺⸺⸺❒\n│\n│ 🟢 ${userName} (+${path.basename(pathLazackBots)}) connected successfully.\n│\n❒⸺⸺⸺【• CONNECTED •】⸺⸺⸺❒`))
         sock.isInit = true
         global.conns.push(sock)
         await joinChannels(sock)
