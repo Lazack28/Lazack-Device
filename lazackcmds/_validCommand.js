@@ -1,4 +1,8 @@
-export async function before(m) {
+// This file is part of Lazack28, a WhatsApp bot project.
+// It handles command validation and user feedback for invalid commands.
+
+
+/*export async function before(m) {
   // Skip if not a command
   if (!m.text || !global.prefix.test(m.text)) return;
 
@@ -106,4 +110,6 @@ ${suggestions.length > 0 ? `\n💡 *Did you mean one of these?*` : ''}`;
     await conn.sendPresenceUpdate('composing', m.chat);
     await m.reply(response);
   }
-}
+}*/
+
+

@@ -7,7 +7,7 @@ let staff = `ᥫ᭡ *HELPER TEAM* ❀
 ❖ *Library:* ${libreria} ${baileys}
 
 ❍ *Creator:*`
-await conn.sendFile(m.chat, img, 'nino.jpg', staff.trim(), m)
+await conn.sendFile(m.chat, img, staff.trim(), m)
 }
   
 handler.help = ['staff']
