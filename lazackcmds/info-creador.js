@@ -49,6 +49,7 @@ let handler = async (m, { conn }) => {
  * Formats contact information including profile picture and bio
  */
 async function formatContact(number, conn) {
+   number = String(number); // <-- Ensure it's a string
     const jid = `${number.replace(/[^0-9]/g, '')}@s.whatsapp.net`;
     const [bioResult, name] = await Promise.all([
         conn.fetchStatus(jid).catch(() => ({ status: 'football and coding' })),
