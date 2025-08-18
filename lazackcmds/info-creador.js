@@ -7,11 +7,11 @@ import PhoneNumber from 'awesome-phonenumber';
  */
 let handler = async (m, { conn }) => {
     try {
-        // React to the message first
+        // React to the message
         await m.react('👋').catch(() => {});
-        
+
         // Determine who to get info for
-        const who = m.mentionedJid?.[0] || m.fromMe ? conn.user.jid : m.sender;
+        const who = m.mentionedJid?.[0] || (m.fromMe ? conn.user.jid : m.sender);
         const [ownerNumber, botNumber] = await Promise.all([
             formatContact(suittag, conn),
             formatContact(conn.user.jid.split('@')[0], conn)
@@ -24,7 +24,7 @@ let handler = async (m, { conn }) => {
                 botname,
                 '❀ No Spam Please',
                 email,
-                '📍 dodoma',
+                '📍 Dodoma',
                 md,
                 ownerNumber.bio
             ),
@@ -39,37 +39,49 @@ let handler = async (m, { conn }) => {
                 botNumber.bio
             )
         ], m);
+
     } catch (error) {
         console.error('Contact handler error:', error);
         await conn.reply(m.chat, '❌ Failed to load contact information', m);
     }
-}
+};
 
 /**
  * Formats contact information including profile picture and bio
  */
 async function formatContact(number, conn) {
-   number = String(number); // <-- Ensure it's a string
+    number = String(number); // Ensure string
     const jid = `${number.replace(/[^0-9]/g, '')}@s.whatsapp.net`;
-    const [bioResult, name] = await Promise.all([
-        conn.fetchStatus(jid).catch(() => ({ status: 'football and coding' })),
-        conn.getName(jid).catch(() => 'Unknown')
-    ]);
-    
-    return {
-        number,
-        name,
-        bio: bioResult.status?.toString() || 'football and coding',
-        pp: await conn.profilePictureUrl(jid).catch(() => 'https://lazackorganisation.my.id/mtaju.jpg')
-    };
+
+    // Get contact name safely
+    let name = 'Unknown';
+    try {
+        const result = conn.getName(jid);
+        name = result instanceof Promise ? await result : result;
+    } catch {}
+
+    // Get bio safely
+    let bio = 'football and coding';
+    try {
+        const bioResult = await conn.fetchStatus(jid);
+        bio = bioResult?.status?.toString() || bio;
+    } catch {}
+
+    // Get profile picture safely
+    let pp = 'https://lazackorganisation.my.id/mtaju.jpg';
+    try {
+        pp = await conn.profilePictureUrl(jid);
+    } catch {}
+
+    return { number, name, bio, pp };
 }
 
 /**
  * Creates a contact card object
  */
-function createContactCard(number, role, org, label, email, region, website, bio) {
+function createContactCard(contact, role, org, label, email, region, website, bio) {
     return [
-        number.number,
+        contact.number,
         role,
         org,
         label,
@@ -85,10 +97,10 @@ function createContactCard(number, role, org, label, email, region, website, bio
  */
 async function sendContactArray(conn, jid, data, quoted, options = {}) {
     if (!Array.isArray(data[0])) data = [data];
-    
-    const contacts = data.map(([number, name, isi, isi1, isi2, isi3, isi4, isi5]) => {
-        number = number.replace(/[^0-9]/g, '');
-        const vcard = generateVCard(number, name, isi, isi1, isi2, isi3, isi4, isi5);
+
+    const contacts = data.map(([number, name, org, label, email, region, website, bio]) => {
+        number = String(number).replace(/[^0-9]/g, '');
+        const vcard = generateVCard(number, name, org, label, email, region, website, bio);
         return { vcard, displayName: name };
     });
 
