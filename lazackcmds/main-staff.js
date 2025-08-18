@@ -1,62 +1,64 @@
-let handler = async (m, { conn, usedPrefix }) => {
+let handler = async (m, { conn }) => {
     try {
-        // Image path - consider using a random image from your db.json
-        let img = './src/catalogo.jpg'
+        // Image path (local or URL)
+        let img = '../src/catalogo.jpg' // or use a URL
         
-        // Alternative: Use a URL image
-        // let img = 'https://lazackorganisation.my.id/mtaju.jpg'
-        
-        // Improved staff information with better formatting
+        // Team information with GitHub links
         let staff = `
 ╭━━━━━━━━━━━━━━━━━━╮
-  *HELPER TEAM* ❀
+  *DEVELOPMENT TEAM*
 ╰━━━━━━━━━━━━━━━━━━╯
 
-✧ *Owner*: ${creator || 'Not specified'}
 ✦ *Bot*: ${botName || conn.user.name}
 ⚘ *Version*: ${version || '1.0.0'}
-❖ *Library*: ${library} ${baileysVersion}
+❖ *Library*: Baileys ${baileysVersion}
 
 ╭━━━━━━━━━━━━━━━━━━╮
-  *Development Team*
+  *Core Contributors*
 ╰━━━━━━━━━━━━━━━━━━╯
 
-${creator ? `❍ *Creator*: ${creator}` : ''}
-${developer ? `✧ *Developer*: ${developer}` : ''}
-${contributors ? `✦ *Contributors*: ${contributors.join(', ')}` : ''}
+👑 *Owner*: 
+github.com/lazack28
 
-${supportGroup ? `\nJoin our support group: ${supportGroup}` : ''}
+💻 *Developers*:
+- github.com/Lazackdevs
+- github.com/Lazack28
+
+🌿 *Contributors*:
+- github.com/SilvaTechB
+- github.com/Lazackdevs
+
+📌 *Repository*:
+github.com/lazack28/Lazack-Device
 `.trim()
 
-        // Send the image with caption
         await conn.sendFile(
             m.chat, 
             img, 
-            'catalogo.jpg',  // Filename
-            staff,          // Caption
-            m,             // Message context
-            false,         // Do not forward
+            'catalogo.jpg', 
+            staff,
+            m,
+            false,
             { 
-                // Optional: Add contextInfo for better display
                 contextInfo: {
                     externalAdReply: {
-                        title: `${botName} Staff Information`,
-                        body: `Meet our development team`,
+                        title: `${botName} Development Team`,
+                        body: `Open source contributors`,
                         thumbnail: await (await conn.getFile(img)).data,
-                        sourceUrl: supportGroup || website || ''
+                        sourceUrl: 'github.com/lazack28/Lazack-Device'
                     }
                 }
             }
         )
         
     } catch (error) {
-        console.error('Error in staff command:', error)
-        await conn.reply(m.chat, '❌ Failed to load staff information. Please try again later.', m)
+        console.error('Error:', error)
+        await conn.reply(m.chat, '❌ Failed to load team information', m)
     }
 }
 
-handler.help = ['staff', 'team', 'collaborators']
-handler.command = ['staff', 'team', 'devs', 'collaborators']
+handler.help = ['team', 'devs', 'contributors']
+handler.command = ['team', 'staff', 'devs', 'contributors']
 handler.tags = ['main', 'info']
 
 export default handler
