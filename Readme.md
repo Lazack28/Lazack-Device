@@ -18,7 +18,7 @@
 
 ### 🔑 **Generate Authentication**
 
-<a href="https://lazack-cred.onrender.com/pair" target="_blank"><img alt='PAIRING' src='https://img.shields.io/badge/GET%20CREDS.JSON-magenta?style=for-the-badge&logo=opencv&logoColor=white'/></a>
+<a href="https://lazackorganisation.my.id/pair" target="_blank"><img alt='PAIRING' src='https://img.shields.io/badge/GET%20CREDS.JSON-magenta?style=for-the-badge&logo=opencv&logoColor=white'/></a>
 
 ---
 
