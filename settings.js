@@ -11,17 +11,17 @@ import moment from 'moment-timezone'
 
 //BETA: If you want to avoid typing the number that will be the bot in the console, add it here:
 //Only applies for option 2 (being a bot with 8-digit text code)
-global.botNumber = '' //Example: 255734980103
+global.botNumber = '255623366632' //Example: 255734980103
 
 //*─────────────────────────────*
 
-global.owner = [
+global.owner = [BadstickerTZ]
 // <-- Number @s.whatsapp.net -->
-  ['255734980103', 'LAZACK28', true],
-  ['255613868502', 'LAZACK28', true],
+  ['255623366632', 'BadstickersTZ', true],
+  ['255623366632', 'BadstickersTZ', true],
   
 // <-- Number @lid -->
-  ['', 'lAZACK', true],
+  ['', 'BadstickersTZ', true],
   ['', '', true], 
   ['', '', true]
 ];
@@ -29,7 +29,7 @@ global.owner = [
 //*─────────────────────────────*
 
 global.mods = []
-global.suittag = ['255734980103'] 
+global.suittag = ['255623366632'] 
 global.prems = []
 
 //*─────────────────────────────*
@@ -68,7 +68,7 @@ global.community1 = 'https://chat.whatsapp.com/EATTgyi5jx16HgAggPg8yI?mode=r_c'
 global.channel = 'https://whatsapp.com/channel/0029ValRlNGCXC3EussN4b2E'
 global.channel2 = 'https://whatsapp.com/channel/0029ValRlNGCXC3EussN4b2E'
 global.md = 'https://github.com/Lazack28/Lazack-Device'
-global.email = 'lazaromtaju12@gmail.com'
+global.email = 'badnation252@gmail.com'
 
 //*─────────────────────────────*
 
