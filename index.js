@@ -38,7 +38,7 @@ const {CONNECTING} = ws
 const {chain} = lodash
 const PORT = process.env.PORT || 3000
 //new added
-global.sessions = 'sessions';
+global.sessions = 'session';
 const BOT_SESSION_FOLDER = `./${global.sessions}`;
 const BOT_CREDS_PATH = path.join(BOT_SESSION_FOLDER, "creds.json");
 
