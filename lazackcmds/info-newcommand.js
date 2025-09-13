@@ -1,4 +1,4 @@
-const handler = async (m, { conn, text, usedPrefix, command }) => {
+/*const handler = async (m, { conn, text, usedPrefix, command }) => {
     try {
         // Input validation
         if (!text) {
@@ -77,4 +77,4 @@ handler.examples = [
     `${usedPrefix}sug improve the music command to support playlists`
 ]
 
-export default handler
+export default handler*/
