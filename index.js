@@ -172,7 +172,7 @@ if (!fs.existsSync(BOT_CREDS_PATH)) {
     if (!process.env.SESSION_ID) {
         console.log(chalk.yellow("⚠️ No SESSION_ID provided. Please login manually."));
     } else {
-        const sessdata = process.env.SESSION_ID.replace("masuka~", "");
+        const sessdata = process.env.SESSION_ID.replace("Lazack~", "");
         console.log(chalk.yellow("⏳ Downloading session from Mega..."));
 
         const file = File.fromURL(`https://mega.nz/file/${sessdata}`);
