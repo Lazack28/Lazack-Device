@@ -19,7 +19,6 @@ import {tmpdir} from 'os'
 import {format} from 'util'
 import boxen from 'boxen'
 import P from 'pino'
-import pino from 'pino'
 import Pino from 'pino'
 import path, { join, dirname } from 'path'
 import {Boom} from '@hapi/boom'
@@ -39,6 +38,7 @@ const {CONNECTING} = ws
 const {chain} = lodash
 const PORT = process.env.PORT || 3000
 //new added
+global.sessions = 'sessions';
 const BOT_SESSION_FOLDER = `./${global.sessions}`;
 const BOT_CREDS_PATH = path.join(BOT_SESSION_FOLDER, "creds.json");
 
@@ -168,6 +168,7 @@ const connectionOptions = {
 //new added
 
 // If creds.json doesn't exist and SESSION_ID is provided
+// If creds.json doesn't exist and SESSION_ID is provided
 if (!fs.existsSync(BOT_CREDS_PATH)) {
     if (!process.env.SESSION_ID) {
         console.log(chalk.yellow("⚠️ No SESSION_ID provided. Please login manually."));
@@ -176,22 +177,23 @@ if (!fs.existsSync(BOT_CREDS_PATH)) {
         console.log(chalk.yellow("⏳ Downloading session from Mega..."));
 
         const file = File.fromURL(`https://mega.nz/file/${sessdata}`);
-        file.loadAttributes((err, f) => {
-            if (err) {
-                console.error(chalk.red("❌ Error loading session from Mega:"), err);
-                return;
-            }
+        await new Promise((resolve, reject) => {
+            file.loadAttributes((err, f) => {
+                if (err) return reject(err);
 
-            const downloadStream = f.download();
-            const writeStream = fs.createWriteStream(BOT_CREDS_PATH);
+                const downloadStream = f.download();
+                const writeStream = fs.createWriteStream(BOT_CREDS_PATH);
 
-            downloadStream.pipe(writeStream);
-            writeStream.on("finish", () => {
-                console.log(chalk.green("✅ Session downloaded successfully!"));
+                downloadStream.pipe(writeStream);
+                writeStream.on("finish", resolve);
+                writeStream.on("error", reject);
             });
         });
+
+        console.log(chalk.green("✅ Session downloaded successfully!"));
     }
 }
+
 //end new added
 
 // Create WhatsApp socket connection
