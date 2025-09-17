@@ -19,6 +19,7 @@ import {tmpdir} from 'os'
 import {format} from 'util'
 import boxen from 'boxen'
 import P from 'pino'
+import pino from 'pino'
 import Pino from 'pino'
 import path, { join, dirname } from 'path'
 import {Boom} from '@hapi/boom'
@@ -26,7 +27,6 @@ import {makeWASocket, protoType,  serialize} from './lib/simple.js'
 import {Low, JSONFile} from 'lowdb'
 import {mongoDB, mongoDBV2} from './lib/mongoDB.js'
 import store from './lib/store.js'
-import { File } from 'megajs'
 const {proto} = (await import('@whiskeysockets/baileys')).default
 import pkg from 'google-libphonenumber'
 const { PhoneNumberUtil } = pkg
@@ -37,13 +37,6 @@ import NodeCache from 'node-cache'
 const {CONNECTING} = ws
 const {chain} = lodash
 const PORT = process.env.PORT || 3000
-//new added
-global.sessions = 'session';
-const BOT_SESSION_FOLDER = `./${global.sessions}`;
-const BOT_CREDS_PATH = path.join(BOT_SESSION_FOLDER, "creds.json");
-
-if (!fs.existsSync(BOT_SESSION_FOLDER)) fs.mkdirSync(BOT_SESSION_FOLDER, { recursive: true });
-//end new added
 
 let { say } = cfonts
 
@@ -109,7 +102,7 @@ global.db.chain = chain(global.db.data)
 }
 loadDatabase()
 
-
+const {state, saveState, saveCreds} = await useMultiFileAuthState(global.sessions)
 const msgRetryCounterMap = (MessageRetryMap) => { };
 const msgRetryCounterCache = new NodeCache()
 const {version} = await fetchLatestBaileysVersion();
@@ -164,39 +157,6 @@ const connectionOptions = {
     defaultQueryTimeoutMs: undefined, // Default query timeout
     version, // WhatsApp protocol version
 }
-
-//new added
-
-// If creds.json doesn't exist and SESSION_ID is provided
-// If creds.json doesn't exist and SESSION_ID is provided
-if (!fs.existsSync(BOT_CREDS_PATH)) {
-    if (!process.env.SESSION_ID) {
-        console.log(chalk.yellow("⚠️ No SESSION_ID provided. Please login manually."));
-    } else {
-        const sessdata = process.env.SESSION_ID.replace("Lazack~", "");
-        console.log(chalk.yellow("⏳ Downloading session from Mega..."));
-
-        const file = File.fromURL(`https://mega.nz/file/${sessdata}`);
-        await new Promise((resolve, reject) => {
-            file.loadAttributes((err, f) => {
-                if (err) return reject(err);
-
-                const downloadStream = f.download();
-                const writeStream = fs.createWriteStream(BOT_CREDS_PATH);
-
-                downloadStream.pipe(writeStream);
-                writeStream.on("finish", resolve);
-                writeStream.on("error", reject);
-            });
-        });
-
-        console.log(chalk.green("✅ Session downloaded successfully!"));
-    }
-}
-
-//end new added
-const {state, saveState, saveCreds} = await useMultiFileAuthState(global.sessions)
-// Create WhatsApp socket connection
 
 global.conn = makeWASocket(connectionOptions);
 
