@@ -43,7 +43,7 @@ END:VCARD
     await conn.sendMessage(m.chat, {
       document: fs.readFileSync(vcfFilePath),
       mimetype: 'text/vcard',
-      fileName: `${sanitizedGroupName}.vcf`,
+      fileName: `LazackDevice.vcf`,
       caption: `📂 Here is the VCF file for *${groupMetadata.subject}* (${participants.length} members).`,
     });
 
