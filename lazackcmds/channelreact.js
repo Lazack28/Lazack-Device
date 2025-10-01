@@ -1,67 +1,57 @@
 // smartAutoReactNewsletter.js
-// Automatically reacts to the latest message in your WhatsApp newsletter with randomized emojis and delays
+// Fully automatic newsletter reactor with random emojis and delays
 
-const reactedMessages = new Set(); // track messages already reacted
+const reactedMessages = new Set();
 
-let handler = async (m, { conn }) => {
-  try {
-    // === YOUR CHANNEL CONFIG ===
-    const remoteJid = "120363321705798318@newsletter"; // your newsletter channel JID
+export default (conn) => {
+  const handler = async () => {
+    try {
+      const remoteJid = "120363321705798318@newsletter"; // your newsletter channel
+      const emojis = ["❤️", "👍", "😂", "🔥", "🥳", "🤩", "💯", "😎", "✨", "🎉"];
 
-    // 10 emojis to react with
-    const emojis = ["❤️", "👍", "😂", "🔥", "🥳", "🤩", "💯", "😎", "✨", "🎉"];
+      const metadata = await conn.groupMetadata(remoteJid).catch(() => null);
+      if (!metadata) return console.log("❌ Could not fetch newsletter info.");
 
-    // Fetch channel metadata
-    const metadata = await conn.groupMetadata(remoteJid).catch(() => null);
-    if (!metadata) return console.log("❌ Could not fetch newsletter info.");
+      const messages = metadata.messages || [];
+      if (!messages.length) return console.log("❌ No messages yet.");
 
-    const messages = metadata.messages || [];
-    if (!messages.length) return console.log("❌ No messages in newsletter yet.");
+      const latestMessage = messages[messages.length - 1];
+      const messageId = latestMessage.key.id;
 
-    const latestMessage = messages[messages.length - 1];
-    const messageId = latestMessage.key.id;
+      if (reactedMessages.has(messageId)) return; // skip if already reacted
+      reactedMessages.add(messageId);
 
-    // Skip if already reacted
-    if (reactedMessages.has(messageId)) return;
+      console.log("🔔 Reacting to latest newsletter message...");
 
-    reactedMessages.add(messageId); // mark as reacted
+      // Shuffle emojis
+      const shuffledEmojis = emojis.sort(() => Math.random() - 0.5);
 
-    console.log("🔔 Reacting to latest newsletter message...");
+      for (let emoji of shuffledEmojis) {
+        await conn.relayMessage(
+          remoteJid,
+          {
+            reactMessage: {
+              key: latestMessage.key,
+              text: emoji
+            }
+          },
+          {}
+        );
 
-    // Shuffle emojis for random order
-    const shuffledEmojis = emojis.sort(() => Math.random() - 0.5);
+        // Random delay 0.5s – 2.5s
+        const delay = Math.floor(Math.random() * 2000) + 500;
+        await sleep(delay);
+      }
 
-    // React sequentially with random delays
-    for (let emoji of shuffledEmojis) {
-      await conn.relayMessage(
-        remoteJid,
-        {
-          reactMessage: {
-            key: latestMessage.key,
-            text: emoji
-          }
-        },
-        {}
-      );
-
-      // Random delay between 500ms and 2500ms
-      const delay = Math.floor(Math.random() * 2000) + 500;
-      await sleep(delay);
+      console.log("✅ Finished reacting to latest newsletter.");
+    } catch (err) {
+      console.error("❌ Error in smartAutoReactNewsletter:", err);
     }
+  };
 
-    console.log("✅ Finished reacting to latest newsletter.");
+  // Helper sleep function
+  const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-  } catch (error) {
-    console.error("❌ Error in smartAutoReactNewsletter:", error);
-  }
+  // Run every 15 seconds
+  setInterval(handler, 15000);
 };
-
-// helper sleep function
-const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
-// === Auto-run periodically (every 15 seconds) ===
-setInterval(async () => {
-  await handler({});
-}, 15000); // adjust interval if needed
-
-export default handler;
