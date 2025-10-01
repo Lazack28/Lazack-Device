@@ -1,5 +1,7 @@
 // greetings.js
-// This plugin replies to greetings (English + Swahili) in DM only with 10s delay.
+// DM-only greetings responder (with 10s delay, one-time reply, ignores owner)
+
+const repliedUsers = new Set(); // track users already replied
 
 export async function before(m, { conn }) {
   // Ignore if no text
@@ -8,20 +10,27 @@ export async function before(m, { conn }) {
   // Only work in DM (not groups)
   if (m.isGroup) return;
 
+  // Ignore if message is from owner number
+  const ownerNumber = global.owner ? global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net') : [];
+  if (ownerNumber.includes(m.sender)) return;
+
   // Normalize incoming message
   let text = m.text.toLowerCase().trim();
 
   // Greetings list (English + Swahili)
   let greetings = [
-    "hi", "hello", "hey", "good morning", "good afternoon", "good evening",
+    "hi", "hello", "kaka", "boss", "hey", "good morning", "good afternoon", "good evening",
     "mambo", "vipi", "shikamoo", "salama", "poa", "habari", "niaje", "sasa"
   ];
+
+  // If already replied to this user, ignore
+  if (repliedUsers.has(m.sender)) return;
 
   // Check if incoming message contains a greeting
   if (greetings.some(greet => text.includes(greet))) {
     let response = `
 👋 *Hello!*  
-💬 Please type your query.  
+💬 Please type your query (Tafadhali andika tatizo).  
 🕒 The boss is currently *offline*.
     `.trim();
 
@@ -32,6 +41,9 @@ export async function before(m, { conn }) {
     await new Promise(resolve => setTimeout(resolve, 10000));
 
     await m.reply(response);
-    return true; // prevent other handlers if needed
+
+    // Mark this user as replied
+    repliedUsers.add(m.sender);
+    return true;
   }
 }
