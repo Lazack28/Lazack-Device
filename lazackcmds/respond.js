@@ -1,49 +1,51 @@
 // greetings.js
-// DM-only greetings responder (with 10s delay, one-time reply, ignores owner)
+// DM-only greetings responder (10s delay, reply once, ignores owner)
 
-const repliedUsers = new Set(); // track users already replied
+const repliedUsers = new Set(); // keep track of users already replied
 
 export async function before(m, { conn }) {
   // Ignore if no text
   if (!m.text) return;
 
-  // Only work in DM (not groups)
+  // Ignore if in a group
   if (m.isGroup) return;
-
-  // Ignore if message is from owner number
-  const ownerNumber = global.owner ? global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net') : [];
-  if (ownerNumber.includes(m.sender)) return;
 
   // Normalize incoming message
   let text = m.text.toLowerCase().trim();
 
-  // Greetings list (English + Swahili)
+  // Greetings keywords (English + Swahili)
   let greetings = [
-    "hi", "hello", "kaka", "boss", "hey", "good morning", "good afternoon", "good evening",
+    "hi", "hello", "hey", "good morning", "good afternoon", "good evening",
     "mambo", "vipi", "shikamoo", "salama", "poa", "habari", "niaje", "sasa"
   ];
 
-  // If already replied to this user, ignore
+  // Get owner numbers in proper format
+  let ownerNumbers = global.owner
+    ? global.owner.map(v => (v.replace(/[^0-9]/g, '') + "@s.whatsapp.net"))
+    : [];
+
+  // Ignore if sender is owner
+  if (ownerNumbers.includes(m.sender)) return;
+
+  // Ignore if already replied to this user
   if (repliedUsers.has(m.sender)) return;
 
-  // Check if incoming message contains a greeting
+  // Check if the message contains a greeting
   if (greetings.some(greet => text.includes(greet))) {
-    let response = `
-👋 *Hello!*  
-💬 Please type your query (Tafadhali andika tatizo).  
-🕒 The boss is currently *offline*.
-    `.trim();
+    // Mark user as replied (so bot won't spam)
+    repliedUsers.add(m.sender);
 
-    // Simulate typing
+    // Show typing
     await conn.sendPresenceUpdate("composing", m.chat);
 
-    // Wait 10 seconds before replying
+    // Delay 10 seconds
     await new Promise(resolve => setTimeout(resolve, 10000));
 
-    await m.reply(response);
-
-    // Mark this user as replied
-    repliedUsers.add(m.sender);
-    return true;
+    // Reply
+    await m.reply(`
+👋 *Hello!*  
+💬 Please type your query.  
+🕒 The boss is currently *offline*.
+    `.trim());
   }
 }
