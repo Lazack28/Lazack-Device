@@ -1,47 +1,42 @@
-// greetings.js
+// respond.js
 // DM-only greetings responder (10s delay, reply once, ignores owner)
 
-const repliedUsers = new Set(); // keep track of users already replied
+const repliedUsers = new Set(); // track users already replied
 
 export async function before(m, { conn }) {
-  // Ignore if no text
-  if (!m.text) return;
+  if (!m.text) return; // Ignore if no text
+  if (m.isGroup) return; // Only DM
 
-  // Ignore if in a group
-  if (m.isGroup) return;
-
-  // Normalize incoming message
   let text = m.text.toLowerCase().trim();
 
-  // Greetings keywords (English + Swahili)
+  // Greetings list
   let greetings = [
     "hi", "hello", "hey", "good morning", "good afternoon", "good evening",
     "mambo", "vipi", "shikamoo", "salama", "poa", "habari", "niaje", "sasa"
   ];
 
-  // Get owner numbers in proper format
-  let ownerNumbers = global.owner
-    ? global.owner.map(v => (v.replace(/[^0-9]/g, '') + "@s.whatsapp.net"))
-    : [];
+  // Safely normalize owner numbers
+  let ownerNumbers = (global.owner || []).map(v => {
+    if (typeof v === "string") return v.replace(/[^0-9]/g, "") + "@s.whatsapp.net";
+    if (Array.isArray(v)) return String(v[0]).replace(/[^0-9]/g, "") + "@s.whatsapp.net";
+    if (typeof v === "number") return String(v).replace(/[^0-9]/g, "") + "@s.whatsapp.net";
+    return null;
+  }).filter(v => v);
 
   // Ignore if sender is owner
   if (ownerNumbers.includes(m.sender)) return;
 
-  // Ignore if already replied to this user
+  // Ignore if already replied once
   if (repliedUsers.has(m.sender)) return;
 
-  // Check if the message contains a greeting
+  // Check for greetings
   if (greetings.some(greet => text.includes(greet))) {
-    // Mark user as replied (so bot won't spam)
-    repliedUsers.add(m.sender);
+    repliedUsers.add(m.sender); // Mark as replied
 
-    // Show typing
-    await conn.sendPresenceUpdate("composing", m.chat);
+    await conn.sendPresenceUpdate("composing", m.chat); // Show typing
 
-    // Delay 10 seconds
-    await new Promise(resolve => setTimeout(resolve, 10000));
+    await new Promise(resolve => setTimeout(resolve, 10000)); // 10s delay
 
-    // Reply
     await m.reply(`
 👋 *Hello!*  
 💬 Please type your query.  
