@@ -1,18 +1,24 @@
 let handler = async (m, { conn }) => {
-    // Alive message
-    let aliveMessage = "hello this is lazack device bot, developed by lazack28 and owned by lazack solutions, the bot is active";
+    // Alive Message with emojis + footer
+    let aliveMessage = [
+        "👋 Hello there!",
+        "🤖 I am *Lazack Device Bot*",
+        "💡 Developed by *Lazack28*",
+        "🏢 Owned by *Lazack Solutions*",
+        "✅ The bot is *active & running smoothly* 🚀",
+        "✨ Stay connected and enjoy the features! 🌟",
+        "",
+        "⚡ Powered by *Lazack Organisation* 🌐"
+    ];
 
-    // Split into words
-    let words = aliveMessage.split(" ");
-
-    // Send first word
-    let sent = await conn.sendMessage(m.chat, { text: words[0] }, { quoted: m });
+    // Send first line
+    let sent = await conn.sendMessage(m.chat, { text: aliveMessage[0] }, { quoted: m });
 
     try {
-        for (let i = 1; i < words.length; i++) {
-            let newText = words.slice(0, i + 1).join(" ");
+        for (let i = 1; i < aliveMessage.length; i++) {
+            let newText = aliveMessage.slice(0, i + 1).join("\n");
 
-            // Edit the message each time with additional word
+            // Edit the message each time with an extra line
             await conn.relayMessage(
                 m.chat,
                 {
@@ -25,7 +31,7 @@ let handler = async (m, { conn }) => {
                 {}
             );
 
-            await sleep(800); // delay for typing effect
+            await sleep(1200); // Delay for typing effect
         }
     } catch (error) {
         console.error("Error in alive.js:", error);
