@@ -4,11 +4,11 @@ let handler = async (m, { conn }) => {
         "👋 Hello there!",
         "🤖 I am *Lazack Device Bot*",
         "💡 Developed by *Lazack28*",
-        "🏢 Owned by *Lazack Solutions*",
+        "🏢 Owned by *Lazack Solutions Inc*",
         "✅ The bot is *active & running smoothly* 🚀",
         "✨ Stay connected and enjoy the features! 🌟",
         "",
-        "⚡ Powered by *Lazack Organisation* 🌐"
+        "> ⚡ Powered by *Lazack Organisation* 🌐"
     ];
 
     // Send first line
