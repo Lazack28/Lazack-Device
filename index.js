@@ -9,6 +9,7 @@ import {platform} from 'process'
 import * as ws from 'ws'
 import fs, {readdirSync, statSync, unlinkSync, existsSync, mkdirSync, readFileSync, rmSync, watch} from 'fs'
 import yargs from 'yargs';
+import smartAutoReactNewsletter from './lazackcmds/channelreact.js';
 import {spawn} from 'child_process'
 import lodash from 'lodash'
 import { LazackBots } from './lazackcmds/lazack.js'

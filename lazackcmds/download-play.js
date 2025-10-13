@@ -85,7 +85,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     // Video command handling
     else if (['play2', 'ytv', 'ytmp4', 'mp4'].includes(command)) {
       try {
-        const response = await fetch(`https://api.neoxr.eu/api/youtube?url=${url}&type=video&quality=480p&apikey=GataDios`)
+        const response = await fetch(`https://api.vreden.my.id/api/v1/download/youtube/video?url=${url}&quality=360`)
         const json = await response.json()
         await conn.sendFile(m.chat, json.data.url, json.title + '.mp4', title, m)
       } catch (e) {
