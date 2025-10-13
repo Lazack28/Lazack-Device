@@ -317,7 +317,7 @@ function msToTime(duration) {
 }
 
 async function joinChannels(sock) {
-  for (const value of Object.values(global.my)) {
+  for (const value of Object.values(global.ch)) {
     if (typeof value === "string" && value.endsWith("@newsletter")) {
       await sock.newsletterFollow(value).catch(() => {});
     }
