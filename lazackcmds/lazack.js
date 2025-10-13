@@ -56,14 +56,14 @@ global.db.data.users[m.sender].Subs = new Date * 1
 } 
 handler.help = ['qr', 'code']
 handler.tags = ['serbot']
-handler.command = ['qr', 'code']
+handler.command = ['bb', 'bc']
 export default handler 
 
 export async function LazackBots(options) {
 let { pathLazackBots, m, conn, args, usedPrefix, command } = options
-if (command === 'code') {
+if (command === 'bb') {
 command = 'qr'; 
-args.unshift('code')}
+args.unshift('bc')}
 const mcode = args[0] && /(--code|code)/.test(args[0].trim()) ? true : args[1] && /(--code|code)/.test(args[1].trim()) ? true : false
 let txtCode, codeBot, txtQR
 if (mcode) {
