@@ -1,7 +1,7 @@
 // index.js — updated for Heroku + defensive fixes
 // Keep the general structure and behavior from original Lazack-Device V2
 
-process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0' // allow TLS (helps with self-signed certs used by some integrations)
+//process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0' // allow TLS (helps with self-signed certs used by some integrations)
 
 import './settings.js'
 import { setupMaster, fork } from 'cluster'
