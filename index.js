@@ -51,13 +51,13 @@ if (isNaN(PORT) || PORT < 0 || PORT > 65535) {
 
 console.log(chalk.bold.redBright(`\n✰ Starting Lazack-Device V2 ✰\n`))
 
-say('Lazack-Device V2', {
+cfonts.say('Lazack-Device V2', {
   font: 'block',
   align: 'center',
   colors: ['magentaBright']
 })
 
-say(`Developed By • Lazack28`, {
+cfonts.say(`Developed By • Lazack28`, {
   font: 'console',
   align: 'center',
   colors: ['blueBright']
@@ -65,6 +65,8 @@ say(`Developed By • Lazack28`, {
 
 protoType()
 serialize()
+
+// ... rest of your code remains the same ...
 
 // --- Defensive global helpers (fix missing globals that caused runtime errors) ---
 global.__filename = function filename(pathURL = import.meta.url, rmPrefix = platform !== 'win32') {
