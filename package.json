@@ -74,10 +74,10 @@
     "url-regex-safe": "^3.0.0",
     "uuid": "^10.0.0",
     "yargs": "^17.3.1",
-    "yt-search": "^2.10.3"
+    "yt-search": "^2.10.3",
+    "jimp": "^1.6.0"
   },
   "optionalDependencies": {
-    "jimp": "^1.6.0",
     "moment-timezone": "^0.5.37",
     "wa-sticker-formatter": "^4.3.2"
   }
